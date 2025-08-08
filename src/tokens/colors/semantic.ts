@@ -1,5 +1,5 @@
-import { lightColors } from './lightColors';
-import { darkColors } from './darkColors';
+import { lightColors } from './LightColors';
+import { darkColors } from './DarkColors';
 
 // lightColor 와 darkColors 통합 expot 파일
 export const semanticColors = {

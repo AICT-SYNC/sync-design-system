@@ -14,10 +14,10 @@ import {
   Actions,
   NotificationBadge,
 } from './style.ts';
-import settingIcon from '../../assets/icons/settingIcon.svg'
+import settingIcon from '../../assets/icons/settingIcon.svg';
 
 interface WorkspaceCardProps {
-  type: 1 | 2;
+  showSettings: boolean; // true = 설정 아이콘 표시, false = 알림만 표시
   title?: string;
   description?: string;
   memberCount?: number;
@@ -26,7 +26,7 @@ interface WorkspaceCardProps {
 }
 
 const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
-  type,
+  showSettings,
   title = "워크스페이스 제목",
   description = "워크스페이스 설명",
   memberCount = 4,
@@ -48,7 +48,8 @@ const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
       <CardContent>
         <CardTitle>{title}</CardTitle>
         <CardDescription>{description}</CardDescription>
-        <hr></hr>
+        <hr />
+        
         <CardFooter>
           {/* 멤버 수 */}
           <MemberInfo>
@@ -63,8 +64,12 @@ const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
                 {notificationCount}
               </NotificationBadge>
             )}
-            {type === 2 && (
-              <img src={settingIcon} style={{ width: '20px', height: '20px' }} />
+            {showSettings && (
+              <img 
+                src={settingIcon} 
+                alt="settings"
+                style={{ width: '20px', height: '20px' }} 
+              />
             )}
           </Actions>
         </CardFooter>

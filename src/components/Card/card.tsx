@@ -14,7 +14,7 @@ import {
   Actions,
   NotificationBadge,
 } from './style.ts';
-import settingIcon from '../../assets/icons/settingIcon.svg';
+import { Settings } from 'lucide-react';
 
 interface WorkspaceCardProps {
   showSettings: boolean; // true = 설정 아이콘 표시, false = 알림만 표시
@@ -65,10 +65,10 @@ const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
               </NotificationBadge>
             )}
             {showSettings && (
-              <img 
-                src={settingIcon} 
-                alt="settings"
-                style={{ width: '20px', height: '20px' }} 
+              <Settings 
+                size={20} 
+                color="#666666"
+                style={{ cursor: 'pointer' }}
               />
             )}
           </Actions>

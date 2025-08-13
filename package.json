@@ -38,6 +38,7 @@
   "dependencies": {
     "components": "^0.1.0",
     "esbuild": "^0.25.8",
+    "lucide-react": "^0.539.0",
     "styled-component": "^2.8.0",
     "styled-components": "^6.1.19"
   }

@@ -28,7 +28,7 @@ interface WorkspaceCardProps {
 const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
   showSettings,
   title = "워크스페이스 제목",
-  description = "워크스페이스 설명",
+  description = "워크스페이스",
   memberCount = 4,
   notificationCount = 1,
   image

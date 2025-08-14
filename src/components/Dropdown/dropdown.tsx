@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { DropdownContainer, DropdownButton, DropdownText, DropdownIcon, DropdownList, DropdownItem } from './style';
-import CheckSmallIcon from '../../assets/icons/checkSmall.svg';
+import { ChevronDown } from 'lucide-react';
 
 interface DropdownProps {
   options: string[];
@@ -39,7 +39,7 @@ const Dropdown: React.FC<DropdownProps> = ({
           {selectedIndex >= 0 ? options[selectedIndex] : placeholder}
         </DropdownText>
         <DropdownIcon $isOpen={isOpen}>
-          <img src={CheckSmallIcon} alt="dropdown arrow" />
+          <ChevronDown />
         </DropdownIcon>
       </DropdownButton>
       

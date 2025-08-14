@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { CheckboxContainer, CheckboxInput, CheckboxIcon } from './style';
-import CheckBoldIcon from '../../assets/icons/checkBold.svg';
+import { Check } from 'lucide-react';
 
 interface CheckboxProps {
   size?: 'xlarge' | 'large' | 'medium' | 'small' | 'xsmall';
@@ -39,7 +39,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
       />
       {isChecked && (
         <CheckboxIcon $size={size}>
-          <img src={CheckBoldIcon} alt="checked" />
+          <Check />
         </CheckboxIcon>
       )}
     </CheckboxContainer>

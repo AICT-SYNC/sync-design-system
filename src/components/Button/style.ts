@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { lightColors } from '../../tokens/semantic';
+import { lightColors } from '../../tokens/LightColors';
 import { Font } from '../../tokens/Font';
 
 interface ButtonContainerProps {
@@ -37,39 +37,39 @@ const getFontStyles = (size: string) => {
 const getVariantStyles = (variant: string) => {
   if (variant === 'secondary') {
     return {
-      backgroundColor: lightColors.actionSecondary,
-      color: lightColors.actionPrimary,
+      backgroundColor: lightColors['action-secondary'],
+      color: lightColors['action-primary'],
       hoverBackgroundColor: 'rgba(199, 205, 254, 0.5)',
       border: 'none'
     };
   }
   if (variant === 'tertiary') {
     return {
-      backgroundColor: lightColors.staticWhite,
-      color: lightColors.textBlack,
+      backgroundColor: lightColors['static-white'],
+      color: lightColors['text-black'],
       hoverBackgroundColor: 'rgba(216, 219, 223, 0.2)',
-      border: `1px solid ${lightColors.borderLight}`
+      border: `1px solid ${lightColors['border-light']}`
     };
   }
   if (variant === 'danger') {
     return {
-      backgroundColor: lightColors.actionNegative,
-      color: lightColors.backgroundPrimary,
+      backgroundColor: lightColors['action-negative'],
+      color: lightColors['background-primary'],
       hoverBackgroundColor: 'rgba(239, 68, 68, 0.5)',
       border: 'none'
     };
   }
   if (variant === 'warning') {
     return {
-      backgroundColor: lightColors.actionImportant,
-      color: lightColors.backgroundPrimary,
+      backgroundColor: lightColors['action-important'],
+      color: lightColors['background-primary'],
       hoverBackgroundColor: 'rgba(245, 158, 11, 0.5)',
       border: 'none'
     };
   }
   return {
-    backgroundColor: lightColors.actionPrimary,
-    color: lightColors.backgroundPrimary,
+    backgroundColor: lightColors['action-primary'],
+    color: lightColors['background-primary'],
     hoverBackgroundColor: 'rgba(66, 48, 163, 0.5)',
     border: 'none'
   };

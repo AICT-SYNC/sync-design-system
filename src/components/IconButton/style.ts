@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { lightColors } from '../../tokens/semantic';
+import { lightColors } from '../../tokens/LightColors';
 
 interface IconButtonContainerProps {
   $size: 'large' | 'medium' | 'small';
@@ -21,7 +21,7 @@ const getSizeStyles = (size: string) => {
 export const IconButtonContainer = styled.button<IconButtonContainerProps>`
   width: ${props => getSizeStyles(props.$size).width};
   height: ${props => getSizeStyles(props.$size).height};
-  background-color: ${lightColors.staticWhite};
+  background-color: ${lightColors['static-white']};
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -50,9 +50,8 @@ export const IconWrapper = styled.div<IconWrapperProps>`
   align-items: center;
   justify-content: center;
 
-  img {
+  svg {
     width: 100%;
     height: 100%;
-    object-fit: contain;
   }
 `;

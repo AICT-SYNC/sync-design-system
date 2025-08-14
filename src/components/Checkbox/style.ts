@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { lightColors } from '../../tokens/semantic';
+import { lightColors } from '../../tokens/LightColors';
 
 interface CheckboxContainerProps {
   $size: 'xlarge' | 'large' | 'medium' | 'small' | 'xsmall';
@@ -29,15 +29,15 @@ export const CheckboxContainer = styled.div<CheckboxContainerProps>`
   height: ${props => getSizeStyles(props.$size).height};
   background-color: ${props => {
     if (props.$disabled) {
-      return props.$checked ? lightColors.borderMedium : lightColors.backgroundSecondary;
+      return props.$checked ? lightColors['border-medium'] : lightColors['background-secondary'];
     }
-    return props.$checked ? lightColors.actionPrimary : lightColors.staticWhite;
+    return props.$checked ? lightColors['action-primary'] : lightColors['static-white'];
   }};
   border: 2px solid ${props => {
     if (props.$disabled) {
-      return lightColors.borderMedium;
+      return lightColors['border-medium'];
     }
-    return props.$checked ? lightColors.actionPrimary : lightColors.borderLight;
+    return props.$checked ? lightColors['action-primary'] : lightColors['border-light'];
   }};
   border-radius: 4px;
   cursor: ${props => props.$disabled ? 'not-allowed' : 'pointer'};
@@ -49,8 +49,8 @@ export const CheckboxContainer = styled.div<CheckboxContainerProps>`
 
   &:hover {
     ${props => !props.$disabled && !props.$checked && `
-      border-color: ${lightColors.borderMedium};
-      background-color: ${lightColors.backgroundPrimary};
+      border-color: ${lightColors['border-medium']};
+      background-color: ${lightColors['background-primary']};
     `}
     ${props => !props.$disabled && props.$checked && `
       background-color: rgba(66, 48, 163, 0.9);
@@ -85,10 +85,9 @@ export const CheckboxIcon = styled.div<CheckboxIconProps>`
   justify-content: center;
   pointer-events: none;
 
-  img {
+  svg {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    filter: brightness(0) saturate(100%) invert(100%);
+    color: white;
   }
 `;

@@ -1,17 +1,18 @@
 import React from 'react';
 import { IconButtonContainer, IconWrapper } from './style';
-import MenuIcon from '../../assets/icons/Menu.svg';
+import { Menu } from 'lucide-react';
+import type { LucideProps } from 'lucide-react';
 
 interface IconButtonProps {
   size?: 'large' | 'medium' | 'small';
   onClick?: () => void;
-  icon?: string;
+  icon?: React.ComponentType<LucideProps>;
 }
 
 const IconButton: React.FC<IconButtonProps> = ({ 
   size = 'large', 
   onClick,
-  icon = MenuIcon
+  icon: IconComponent = Menu
 }) => {
   return (
     <IconButtonContainer 
@@ -19,7 +20,7 @@ const IconButton: React.FC<IconButtonProps> = ({
       onClick={onClick}
     >
       <IconWrapper $size={size}>
-        <img src={icon} alt="icon" />
+        <IconComponent />
       </IconWrapper>
     </IconButtonContainer>
   );

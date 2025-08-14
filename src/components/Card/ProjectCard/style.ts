@@ -1,9 +1,14 @@
+
 import styled from 'styled-components';
-import { lightColors } from '../../tokens/semantic';
+import { lightColors } from '../../../tokens/semantic';
 
 export const CardContainer = styled.div`
   width: 320px;
+  max-width:520px;
+  min-width:280px;
   height: 230px;
+  min-height:160px;
+  max-height:360px;
   background: white;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -22,7 +27,7 @@ export const CardHeader = styled.div`
   overflow: hidden;
 `;
 
-export const WorkspaceImage = styled.img`
+export const ProjectImage = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;

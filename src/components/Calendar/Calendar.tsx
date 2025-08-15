@@ -11,8 +11,6 @@ interface CalendarProps {
   splitCharacter?: string;
   onChange: (date: Date) => void;
   type?: DatePickerMode;
-  dateType?: S.DateType;
-  height?: number;
   typography?: S.TypographyType;
 }
 
@@ -21,8 +19,6 @@ const Calendar: React.FC<CalendarProps> = ({
   splitCharacter = ".",
   onChange,
   type = "entire",
-  dateType = "date",
-  height,
   typography = { size: "medium", weight: "regular" },
 }) => {
   const {
@@ -75,9 +71,8 @@ const Calendar: React.FC<CalendarProps> = ({
   };
 
   return (
-    <S.DatePickerContainer ref={containerRef} dateType={dateType}>
+    <S.DatePickerContainer ref={containerRef}>
       <S.DatePickerWrap
-        height={height}
         typography={typography}
         onClick={() => setFold(!fold)}
       >

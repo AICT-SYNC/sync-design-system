@@ -7,8 +7,6 @@ interface CalendarProps {
   splitCharacter?: string;
   onChange: (date: Date) => void;
   type?: "entire" | "future";
-  dateType?: "date" | "month" | "year";
-  height?: number;
   typography?: {
     size: "small" | "medium" | "large";
     weight: "light" | "regular" | "bold";
@@ -53,15 +51,6 @@ const meta: Meta<CalendarProps> = {
       options: ["entire", "future"],
       description: "날짜 선택 모드 (전체 또는 미래 날짜만)",
     },
-    dateType: {
-      control: { type: "radio" },
-      options: ["date", "month", "year"],
-      description: "날짜 타입",
-    },
-    height: {
-      control: { type: "number" },
-      description: "컴포넌트 높이",
-    },
     splitCharacter: {
       control: { type: "text" },
       description: "날짜 구분자",
@@ -87,7 +76,6 @@ export const Default: Story = {
     value: "2024.01.15",
     splitCharacter: ".",
     type: "entire",
-    dateType: "date",
     typography: {
       size: "medium",
       weight: "regular",
@@ -100,7 +88,6 @@ export const FutureOnly: Story = {
     value: "2024.12.25",
     splitCharacter: ".",
     type: "future",
-    dateType: "date",
     typography: {
       size: "medium",
       weight: "regular",
@@ -114,7 +101,6 @@ export const SmallTypography: Story = {
     value: "2024.03.10",
     splitCharacter: ".",
     type: "entire",
-    dateType: "date",
     typography: {
       size: "small",
       weight: "light",
@@ -127,8 +113,6 @@ export const LargeTypography: Story = {
     value: "2024.08.20",
     splitCharacter: ".",
     type: "entire",
-    dateType: "date",
-    height: 60,
     typography: {
       size: "large",
       weight: "bold",
@@ -141,7 +125,6 @@ export const CustomSeparator: Story = {
     value: "2024.09.15",
     splitCharacter: ".",
     type: "entire",
-    dateType: "date",
     typography: {
       size: "medium",
       weight: "regular",
@@ -154,7 +137,6 @@ export const NoInitialValue: Story = {
     value: "",
     splitCharacter: ".",
     type: "entire",
-    dateType: "date",
     typography: {
       size: "medium",
       weight: "regular",

@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components";
 
-export type DateType = "date" | "month" | "year";
 
 export interface TypographyType {
   size: "small" | "medium" | "large";
@@ -26,18 +25,15 @@ const typography = {
 };
 
 
-export const DatePickerContainer = styled.div<{
-  dateType: DateType;
-}>`
+export const DatePickerContainer = styled.div`
   position: relative;
   display: inline-block;
 `;
 
 export const DatePickerWrap = styled.div<{
-  height?: number;
   typography: TypographyType;
 }>`
-  height: ${({ height }) => (height ? `${height}px` : "36px")};
+  height: 36px;
   padding: 8px 12px;
   cursor: pointer;
   display: flex;

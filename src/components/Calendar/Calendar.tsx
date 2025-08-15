@@ -11,7 +11,7 @@ interface CalendarProps {
   splitCharacter?: string;
   onChange: (date: Date) => void;
   type?: DatePickerMode;
-  typography?: S.TypographyType;
+  size?: "medium" | "large";
 }
 
 const Calendar: React.FC<CalendarProps> = ({
@@ -19,7 +19,7 @@ const Calendar: React.FC<CalendarProps> = ({
   splitCharacter = ".",
   onChange,
   type = "entire",
-  typography = { size: "medium", weight: "regular" },
+  size = "medium",
 }) => {
   const {
     fold,
@@ -73,15 +73,18 @@ const Calendar: React.FC<CalendarProps> = ({
   return (
     <S.DatePickerContainer ref={containerRef}>
       <S.DatePickerWrap
-        typography={typography}
+        size={size}
         onClick={() => setFold(!fold)}
       >
-        <S.DatePickerIcon>
-          <CalendarIcon size={16} />
-        </S.DatePickerIcon>
-        <S.DatePickerDate>
-          {value ? formatDate(selectDate.year, selectDate.month, selectDate.day) : "연도.월.일"}
-        </S.DatePickerDate>
+        <S.DatePickerContent>
+          <S.DatePickerIcon>
+            <CalendarIcon size={24} />
+          </S.DatePickerIcon>
+          <S.DatePickerDate>
+            {value ? formatDate(selectDate.year, selectDate.month, selectDate.day) : "연도.월.일"}
+          </S.DatePickerDate>
+        </S.DatePickerContent>
+        <S.DatePickerDivider />
       </S.DatePickerWrap>
 
       {!fold && (

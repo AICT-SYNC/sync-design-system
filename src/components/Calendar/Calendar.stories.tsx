@@ -7,10 +7,7 @@ interface CalendarProps {
   splitCharacter?: string;
   onChange: (date: Date) => void;
   type?: "entire" | "future";
-  typography?: {
-    size: "small" | "medium" | "large";
-    weight: "light" | "regular" | "bold";
-  };
+  size?: "medium" | "large";
 }
 
 const CalendarWithState = (args: CalendarProps) => {
@@ -51,13 +48,14 @@ const meta: Meta<CalendarProps> = {
       options: ["entire", "future"],
       description: "날짜 선택 모드 (전체 또는 미래 날짜만)",
     },
+    size: {
+      control: { type: "radio" },
+      options: ["medium", "large"],
+      description: "컴포넌트 크기",
+    },
     splitCharacter: {
       control: { type: "text" },
       description: "날짜 구분자",
-    },
-    typography: {
-      control: { type: "object" },
-      description: "타이포그래피 설정",
     },
     value: {
       control: { type: "text" },
@@ -76,10 +74,7 @@ export const Default: Story = {
     value: "2024.01.15",
     splitCharacter: ".",
     type: "entire",
-    typography: {
-      size: "medium",
-      weight: "regular",
-    },
+    size: "medium",
   },
 };
 
@@ -88,58 +83,35 @@ export const FutureOnly: Story = {
     value: "2024.12.25",
     splitCharacter: ".",
     type: "future",
-    typography: {
-      size: "medium",
-      weight: "regular",
-    },
+    size: "medium",
   },
 };
 
 
-export const SmallTypography: Story = {
+export const Large: Story = {
   args: {
     value: "2024.03.10",
     splitCharacter: ".",
     type: "entire",
-    typography: {
-      size: "small",
-      weight: "light",
-    },
-  },
-};
-
-export const LargeTypography: Story = {
-  args: {
-    value: "2024.08.20",
-    splitCharacter: ".",
-    type: "entire",
-    typography: {
-      size: "large",
-      weight: "bold",
-    },
+    size: "large",
   },
 };
 
 export const CustomSeparator: Story = {
   args: {
-    value: "2024.09.15",
-    splitCharacter: ".",
+    value: "2024/08/20",
+    splitCharacter: "/",
     type: "entire",
-    typography: {
-      size: "medium",
-      weight: "regular",
-    },
+    size: "medium",
   },
 };
+
 
 export const NoInitialValue: Story = {
   args: {
     value: "",
     splitCharacter: ".",
     type: "entire",
-    typography: {
-      size: "medium",
-      weight: "regular",
-    },
+    size: "medium",
   },
 };

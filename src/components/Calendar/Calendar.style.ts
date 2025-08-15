@@ -1,28 +1,5 @@
 import styled, { css } from "styled-components";
-
-
-export interface TypographyType {
-  size: "small" | "medium" | "large";
-  weight: "light" | "regular" | "bold";
-}
-
-const typography = {
-  small: {
-    light: css`font-size: 13px; font-weight: 300; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;`,
-    regular: css`font-size: 13px; font-weight: 400; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;`,
-    bold: css`font-size: 13px; font-weight: 500; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;`
-  },
-  medium: {
-    light: css`font-size: 14px; font-weight: 300; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;`,
-    regular: css`font-size: 14px; font-weight: 400; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;`,
-    bold: css`font-size: 14px; font-weight: 500; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;`
-  },
-  large: {
-    light: css`font-size: 16px; font-weight: 300; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;`,
-    regular: css`font-size: 16px; font-weight: 400; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;`,
-    bold: css`font-size: 16px; font-weight: 500; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;`
-  }
-};
+import { Font } from "../../tokens/Font";
 
 
 export const DatePickerContainer = styled.div`
@@ -30,23 +7,22 @@ export const DatePickerContainer = styled.div`
   display: inline-block;
 `;
 
-export const DatePickerWrap = styled.div<{
-  typography: TypographyType;
-}>`
-  height: 36px;
-  padding: 8px 12px;
+export const DatePickerWrap = styled.div<{ size: "medium" | "large" }>`
   cursor: pointer;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 8px;
+  flex-direction: column;
+  gap: 4px;
   box-sizing: border-box;
   position: relative;
   border: 1px solid #e1e5e9;
   border-radius: 6px;
   background-color: #ffffff;
   transition: all 0.15s ease;
-  ${({ typography: typo }) => typography[typo.size] ? typography[typo.size][typo.weight] : typography.medium.regular}
+  font-family: ${Font.label.label1_semiBold.fontFamily};
+  font-size: ${Font.label.label1_semiBold.fontSize};
+  font-weight: ${Font.label.label1_semiBold.fontWeight};
+  line-height: ${Font.label.label1_semiBold.lineHeight};
+  padding: ${({ size }) => size === "large" ? "14px 20px" : "10px 16px"};
   
   &:hover {
     border-color: #d0d7de;
@@ -65,15 +41,26 @@ export const DatePickerDate = styled.span`
   user-select: none;
 `;
 
+export const DatePickerContent = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+`;
+
 export const DatePickerIcon = styled.div`
-  width: 16px;
-  height: 16px;
+  width: 24px;
+  height: 24px;
   color: #6b7280;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
   user-select: none;
+`;
+
+export const DatePickerDivider = styled.div`
+  width: 100%;
+  height: 1px;
+  background-color: #e1e5e9;
 `;
 
 export const DatePickerCalendar = styled.div<{ x: number; y: number }>`
@@ -92,7 +79,7 @@ export const DatePickerCalendar = styled.div<{ x: number; y: number }>`
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
   display: flex;
   flex-direction: column;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  font-family: ${Font.label.label1_semiBold.fontFamily};
 `;
 
 export const DatePickerCalendarHeader = styled.div`
@@ -106,8 +93,8 @@ export const DatePickerCalendarHeader = styled.div`
 export const DatePickerHeaderTitle = styled.div`
   display: flex;
   align-items: center;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: ${Font.label.label1_semiBold.fontSize};
+  font-weight: ${Font.label.label1_semiBold.fontWeight};
   color: #1a1a1a;
   user-select: none;
 `;

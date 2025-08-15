@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { Font } from "../../tokens/Font";
+import { lightColors } from "../../tokens/LightColors";
 
 
 export const DatePickerContainer = styled.div`
@@ -14,8 +15,6 @@ export const DatePickerWrap = styled.div<{ size: "medium" | "large" }>`
   gap: 4px;
   box-sizing: border-box;
   position: relative;
-  border: 1px solid #e1e5e9;
-  border-radius: 6px;
   background-color: #ffffff;
   transition: all 0.15s ease;
   font-family: ${Font.label.label1_semiBold.fontFamily};
@@ -23,20 +22,10 @@ export const DatePickerWrap = styled.div<{ size: "medium" | "large" }>`
   font-weight: ${Font.label.label1_semiBold.fontWeight};
   line-height: ${Font.label.label1_semiBold.lineHeight};
   padding: ${({ size }) => size === "large" ? "14px 20px" : "10px 16px"};
-  
-  &:hover {
-    border-color: #d0d7de;
-    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.04);
-  }
-  
-  &:focus-within {
-    border-color: #000000;
-    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
-  }
 `;
 
 export const DatePickerDate = styled.span`
-  color: #1a1a1a;
+  color: ${lightColors['text-black']};
   font-weight: 400;
   user-select: none;
 `;
@@ -50,7 +39,7 @@ export const DatePickerContent = styled.div`
 export const DatePickerIcon = styled.div`
   width: 24px;
   height: 24px;
-  color: #6b7280;
+  color: ${lightColors['select-btn-false']};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,7 +49,7 @@ export const DatePickerIcon = styled.div`
 export const DatePickerDivider = styled.div`
   width: 100%;
   height: 1px;
-  background-color: #e1e5e9;
+  background-color: ${lightColors['divider-archived']};
 `;
 
 export const DatePickerCalendar = styled.div<{ x: number; y: number }>`
@@ -95,7 +84,7 @@ export const DatePickerHeaderTitle = styled.div`
   align-items: center;
   font-size: ${Font.label.label1_semiBold.fontSize};
   font-weight: ${Font.label.label1_semiBold.fontWeight};
-  color: #1a1a1a;
+  color: #1a1a1aff;
   user-select: none;
 `;
 

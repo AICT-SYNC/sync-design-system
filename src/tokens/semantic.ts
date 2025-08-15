@@ -1,4 +1,4 @@
-import { lightColors } from './colors/LightColors';
+import { lightColors } from './LightColors';
 import { darkColors } from './DarkColors';
 
 // lightColor 와 darkColors 통합 expot 파일

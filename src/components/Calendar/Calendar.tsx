@@ -12,7 +12,6 @@ interface CalendarProps {
   onChange: (date: Date) => void;
   type?: DatePickerMode;
   dateType?: S.DateType;
-  color?: string;
   height?: number;
   typography?: S.TypographyType;
 }
@@ -23,24 +22,19 @@ const Calendar: React.FC<CalendarProps> = ({
   onChange,
   type = "entire",
   dateType = "date",
-  color = "primary",
   height,
   typography = { size: "medium", weight: "regular" },
 }) => {
   const {
-    date,
     fold,
     setFold,
     containerRef,
     calendarCoord,
-    firstDate,
-    lastDate,
     selectDate,
     onChangeSelectDate,
     calendarDate,
     dayList,
     onChangeCalendarMonth,
-    beforePeriod,
   } = useDatePicker({
     value,
     splitCharacter,
@@ -81,7 +75,7 @@ const Calendar: React.FC<CalendarProps> = ({
   };
 
   return (
-    <S.DatePickerContainer ref={containerRef} color={color} dateType={dateType}>
+    <S.DatePickerContainer ref={containerRef} dateType={dateType}>
       <S.DatePickerWrap
         height={height}
         typography={typography}
@@ -90,7 +84,7 @@ const Calendar: React.FC<CalendarProps> = ({
         <S.DatePickerIcon>
           <CalendarIcon size={16} />
         </S.DatePickerIcon>
-        <S.DatePickerDate color={color}>
+        <S.DatePickerDate>
           {value ? formatDate(selectDate.year, selectDate.month, selectDate.day) : "연도.월.일"}
         </S.DatePickerDate>
       </S.DatePickerWrap>

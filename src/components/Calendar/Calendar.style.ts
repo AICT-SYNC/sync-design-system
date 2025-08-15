@@ -27,7 +27,6 @@ const typography = {
 
 
 export const DatePickerContainer = styled.div<{
-  color: string;
   dateType: DateType;
 }>`
   position: relative;
@@ -64,7 +63,7 @@ export const DatePickerWrap = styled.div<{
   }
 `;
 
-export const DatePickerDate = styled.span<{ color: string }>`
+export const DatePickerDate = styled.span`
   color: #1a1a1a;
   font-weight: 400;
   user-select: none;

@@ -8,7 +8,6 @@ interface CalendarProps {
   onChange: (date: Date) => void;
   type?: "entire" | "future";
   dateType?: "date" | "month" | "year";
-  color?: string;
   height?: number;
   typography?: {
     size: "small" | "medium" | "large";
@@ -59,10 +58,6 @@ const meta: Meta<CalendarProps> = {
       options: ["date", "month", "year"],
       description: "날짜 타입",
     },
-    color: {
-      control: { type: "text" },
-      description: "테마 색상",
-    },
     height: {
       control: { type: "number" },
       description: "컴포넌트 높이",
@@ -93,7 +88,6 @@ export const Default: Story = {
     splitCharacter: ".",
     type: "entire",
     dateType: "date",
-    color: "primary",
     typography: {
       size: "medium",
       weight: "regular",
@@ -107,7 +101,6 @@ export const FutureOnly: Story = {
     splitCharacter: ".",
     type: "future",
     dateType: "date",
-    color: "primary",
     typography: {
       size: "medium",
       weight: "regular",
@@ -115,19 +108,6 @@ export const FutureOnly: Story = {
   },
 };
 
-export const CustomColor: Story = {
-  args: {
-    value: "2024.06.15",
-    splitCharacter: ".",
-    type: "entire",
-    dateType: "date",
-    color: "secondary",
-    typography: {
-      size: "medium",
-      weight: "regular",
-    },
-  },
-};
 
 export const SmallTypography: Story = {
   args: {
@@ -135,7 +115,6 @@ export const SmallTypography: Story = {
     splitCharacter: ".",
     type: "entire",
     dateType: "date",
-    color: "primary",
     typography: {
       size: "small",
       weight: "light",
@@ -149,7 +128,6 @@ export const LargeTypography: Story = {
     splitCharacter: ".",
     type: "entire",
     dateType: "date",
-    color: "primary",
     height: 60,
     typography: {
       size: "large",
@@ -164,7 +142,6 @@ export const CustomSeparator: Story = {
     splitCharacter: ".",
     type: "entire",
     dateType: "date",
-    color: "primary",
     typography: {
       size: "medium",
       weight: "regular",
@@ -178,7 +155,6 @@ export const NoInitialValue: Story = {
     splitCharacter: ".",
     type: "entire",
     dateType: "date",
-    color: "primary",
     typography: {
       size: "medium",
       weight: "regular",

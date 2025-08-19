@@ -6,8 +6,12 @@ import { Font } from '../../../tokens/Font';
 export const WorkspaceCardContainer = styled.div`
   display: flex;
   flex-direction: row;
-  width: 280px;
-  height: 190px;
+  height: 220px;
+  min-height:220px;
+  max-height:360px;
+  width: 317px;
+  min-width:317px;
+  max-width:520px;
   background: white;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);

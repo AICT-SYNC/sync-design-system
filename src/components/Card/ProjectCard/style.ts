@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import { lightColors } from '../../../tokens/semantic';
 
 export const CardContainer = styled.div`
-  width: 320px;
+  width: 317px;
+  height: 220px;
   max-width:520px;
-  min-width:280px;
-  height: 230px;
-  min-height:160px;
+  min-width:317px;
+  min-height:220px;
   max-height:360px;
   background: white;
   border-radius: 12px;
@@ -22,7 +22,7 @@ export const CardContainer = styled.div`
 `;
 
 export const CardHeader = styled.div`
-  height: 100px;
+  height: 40%;
   position: relative;
   overflow: hidden;
 `;
@@ -35,13 +35,13 @@ export const ProjectImage = styled.img`
 
 export const DefaultBackground = styled.div`
   width: 100%;
-  height: 200px;
+  height: 100%;
   background: ${lightColors['project-active']};
 `;
 
 export const CardContent = styled.div`
   padding: 20px;
-  height: 100px;
+  height: 60%;
   display: flex;
   flex-direction: column;
 `;

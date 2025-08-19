@@ -2,7 +2,7 @@ import React from 'react';
 import {
   CardContainer,
   CardHeader,
-  WorkspaceImage,
+  ProjectImage,
   DefaultBackground,
   CardContent,
   CardTitle,
@@ -14,9 +14,10 @@ import {
   Actions,
   NotificationBadge,
 } from './style.ts';
-import settingIcon from '../../assets/icons/settingIcon.svg';
+import { Settings } from 'lucide-react';
+import { Avatar } from '../../../assets/icons/avatar.tsx';
 
-interface WorkspaceCardProps {
+interface ProjectCardProps {
   showSettings: boolean; // true = 설정 아이콘 표시, false = 알림만 표시
   title?: string;
   description?: string;
@@ -25,10 +26,10 @@ interface WorkspaceCardProps {
   image?: string;
 }
 
-const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
+const ProjectCard: React.FC<ProjectCardProps> = ({
   showSettings,
   title = "워크스페이스 제목",
-  description = "워크스페이스 설명",
+  description = "워크스페이스",
   memberCount = 4,
   notificationCount = 1,
   image
@@ -38,7 +39,7 @@ const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
       {/* 상단 이미지 영역 */}
       <CardHeader>
         {image ? (
-          <WorkspaceImage src={image} alt="workspace" />
+          <ProjectImage src={image} alt="Project" />
         ) : (
           <DefaultBackground />
         )}
@@ -53,7 +54,7 @@ const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
         <CardFooter>
           {/* 멤버 수 */}
           <MemberInfo>
-            <MemberIcon></MemberIcon>
+            <Avatar size='extraSmall' />
             <MemberCount>{memberCount}명</MemberCount>
           </MemberInfo>
 
@@ -65,10 +66,10 @@ const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
               </NotificationBadge>
             )}
             {showSettings && (
-              <img 
-                src={settingIcon} 
-                alt="settings"
-                style={{ width: '20px', height: '20px' }} 
+              <Settings 
+                size={20} 
+                color="#666666"
+                style={{ cursor: 'pointer' }}
               />
             )}
           </Actions>
@@ -78,4 +79,4 @@ const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
   );
 };
 
-export default WorkspaceCard;
+export default ProjectCard;

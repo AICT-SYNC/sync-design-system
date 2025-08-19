@@ -1,6 +1,7 @@
 import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import Calendar from "./Calendar";
+import styled from "styled-components";
 
 interface CalendarProps {
   value: string;
@@ -10,6 +11,14 @@ interface CalendarProps {
   size?: "medium" | "large";
 }
 
+const Wrap = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  padding: 20px;
+`;
+
 const CalendarWithState = (args: CalendarProps) => {
   const [selectedDate, setSelectedDate] = useState(args.value);
 
@@ -17,25 +26,17 @@ const CalendarWithState = (args: CalendarProps) => {
     const year = date.getFullYear();
     const month = (date.getMonth() + 1).toString().padStart(2, "0");
     const day = date.getDate().toString().padStart(2, "0");
-    const formattedDate = `${year}${args.splitCharacter || "-"}${month}${args.splitCharacter || "-"}${day}`;
+    const formattedDate = `${year}${args.splitCharacter || "-"}${month}${
+      args.splitCharacter || "-"
+    }${day}`;
     setSelectedDate(formattedDate);
     args.onChange(date);
   };
 
   return (
-    <div style={{ 
-      display: 'flex', 
-      justifyContent: 'center', 
-      alignItems: 'center', 
-      minHeight: '400px',
-      padding: '20px'
-    }}>
-      <Calendar
-        {...args}
-        value={selectedDate}
-        onChange={handleDateChange}
-      />
-    </div>
+    <Wrap>
+      <Calendar {...args} value={selectedDate} onChange={handleDateChange} />
+    </Wrap>
   );
 };
 
@@ -87,7 +88,6 @@ export const FutureOnly: Story = {
   },
 };
 
-
 export const Large: Story = {
   args: {
     value: "2024.03.10",
@@ -105,7 +105,6 @@ export const CustomSeparator: Story = {
     size: "medium",
   },
 };
-
 
 export const NoInitialValue: Story = {
   args: {

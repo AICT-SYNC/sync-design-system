@@ -45,6 +45,7 @@ type Story = StoryObj<typeof meta>;
 const InteractiveInput = (args: any) => {
   const [value, setValue] = useState(args.value || '');
   
+  const handleChange = (newValue: string, event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(newValue);
     args.onChange?.(newValue, event);
   };
@@ -117,7 +118,7 @@ export const Disabled: Story = {
     Focus: false,
     PlaceHolder: '비활성화된 입력창',
     value: '수정할 수 없음',
-    onChange: () => {}, // 빈 함수 (disabled 상태에서는 호출되지 않음)
+    onChange: () => {}, //disabled 상태에서는 호출되지 않음
   },
 };
 

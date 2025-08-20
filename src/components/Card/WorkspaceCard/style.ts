@@ -6,12 +6,13 @@ import { Font } from '../../../tokens/Font';
 export const WorkspaceCardContainer = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: stretch;
+  width: 100%;
   height: 220px;
-  min-height:220px;
-  max-height:360px;
-  width: 317px;
-  min-width:317px;
-  max-width:520px;
+  min-height: 220px;
+  max-height: 360px;
+  min-width: 317px;
+  max-width: 520px;
   background: white;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -22,11 +23,63 @@ export const WorkspaceCardContainer = styled.div`
     transform: translateY(-2px);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
   }
+
+
+  /* 태블릿 세로 (768px ~ 1023px) */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 95%;
+    min-width: 300px;
+    max-width: 450px;
+    height: 210px;
+    min-height: 200px;
+    max-height: 280px;
+  }
+
+  /* 태블릿 가로 / 작은 데스크톱 (1024px ~ 1279px) */
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    width: 90%;
+    min-width: 317px;
+    max-width: 480px;
+    height: 220px;
+    min-height: 220px;
+    max-height: 320px;
+  }
+
+  /* 데스크톱 (1280px ~ 1535px) */
+  @media (min-width: 1280px) and (max-width: 1535px) {
+    width: 85%;
+    min-width: 317px;
+    max-width: 520px;
+    height: 220px;
+    min-height: 220px;
+    max-height: 360px;
+  }
+
+  /* 대형 데스크톱 (1536px ~ 1919px) */
+  @media (min-width: 1536px) and (max-width: 1919px) {
+    width: 80%;
+    min-width: 350px;
+    max-width: 550px;
+    height: 240px;
+    min-height: 240px;
+    max-height: 380px;
+  }
+
+  /* 초대형 화면 (1920px+) */
+  @media (min-width: 1920px) {
+    width: 75%;
+    min-width: 400px;
+    max-width: 600px;
+    height: 260px;
+    min-height: 260px;
+    max-height: 400px;
+  }
+
 `;
 
 export const SideBox = styled.div`
-  width: 38px;
-  height:360px;
+  width: 30px;
+  height:100%;
   background-color: ${lightColors['project-active']};
   border-top-left-radius:12px;
   border-bottom-left-radius:12px;
@@ -76,7 +129,8 @@ export const ImgBox = styled.div`
 `
 
 export const Title = styled.h3`
-margin: 0;
+    margin: 0;
+    font-family:${Font.body.body2_semiBold};
 `
     
 
@@ -85,6 +139,7 @@ export const Description = styled.span`
     font-weight:2;
     font-size:medium;
     margin-bottom:3%;
+    font-family:${Font.label.label1_Regular}
 
 `
 export const MemberCount = styled.div`

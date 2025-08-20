@@ -5,7 +5,6 @@ import { lightColors } from '../../tokens/LightColors.ts';
 interface InputContainerProps {
   size: 'S' | 'M' | 'L';
   enabled: boolean;
-  focus: boolean;
 }
 
 export const InputContainer = styled.input<InputContainerProps>`
@@ -45,11 +44,6 @@ export const InputContainer = styled.input<InputContainerProps>`
     box-shadow: 0 0 0 2px ${lightColors['border-primary']}20;
   }
 
-  ${({ focus }) => focus && `
-    border: 1px solid ${lightColors['border-primary']} !important;
-    box-shadow: 0 0 0 2px ${lightColors['border-primary']}20;
-  `}
-
   &:disabled {
     border: 1px solid ${lightColors['border-light']} !important;
     background-color: ${lightColors['background-secondary']} !important;
@@ -64,7 +58,7 @@ export const InputContainer = styled.input<InputContainerProps>`
     color: ${lightColors['text-muted']} !important;
     cursor: not-allowed !important;
     box-shadow: none !important;
-    
+         
     &:hover, &:focus {
       border: 1px solid ${lightColors['border-light']} !important;
       background-color: ${lightColors['background-secondary']} !important;

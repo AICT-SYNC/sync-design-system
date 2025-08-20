@@ -4,7 +4,6 @@ import * as S from './style';
 interface InputProps {
   Size: 'S' | 'M' | 'L';
   Enabled: boolean;
-  Focus: boolean;
   PlaceHolder: string;
   onChange?: (value: string, event: React.ChangeEvent<HTMLInputElement>) => void;
   value: any;
@@ -13,7 +12,6 @@ interface InputProps {
 const Input: React.FC<InputProps> = ({
   Size,
   Enabled,
-  Focus,
   PlaceHolder,
   onChange,
   value
@@ -32,7 +30,6 @@ const Input: React.FC<InputProps> = ({
         placeholder={PlaceHolder}
         size={Size}
         enabled={Enabled}
-        focus={Focus}
         disabled={!Enabled}
         value={value}
         onChange={handleChange}

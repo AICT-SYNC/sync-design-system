@@ -19,10 +19,6 @@ const meta: Meta<typeof Input> = {
       control: { type: 'boolean' },
       description: 'Input 활성화 상태',
     },
-    Focus: {
-      control: { type: 'boolean' },
-      description: 'Input 포커스 상태 (강제)',
-    },
     PlaceHolder: {
       control: { type: 'text' },
       description: 'Placeholder 텍스트',
@@ -59,7 +55,6 @@ export const Default: Story = {
   args: {
     Size: 'M',
     Enabled: true,
-    Focus: false,
     PlaceHolder: '텍스트를 입력하세요',
     value: '',
   },
@@ -71,7 +66,6 @@ export const Small: Story = {
   args: {
     Size: 'S',
     Enabled: true,
-    Focus: false,
     PlaceHolder: '작은 입력창',
     value: '',
   },
@@ -82,7 +76,6 @@ export const Medium: Story = {
   args: {
     Size: 'M',
     Enabled: true,
-    Focus: false,
     PlaceHolder: '중간 입력창',
     value: '',
   },
@@ -93,29 +86,16 @@ export const Large: Story = {
   args: {
     Size: 'L',
     Enabled: true,
-    Focus: false,
     PlaceHolder: '큰 입력창',
     value: '',
   },
 };
 
 // 상태별 스토리
-export const Focused: Story = {
-  render: InteractiveInput,
-  args: {
-    Size: 'M',
-    Enabled: true,
-    Focus: true,
-    PlaceHolder: '포커스된 상태',
-    value: '',
-  },
-};
-
 export const Disabled: Story = {
   args: {
     Size: 'M',
     Enabled: false,
-    Focus: false,
     PlaceHolder: '비활성화된 입력창',
     value: '수정할 수 없음',
     onChange: () => {}, //disabled 상태에서는 호출되지 않음
@@ -127,7 +107,6 @@ export const WithValue: Story = {
   args: {
     Size: 'M',
     Enabled: true,
-    Focus: false,
     PlaceHolder: '초기값이 있는 입력창',
     value: '초기값',
   },
@@ -138,7 +117,6 @@ export const WithoutPlaceholder: Story = {
   args: {
     Size: 'M',
     Enabled: true,
-    Focus: false,
     PlaceHolder: '',
     value: '',
   },
@@ -158,7 +136,6 @@ export const AllSizes: Story = {
           <Input 
             Size="S" 
             Enabled={true} 
-            Focus={false} 
             PlaceHolder="Small input" 
             value={smallValue}
             onChange={(value) => setSmallValue(value)}
@@ -169,7 +146,6 @@ export const AllSizes: Story = {
           <Input 
             Size="M" 
             Enabled={true} 
-            Focus={false} 
             PlaceHolder="Medium input" 
             value={mediumValue}
             onChange={(value) => setMediumValue(value)}
@@ -180,7 +156,6 @@ export const AllSizes: Story = {
           <Input 
             Size="L" 
             Enabled={true} 
-            Focus={false} 
             PlaceHolder="Large input" 
             value={largeValue}
             onChange={(value) => setLargeValue(value)}
@@ -195,7 +170,6 @@ export const AllSizes: Story = {
 export const AllStates: Story = {
   render: () => {
     const [defaultValue, setDefaultValue] = useState('');
-    const [focusValue, setFocusValue] = useState('');
     const [withValue, setWithValue] = useState('기존 값');
 
     return (
@@ -205,7 +179,6 @@ export const AllStates: Story = {
           <Input 
             Size="M" 
             Enabled={true} 
-            Focus={false} 
             PlaceHolder="기본 상태" 
             value={defaultValue}
             onChange={(value) => setDefaultValue(value)}
@@ -216,26 +189,10 @@ export const AllStates: Story = {
         </div>
         
         <div>
-          <h4 style={{ margin: '0 0 8px 0', fontSize: '14px' }}>Focused State</h4>
-          <Input 
-            Size="M" 
-            Enabled={true} 
-            Focus={true} 
-            PlaceHolder="포커스 상태" 
-            value={focusValue}
-            onChange={(value) => setFocusValue(value)}
-          />
-          <p style={{ margin: '4px 0 0 0', fontSize: '12px', color: '#666' }}>
-            값: "{focusValue}"
-          </p>
-        </div>
-        
-        <div>
           <h4 style={{ margin: '0 0 8px 0', fontSize: '14px' }}>Disabled State</h4>
           <Input 
             Size="M" 
             Enabled={false} 
-            Focus={false} 
             PlaceHolder="비활성화 상태" 
             value="수정할 수 없음"
             onChange={() => {}}
@@ -247,7 +204,6 @@ export const AllStates: Story = {
           <Input 
             Size="M" 
             Enabled={true} 
-            Focus={false} 
             PlaceHolder="초기값 있음" 
             value={withValue}
             onChange={(value) => setWithValue(value)}
@@ -262,7 +218,6 @@ export const AllStates: Story = {
           <Input 
             Size="M" 
             Enabled={true} 
-            Focus={false} 
             PlaceHolder="" 
             value=""
             onChange={() => {}}
@@ -304,7 +259,6 @@ export const FormExample: Story = {
           <Input
             Size="M"
             Enabled={true}
-            Focus={false}
             PlaceHolder="이름을 입력하세요"
             value={formData.name}
             onChange={handleFieldChange('name')}
@@ -318,7 +272,6 @@ export const FormExample: Story = {
           <Input
             Size="M"
             Enabled={true}
-            Focus={false}
             PlaceHolder="이메일을 입력하세요"
             value={formData.email}
             onChange={handleFieldChange('email')}
@@ -332,7 +285,6 @@ export const FormExample: Story = {
           <Input
             Size="M"
             Enabled={true}
-            Focus={false}
             PlaceHolder="전화번호를 입력하세요"
             value={formData.phone}
             onChange={handleFieldChange('phone')}

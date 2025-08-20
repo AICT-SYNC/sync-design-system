@@ -9,7 +9,6 @@ import {
   CardDescription,
   CardFooter,
   MemberInfo,
-  MemberIcon,
   MemberCount,
   Actions,
   NotificationBadge,

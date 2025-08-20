@@ -6,7 +6,7 @@ import { Avatar } from '../../assets/icons/avatar.tsx';
 
 // ==================== WorkspaceCard Stories ====================
 const workspaceCardMeta: Meta<typeof WorkspaceCard> = {
-  title: 'Components/WorkspaceCard',
+  title: 'Components/Card',
   component: WorkspaceCard,
   parameters: {
     layout: 'centered',

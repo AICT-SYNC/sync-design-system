@@ -11,6 +11,8 @@ import {
   Title,
   Description,
   MemberCount,
+  NotificationBadge,
+  AvatarBox,
 } from './style.ts';
 import { Settings } from 'lucide-react';
 import { Avatar } from '../../../assets/icons/avatar.tsx';
@@ -32,7 +34,6 @@ const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
   description = "4개의 프로젝트", 
   memberCount = 4,
   notificationCount = 1,
-  avatar
 }) => {
   return (
     <WorkspaceCardContainer>
@@ -52,13 +53,18 @@ const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
           )}
         </ContentHeader>
         <Content>
-          <Title>워크스페이스 제목</Title>
-          <Description>워크스페이스 설명</Description>
+          <Title>{title}</Title>
+          <Description>{description}</Description>
         </Content>
         <Hr></Hr>
         <Footer>
-          <Avatar size='extraSmall'/>
-          <MemberCount>4명</MemberCount>
+            <AvatarBox>
+                <Avatar size='extraSmall'/>
+          <MemberCount>{memberCount}</MemberCount>
+            </AvatarBox>
+          <NotificationBadge>
+            {notificationCount}
+          </NotificationBadge>
         </Footer>
       </ContentBox>
     </WorkspaceCardContainer>

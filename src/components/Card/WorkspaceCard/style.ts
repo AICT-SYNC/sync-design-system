@@ -112,6 +112,7 @@ export const Footer = styled.div`
     display:flex;
     flex-direction:row;
     align-items:center;
+    justify-content:space-between;
     width:90%;
     height:10%;
 `
@@ -139,14 +140,35 @@ export const Description = styled.span`
     font-weight:2;
     font-size:medium;
     margin-bottom:3%;
-    font-family:${Font.label.label1_Regular}
+    font-family:${Font.label.label1_Regular};
 
 `
+
 export const MemberCount = styled.div`
     color:${lightColors['text-muted']};
     font-size:small;
     margin:5px;
     margin-top:4%;
 
+
+`
+
+export const NotificationBadge = styled.div`
+  width: 26px;
+  height: 18px;
+  background: ${lightColors['project-active']};
+  color: white;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+`;
+
+export const AvatarBox = styled.div`
+  display:flex;
+  flex-direction:row;
+  height:100%;
 
 `

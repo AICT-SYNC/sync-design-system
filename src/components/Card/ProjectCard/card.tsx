@@ -15,9 +15,10 @@ import {
 } from './style.ts';
 import { Settings } from 'lucide-react';
 import { Avatar } from '../../../assets/icons/avatar.tsx';
+import { Badge } from '../../Badge/'
+
 
 interface ProjectCardProps {
- isOwner: boolean; 
  title?: string;
  description?: string;
  memberCount?: number;
@@ -27,7 +28,6 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
- isOwner,
  title = "워크스페이스 제목",
  description = "워크스페이스",
  memberCount = 4,
@@ -71,17 +71,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
          {/* 알림 및 설정 */}
          <Actions>
            {notificationCount > 0 && (
-             <NotificationBadge>
-               {notificationCount}
-             </NotificationBadge>
+              <Badge 
+                size='S'
+                role='Info'
+                count={notificationCount}
+              />
            )}
-           {isOwner && (
              <Settings 
                size={20} 
                color="#666666"
                style={{ cursor: 'pointer' }}
              />
-           )}
          </Actions>
        </CardFooter>
      </CardContent>

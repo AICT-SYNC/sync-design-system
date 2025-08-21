@@ -16,9 +16,9 @@ import {
 } from './style.ts';
 import { Settings } from 'lucide-react';
 import { Avatar } from '../../../assets/icons/avatar.tsx';
+import { Badge } from '../../Badge';
 
 interface WorkspaceCardProps {
- isAdmin: boolean; 
  title?: string;
  description?: string;
  memberCount?: number;
@@ -28,7 +28,6 @@ interface WorkspaceCardProps {
 }
 
 const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
- isAdmin,
  title = "프로젝트 제목",
  description = "4개의 프로젝트", 
  memberCount = 4,
@@ -50,7 +49,6 @@ const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
      <ContentBox>
        <ContentHeader>
          <ImgBox></ImgBox>
-         {isAdmin && (
            <Settings
              style={{
                color: '#8E95A2',
@@ -58,7 +56,6 @@ const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
                height: '17px',
              }}
            />
-         )}
        </ContentHeader>
        <Content>
          <Title>{displayTitle}</Title>
@@ -70,9 +67,11 @@ const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
            <Avatar size='extraSmall'/>
            <MemberCount>{memberCount}</MemberCount>
          </AvatarBox>
-         <NotificationBadge>
-           {notificationCount}
-         </NotificationBadge>
+         <Badge 
+            size='S'
+            role='Info'
+            count={notificationCount}
+         />
        </Footer>
      </ContentBox>
    </WorkspaceCardContainer>

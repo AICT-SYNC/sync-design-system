@@ -2,40 +2,56 @@ import styled from 'styled-components';
 import { lightColors } from '../../tokens/LightColors';
 import { Font } from '../../tokens/Font';
 
+import { ButtonVariant, ButtonSize } from './types';
+
 interface ButtonContainerProps {
-  $size: 'xlarge' | 'large' | 'medium' | 'small' | 'xsmall';
-  $variant: 'primary' | 'secondary' | 'tertiary' | 'danger' | 'warning';
+  $size: ButtonSize;
+  $variant: ButtonVariant;
 }
 
-const getSizeStyles = (size: string) => {
+const getSizeStyles = (size: ButtonSize) => {
   switch (size) {
-    case 'xlarge':
-      return { width: '106px', height: '51px' };
-    case 'large':
+    case ButtonSize.XL:
       return { width: '98px', height: '47px' };
-    case 'medium':
+    case ButtonSize.L:
       return { width: '90px', height: '43px' };
-    case 'small':
+    case ButtonSize.M:
       return { width: '76px', height: '37px' };
-    case 'xsmall':
+    case ButtonSize.S:
       return { width: '68px', height: '29px' };
+    case ButtonSize.XS:
+      return { width: '54px', height: '22px' };
+    case ButtonSize.LONG_L:
+      return { width: '460px', height: '47px' };
+    case ButtonSize.LONG_M:
+      return { width: '380px', height: '47px' };
+    case ButtonSize.LONG_S:
+      return { width: '300px', height: '47px' };
     default:
       return { width: '98px', height: '47px' };
   }
 };
 
-const getFontStyles = (size: string) => {
-  if (size === 'xlarge') {
-    return Font.label.label1_semiBold;
+const getFontStyles = (size: ButtonSize) => {
+  switch (size) {
+    case ButtonSize.XL:
+    case ButtonSize.L:
+    case ButtonSize.LONG_L:
+    case ButtonSize.LONG_M:
+    case ButtonSize.LONG_S:
+      return Font.label.label1_semiBold;
+    case ButtonSize.M:
+    case ButtonSize.S:
+      return Font.label.label2_semiBold;
+    case ButtonSize.XS:
+      return Font.label.label4_semiBold;
+    default:
+      return Font.label.label1_semiBold;
   }
-  if (size === 'small' || size === 'xsmall') {
-    return Font.label.label2_semiBold;
-  }
-  return Font.label.label1_semiBold;
 };
 
-const getVariantStyles = (variant: string) => {
-  if (variant === 'secondary') {
+const getVariantStyles = (variant: ButtonVariant) => {
+  if (variant === ButtonVariant.SECONDARY) {
     return {
       backgroundColor: lightColors['action-secondary'],
       color: lightColors['action-primary'],
@@ -43,7 +59,7 @@ const getVariantStyles = (variant: string) => {
       border: 'none'
     };
   }
-  if (variant === 'tertiary') {
+  if (variant === ButtonVariant.TERTIARY) {
     return {
       backgroundColor: lightColors['static-white'],
       color: lightColors['text-black'],
@@ -51,7 +67,7 @@ const getVariantStyles = (variant: string) => {
       border: `1px solid ${lightColors['border-light']}`
     };
   }
-  if (variant === 'danger') {
+  if (variant === ButtonVariant.DANGER) {
     return {
       backgroundColor: lightColors['action-negative'],
       color: lightColors['background-primary'],
@@ -59,7 +75,7 @@ const getVariantStyles = (variant: string) => {
       border: 'none'
     };
   }
-  if (variant === 'warning') {
+  if (variant === ButtonVariant.WARNING) {
     return {
       backgroundColor: lightColors['action-important'],
       color: lightColors['background-primary'],

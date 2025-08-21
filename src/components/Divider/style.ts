@@ -1,4 +1,3 @@
-// style.ts
 import styled from 'styled-components';
 import { lightColors } from '../../tokens/LightColors';
 

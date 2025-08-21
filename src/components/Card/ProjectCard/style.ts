@@ -75,7 +75,7 @@ export const CardContainer = styled.div`
 `;
 
 export const CardHeader = styled.div`
-  height: 40%;
+  height: 35%;
   position: relative;
   overflow: hidden;
 `;

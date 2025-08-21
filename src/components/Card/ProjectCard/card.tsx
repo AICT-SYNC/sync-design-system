@@ -23,6 +23,7 @@ interface ProjectCardProps {
   memberCount?: number;
   notificationCount?: number;
   image?: string;
+  imgColor?:string;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -31,7 +32,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   description = "워크스페이스",
   memberCount = 4,
   notificationCount = 1,
-  image
+  image,
+  imgColor,
 }) => {
   return (
     <CardContainer>

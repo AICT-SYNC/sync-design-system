@@ -18,22 +18,24 @@ import { Settings } from 'lucide-react';
 import { Avatar } from '../../../assets/icons/avatar.tsx';
 
 interface WorkspaceCardProps {
-  isAdmin: boolean; // isAdmin prop 추가
+  isAdmin: boolean; 
   showSettings: boolean;
   title?: string;
   description?: string;
   memberCount?: number;
   notificationCount?: number;
   avatar?: React.ReactNode;
+  imageUrl?:string;
 }
 
 const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
-  isAdmin, // isAdmin 받기
+  isAdmin,
   showSettings,
   title = "프로젝트 제목",
   description = "4개의 프로젝트", 
   memberCount = 4,
   notificationCount = 1,
+  imageUrl,
 }) => {
   return (
     <WorkspaceCardContainer>
@@ -41,7 +43,6 @@ const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
       <ContentBox>
         <ContentHeader>
           <ImgBox></ImgBox>
-          {/* isAdmin이 true일 때만 Settings 아이콘 보이기 */}
           {isAdmin && (
             <Settings
               style={{

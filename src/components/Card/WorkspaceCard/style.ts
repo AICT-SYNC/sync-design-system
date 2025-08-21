@@ -131,7 +131,7 @@ export const ImgBox = styled.div`
 
 export const Title = styled.h3`
     margin: 0;
-    font-family:${Font.body.body2_semiBold};
+    font-family:${Font.body.body2_Regular};
 `
     
 

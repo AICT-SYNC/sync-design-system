@@ -19,7 +19,6 @@ import { Avatar } from '../../../assets/icons/avatar.tsx';
 
 interface WorkspaceCardProps {
  isAdmin: boolean; 
- showSettings: boolean;
  title?: string;
  description?: string;
  memberCount?: number;
@@ -30,7 +29,6 @@ interface WorkspaceCardProps {
 
 const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
  isAdmin,
- showSettings,
  title = "프로젝트 제목",
  description = "4개의 프로젝트", 
  memberCount = 4,

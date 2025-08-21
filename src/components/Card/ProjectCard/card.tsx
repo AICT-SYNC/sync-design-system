@@ -17,7 +17,7 @@ import { Settings } from 'lucide-react';
 import { Avatar } from '../../../assets/icons/avatar.tsx';
 
 interface ProjectCardProps {
- showSettings: boolean; 
+ isOwner: boolean; 
  title?: string;
  description?: string;
  memberCount?: number;
@@ -27,7 +27,7 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
- showSettings,
+ isOwner,
  title = "워크스페이스 제목",
  description = "워크스페이스",
  memberCount = 4,
@@ -75,7 +75,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                {notificationCount}
              </NotificationBadge>
            )}
-           {showSettings && (
+           {isOwner && (
              <Settings 
                size={20} 
                color="#666666"

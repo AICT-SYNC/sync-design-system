@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { lightColors } from '../../tokens/LightColors';
 import { Font } from '../../tokens/Font';
 
-import { ButtonVariant, ButtonSize } from '../../enum/ButtonEnum';
+import { ButtonVariant, ButtonSize } from '../../enums/ButtonEnum';
 
 interface ButtonContainerProps {
   $size: ButtonSize;
@@ -14,13 +14,13 @@ const getSizeStyles = (size: ButtonSize) => {
     case ButtonSize.XL:
       return { width: '98px', height: '47px' };
     case ButtonSize.L:
-      return { width: '90px', height: '43px' };
+      return { width: '90px', height: '47px' };
     case ButtonSize.M:
-      return { width: '76px', height: '37px' };
+      return { width: '76px', height: '47px' };
     case ButtonSize.S:
-      return { width: '68px', height: '29px' };
+      return { width: '68px', height: '47px' };
     case ButtonSize.XS:
-      return { width: '54px', height: '22px' };
+      return { width: '54px', height: '47px' };
     case ButtonSize.LONG_L:
       return { width: '460px', height: '47px' };
     case ButtonSize.LONG_M:

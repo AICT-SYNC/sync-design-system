@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button, ButtonProps } from "./Button";
-import { ButtonVariant, ButtonSize } from "../../enum/ButtonEnum";
+import { ButtonVariant, ButtonSize } from "../../enums/ButtonEnum";
 
 const meta: Meta<ButtonProps> = {
   title: "Example/Button",
@@ -16,6 +16,7 @@ const meta: Meta<ButtonProps> = {
       options: Object.values(ButtonSize),
     },
     children: { control: "text" },
+    withCalendarIcon: { control: "boolean" },
   },
 };
 
@@ -93,6 +94,31 @@ export const LongButtonVariants: Story = {
       <Button variant={ButtonVariant.TERTIARY} size={ButtonSize.LONG_M}>Tertiary Long Button</Button>
       <Button variant={ButtonVariant.DANGER} size={ButtonSize.LONG_M}>Danger Long Button</Button>
       <Button variant={ButtonVariant.WARNING} size={ButtonSize.LONG_M}>Warning Long Button</Button>
+    </div>
+  ),
+};
+
+export const WithCalendarIcon: Story = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+      <div style={{ display: 'flex', gap: '10px' }}>
+        <Button variant={ButtonVariant.PRIMARY} size={ButtonSize.M} withCalendarIcon>Button</Button>
+        <Button variant={ButtonVariant.SECONDARY} size={ButtonSize.M} withCalendarIcon>Button</Button>
+        <Button variant={ButtonVariant.TERTIARY} size={ButtonSize.M} withCalendarIcon>Button</Button>
+        <Button variant={ButtonVariant.DANGER} size={ButtonSize.M} withCalendarIcon>Button</Button>
+        <Button variant={ButtonVariant.WARNING} size={ButtonSize.M} withCalendarIcon>Button</Button>
+      </div>
+      <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
+        <Button variant={ButtonVariant.PRIMARY} size={ButtonSize.S} withCalendarIcon>Button</Button>
+        <Button variant={ButtonVariant.PRIMARY} size={ButtonSize.M} withCalendarIcon>Button</Button>
+        <Button variant={ButtonVariant.PRIMARY} size={ButtonSize.L} withCalendarIcon>Button</Button>
+        <Button variant={ButtonVariant.PRIMARY} size={ButtonSize.XL} withCalendarIcon>Button</Button>
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '10px' }}>
+        <Button variant={ButtonVariant.PRIMARY} size={ButtonSize.LONG_L} withCalendarIcon>Long Large Button with Calendar</Button>
+        <Button variant={ButtonVariant.SECONDARY} size={ButtonSize.LONG_M} withCalendarIcon>Long Medium Button with Calendar</Button>
+        <Button variant={ButtonVariant.TERTIARY} size={ButtonSize.LONG_S} withCalendarIcon>Long Small Button with Calendar</Button>
+      </div>
     </div>
   ),
 };

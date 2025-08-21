@@ -1,9 +1,7 @@
-
-
 import React from "react";
 import { StyledSvg } from "./style";
 
-type ColorType = "primary" | "gray";
+type ColorType = "primary" | "gray" | "white" | "secondary" | "tertiary";
 
 interface CalendarProps {
   size?: number;
@@ -15,6 +13,9 @@ export const Calendar = ({ size = 24, color = "gray", $svgStyle }: CalendarProps
   const colorMap = {
     primary: "#3F328C",
     gray: "#8E95A2",
+    white: "#FFFFFF",
+    secondary: "#4230A3",
+    tertiary: "#383A42",
   };
 
   const strokeColor = colorMap[color];

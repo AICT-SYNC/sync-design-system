@@ -1,6 +1,6 @@
 import React from "react";
 import { ButtonContainer } from "./style";
-import { ButtonVariant, ButtonSize } from "../../enums/ButtonEnum";
+import { ButtonVariant, ButtonSize } from "../../enum/ButtonEnum";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;

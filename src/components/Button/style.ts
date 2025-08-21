@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { lightColors } from '../../tokens/LightColors';
 import { Font } from '../../tokens/Font';
 
-import { ButtonVariant, ButtonSize } from '../../enums/ButtonEnum';
+import { ButtonVariant, ButtonSize } from '../../enum/ButtonEnum';
 
 interface ButtonContainerProps {
   $size: ButtonSize;

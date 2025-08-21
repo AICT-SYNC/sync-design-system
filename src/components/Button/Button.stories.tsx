@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button, ButtonProps } from "./Button";
-import { ButtonVariant, ButtonSize } from "../../enums/ButtonEnum";
+import { ButtonVariant, ButtonSize } from "../../enum/ButtonEnum";
 
 const meta: Meta<ButtonProps> = {
   title: "Example/Button",

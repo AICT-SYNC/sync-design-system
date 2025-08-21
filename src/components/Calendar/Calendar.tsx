@@ -1,7 +1,7 @@
 import React from "react";
 import { useDatePicker } from "./useDatePicker";
 import { DAY } from "./constant";
-import { Calendar as CalendarIcon } from "../../assets/icons";
+import { SyncIcon, SyncIcons } from "../../assets/icons/SyncIcons";
 import * as S from "./Calendar.style";
 
 type DatePickerMode = "entire" | "future";
@@ -78,7 +78,7 @@ const Calendar: React.FC<CalendarProps> = ({
       >
         <S.DatePickerContent>
           <S.DatePickerIcon>
-            <CalendarIcon size={24} />
+            <SyncIcon name={SyncIcons.CalendarDays} size={24} />
           </S.DatePickerIcon>
           <S.DatePickerDate>
             {value ? formatDate(selectDate.year, selectDate.month, selectDate.day) : "연도.월.일"}

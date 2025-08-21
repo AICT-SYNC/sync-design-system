@@ -92,6 +92,9 @@ const getVariantStyles = (variant: ButtonVariant) => {
 };
 
 export const ButtonContainer = styled.button<ButtonContainerProps>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: ${props => getSizeStyles(props.$size).width};
   height: ${props => getSizeStyles(props.$size).height};
   background-color: ${props => getVariantStyles(props.$variant).backgroundColor};

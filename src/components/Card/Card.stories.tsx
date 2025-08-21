@@ -167,7 +167,7 @@ export const ProjectDefault: ProjectCardStory = {
 export const ProjectAdmin: ProjectCardStory = {
   args: {
     showSettings: true,
-    title: '웹 개발 프로젝트',
+    title: '웹 개발 프로젝트 앱 개발 프로젝트',
     description: '새로운 웹사이트 개발',
     memberCount: 6,
     notificationCount: 3,
@@ -197,8 +197,8 @@ export const ProjectPermissionComparison: ProjectCardStory = {
         <h4 style={{ marginBottom: '12px', color: '#666' }}>일반 멤버</h4>
         <ProjectCard
           showSettings={false}
-          title="개발 프로젝트"
-          description="Settings 아이콘 없음"
+          title="개발 프로젝트 개발 프로젝트 개발"
+          description="Settings 아이콘 없음ㅁㄴㅇㅁㄴㅇㅁㄴㅇ"
           memberCount={5}
           notificationCount={2}
         />

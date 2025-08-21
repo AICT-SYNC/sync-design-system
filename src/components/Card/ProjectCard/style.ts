@@ -100,7 +100,7 @@ export const CardContent = styled.div`
 `;
 
 export const CardTitle = styled.h3`
-  font-family:${Font.body.body1_semiBold};
+  font-family:${Font.body.body1_Regular};
   color: #1a1a1a;
   margin: 0 0 6px 0;
   line-height: 1.2;
@@ -108,7 +108,7 @@ export const CardTitle = styled.h3`
 `;
 
 export const CardDescription = styled.p`
-  font-family:${Font.body.body3_Regular};
+ font-family: ${Font.label.label1_Regular};
   color: #666666;
   margin:0;
   line-height: 1.3;

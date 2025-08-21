@@ -1,83 +1,92 @@
 import React from 'react';
 import {
-  CardContainer,
-  CardHeader,
-  ProjectImage,
-  DefaultBackground,
-  CardContent,
-  CardTitle,
-  CardDescription,
-  CardFooter,
-  MemberInfo,
-  MemberCount,
-  Actions,
-  NotificationBadge,
+ CardContainer,
+ CardHeader,
+ ProjectImage,
+ DefaultBackground,
+ CardContent,
+ CardTitle,
+ CardDescription,
+ CardFooter,
+ MemberInfo,
+ MemberCount,
+ Actions,
+ NotificationBadge,
 } from './style.ts';
 import { Settings } from 'lucide-react';
 import { Avatar } from '../../../assets/icons/avatar.tsx';
 
 interface ProjectCardProps {
-  showSettings: boolean; // true = 설정 아이콘 표시, false = 알림만 표시
-  title?: string;
-  description?: string;
-  memberCount?: number;
-  notificationCount?: number;
-  image?: string;
-  imgColor?:string;
+ showSettings: boolean; 
+ title?: string;
+ description?: string;
+ memberCount?: number;
+ notificationCount?: number;
+ image?: string;
+ imgColor?: string;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
-  showSettings,
-  title = "워크스페이스 제목",
-  description = "워크스페이스",
-  memberCount = 4,
-  notificationCount = 1,
-  image,
-  imgColor,
+ showSettings,
+ title = "워크스페이스 제목",
+ description = "워크스페이스",
+ memberCount = 4,
+ notificationCount = 1,
+ image,
+ imgColor,
 }) => {
-  return (
-    <CardContainer>
-      {/* 상단 이미지 영역 */}
-      <CardHeader>
-        {image ? (
-          <ProjectImage src={image} alt="Project" />
-        ) : (
-          <DefaultBackground />
-        )}
-      </CardHeader>
+ // 텍스트 자르기 함수
+ const truncateText = (text: string, maxLength: number): string => {
+   if (text.length <= maxLength) return text;
+   return text.substring(0, maxLength) + '...';
+ };
 
-      {/* 하단 정보 영역 */}
-      <CardContent>
-        <CardTitle>{title}</CardTitle>
-        <CardDescription>{description}</CardDescription>
-        <hr />
-        
-        <CardFooter>
-          {/* 멤버 수 */}
-          <MemberInfo>
-            <Avatar size='extraSmall' />
-            <MemberCount>{memberCount}명</MemberCount>
-          </MemberInfo>
+ const displayTitle = truncateText(title, 13);
+ const displayDescription = truncateText(description, 20);
 
-          {/* 알림 및 설정 */}
-          <Actions>
-            {notificationCount > 0 && (
-              <NotificationBadge>
-                {notificationCount}
-              </NotificationBadge>
-            )}
-            {showSettings && (
-              <Settings 
-                size={20} 
-                color="#666666"
-                style={{ cursor: 'pointer' }}
-              />
-            )}
-          </Actions>
-        </CardFooter>
-      </CardContent>
-    </CardContainer>
-  );
+ return (
+   <CardContainer>
+     {/* 상단 이미지 영역 */}
+     <CardHeader>
+       {image ? (
+         <ProjectImage src={image} alt="Project" />
+       ) : (
+         <DefaultBackground />
+       )}
+     </CardHeader>
+      
+     {/* 하단 정보 영역 */}
+     <CardContent>
+       <CardTitle>{displayTitle}</CardTitle>
+       <CardDescription>{displayDescription}</CardDescription>
+       <hr />
+                
+       <CardFooter>
+         {/* 멤버 수 */}
+         <MemberInfo>
+           <Avatar size='extraSmall' />
+           <MemberCount>{memberCount}명</MemberCount>
+         </MemberInfo>
+          
+         {/* 알림 및 설정 */}
+         <Actions>
+           {notificationCount > 0 && (
+             <NotificationBadge>
+               {notificationCount}
+             </NotificationBadge>
+           )}
+           {showSettings && (
+             <Settings 
+               size={20} 
+               color="#666666"
+               style={{ cursor: 'pointer' }}
+             />
+           )}
+         </Actions>
+       </CardFooter>
+     </CardContent>
+   </CardContainer>
+ );
 };
 
 export default ProjectCard;

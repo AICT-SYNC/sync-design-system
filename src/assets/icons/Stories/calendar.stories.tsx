@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Calendar } from "./calendar";
+import { Calendar } from "../calendar";
 
 interface CalendarProps {
   size?: number;

@@ -1,14 +1,15 @@
 
 import styled from 'styled-components';
 import { lightColors } from '../../../tokens/semantic';
+import { Font } from '../../../tokens/Font';
 
 export const CardContainer = styled.div`
-  width: 320px;
-  max-width:520px;
-  min-width:280px;
-  height: 230px;
-  min-height:160px;
-  max-height:360px;
+  width: 100%;
+  height: 220px;
+  max-width: 520px;
+  min-width: 317px;
+  min-height: 220px;
+  max-height: 360px;
   background: white;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -19,10 +20,62 @@ export const CardContainer = styled.div`
     transform: translateY(-2px);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
   }
+
+
+  /* 태블릿 세로 (768px ~ 1023px) */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 95%;
+    min-width: 300px;
+    max-width: 450px;
+    height: 210px;
+    min-height: 200px;
+    max-height: 280px;
+  }
+
+  /* 태블릿 가로 / 작은 데스크톱 (1024px ~ 1279px) */
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    width: 90%;
+    min-width: 317px;
+    max-width: 480px;
+    height: 220px;
+    min-height: 220px;
+    max-height: 320px;
+  }
+
+  /* 데스크톱 (1280px ~ 1535px) */
+  @media (min-width: 1280px) and (max-width: 1535px) {
+    width: 85%;
+    min-width: 317px;
+    max-width: 520px;
+    height: 220px;
+    min-height: 220px;
+    max-height: 360px;
+  }
+
+  /* 대형 데스크톱 (1536px ~ 1919px) */
+  @media (min-width: 1536px) and (max-width: 1919px) {
+    width: 80%;
+    min-width: 350px;
+    max-width: 550px;
+    height: 240px;
+    min-height: 240px;
+    max-height: 380px;
+  }
+
+  /* 초대형 화면 (1920px+) */
+  @media (min-width: 1920px) {
+    width: 75%;
+    min-width: 400px;
+    max-width: 600px;
+    height: 260px;
+    min-height: 260px;
+    max-height: 400px;
+  }
+
 `;
 
 export const CardHeader = styled.div`
-  height: 100px;
+  height: 35%;
   position: relative;
   overflow: hidden;
 `;
@@ -35,20 +88,19 @@ export const ProjectImage = styled.img`
 
 export const DefaultBackground = styled.div`
   width: 100%;
-  height: 200px;
+  height: 100%;
   background: ${lightColors['project-active']};
 `;
 
 export const CardContent = styled.div`
   padding: 20px;
-  height: 100px;
+  height: 60%;
   display: flex;
   flex-direction: column;
 `;
 
 export const CardTitle = styled.h3`
-  font-size: 20px;
-  font-weight: 700;
+  font-family:${Font.body.body1_Regular};
   color: #1a1a1a;
   margin: 0 0 6px 0;
   line-height: 1.2;
@@ -56,7 +108,7 @@ export const CardTitle = styled.h3`
 `;
 
 export const CardDescription = styled.p`
-  font-size: 15px;
+ font-family: ${Font.label.label1_Regular};
   color: #666666;
   margin:0;
   line-height: 1.3;

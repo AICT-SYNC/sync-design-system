@@ -1,9 +1,9 @@
 export enum ButtonVariant {
   PRIMARY = "primary",
   SECONDARY = "secondary", 
-  TERTIARY = "tertiary",
-  DANGER = "danger",
-  WARNING = "warning"
+  ASSISTIVE = "Assistive",
+  NEGATIVE = "negative",
+  IMPORTANT = "important"
 }
 
 export enum ButtonSize {

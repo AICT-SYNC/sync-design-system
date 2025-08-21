@@ -40,27 +40,27 @@ export const Secondary: Story = {
   },
 };
 
-export const Tertiary: Story = {
+export const Assistive: Story = {
   args: {
-    variant: ButtonVariant.TERTIARY,
+    variant: ButtonVariant.ASSISTIVE,
     size: ButtonSize.M,
-    children: "Tertiary Button",
+    children: "Assistive Button",
   },
 };
 
-export const Danger: Story = {
+export const Negative: Story = {
   args: {
-    variant: ButtonVariant.DANGER,
+    variant: ButtonVariant.NEGATIVE,
     size: ButtonSize.M,
-    children: "Danger Button",
+    children: "Negative Button",
   },
 };
 
-export const Warning: Story = {
+export const Important: Story = {
   args: {
-    variant: ButtonVariant.WARNING,
+    variant: ButtonVariant.IMPORTANT,
     size: ButtonSize.M,
-    children: "Warning Button",
+    children: "Important Button",
   },
 };
 
@@ -91,9 +91,9 @@ export const LongButtonVariants: Story = {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
       <Button variant={ButtonVariant.PRIMARY} size={ButtonSize.LONG_M}>Primary Long Button</Button>
       <Button variant={ButtonVariant.SECONDARY} size={ButtonSize.LONG_M}>Secondary Long Button</Button>
-      <Button variant={ButtonVariant.TERTIARY} size={ButtonSize.LONG_M}>Tertiary Long Button</Button>
-      <Button variant={ButtonVariant.DANGER} size={ButtonSize.LONG_M}>Danger Long Button</Button>
-      <Button variant={ButtonVariant.WARNING} size={ButtonSize.LONG_M}>Warning Long Button</Button>
+      <Button variant={ButtonVariant.ASSISTIVE} size={ButtonSize.LONG_M}>Assistive Long Button</Button>
+      <Button variant={ButtonVariant.NEGATIVE} size={ButtonSize.LONG_M}>Negative Long Button</Button>
+      <Button variant={ButtonVariant.IMPORTANT} size={ButtonSize.LONG_M}>Important Long Button</Button>
     </div>
   ),
 };
@@ -104,9 +104,9 @@ export const WithCalendarIcon: Story = {
       <div style={{ display: 'flex', gap: '10px' }}>
         <Button variant={ButtonVariant.PRIMARY} size={ButtonSize.M} withCalendarIcon>Button</Button>
         <Button variant={ButtonVariant.SECONDARY} size={ButtonSize.M} withCalendarIcon>Button</Button>
-        <Button variant={ButtonVariant.TERTIARY} size={ButtonSize.M} withCalendarIcon>Button</Button>
-        <Button variant={ButtonVariant.DANGER} size={ButtonSize.M} withCalendarIcon>Button</Button>
-        <Button variant={ButtonVariant.WARNING} size={ButtonSize.M} withCalendarIcon>Button</Button>
+        <Button variant={ButtonVariant.ASSISTIVE} size={ButtonSize.M} withCalendarIcon>Button</Button>
+        <Button variant={ButtonVariant.NEGATIVE} size={ButtonSize.M} withCalendarIcon>Button</Button>
+        <Button variant={ButtonVariant.IMPORTANT} size={ButtonSize.M} withCalendarIcon>Button</Button>
       </div>
       <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
         <Button variant={ButtonVariant.PRIMARY} size={ButtonSize.S} withCalendarIcon>Button</Button>
@@ -117,7 +117,7 @@ export const WithCalendarIcon: Story = {
       <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginTop: '10px' }}>
         <Button variant={ButtonVariant.PRIMARY} size={ButtonSize.LONG_L} withCalendarIcon>Long Large Button with Calendar</Button>
         <Button variant={ButtonVariant.SECONDARY} size={ButtonSize.LONG_M} withCalendarIcon>Long Medium Button with Calendar</Button>
-        <Button variant={ButtonVariant.TERTIARY} size={ButtonSize.LONG_S} withCalendarIcon>Long Small Button with Calendar</Button>
+        <Button variant={ButtonVariant.ASSISTIVE} size={ButtonSize.LONG_S} withCalendarIcon>Long Small Button with Calendar</Button>
       </div>
     </div>
   ),
@@ -129,9 +129,9 @@ export const AllVariants: Story = {
       <div style={{ display: 'flex', gap: '10px' }}>
         <Button variant={ButtonVariant.PRIMARY} size={ButtonSize.M}>Primary</Button>
         <Button variant={ButtonVariant.SECONDARY} size={ButtonSize.M}>Secondary</Button>
-        <Button variant={ButtonVariant.TERTIARY} size={ButtonSize.M}>Tertiary</Button>
-        <Button variant={ButtonVariant.DANGER} size={ButtonSize.M}>Danger</Button>
-        <Button variant={ButtonVariant.WARNING} size={ButtonSize.M}>Warning</Button>
+        <Button variant={ButtonVariant.ASSISTIVE} size={ButtonSize.M}>Assistive</Button>
+        <Button variant={ButtonVariant.NEGATIVE} size={ButtonSize.M}>Negative</Button>
+        <Button variant={ButtonVariant.IMPORTANT} size={ButtonSize.M}>Important</Button>
       </div>
     </div>
   ),

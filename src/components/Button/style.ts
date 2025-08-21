@@ -59,7 +59,7 @@ const getVariantStyles = (variant: ButtonVariant) => {
       border: 'none'
     };
   }
-  if (variant === ButtonVariant.TERTIARY) {
+  if (variant === ButtonVariant.ASSISTIVE) {
     return {
       backgroundColor: lightColors['static-white'],
       color: lightColors['text-black'],
@@ -67,7 +67,7 @@ const getVariantStyles = (variant: ButtonVariant) => {
       border: `1px solid ${lightColors['border-light']}`
     };
   }
-  if (variant === ButtonVariant.DANGER) {
+  if (variant === ButtonVariant.NEGATIVE) {
     return {
       backgroundColor: lightColors['action-negative'],
       color: lightColors['background-primary'],
@@ -75,7 +75,7 @@ const getVariantStyles = (variant: ButtonVariant) => {
       border: 'none'
     };
   }
-  if (variant === ButtonVariant.WARNING) {
+  if (variant === ButtonVariant.IMPORTANT) {
     return {
       backgroundColor: lightColors['action-important'],
       color: lightColors['background-primary'],

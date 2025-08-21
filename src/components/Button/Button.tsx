@@ -42,10 +42,10 @@ export const Button: React.FC<ButtonProps> = ({
         return "white";
       case ButtonVariant.SECONDARY:
         return "secondary";
-      case ButtonVariant.TERTIARY:
+      case ButtonVariant.ASSISTIVE:
         return "tertiary";
-      case ButtonVariant.DANGER:
-      case ButtonVariant.WARNING:
+      case ButtonVariant.NEGATIVE:
+      case ButtonVariant.IMPORTANT: 
         return "white";
       default:
         return "white";

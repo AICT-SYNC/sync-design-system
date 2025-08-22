@@ -1,20 +1,21 @@
 import React from "react";
 import { ButtonContainer } from "./style";
 import { ButtonVariant, ButtonSize } from "../../enums/ButtonEnum";
-import { Calendar } from "../../assets/icons/calendar";
+import { SyncIcon, SyncIcons } from "../../assets/icons/SyncIcons";
+import { lightColors } from "../../tokens/LightColors";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
   size?: ButtonSize;
   children: React.ReactNode;
-  withCalendarIcon?: boolean;
+  withIcon?: SyncIcons;
 }
 
 export const Button: React.FC<ButtonProps> = ({
   variant = ButtonVariant.PRIMARY,
   size = ButtonSize.L,
   children,
-  withCalendarIcon = false,
+  withIcon,
   ...rest
 }) => {
   const getIconSize = () => {
@@ -22,44 +23,51 @@ export const Button: React.FC<ButtonProps> = ({
       case ButtonSize.LONG_L:
       case ButtonSize.LONG_M:
       case ButtonSize.LONG_S:
-        return 24;
+        return 28;
       case ButtonSize.XL:
       case ButtonSize.L:
-        return 20;
+        return 24;
       case ButtonSize.M:
       case ButtonSize.S:
-        return 16;
+        return 20;
       case ButtonSize.XS:
-        return 12;
-      default:
         return 16;
+      default:
+        return 20;
     }
   };
 
   const getIconColor = () => {
     switch (variant) {
       case ButtonVariant.PRIMARY:
-        return "white";
+        return lightColors['static-white'];
       case ButtonVariant.SECONDARY:
-        return "secondary";
+        return lightColors['action-primary'];
       case ButtonVariant.ASSISTIVE:
-        return "tertiary";
+        return lightColors['action-primary'];
       case ButtonVariant.NEGATIVE:
       case ButtonVariant.IMPORTANT: 
-        return "white";
+        return lightColors['static-white'];
       default:
-        return "white";
+        return lightColors['static-white'];
     }
   };
 
   return (
     <ButtonContainer $variant={variant} $size={size} {...rest}>
-      {withCalendarIcon && (
-        <Calendar 
-          size={getIconSize()} 
-          color={getIconColor()}
-          $svgStyle={{ marginRight: "8px" }}
-        />
+      {withIcon && (
+        <div style={{ 
+          marginRight: "8px", 
+          display: "flex", 
+          alignItems: "center", 
+          justifyContent: "center" 
+        }}>
+          <SyncIcon 
+            name={withIcon}
+            size={getIconSize()} 
+            color={getIconColor()}
+          />
+        </div>
       )}
       {children}
     </ButtonContainer>

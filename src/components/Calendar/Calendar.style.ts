@@ -39,7 +39,7 @@ export const DatePickerContent = styled.div`
 export const DatePickerIcon = styled.div`
   width: 24px;
   height: 24px;
-  color: ${lightColors['select-btn-false']};
+  color: ${lightColors['action-primary']};
   display: flex;
   align-items: center;
   justify-content: center;

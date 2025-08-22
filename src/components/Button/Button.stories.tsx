@@ -5,7 +5,7 @@ import { ButtonVariant, ButtonSize } from "../../enums/ButtonEnum";
 import { SyncIcons } from "../../assets/icons/SyncIcons";
 
 const meta: Meta<ButtonProps> = {
-  title: "Example/Button",
+  title: "Components/Button",
   component: Button,
   argTypes: {
     variant: {

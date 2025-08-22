@@ -100,7 +100,7 @@ export const CardContent = styled.div`
 `;
 
 export const CardTitle = styled.h3`
-  font-family:${Font.body.body1_Regular};
+  font-family:${Font.body.body1_Bold};
   color: #1a1a1a;
   margin: 0 0 6px 0;
   line-height: 1.2;

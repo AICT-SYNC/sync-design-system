@@ -1,2 +1,2 @@
 export * from './avatar';
-export * from './calendar';
+export * from './SyncIcons'

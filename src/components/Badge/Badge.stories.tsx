@@ -6,13 +6,13 @@ const meta: Meta<BadgeProps> = {
   title: "Components/Badge",
   component: Badge,
   argTypes: {
-    variant: {
+    role: {
       control: { type: "radio" },
       options: ["Error", "Warring", "Success", "Info"],
     },
     size: {
       control: { type: "radio" },
-      options: ["small", "medium", "large"],
+      options: ["S", "M", "L"],
     },
     count: { 
       control: { type: "number", min: 0, max: 9999 },
@@ -25,53 +25,53 @@ export default meta;
 
 type Story = StoryObj<BadgeProps>;
 
-export const SmallCount: Story = {
+export const SCount: Story = {
   args: {
-    variant: "Success",
-    size: "medium",
+    role: "Success",
+    size: "M",
     count: 5,
   },
 };
 
-export const MediumCount: Story = {
+export const MCount: Story = {
   args: {
-    variant: "Info",
-    size: "medium", 
+    role: "Info",
+    size: "M", 
     count: 99,
   },
 };
 
-export const LargeCount: Story = {
+export const LCount: Story = {
   args: {
-    variant: "Error",
-    size: "medium",
+    role: "Error",
+    size: "M",
     count: 999,
   },
 };
 
 export const OverflowCount: Story = {
   args: {
-    variant: "Warring",
-    size: "medium",
+    role: "Warring",
+    size: "M",
     count: 1500,
   },
 };
 
 export const Zero: Story = {
   args: {
-    variant: "Success",
-    size: "medium",
+    role: "Success",
+    size: "M",
     count: 0,
   },
 };
 
-export const AllVariants: Story = {
+export const Allroles: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' }}>
-      <Badge variant="Error" count={5} />
-      <Badge variant="Warring" count={99} />
-      <Badge variant="Success" count={999} />
-      <Badge variant="Info" count={1500} />
+      <Badge role="Error" count={5} />
+      <Badge role="Warring" count={99} />
+      <Badge role="Success" count={999} />
+      <Badge role="Info" count={1500} />
     </div>
   ),
 };
@@ -79,9 +79,9 @@ export const AllVariants: Story = {
 export const AllSizes: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' }}>
-      <Badge variant="Success" size="small" count={99} />
-      <Badge variant="Success" size="medium" count={99} />
-      <Badge variant="Success" size="large" count={99} />
+      <Badge role="Success" size="S" count={99} />
+      <Badge role="Success" size="M" count={99} />
+      <Badge role="Success" size="L" count={99} />
     </div>
   ),
 };
@@ -89,12 +89,12 @@ export const AllSizes: Story = {
 export const CountExamples: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '12px', alignItems: 'center', flexWrap: 'wrap' }}>
-      <Badge variant="Success" count={1} />
-      <Badge variant="Info" count={12} />
-      <Badge variant="Warring" count={99} />
-      <Badge variant="Error" count={999} />
-      <Badge variant="Success" count={1000} />
-      <Badge variant="Info" count={5000} />
+      <Badge role="Success" count={1} />
+      <Badge role="Info" count={12} />
+      <Badge role="Warring" count={99} />
+      <Badge role="Error" count={999} />
+      <Badge role="Success" count={1000} />
+      <Badge role="Info" count={5000} />
     </div>
   ),
 };

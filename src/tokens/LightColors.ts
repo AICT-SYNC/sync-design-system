@@ -66,4 +66,5 @@ export const lightColors = {
 
   'static-white': '#FFFFFF',
   'static-black': '#000000',
+
 } as const;

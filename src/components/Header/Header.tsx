@@ -1,10 +1,11 @@
-// index.tsx
 import React from 'react';
 import * as S from './style';
 import { SyncIcon, SyncIcons } from '../../assets/icons/SyncIcons';
 import { HeaderProps } from './types';
 import { truncateText } from './utils';
 import { useHeaderState, useTabManagement, useOverflowDetection } from './hooks';
+import { lightColors } from '../../tokens/semantic';
+import { primitiveColors } from '../../tokens/Primitive'
 
 const Header: React.FC<HeaderProps> = ({
   onNavigateBack,
@@ -56,7 +57,7 @@ const Header: React.FC<HeaderProps> = ({
 
   const PlusIcon = () => (
     <S.PlusIconWrap onClick={handleAddTab}>
-      <SyncIcon name={SyncIcons.Plus} color='#8E95A2' size={20} />
+      <SyncIcon name={SyncIcons.Plus} color={lightColors['text-muted']} size={20} />
     </S.PlusIconWrap>
   );
 
@@ -65,7 +66,7 @@ const Header: React.FC<HeaderProps> = ({
       <S.OpenIconBox onClick={handleSidebarToggle}>
         <SyncIcon
           name={sideBarClose ? SyncIcons.PanelLeftClose : SyncIcons.PanelRightClose}
-          color='#6B7280'
+          color={lightColors['text-secondary']}
           size={20}
         />
       </S.OpenIconBox>
@@ -77,7 +78,7 @@ const Header: React.FC<HeaderProps> = ({
             enabled={enabled}
             onClick={() => enabled && handler?.()}
           >
-            <SyncIcon name={icon} size={30} color='#8E95A2' strokeWidth={1} />
+            <SyncIcon name={icon} size={30} color={primitiveColors.neutral[400]} strokeWidth={1} />
           </S.NavigationButton>
         ))}
       </S.BackButtonBox>

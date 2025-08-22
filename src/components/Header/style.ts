@@ -27,6 +27,11 @@ export const BackButtonBox = styled.div`
     height: 100%;
 `;
 
+export const NavigationButton = styled.div<{ enabled: boolean }>`
+    cursor: ${props => props.enabled ? 'pointer' : 'not-allowed'};
+    opacity: ${props => props.enabled ? 1 : 0.5};
+`;
+
 export const PageBoxWrap = styled.div`
     display: flex;
     align-items: end;
@@ -42,7 +47,7 @@ export const PageBoxWrap = styled.div`
     scrollbar-width: none;
 `;
 
-export const TabBox = styled.div<{ isActive: boolean }>`
+export const TabBox = styled.div<{ isActive: boolean; isFirst: boolean }>`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -57,6 +62,17 @@ export const TabBox = styled.div<{ isActive: boolean }>`
     
     &:hover {
         background-color: ${props => props.isActive ? '#EDEEF1' : '#e5e6e8ff'};
+    }
+    
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 100%;
+        border-left: ${props => props.isFirst && !props.isActive ? `0.1px solid ${lightColors['border-medium']}` : 'none'};
+        display: ${props => props.isFirst && !props.isActive ? 'block' : 'none'};
     }
     
     &::after {
@@ -87,6 +103,7 @@ export const CloseIcon = styled.div`
     height: 20px;
     border-radius: 4px;
     margin-bottom: 2px;
+    cursor: pointer;
     
     &:hover {
         background-color: #b4aeae57;
@@ -99,4 +116,5 @@ export const PlusIconWrap = styled.div`
     justify-content: end;
     height: 95%;
     width: 30px;
+    cursor: pointer;
 `;

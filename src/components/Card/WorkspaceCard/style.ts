@@ -23,6 +23,15 @@ export const WorkspaceCardContainer = styled.div`
    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
  }
 
+ /* 모바일 */
+ @media (max-width: 767px) {
+   min-width: 280px;
+   max-width: 350px;
+   height: 180px;
+   min-height: 180px;
+   max-height: 220px;
+ }
+
  /* 태블릿 세로 (768px ~ 1023px) */
  @media (min-width: 768px) and (max-width: 1023px) {
    width: 95%;
@@ -80,6 +89,10 @@ export const SideBox = styled.div`
  background-color: ${lightColors['project-active']};
  border-top-left-radius: 12px;
  border-bottom-left-radius: 12px;
+ 
+ @media (max-width: 767px) {
+   width: 25px;
+ }
 `;
 
 export const ContentBox = styled.div`
@@ -128,11 +141,29 @@ export const ImgBox = styled.div`
  height: 50px;
  border-radius: 8px;
  background-color: skyblue;
+ 
+ @media (max-width: 767px) {
+   width: 40px;
+   height: 40px;
+ }
+ 
+ @media (min-width: 1536px) {
+   width: 55px;
+   height: 55px;
+ }
 `;
 
 export const Title = styled.h3`
  margin: 0;
  font-family: ${Font.body.body2_Bold};
+ 
+ @media (max-width: 767px) {
+   font-family: ${Font.body.body3_Bold};
+ }
+ 
+ @media (min-width: 1536px) {
+   font-family: ${Font.body.body1_Bold};
+ }
 `;
 
 export const Description = styled.span`
@@ -140,7 +171,21 @@ export const Description = styled.span`
  font-weight: 2;
  font-size: medium;
  margin-bottom: 3%;
- font-family: ${Font.label.label1_Regular};
+ font-family: ${Font.body.body3_Regular};
+ 
+ @media (max-width: 767px) {
+   font-family: ${Font.label.label1_Regular};
+   font-size: small;
+ }
+ 
+ @media (min-width: 1024px) and (max-width: 1535px) {
+   font-family: ${Font.body.body3_Regular};
+ }
+ 
+ @media (min-width: 1536px) {
+   font-family: ${Font.body.body2_Regular};
+   font-size: large;
+ }
 `;
 
 export const MemberCount = styled.div`
@@ -148,6 +193,16 @@ export const MemberCount = styled.div`
  font-size: small;
  margin: 5px;
  margin-top: 4%;
+ 
+ @media (max-width: 767px) {
+   font-size: x-small;
+   margin: 3px;
+ }
+ 
+ @media (min-width: 1536px) {
+   font-size: medium;
+   margin: 6px;
+ }
 `;
 
 export const NotificationBadge = styled.div`
@@ -161,6 +216,18 @@ export const NotificationBadge = styled.div`
  justify-content: center;
  font-size: 13px;
  font-weight: 600;
+ 
+ @media (max-width: 767px) {
+   width: 22px;
+   height: 16px;
+   font-size: 11px;
+ }
+ 
+ @media (min-width: 1536px) {
+   width: 30px;
+   height: 20px;
+   font-size: 14px;
+ }
 `;
 
 export const AvatarBox = styled.div`

@@ -1,4 +1,3 @@
-
 import styled from 'styled-components';
 import { lightColors } from '../../../tokens/semantic';
 import { Font } from '../../../tokens/Font';
@@ -20,7 +19,6 @@ export const CardContainer = styled.div`
     transform: translateY(-2px);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
   }
-
 
   /* 태블릿 세로 (768px ~ 1023px) */
   @media (min-width: 768px) and (max-width: 1023px) {
@@ -71,7 +69,6 @@ export const CardContainer = styled.div`
     min-height: 260px;
     max-height: 400px;
   }
-
 `;
 
 export const CardHeader = styled.div`
@@ -100,19 +97,59 @@ export const CardContent = styled.div`
 `;
 
 export const CardTitle = styled.h3`
-  font-family:${Font.body.body1_Bold};
+  font-family: ${Font.body.body1_Bold};
   color: #1a1a1a;
   margin: 0 0 6px 0;
   line-height: 1.2;
   align-self: flex-start;
+
+  /* 모바일 - 작게 */
+  @media (max-width: 767px) {
+    font-size: 14px;
+  }
+
+  /* 태블릿 세로 (768px ~ 1023px) */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 15px;
+  }
+
+  /* 대형 데스크톱 (1536px ~ 1919px) */
+  @media (min-width: 1536px) and (max-width: 1919px) {
+    font-size: 18px;
+  }
+
+  /* 초대형 화면 (1920px+) */
+  @media (min-width: 1920px) {
+    font-size: 20px;
+  }
 `;
 
 export const CardDescription = styled.p`
- font-family: ${Font.label.label1_Regular};
+  font-family: ${Font.body.body3_Regular};
   color: #666666;
-  margin:0;
+  margin: 0;
   line-height: 1.3;
   align-self: flex-start;
+
+  /* 모바일 - 작게 */
+  @media (max-width: 767px) {
+    font-size: 11px;
+  }
+
+  /* 태블릿 세로 (768px ~ 1023px) */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 12px;
+  }
+
+  /* 대형 데스크톱 (1536px ~ 1919px) */
+  @media (min-width: 1536px) and (max-width: 1919px) {
+    font-size: 14px;
+  }
+
+  /* 초대형 화면 (1920px+) */
+  @media (min-width: 1920px) {
+    font-size: 16px;
+  }
 `;
 
 export const CardFooter = styled.div`
@@ -120,7 +157,7 @@ export const CardFooter = styled.div`
   justify-content: space-between;
   align-items: center;
   padding-top: 4px;
-  border-top:1px solid #D8DBDF;
+  border-top: 1px solid #D8DBDF;
   margin-bottom: 7%;
 `;
 
@@ -139,12 +176,53 @@ export const MemberIcon = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 16px;
+
+  /* 모바일 - 작게 */
+  @media (max-width: 767px) {
+    width: 18px;
+    height: 18px;
+    font-size: 14px;
+  }
+
+  /* 대형 데스크톱 (1536px ~ 1919px) */
+  @media (min-width: 1536px) and (max-width: 1919px) {
+    width: 22px;
+    height: 22px;
+    font-size: 17px;
+  }
+
+  /* 초대형 화면 (1920px+) */
+  @media (min-width: 1920px) {
+    width: 24px;
+    height: 24px;
+    font-size: 18px;
+  }
 `;
 
 export const MemberCount = styled.span`
   font-size: 12px;
   color: #666666;
   font-weight: 500;
+
+  /* 모바일 - 작게 */
+  @media (max-width: 767px) {
+    font-size: 10px;
+  }
+
+  /* 태블릿 세로 (768px ~ 1023px) */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 11px;
+  }
+
+  /* 대형 데스크톱 (1536px ~ 1919px) */
+  @media (min-width: 1536px) and (max-width: 1919px) {
+    font-size: 13px;
+  }
+
+  /* 초대형 화면 (1920px+) */
+  @media (min-width: 1920px) {
+    font-size: 14px;
+  }
 `;
 
 export const Actions = styled.div`
@@ -164,6 +242,34 @@ export const NotificationBadge = styled.div`
   justify-content: center;
   font-size: 13px;
   font-weight: 600;
+
+  /* 모바일 - 작게 */
+  @media (max-width: 767px) {
+    width: 24px;
+    height: 16px;
+    font-size: 11px;
+  }
+
+  /* 태블릿 세로 (768px ~ 1023px) */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 25px;
+    height: 17px;
+    font-size: 12px;
+  }
+
+  /* 대형 데스크톱 (1536px ~ 1919px) */
+  @media (min-width: 1536px) and (max-width: 1919px) {
+    width: 28px;
+    height: 20px;
+    font-size: 14px;
+  }
+
+  /* 초대형 화면 (1920px+) */
+  @media (min-width: 1920px) {
+    width: 30px;
+    height: 22px;
+    font-size: 15px;
+  }
 `;
 
 export const SettingsIcon = styled.div`
@@ -180,5 +286,26 @@ export const SettingsIcon = styled.div`
 
   &:hover {
     background-color: #f5f5f5;
+  }
+
+  /* 모바일 - 작게 */
+  @media (max-width: 767px) {
+    width: 18px;
+    height: 18px;
+    font-size: 16px;
+  }
+
+  /* 대형 데스크톱 (1536px ~ 1919px) */
+  @media (min-width: 1536px) and (max-width: 1919px) {
+    width: 22px;
+    height: 22px;
+    font-size: 20px;
+  }
+
+  /* 초대형 화면 (1920px+) */
+  @media (min-width: 1920px) {
+    width: 24px;
+    height: 24px;
+    font-size: 22px;
   }
 `;

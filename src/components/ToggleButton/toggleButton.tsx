@@ -8,7 +8,7 @@ interface ToggleButtonProps {
   size?: 'large' | 'small';
 }
 
-const ToggleButton: React.FC<ToggleButtonProps> = ({ 
+export const ToggleButton: React.FC<ToggleButtonProps> = ({ 
   options, 
   defaultSelected = 0, 
   onChange,
@@ -36,5 +36,3 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
     </ToggleContainer>
   );
 };
-
-export default ToggleButton;

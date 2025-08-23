@@ -27,7 +27,7 @@ interface ProjectCardProps {
  imgColor?: string;
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({
+export const ProjectCard: React.FC<ProjectCardProps> = ({
  title = "워크스페이스 제목",
  description = "워크스페이스",
  memberCount = 4,
@@ -89,4 +89,3 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
  );
 };
 
-export default ProjectCard;

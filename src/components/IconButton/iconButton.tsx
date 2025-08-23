@@ -9,7 +9,7 @@ interface IconButtonProps {
   icon?: React.ComponentType<LucideProps>;
 }
 
-const IconButton: React.FC<IconButtonProps> = ({ 
+export const IconButton: React.FC<IconButtonProps> = ({ 
   size = 'large', 
   onClick,
   icon: IconComponent = Menu
@@ -26,4 +26,3 @@ const IconButton: React.FC<IconButtonProps> = ({
   );
 };
 
-export default IconButton;

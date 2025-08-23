@@ -7,7 +7,7 @@ import { useHeaderState, useTabManagement, useOverflowDetection } from './hooks'
 import { lightColors } from '../../tokens/semantic';
 import { primitiveColors } from '../../tokens/Primitive'
 
-const Header: React.FC<HeaderProps> = ({
+export const Header: React.FC<HeaderProps> = ({
   onNavigateBack,
   onNavigateForward,
   canGoBack = false,
@@ -109,7 +109,7 @@ const Header: React.FC<HeaderProps> = ({
   );
 };
 
-export default Header;
+
 
 /*
 사용법:

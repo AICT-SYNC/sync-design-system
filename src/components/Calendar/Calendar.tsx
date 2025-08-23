@@ -14,7 +14,7 @@ interface CalendarProps {
   size?: "medium" | "large";
 }
 
-const Calendar: React.FC<CalendarProps> = ({
+export const Calendar: React.FC<CalendarProps> = ({
   value,
   splitCharacter = ".",
   onChange,
@@ -148,5 +148,3 @@ const Calendar: React.FC<CalendarProps> = ({
     </S.DatePickerContainer>
   );
 };
-
-export default Calendar;

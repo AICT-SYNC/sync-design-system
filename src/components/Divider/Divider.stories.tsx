@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import Divider from './index';
+import { Divider } from './index';
 
 const meta: Meta<typeof Divider> = {
   title: 'Components/Divider',
@@ -186,9 +186,9 @@ export const AllSizes: Story = {
 // 실제 사용 예시
 export const UsageExample: Story = {
   render: () => (
-    <div style={{ 
-      backgroundColor: 'white', 
-      padding: '24px', 
+    <div style={{
+      backgroundColor: 'white',
+      padding: '24px',
       borderRadius: '8px',
       boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
       maxWidth: '400px'

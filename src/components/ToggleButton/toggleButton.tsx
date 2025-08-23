@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { ToggleContainer, ToggleOption } from './style';
+import { ToggleButtonSize } from '../../foundation/ToggleButton';
 
 interface ToggleButtonProps {
   options: string[];
   defaultSelected?: number;
   onChange?: (selectedIndex: number) => void;
-  size?: 'large' | 'small';
+  size?: ToggleButtonSize;
 }
 
-const ToggleButton: React.FC<ToggleButtonProps> = ({ 
+export const ToggleButton: React.FC<ToggleButtonProps> = ({ 
   options, 
   defaultSelected = 0, 
   onChange,
-  size = 'large'
+  size = ToggleButtonSize.Large
 }) => {
   const [selectedIndex, setSelectedIndex] = useState(defaultSelected);
 
@@ -36,5 +37,3 @@ const ToggleButton: React.FC<ToggleButtonProps> = ({
     </ToggleContainer>
   );
 };
-
-export default ToggleButton;

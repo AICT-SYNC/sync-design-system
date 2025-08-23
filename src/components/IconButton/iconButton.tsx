@@ -2,15 +2,16 @@ import React from 'react';
 import { IconButtonContainer, IconWrapper } from './style';
 import { Menu } from 'lucide-react';
 import type { LucideProps } from 'lucide-react';
+import { IconButtonSize } from '../../foundation/IconButton';
 
 interface IconButtonProps {
-  size?: 'large' | 'medium' | 'small';
+  size?: IconButtonSize;
   onClick?: () => void;
   icon?: React.ComponentType<LucideProps>;
 }
 
-const IconButton: React.FC<IconButtonProps> = ({ 
-  size = 'large', 
+export const IconButton: React.FC<IconButtonProps> = ({ 
+  size = IconButtonSize.Large, 
   onClick,
   icon: IconComponent = Menu
 }) => {
@@ -26,4 +27,3 @@ const IconButton: React.FC<IconButtonProps> = ({
   );
 };
 
-export default IconButton;

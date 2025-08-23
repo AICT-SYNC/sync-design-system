@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import Header from './Header';
-import { Tab } from './types';
 
 const meta: Meta<typeof Header> = {
   title: 'Components/Header',
@@ -15,33 +14,32 @@ const meta: Meta<typeof Header> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// 텍스트 자르기 함수
-const truncateText = (text: string, maxLength: number): string =>
-  text.length <= maxLength ? text : text.substring(0, maxLength) + '...';
-
 // 스토리용 래퍼 컴포넌트
 const HeaderWrapper = (args: any) => {
-  const [tabs, setTabs] = useState<Tab[]>(args.tabs || []);
-  const pageBoxWrapRef = useRef<HTMLDivElement | null>(null);
+  const [isHover, setIsHover] = useState(false);
 
   const handleTabClick = (tabId: string) => {
-    setTabs(prev => prev.map(tab => ({ ...tab, isActive: tab.id === tabId })));
     console.log('Tab clicked:', tabId);
   };
 
   const handleTabClose = (tabId: string) => {
-    setTabs(prev => prev.filter(tab => tab.id !== tabId));
     console.log('Tab closed:', tabId);
   };
 
   return (
-    <Header
-      tabs={tabs}
-      onTabClick={handleTabClick}
-      onTabClose={handleTabClose}
-      truncateText={truncateText}
-      pageBoxWrapRef={pageBoxWrapRef}
-    />
+    <div 
+      onMouseEnter={() => setIsHover(true)}
+      onMouseLeave={() => setIsHover(false)}
+    >
+      <Header
+        id={args.id}
+        title={args.title}
+        isActive={args.isActive}
+        isHover={isHover}
+        onTabClick={handleTabClick}
+        onTabClose={handleTabClose}
+      />
+    </div>
   );
 };
 
@@ -49,9 +47,19 @@ const HeaderWrapper = (args: any) => {
 export const Default: Story = {
   render: (args) => <HeaderWrapper {...args} />,
   args: {
-    tabs: [
-      { id: '1', title: '프로젝트 A', isActive: true, projectId: 'proj-1' },
-    ],
+    id: '1',
+    title: '프로젝트 A',
+    isActive: true,
+  },
+};
+
+// 비활성 탭
+export const Inactive: Story = {
+  render: (args) => <HeaderWrapper {...args} />,
+  args: {
+    id: '1',
+    title: '비활성 탭',
+    isActive: false,
   },
 };
 
@@ -59,9 +67,9 @@ export const Default: Story = {
 export const LongTitle: Story = {
   render: (args) => <HeaderWrapper {...args} />,
   args: {
-    tabs: [
-      { id: '1', title: '2025 나르샤 팀 AICT 프로젝트 매우 긴 이름', isActive: true, projectId: 'proj-1' },
-    ],
+    id: '1',
+    title: '2025 나르샤 팀 AICT 프로젝트 매우 긴 이름',
+    isActive: true,
   },
 };
 
@@ -69,28 +77,46 @@ export const LongTitle: Story = {
 export const ShortTitle: Story = {
   render: (args) => <HeaderWrapper {...args} />,
   args: {
-    tabs: [
-      { id: '1', title: '짧은제목', isActive: true, projectId: 'proj-1' },
-    ],
+    id: '1',
+    title: '짧은제목',
+    isActive: true,
   },
 };
 
-// 여러 탭 중 활성화된 탭만 표시
-export const ActiveFromMultiple: Story = {
-  render: (args) => <HeaderWrapper {...args} />,
+// 호버 상태 (항상 CloseIcon 보임)
+export const AlwaysShowCloseIcon: Story = {
+  render: (args) => (
+    <Header
+      id={args.id}
+      title={args.title}
+      isActive={args.isActive}
+      isHover={true} // 항상 hover 상태
+      onTabClick={(tabId) => console.log('Tab clicked:', tabId)}
+      onTabClose={(tabId) => console.log('Tab closed:', tabId)}
+    />
+  ),
   args: {
-    tabs: [
-      { id: '1', title: '프로젝트 1', isActive: false, projectId: 'proj-1' },
-      { id: '2', title: '활성화된 프로젝트', isActive: true, projectId: 'proj-2' },
-      { id: '3', title: '프로젝트 3', isActive: false, projectId: 'proj-3' },
-    ],
+    id: '1',
+    title: '호버 상태 탭',
+    isActive: false,
   },
 };
 
-// 탭 없음
-export const NoTabs: Story = {
-  render: (args) => <HeaderWrapper {...args} />,
+// 활성화된 탭 (CloseIcon 보임)
+export const ActiveWithCloseIcon: Story = {
+  render: (args) => (
+    <Header
+      id={args.id}
+      title={args.title}
+      isActive={args.isActive}
+      isHover={false}
+      onTabClick={(tabId) => console.log('Tab clicked:', tabId)}
+      onTabClose={(tabId) => console.log('Tab closed:', tabId)}
+    />
+  ),
   args: {
-    tabs: [],
+    id: '1',
+    title: '활성화된 탭',
+    isActive: true,
   },
 };

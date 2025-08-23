@@ -3,34 +3,40 @@ import * as S from './style';
 import { SyncIcon, SyncIcons } from '../../assets/icons/SyncIcons';
 import { HeaderProps } from './types';
 
+
 const Header: React.FC<HeaderProps> = ({
-  tabs,
+  id,
+  title,
+  isActive,
+  isHover,
   onTabClick,
   onTabClose,
-  truncateText,
-  pageBoxWrapRef,
 }) => {
-  const activeTab = tabs.find(tab => tab.isActive) || tabs[0];
-  
-  if (!activeTab) return null;
+
+  const truncateText = (text: string, maxLength: number): string => {
+    return text.length > maxLength
+      ? text.slice(0, maxLength) + '...'
+      : text;
+  };
 
   return (
     <S.HeaderContainer>
-      <S.PageBoxWrap ref={pageBoxWrapRef}>
-        <S.TabBox 
-          isActive={activeTab.isActive}
-          isFirst={true}
-          onClick={() => onTabClick(activeTab.id)}
-        >
-          <S.ContentBox>{truncateText(activeTab.title, 12)}</S.ContentBox>
+      <S.TabBox
+        isActive={isActive}
+        isFirst={true}
+        onClick={() => onTabClick(id)}
+      >
+        <S.ContentBox>{truncateText(title, 12)}</S.ContentBox>
+
+        {(isHover || isActive) && (
           <S.CloseIcon onClick={(e) => {
             e.stopPropagation();
-            onTabClose(activeTab.id);
+            onTabClose(id);
           }}>
             <SyncIcon name={SyncIcons.X} size={15} />
           </S.CloseIcon>
-        </S.TabBox>
-      </S.PageBoxWrap>
+        )}
+      </S.TabBox>
     </S.HeaderContainer>
   );
 };

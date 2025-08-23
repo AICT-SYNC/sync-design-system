@@ -7,7 +7,7 @@ export const HeaderContainer = styled.div`
     flex-direction: row;
     width: 100%;
     height: 40px;
-    border-bottom: 1px solid #D8DBDF;
+    /* border-bottom: 1px solid #D8DBDF; */ /* 제거 */
 `;
 
 export const OpenIconBox = styled.div`
@@ -55,16 +55,16 @@ export const TabBox = styled.div<{ isActive: boolean; isFirst: boolean }>`
     min-width: 150px;
     height: 100%;
     font-family: ${props => props.isActive ? Font.label.label4_semiBold : Font.label.label4_Regular};
-    background-color: ${props => props.isActive ? '#EDEEF1' : 'transparent'};
+    /* background-color: ${props => props.isActive ? '#EDEEF1' : 'transparent'}; */ /* 제거 */
     color: ${props => props.isActive ? '#383A42' : 'inherit'};
     position: relative;
     cursor: pointer;
     
-    &:hover {
+    /* &:hover {
         background-color: ${props => props.isActive ? '#EDEEF1' : '#e5e6e8ff'};
-    }
+    } */ /* 제거 */
     
-    &::before {
+    /* &::before {
         content: '';
         position: absolute;
         left: 0;
@@ -73,9 +73,9 @@ export const TabBox = styled.div<{ isActive: boolean; isFirst: boolean }>`
         height: 100%;
         border-left: ${props => props.isFirst && !props.isActive ? `0.1px solid ${lightColors['border-medium']}` : 'none'};
         display: ${props => props.isFirst && !props.isActive ? 'block' : 'none'};
-    }
+    } */ /* 제거 */
     
-    &::after {
+    /* &::after {
         content: '';
         position: absolute;
         right: 0;
@@ -84,7 +84,7 @@ export const TabBox = styled.div<{ isActive: boolean; isFirst: boolean }>`
         height: 100%;
         border-right: ${props => props.isActive ? 'none' : `0.1px solid ${lightColors['border-medium']}`};
         display: ${props => props.isActive ? 'none' : 'block'};
-    }
+    } */ /* 제거 */
 `;
 
 export const ContentBox = styled.div`

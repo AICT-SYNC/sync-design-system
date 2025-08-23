@@ -1,6 +1,6 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import IconButton from "./iconButton";
+import { IconButton } from "./iconButton";
 import { Menu, Search, Settings, User, Home, Bell } from "lucide-react";
 
 interface IconButtonProps {

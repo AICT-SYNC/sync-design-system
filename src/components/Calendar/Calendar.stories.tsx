@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import Calendar from "./Calendar";
+import {Calendar} from "./Calendar";
 import styled from "styled-components";
 
 interface CalendarProps {

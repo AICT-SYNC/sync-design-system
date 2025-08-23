@@ -2,9 +2,10 @@ import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { IconButton } from "./iconButton";
 import { Menu, Search, Settings, User, Home, Bell } from "lucide-react";
+import { IconButtonSize } from "../../foundation/IconButton";
 
 interface IconButtonProps {
-  size?: 'large' | 'medium' | 'small';
+  size?: IconButtonSize;
   onClick?: () => void;
   icon?: React.ComponentType;
 }
@@ -15,7 +16,7 @@ const meta: Meta<IconButtonProps> = {
   argTypes: {
     size: {
       control: { type: "radio" },
-      options: ["large", "medium", "small"],
+      options: Object.values(IconButtonSize),
     },
     icon: {
       control: { type: "select" },
@@ -45,63 +46,63 @@ type Story = StoryObj<IconButtonProps>;
 
 export const Default: Story = {
   args: {
-    size: "large",
+    size: IconButtonSize.Large,
     icon: Menu,
   },
 };
 
 export const Large: Story = {
   args: {
-    size: "large",
+    size: IconButtonSize.Large,
     icon: Menu,
   },
 };
 
 export const Medium: Story = {
   args: {
-    size: "medium",
+    size: IconButtonSize.Medium,
     icon: Menu,
   },
 };
 
 export const Small: Story = {
   args: {
-    size: "small",
+    size: IconButtonSize.Small,
     icon: Menu,
   },
 };
 
 export const WithSearchIcon: Story = {
   args: {
-    size: "large",
+    size: IconButtonSize.Large,
     icon: Search,
   },
 };
 
 export const WithSettingsIcon: Story = {
   args: {
-    size: "large",
+    size: IconButtonSize.Large,
     icon: Settings,
   },
 };
 
 export const WithUserIcon: Story = {
   args: {
-    size: "large",
+    size: IconButtonSize.Large,
     icon: User,
   },
 };
 
 export const WithHomeIcon: Story = {
   args: {
-    size: "large",
+    size: IconButtonSize.Large,
     icon: Home,
   },
 };
 
 export const WithBellIcon: Story = {
   args: {
-    size: "large",
+    size: IconButtonSize.Large,
     icon: Bell,
   },
 };

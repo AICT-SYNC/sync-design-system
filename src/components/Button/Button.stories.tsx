@@ -1,6 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button, ButtonProps } from "./Button";
+import { ButtonVariant } from "../../foundation/Button";
 
 const meta: Meta<ButtonProps> = {
   title: "Example/Button",
@@ -8,7 +9,7 @@ const meta: Meta<ButtonProps> = {
   argTypes: {
     variant: {
       control: { type: "radio" },
-      options: ["primary", "secondary"],
+      options: Object.values(ButtonVariant),
     },
     children: { control: "text" },
   },
@@ -20,14 +21,14 @@ type Story = StoryObj<ButtonProps>;
 
 export const Primary: Story = {
   args: {
-    variant: "primary",
+    variant: ButtonVariant.Primary,
     children: "Primary Button",
   },
 };
 
 export const Secondary: Story = {
   args: {
-    variant: "secondary",
+    variant: ButtonVariant.Secondary,
     children: "Secondary Button",
   },
 };

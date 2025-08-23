@@ -27,7 +27,7 @@ interface WorkspaceCardProps {
  imageUrl?: string;
 }
 
-const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
+export const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
  title = "프로젝트 제목",
  description = "4개의 프로젝트", 
  memberCount = 4,
@@ -78,4 +78,3 @@ const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
  );
 };
 
-export default WorkspaceCard;

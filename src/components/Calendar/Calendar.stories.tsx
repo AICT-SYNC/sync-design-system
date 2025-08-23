@@ -1,6 +1,6 @@
 import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import Calendar from "./Calendar";
+import { Calendar } from "./Calendar";
 import styled from "styled-components";
 
 interface CalendarProps {
@@ -26,9 +26,8 @@ const CalendarWithState = (args: CalendarProps) => {
     const year = date.getFullYear();
     const month = (date.getMonth() + 1).toString().padStart(2, "0");
     const day = date.getDate().toString().padStart(2, "0");
-    const formattedDate = `${year}${args.splitCharacter || "-"}${month}${
-      args.splitCharacter || "-"
-    }${day}`;
+    const formattedDate = `${year}${args.splitCharacter || "-"}${month}${args.splitCharacter || "-"
+      }${day}`;
     setSelectedDate(formattedDate);
     args.onChange(date);
   };

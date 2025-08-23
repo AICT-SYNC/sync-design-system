@@ -1,15 +1,16 @@
 import React from 'react';
 import * as S from './style';
+import { InputSize } from '../../foundation/Input';
 
 interface InputProps {
-  Size: 'S' | 'M' | 'L';
+  Size: InputSize;
   Enabled: boolean;
   PlaceHolder: string;
   onChange?: (value: string, event: React.ChangeEvent<HTMLInputElement>) => void;
   value: any;
 }
 
-const Input: React.FC<InputProps> = ({
+export const Input: React.FC<InputProps> = ({
   Size,
   Enabled,
   PlaceHolder,
@@ -37,5 +38,3 @@ const Input: React.FC<InputProps> = ({
     </div>
   );
 };
-
-export default Input;

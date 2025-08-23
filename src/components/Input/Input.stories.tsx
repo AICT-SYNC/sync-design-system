@@ -66,7 +66,7 @@ export const Small: Story = {
   args: {
     Size: InputSize.S,
     Enabled: true,
-    PlaceHolder: '작은 입력창',
+    PlaceHolder: '텍스트',
     value: '',
   },
 };
@@ -76,7 +76,7 @@ export const Medium: Story = {
   args: {
     Size: InputSize.M,
     Enabled: true,
-    PlaceHolder: '중간 입력창',
+    PlaceHolder: '텍스트',
     value: '',
   },
 };
@@ -86,7 +86,7 @@ export const Large: Story = {
   args: {
     Size: InputSize.L,
     Enabled: true,
-    PlaceHolder: '큰 입력창',
+    PlaceHolder: '텍스트',
     value: '',
   },
 };

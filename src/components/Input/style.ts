@@ -23,12 +23,46 @@ export const InputContainer = styled.input<InputContainerProps>`
       case 'M': return '40px';
       case 'L': return '48px';
       default: return '48px';
+    };
+  }};
+  ${({ size }) => {
+    switch (size) {
+      case 'S': return `
+        font-family: ${Font.label.label4_semiBold};
+        font-size: ${Font.label.label4_semiBold.fontSize || '12px'};
+        font-weight: ${Font.label.label4_semiBold.fontWeight || '600'};
+        line-height: ${Font.label.label4_semiBold.lineHeight || '1.4'};
+      `;
+      case 'M': return `
+        font-family: ${Font.label.label2_semiBold.fontFamily || Font.label.label2_semiBold};
+        font-size: ${Font.label.label2_semiBold.fontSize || '14px'};
+        font-weight: ${Font.label.label2_semiBold.fontWeight || '600'};
+        line-height: ${Font.label.label2_semiBold.lineHeight || '1.4'};
+      `;
+      case 'L': return `
+        font-family: ${Font.label.label1_semiBold.fontFamily || Font.label.label1_semiBold};
+        font-size: ${Font.label.label1_semiBold.fontSize || '16px'};
+        font-weight: ${Font.label.label1_semiBold.fontWeight || '600'};
+        line-height: ${Font.label.label1_semiBold.lineHeight || '1.4'};
+      `;
+      default: return `
+        font-family: ${Font.label.label1_semiBold.fontFamily || Font.label.label1_semiBold};
+        font-size: ${Font.label.label1_semiBold.fontSize || '16px'};
+        font-weight: ${Font.label.label1_semiBold.fontWeight || '600'};
+        line-height: ${Font.label.label1_semiBold.lineHeight || '1.4'};
+      `;
     }
   }};
-  font-family: ${Font.label.label1_semiBold};
   border-radius: 4px;
   gap: 10px;
-  padding: 0 16px;
+  padding: ${({ size }) => {
+    switch (size) {
+      case 'S': return '4px 8px';
+      case 'M': return '4px 12px';  
+      case 'L': return '4px 16px';
+      default: return '4px 16px';
+    }
+  }};
   outline: none;
   transition: border-color 0.2s ease;
   border: 1px solid ${lightColors['border-light']};
@@ -58,7 +92,7 @@ export const InputContainer = styled.input<InputContainerProps>`
     color: ${lightColors['text-muted']} !important;
     cursor: not-allowed !important;
     box-shadow: none !important;
-         
+            
     &:hover, &:focus {
       border: 1px solid ${lightColors['border-light']} !important;
       background-color: ${lightColors['background-secondary']} !important;
@@ -68,7 +102,7 @@ export const InputContainer = styled.input<InputContainerProps>`
 
   &::placeholder {
     color: ${lightColors['text-muted']};
-    font-family: ${Font.label.label1_semiBold};
+    /* font-family: ${Font.label.label1_semiBold}; */
   }
 
   &:disabled::placeholder {

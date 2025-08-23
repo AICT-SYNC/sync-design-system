@@ -11,7 +11,7 @@ interface DropdownProps {
   buttonSize?: 'large' | 'small';
 }
 
-const Dropdown: React.FC<DropdownProps> = ({ 
+export const Dropdown: React.FC<DropdownProps> = ({ 
   options,
   defaultSelected = 0,
   placeholder = "선택하세요",
@@ -60,5 +60,3 @@ const Dropdown: React.FC<DropdownProps> = ({
     </DropdownContainer>
   );
 };
-
-export default Dropdown;

@@ -8,7 +8,7 @@ interface DividerProps {
     Size: SizeTypes
 }
 
-const Divider: React.FC<DividerProps> = ({widthProps = '375px',  Size='Bold'}) => {
+export const Divider: React.FC<DividerProps> = ({widthProps = '375px',  Size='Bold'}) => {
   return (
     <div>
       <S.Divider
@@ -19,4 +19,3 @@ const Divider: React.FC<DividerProps> = ({widthProps = '375px',  Size='Bold'}) =
   )
 }
 
-export default Divider

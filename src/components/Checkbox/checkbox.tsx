@@ -9,7 +9,7 @@ interface CheckboxProps {
   disabled?: boolean;
 }
 
-const Checkbox: React.FC<CheckboxProps> = ({ 
+export const Checkbox: React.FC<CheckboxProps> = ({ 
   size = 'xlarge',
   checked = false,
   onChange,
@@ -46,4 +46,3 @@ const Checkbox: React.FC<CheckboxProps> = ({
   );
 };
 
-export default Checkbox;

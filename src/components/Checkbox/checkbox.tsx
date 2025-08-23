@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { CheckboxContainer, CheckboxInput, CheckboxIcon } from './style';
 import { Check } from 'lucide-react';
+import { CheckboxSize } from '../../foundation/Checkbox';
 
 interface CheckboxProps {
-  size?: 'xlarge' | 'large' | 'medium' | 'small' | 'xsmall';
+  size?: CheckboxSize;
   checked?: boolean;
   onChange?: (checked: boolean) => void;
   disabled?: boolean;
 }
 
 export const Checkbox: React.FC<CheckboxProps> = ({ 
-  size = 'xlarge',
+  size = CheckboxSize.XLarge,
   checked = false,
   onChange,
   disabled = false

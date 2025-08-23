@@ -1,8 +1,9 @@
 import React from 'react';
 import * as S from './style';
+import { InputSize } from '../../foundation/Input';
 
 interface InputProps {
-  Size: 'S' | 'M' | 'L';
+  Size: InputSize;
   Enabled: boolean;
   PlaceHolder: string;
   onChange?: (value: string, event: React.ChangeEvent<HTMLInputElement>) => void;

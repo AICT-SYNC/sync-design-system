@@ -1,19 +1,18 @@
 import React from "react";
 import styled, { css } from "styled-components";
 import { lightColors } from "../../tokens/LightColors";
+import { BadgeRole, BadgeSize } from "../../foundation/Badge";
 // import { Font } from "../../tokens/Font";
 
-export type Badgerole = "Error" | "Warring" | "Success" | "Info";
-
 export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
-  size?: "S" | "M" | "L";
-  role?: Badgerole;
+  size?: BadgeSize;
+  role?: BadgeRole;
   count: number;
 }
 
 const StyledBadge = styled.div<{
-  role: Badgerole;
-  size: "S" | "M" | "L";
+  role: BadgeRole;
+  size: BadgeSize;
 }>`
   display: inline-flex;
   align-items: center;
@@ -23,54 +22,54 @@ const StyledBadge = styled.div<{
 
   height: ${(props) => {
     switch (props.size) {
-      case "S":
+      case BadgeSize.S:
         return "20px";
-      case "M":
+      case BadgeSize.M:
         return "24px";
-      case "L":
+      case BadgeSize.L:
         return "28px";
     }
   }};
   font-size: ${(props) => {
     switch (props.size) {
-      case "S":
+      case BadgeSize.S:
         //   return `${lightColors["status-error"]}`;
         return "12px";
-      case "M":
+      case BadgeSize.M:
         return "14px";
-      case "L":
+      case BadgeSize.L:
         return "16px";
     }
   }};
   color: white;
 
   ${(props) =>
-    props.role === "Error" &&
+    props.role === BadgeRole.Error &&
     css`
       background-color: ${lightColors["status-error"]};
     `}
 
   ${(props) =>
-    props.role === "Warring" &&
+    props.role === BadgeRole.Warning &&
     css`
       background-color: ${lightColors["status-warning"]};
     `}
 
     ${(props) =>
-    props.role === "Success" &&
+    props.role === BadgeRole.Success &&
     css`
       background-color: ${lightColors["status-success"]};
     `}
     ${(props) =>
-    props.role === "Info" &&
+    props.role === BadgeRole.Info &&
     css`
       background-color: ${lightColors["status-info"]};
     `}
 `;
 
 export const Badge: React.FC<BadgeProps> = ({
-  size = "M",
-  role = "Success",
+  size = BadgeSize.M,
+  role = BadgeRole.Success,
   count,
   ...rest
 }) => {

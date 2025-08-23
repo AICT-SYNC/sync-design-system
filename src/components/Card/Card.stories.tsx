@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import WorkspaceCard from './WorkspaceCard/index.tsx';
-import ProjectCard from './ProjectCard/card.tsx';
+import { WorkspaceCard } from './WorkspaceCard/index.tsx';
+import { ProjectCard } from './ProjectCard/card.tsx';
 import { Avatar } from '../../assets/icons/avatar.tsx';
 
 // ==================== WorkspaceCard Stories ====================
@@ -70,8 +70,8 @@ export const WorkspaceNoNotifications: WorkspaceCardStory = {
 // 관리자 권한별 비교
 export const WorkspacePermissionComparison: WorkspaceCardStory = {
   render: () => (
-    <div style={{ 
-      display: 'flex', 
+    <div style={{
+      display: 'flex',
       gap: '20px',
       padding: '20px'
     }}>
@@ -84,7 +84,7 @@ export const WorkspacePermissionComparison: WorkspaceCardStory = {
           notificationCount={3}
         />
       </div>
-      
+
     </div>
   ),
 };
@@ -154,8 +154,8 @@ export const ProjectWithImage: ProjectCardStory = {
 // 관리자 권한별 비교
 export const ProjectPermissionComparison: ProjectCardStory = {
   render: () => (
-    <div style={{ 
-      display: 'flex', 
+    <div style={{
+      display: 'flex',
       gap: '20px',
       padding: '20px'
     }}>

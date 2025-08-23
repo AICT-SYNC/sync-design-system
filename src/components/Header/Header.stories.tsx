@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import Header from './Header';
+import { Header } from './Header';
 
 const meta: Meta<typeof Header> = {
   title: 'Components/Header',
@@ -84,23 +84,23 @@ export const NoNavigation: Story = {
 export const CustomTabs: Story = {
   args: {
     initialTabs: [
-      { 
-        id: '1', 
-        title: '홈', 
-        isActive: true, 
-        projectId: 'proj-home-001', 
+      {
+        id: '1',
+        title: '홈',
+        isActive: true,
+        projectId: 'proj-home-001',
       },
-      { 
-        id: '2', 
-        title: '프로젝트 관리', 
-        isActive: false, 
-        projectId: 'proj-mgmt-002', 
+      {
+        id: '2',
+        title: '프로젝트 관리',
+        isActive: false,
+        projectId: 'proj-mgmt-002',
       },
-      { 
-        id: '3', 
-        title: '설정', 
-        isActive: false, 
-        projectId: 'proj-settings-003', 
+      {
+        id: '3',
+        title: '설정',
+        isActive: false,
+        projectId: 'proj-settings-003',
       },
     ],
     canGoBack: true,
@@ -112,23 +112,23 @@ export const CustomTabs: Story = {
 export const LongTitleTabs: Story = {
   args: {
     initialTabs: [
-      { 
-        id: '1', 
-        title: '매우 긴 프로젝트 제목이 들어가는 경우의 처리 방법', 
-        isActive: true, 
-        projectId: 'proj-long-001', 
+      {
+        id: '1',
+        title: '매우 긴 프로젝트 제목이 들어가는 경우의 처리 방법',
+        isActive: true,
+        projectId: 'proj-long-001',
       },
-      { 
-        id: '2', 
-        title: '이것도 긴 제목으로 텍스트 오버플로우 확인', 
-        isActive: false, 
-        projectId: 'proj-overflow-002', 
+      {
+        id: '2',
+        title: '이것도 긴 제목으로 텍스트 오버플로우 확인',
+        isActive: false,
+        projectId: 'proj-overflow-002',
       },
-      { 
-        id: '3', 
-        title: '짧은 제목', 
-        isActive: false, 
-        projectId: 'proj-short-003', 
+      {
+        id: '3',
+        title: '짧은 제목',
+        isActive: false,
+        projectId: 'proj-short-003',
       },
     ],
   },
@@ -140,12 +140,12 @@ export const ManyTabs: Story = {
     initialTabs: [
       { id: '1', title: '홈', isActive: true, projectId: 'proj-001', },
       { id: '2', title: '프로젝트 A', isActive: false, projectId: 'proj-002' },
-      { id: '3', title: '프로젝트 B', isActive: false, projectId: 'proj-003'},
+      { id: '3', title: '프로젝트 B', isActive: false, projectId: 'proj-003' },
       { id: '4', title: '설정', isActive: false, projectId: 'proj-004' },
-      { id: '5', title: '문서', isActive: false, projectId: 'proj-005'},
+      { id: '5', title: '문서', isActive: false, projectId: 'proj-005' },
       { id: '6', title: '리포트', isActive: false, projectId: 'proj-006' },
       { id: '7', title: '분석', isActive: false, projectId: 'proj-007' },
-      { id: '8', title: '테스트', isActive: false, projectId: 'proj-008'},
+      { id: '8', title: '테스트', isActive: false, projectId: 'proj-008' },
     ],
     canGoBack: true,
     canGoForward: true,
@@ -156,11 +156,11 @@ export const ManyTabs: Story = {
 export const SingleTab: Story = {
   args: {
     initialTabs: [
-      { 
-        id: '1', 
-        title: '유일한 탭', 
-        isActive: true, 
-        projectId: 'proj-single-001', 
+      {
+        id: '1',
+        title: '유일한 탭',
+        isActive: true,
+        projectId: 'proj-single-001',
       },
     ],
     canGoBack: false,
@@ -211,12 +211,12 @@ export const TabInfoViewer: Story = {
 
     return (
       <div>
-        <Header 
-          canGoBack={true} 
+        <Header
+          canGoBack={true}
           canGoForward={true}
           onTabChange={handleTabChange}
         />
-        
+
         <div style={{
           display: 'grid',
           gridTemplateColumns: '1fr 1fr',
@@ -252,17 +252,17 @@ export const TabInfoViewer: Story = {
             border: '1px solid #dee2e6',
             borderRadius: '8px'
           }}>
-            <div style={{ 
-              display: 'flex', 
-              justifyContent: 'space-between', 
+            <div style={{
+              display: 'flex',
+              justifyContent: 'space-between',
               alignItems: 'center',
               marginBottom: '15px'
             }}>
               <h3 style={{ margin: 0, color: '#495057' }}>로컬 스토리지 데이터</h3>
-              <button 
+              <button
                 onClick={clearStorage}
-                style={{ 
-                  padding: '5px 10px', 
+                style={{
+                  padding: '5px 10px',
                   fontSize: '12px',
                   backgroundColor: '#dc3545',
                   color: 'white',
@@ -274,16 +274,16 @@ export const TabInfoViewer: Story = {
                 초기화
               </button>
             </div>
-            
+
             {storageData.length > 0 ? (
-              <div style={{ 
-                maxHeight: '400px', 
+              <div style={{
+                maxHeight: '400px',
                 overflowY: 'auto',
                 fontSize: '12px'
               }}>
-                <pre style={{ 
-                  backgroundColor: '#e9ecef', 
-                  padding: '10px', 
+                <pre style={{
+                  backgroundColor: '#e9ecef',
+                  padding: '10px',
                   borderRadius: '4px',
                   margin: 0,
                   whiteSpace: 'pre-wrap',
@@ -324,23 +324,23 @@ export const TabInfoViewer: Story = {
 export const Interactive: Story = {
   args: {
     initialTabs: [
-      { 
-        id: '1', 
-        title: '메인 프로젝트', 
-        isActive: true, 
-        projectId: 'main-proj-001', 
+      {
+        id: '1',
+        title: '메인 프로젝트',
+        isActive: true,
+        projectId: 'main-proj-001',
       },
-      { 
-        id: '2', 
-        title: '서브 프로젝트', 
-        isActive: false, 
-        projectId: 'sub-proj-002', 
+      {
+        id: '2',
+        title: '서브 프로젝트',
+        isActive: false,
+        projectId: 'sub-proj-002',
       },
-      { 
-        id: '3', 
-        title: '테스트 환경', 
-        isActive: false, 
-        projectId: 'test-env-003', 
+      {
+        id: '3',
+        title: '테스트 환경',
+        isActive: false,
+        projectId: 'test-env-003',
       },
     ],
     canGoBack: true,
@@ -382,7 +382,7 @@ export const Interactive: Story = {
 export const SidebarStates: Story = {
   render: () => {
     const [sidebarOpen, setSidebarOpen] = React.useState(true);
-    
+
     return (
       <div>
         <Header

@@ -1,23 +1,24 @@
 import React, { useState } from 'react';
 import { DropdownContainer, DropdownButton, DropdownText, DropdownIcon, DropdownList, DropdownItem } from './style';
 import { ChevronDown } from 'lucide-react';
+import { DropdownSize, DropdownButtonSize } from '../../foundation/Dropdown';
 
 interface DropdownProps {
   options: string[];
   defaultSelected?: number;
   placeholder?: string;
   onChange?: (selectedValue: string, selectedIndex: number) => void;
-  size?: 'large' | 'medium';
-  buttonSize?: 'large' | 'small';
+  size?: DropdownSize;
+  buttonSize?: DropdownButtonSize;
 }
 
-const Dropdown: React.FC<DropdownProps> = ({ 
+export const Dropdown: React.FC<DropdownProps> = ({ 
   options,
   defaultSelected = 0,
   placeholder = "선택하세요",
   onChange,
-  size = 'large',
-  buttonSize = 'large'
+  size = DropdownSize.Large,
+  buttonSize = DropdownButtonSize.Large
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(defaultSelected);
@@ -60,5 +61,3 @@ const Dropdown: React.FC<DropdownProps> = ({
     </DropdownContainer>
   );
 };
-
-export default Dropdown;

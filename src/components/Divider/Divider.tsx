@@ -13,7 +13,7 @@ export const Divider: React.FC<DividerProps> = ({widthProps = '375px',  Size='Bo
     <div>
       <S.Divider
         widthProps={widthProps} 
-        SizeProps={Size}    
+        SizeProps={Size}
       />
     </div>
   )

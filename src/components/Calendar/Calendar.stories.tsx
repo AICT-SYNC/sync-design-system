@@ -2,13 +2,14 @@ import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Calendar } from "./Calendar";
 import styled from "styled-components";
+import { DatePickerVariant, CalendarSize } from "../../foundation";
 
 interface CalendarProps {
   value: string;
   splitCharacter?: string;
   onChange: (date: Date) => void;
-  type?: "entire" | "future";
-  size?: "medium" | "large";
+  type?: DatePickerVariant;
+  size?: CalendarSize;
 }
 
 const Wrap = styled.div`
@@ -45,12 +46,12 @@ const meta: Meta<CalendarProps> = {
   argTypes: {
     type: {
       control: { type: "radio" },
-      options: ["entire", "future"],
+      options: [DatePickerVariant.entire, DatePickerVariant.future],
       description: "날짜 선택 모드 (전체 또는 미래 날짜만)",
     },
     size: {
       control: { type: "radio" },
-      options: ["medium", "large"],
+      options: [CalendarSize.M, CalendarSize.L],
       description: "컴포넌트 크기",
     },
     splitCharacter: {
@@ -73,8 +74,8 @@ export const Default: Story = {
   args: {
     value: "2024.01.15",
     splitCharacter: ".",
-    type: "entire",
-    size: "medium",
+    type: DatePickerVariant.entire,
+    size: CalendarSize.M,
   },
 };
 
@@ -82,8 +83,8 @@ export const FutureOnly: Story = {
   args: {
     value: "2024.12.25",
     splitCharacter: ".",
-    type: "future",
-    size: "medium",
+    type: DatePickerVariant.future,
+    size: CalendarSize.M,
   },
 };
 
@@ -91,8 +92,8 @@ export const Large: Story = {
   args: {
     value: "2024.03.10",
     splitCharacter: ".",
-    type: "entire",
-    size: "large",
+    type: DatePickerVariant.entire,
+    size: CalendarSize.L,
   },
 };
 
@@ -100,8 +101,8 @@ export const CustomSeparator: Story = {
   args: {
     value: "2024/08/20",
     splitCharacter: "/",
-    type: "entire",
-    size: "medium",
+    type: DatePickerVariant.entire,
+    size: CalendarSize.M,
   },
 };
 
@@ -109,7 +110,7 @@ export const NoInitialValue: Story = {
   args: {
     value: "",
     splitCharacter: ".",
-    type: "entire",
-    size: "medium",
+    type: DatePickerVariant.entire,
+    size: CalendarSize.M,
   },
 };

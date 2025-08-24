@@ -4,7 +4,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
 
-import pkg from "./package.json" assert { type: "json" };
+import pkg from "./package.json" with { type: "json" };
 
 export default [
   {
@@ -25,12 +25,14 @@ export default [
       peerDepsExternal(),
       resolve(),
       commonjs(),
-      typescript({ tsconfig: "./tsconfig.app.json" }),
+      typescript({ tsconfig: "./tsconfig.build.json" }),
     ],
   },
   {
     input: "src/index.ts",
     output: [{ file: "dist/index.d.ts", format: "esm" }],
-    plugins: [dts()],
+    plugins: [dts({
+      tsconfig: "./tsconfig.build.json"
+    })],
   },
 ];

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import * as S from './style';
-import { SyncIcon, SyncIcons } from '../../assets/icons/SyncIcons';
 import { HeaderProps } from './types';
 
 const Header: React.FC<HeaderProps> = ({

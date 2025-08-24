@@ -66,4 +66,7 @@ export const darkColors = {
 
   'static-white': '#FFFFFF',
   'static-black': '#000000',
+
+  'header-tab-active': '#383A42',
+  'header-tab-not-active': '#1F2937',
 } as const;

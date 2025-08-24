@@ -11,12 +11,12 @@ import {
  Title,
  Description,
  MemberCount,
- NotificationBadge,
  AvatarBox,
-} from './style.ts';
+} from './style';
 import { Settings } from 'lucide-react';
-import { Avatar } from '../../../assets/icons/avatar.tsx';
+import { Avatar } from '../../../assets/icons/avatar';
 import { Badge } from '../../Badge';
+import { BadgeSize, BadgeRole } from '../../../foundation/Badge';
 
 interface WorkspaceCardProps {
  title?: string;
@@ -32,7 +32,6 @@ export const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
  description = "4개의 프로젝트", 
  memberCount = 4,
  notificationCount = 1,
- imageUrl,
 }) => {
 
  const truncateText = (text: string, maxLength: number): string => {
@@ -68,8 +67,8 @@ export const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
            <MemberCount>{memberCount}</MemberCount>
          </AvatarBox>
          <Badge 
-            size='S'
-            role='Info'
+            size={BadgeSize.S}
+            role={BadgeRole.Info}
             count={notificationCount}
          />
        </Footer>

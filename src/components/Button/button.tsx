@@ -1,7 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
-
-export type ButtonVariant = "primary" | "secondary";
+import { ButtonVariant } from "../../foundation/Button";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
@@ -17,7 +16,7 @@ const StyledButton = styled.button<{ variant: ButtonVariant }>`
   color: white;
 
   ${(props) =>
-    props.variant === "primary" &&
+    props.variant === ButtonVariant.Primary &&
     css`
       background-color: #1e90ff;
       &:hover {
@@ -26,7 +25,7 @@ const StyledButton = styled.button<{ variant: ButtonVariant }>`
     `}
 
   ${(props) =>
-    props.variant === "secondary" &&
+    props.variant === ButtonVariant.Secondary &&
     css`
       background-color: #888;
       &:hover {
@@ -36,7 +35,7 @@ const StyledButton = styled.button<{ variant: ButtonVariant }>`
 `;
 
 export const Button: React.FC<ButtonProps> = ({
-  variant = "primary",
+  variant = ButtonVariant.Primary,
   children,
   ...rest
 }) => {

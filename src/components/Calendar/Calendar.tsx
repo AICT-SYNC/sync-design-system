@@ -3,23 +3,22 @@ import { useDatePicker } from "./useDatePicker";
 import { DAY } from "./constant";
 import { SyncIcon, SyncIcons } from "../../assets/icons/SyncIcons";
 import * as S from "./Calendar.style";
-
-type DatePickerMode = "entire" | "future";
+import { DatePickerVariant, CalendarSize } from "../../foundation";
 
 interface CalendarProps {
   value: string;
   splitCharacter?: string;
   onChange: (date: Date) => void;
-  type?: DatePickerMode;
-  size?: "medium" | "large";
+  type?: DatePickerVariant;
+  size?: CalendarSize;
 }
 
 export const Calendar: React.FC<CalendarProps> = ({
   value,
   splitCharacter = ".",
   onChange,
-  type = "entire",
-  size = "medium",
+  type = DatePickerVariant.entire,
+  size = CalendarSize.M,
 }) => {
   const {
     fold,
@@ -45,7 +44,7 @@ export const Calendar: React.FC<CalendarProps> = ({
   };
 
   const isDisabled = (day: number) => {
-    if (type === "future") {
+    if (type === DatePickerVariant.future) {
       const today = new Date();
       const currentDate = new Date(calendarDate.year, calendarDate.month - 1, day);
       return currentDate < today;

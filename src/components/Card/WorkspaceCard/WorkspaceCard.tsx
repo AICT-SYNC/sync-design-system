@@ -16,7 +16,7 @@ import {
 } from './style.ts';
 import { Settings } from 'lucide-react';
 import { Avatar } from '../../../assets/icons/avatar.tsx';
-import { Badge } from '../../Badge';
+import { Badge } from '../../Badge/index.ts';
 
 interface WorkspaceCardProps {
  title?: string;

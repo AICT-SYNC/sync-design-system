@@ -13,7 +13,7 @@ export const DatePickerCalendar = styled.div<{ x: number; y: number }>`
   position: fixed;
   z-index: 1000;
   transform: translate(-50%, 8px);
-  border: 1px solid ${({ theme }) => theme["calendar-DatePicker-border"]};
+  border: 1px solid ${({ theme }) => theme["border-calendar-DatePicker"]};
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
   font: ${Font.label.label1_semiBold};
@@ -30,7 +30,6 @@ export const DatePickerCalendarHeader = styled.div`
 export const DatePickerHeaderTitle = styled.div`
   display: flex;
   align-items: center;
-  font: ${Font.label.label1_semiBold};
   color: ${({ theme }) => theme["text-black"]};
   user-select: none;
 `;
@@ -51,12 +50,10 @@ export const DatePickerCalendarHeaderArrow = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #6b7280;
   transition: all 0.15s ease;
 
   &:hover {
     background-color: #f3f4f6;
-    color: #1a1a1a;
   }
 
   &:active {
@@ -89,7 +86,7 @@ export const DatePickerCalendarHeaderDayItem = styled.div`
   justify-content: center;
   font-size: 12px;
   font-weight: 500;
-  color: #6b7280;
+  color: ${({ theme }) => theme["text-secondary"]};
   text-transform: uppercase;
   user-select: none;
 `;
@@ -117,7 +114,7 @@ export const DatePickerCalendarItem = styled.button<{
   cursor: pointer;
   transition: all 0.15s ease;
   user-select: none;
-  color: #1a1a1a;
+  color: ${({ theme }) => theme["text-black"]};
   background-color: transparent;
 
   ${({ isDisabled, isSelected, isToday }) => {
@@ -139,7 +136,7 @@ export const DatePickerCalendarItem = styled.button<{
         font-weight: 500;
 
         &:hover {
-          background-color: #374151;
+          background-color: ${({ theme }) => theme["calendar-date-selected-hover"]};
         }
       `;
     }

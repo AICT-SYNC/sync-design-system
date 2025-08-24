@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { Font } from "../../tokens/Font";
 import { CalendarSize } from "../../foundation/Calendar";
 
@@ -22,8 +22,6 @@ export const DatePickerWrap = styled.div`
 `;
 
 export const DatePickerDate = styled.span`
-  background-color: ${({ theme }) => theme["text-black"]};
-  font: ${Font.label.label1_semiBold};
   user-select: none;
 `;
 
@@ -36,7 +34,6 @@ export const DatePickerContent = styled.div`
 export const DatePickerIcon = styled.div`
   width: 24px;
   height: 24px;
-  color: ${({ theme }) => theme["select-btn-false"]};
   display: flex;
   align-items: center;
   justify-content: center;

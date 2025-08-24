@@ -2,6 +2,7 @@ import * as S from "./style";
 import { DAY } from "./constant";
 import { SyncIcon, SyncIcons } from "../../../assets/icons/SyncIcons";
 import { DatePickerVariant } from "../../../foundation";
+import { useTheme } from "styled-components";
 
 interface DatePickerProps {
   setFold: (fold: boolean) => void;
@@ -24,6 +25,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
   onChangeCalendarMonth,
   type,
 }) => {
+  const theme = useTheme();
   const isDisabled = (day: number) => {
     if (type === DatePickerVariant.future) {
       const today = new Date();
@@ -67,14 +69,22 @@ export const DatePicker: React.FC<DatePickerProps> = ({
               onClick={() => onChangeCalendarMonth("prev")}
             >
               <S.DatePickerCalendarHeaderArrowIcon>
-                <SyncIcon name={SyncIcons.ChevronLeft} size={14} />
+                <SyncIcon
+                  name={SyncIcons.ChevronLeft}
+                  size={14}
+                  color={theme["select-btn-false"]}
+                />
               </S.DatePickerCalendarHeaderArrowIcon>
             </S.DatePickerCalendarHeaderArrow>
             <S.DatePickerCalendarHeaderArrow
               onClick={() => onChangeCalendarMonth("next")}
             >
               <S.DatePickerCalendarHeaderArrowIcon>
-                <SyncIcon name={SyncIcons.ChevronRight} size={14} />
+                <SyncIcon
+                  name={SyncIcons.ChevronRight}
+                  size={14}
+                  color={theme["select-btn-false"]}
+                />
               </S.DatePickerCalendarHeaderArrowIcon>
             </S.DatePickerCalendarHeaderArrow>
           </S.DatePickerHeaderContect>

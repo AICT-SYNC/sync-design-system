@@ -1,4 +1,5 @@
 import React from "react";
+import { useTheme } from "styled-components";
 import * as S from "./style";
 import { SyncIcon, SyncIcons } from "../../assets/icons/SyncIcons";
 import { DatePickerVariant, CalendarSize } from "../../foundation";
@@ -21,6 +22,7 @@ export const Calendar: React.FC<CalendarProps> = ({
   type = DatePickerVariant.entire,
   size = CalendarSize.M,
 }) => {
+  const theme = useTheme();
   const {
     fold,
     setFold,
@@ -43,7 +45,7 @@ export const Calendar: React.FC<CalendarProps> = ({
       <S.DatePickerWrap onClick={() => setFold(!fold)}>
         <S.DatePickerContent>
           <S.DatePickerIcon>
-            <SyncIcon name={SyncIcons.CalendarDays} size={24} />
+            <SyncIcon name={SyncIcons.CalendarDays} size={24} color={theme["select-btn-false"]}/>
           </S.DatePickerIcon>
           <S.DatePickerDate>
             {value

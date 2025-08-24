@@ -1,10 +1,8 @@
-import type { Meta, StoryObj } from "@storybook/react";
 import React from "react";
-import { WorkspaceCard } from "./WorkspaceCard/index.tsx";
-import { ProjectCard } from "./ProjectCard/ProjectCard.tsx";
-import { Avatar } from "../../assets/icons/avatar.tsx";
+import type { Meta, StoryObj } from "@storybook/react";
+import { WorkspaceCard } from "./WorkspaceCard";
+import { ProjectCard } from "./ProjectCard";
 
-// ==================== WorkspaceCard Stories ====================
 const workspaceCardMeta: Meta<typeof WorkspaceCard> = {
   title: "Components/Card",
   component: WorkspaceCard,

@@ -75,4 +75,9 @@ export const darkColors = {
 
   'calendar-date-selected': primitiveColors.purple[500],
   'calendar-date-selected-hover': primitiveColors.purple[700],
+
+  'calendar-hover-bg': primitiveColors.neutral[800],
+  'calendar-active-bg': primitiveColors.neutral[700],
+  'calendar-today-bg': primitiveColors.neutral[800],
+  'calendar-disabled-text': primitiveColors.neutral[600],
 } as const;

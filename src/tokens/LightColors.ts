@@ -76,5 +76,8 @@ export const lightColors = {
   'calendar-date-selected': primitiveColors.purple[500],
   'calendar-date-selected-hover': primitiveColors.purple[700],
 
-
+  'calendar-hover-bg': primitiveColors.neutral[100],
+  'calendar-active-bg': primitiveColors.neutral[200],
+  'calendar-today-bg': primitiveColors.neutral[100],
+  'calendar-disabled-text': primitiveColors.neutral[300],
 } as const;

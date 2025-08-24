@@ -1,3 +1,5 @@
+import { primitiveColors } from "./Primitive";
+
 export const lightColors = {
   'issue-todo': '#6B7280',
   'issue-progress': '#6E63F1',
@@ -66,5 +68,9 @@ export const lightColors = {
 
   'static-white': '#FFFFFF',
   'static-black': '#000000',
+
+  'header-tab-active': primitiveColors.neutral[100], // '#EDEEF1',
+  'header-tab-not-active': primitiveColors.common[0], // '#FFFFFF',
+  
 
 } as const;

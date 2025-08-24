@@ -6,7 +6,9 @@
     "noEmit": false,
     "declaration": true,
     "declarationMap": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
   },
   "include": ["src"],
   "exclude": ["**/*.stories.tsx", "**/*.test.tsx", "**/*.test.ts"]

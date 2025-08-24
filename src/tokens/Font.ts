@@ -23,6 +23,7 @@ const fontWeight = {
   regular: 400,
   semiBold: 600,
   bold: 700,
+  medium: 500,
 };
 
 const createFontStyle = (size: string, weight: number) => ({
@@ -61,6 +62,7 @@ export const Font = Object.freeze({
     label3_semiBold: createFontStyle(fontSize.sm, fontWeight.semiBold),
     label3_Regular: createFontStyle(fontSize.sm, fontWeight.regular),
     label4_semiBold: createFontStyle(fontSize.xs, fontWeight.semiBold),
+    label4_medium: createFontStyle(fontSize.xs, fontWeight.medium),
     label4_Regular: createFontStyle(fontSize.xs, fontWeight.regular),
   },
   get: (

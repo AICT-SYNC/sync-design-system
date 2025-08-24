@@ -1,8 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { lightColors } from "../../tokens/LightColors";
 import { BadgeRole, BadgeSize } from "../../foundation/Badge";
-// import { Font } from "../../tokens/Font";
+import { Font } from "../../tokens/Font";
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: BadgeSize;
@@ -19,6 +18,7 @@ const StyledBadge = styled.div<{
   justify-content: center;
   border-radius: 24px;
   padding: 0 8px;
+  min-width: 36px;
 
   height: ${(props) => {
     switch (props.size) {
@@ -30,15 +30,14 @@ const StyledBadge = styled.div<{
         return "28px";
     }
   }};
-  font-size: ${(props) => {
+  font: ${(props) => {
     switch (props.size) {
       case BadgeSize.S:
-        //   return `${lightColors["status-error"]}`;
-        return "12px";
+        return Font.label.label3_semiBold;
       case BadgeSize.M:
-        return "14px";
+        return Font.label.label2_semiBold;
       case BadgeSize.L:
-        return "16px";
+        return Font.label.label1_semiBold;
     }
   }};
   color: white;
@@ -46,24 +45,25 @@ const StyledBadge = styled.div<{
   ${(props) =>
     props.role === BadgeRole.Error &&
     css`
-      background-color: ${lightColors["status-error"]};
+      background-color: ${({ theme }) => theme["status-error"]};
     `}
 
   ${(props) =>
     props.role === BadgeRole.Warning &&
     css`
-      background-color: ${lightColors["status-warning"]};
+      background-color: ${({ theme }) => theme["status-warning"]};
     `}
 
     ${(props) =>
     props.role === BadgeRole.Success &&
     css`
-      background-color: ${lightColors["status-success"]};
+      background-color: ${({ theme }) => theme["status-success"]};
     `}
+
     ${(props) =>
     props.role === BadgeRole.Info &&
     css`
-      background-color: ${lightColors["status-info"]};
+      background-color: ${({ theme }) => theme["status-info"]};
     `}
 `;
 

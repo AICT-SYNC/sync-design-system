@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { DatePickerVariant } from "../../foundation";
+import { DatePickerVariant } from "../../../foundation";
 
 interface DatePickerParams {
   value: string;
@@ -15,7 +15,14 @@ export const useDatePicker = ({
 }: DatePickerParams) => {
   //날짜 초깃값
   const today = new Date();
-  const defaultDate = value || `${today.getFullYear()}${splitCharacter}${String(today.getMonth() + 1).padStart(2, '0')}${splitCharacter}${String(today.getDate()).padStart(2, '0')}`;
+  const defaultDate =
+    value ||
+    `${today.getFullYear()}${splitCharacter}${String(
+      today.getMonth() + 1
+    ).padStart(2, "0")}${splitCharacter}${String(today.getDate()).padStart(
+      2,
+      "0"
+    )}`;
   const date = defaultDate.split(splitCharacter);
 
   const $year = Number(date[0]) || today.getFullYear();

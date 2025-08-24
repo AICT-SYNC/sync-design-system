@@ -21,9 +21,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Try Build (ignore errors)
-        run: npm run build || echo "Build failed, but continuing with source files"
-        continue-on-error: true
+      - name: Try Build
+        run: npm run build
 
       - name: Publish to NPM
         run: npm publish

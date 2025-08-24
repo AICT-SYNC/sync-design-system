@@ -16,6 +16,7 @@ import {
 import { Settings } from "lucide-react";
 import { Avatar } from "../../../assets/icons/avatar.tsx";
 import { Badge } from "../../Badge/index.ts";
+import { BadgeRole, BadgeSize } from "../../../foundation";
 
 interface ProjectCardProps {
   title?: string;
@@ -70,7 +71,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           {/* 알림 및 설정 */}
           <Actions>
             {notificationCount > 0 && (
-              <Badge size="S" role="Info" count={notificationCount} />
+              <Badge
+                size={BadgeSize.S}
+                role={BadgeRole.Info}
+                count={notificationCount}
+              />
             )}
             <Settings size={20} color="#666666" style={{ cursor: "pointer" }} />
           </Actions>

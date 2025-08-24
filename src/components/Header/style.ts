@@ -1,120 +1,158 @@
-import styled from 'styled-components';
-import { lightColors } from '../../tokens/LightColors';
-import { Font } from '../../tokens/Font';
+import styled from "styled-components";
+import { lightColors } from "../../tokens/LightColors";
+import { Font } from "../../tokens/Font";
 
 export const HeaderContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 40px;
-    /* border-bottom: 1px solid #D8DBDF; */ /* 제거 */
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 40px;
 `;
 
 export const OpenIconBox = styled.div`
-    display: flex;
-    align-items: center;
-    width: 15%;
-    height: 100%;
-    cursor: pointer;
-    padding-left: 1%;
+  display: flex;
+  align-items: center;
+  width: 15%;
+  height: 100%;
+  cursor: pointer;
+  padding-left: 1%;
 `;
 
 export const BackButtonBox = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 7%;
-    height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 7%;
+  height: 100%;
 `;
 
 export const NavigationButton = styled.div<{ enabled: boolean }>`
-    cursor: ${props => props.enabled ? 'pointer' : 'not-allowed'};
-    opacity: ${props => props.enabled ? 1 : 0.5};
+  cursor: ${(props) => (props.enabled ? "pointer" : "not-allowed")};
+  opacity: ${(props) => (props.enabled ? 1 : 0.5)};
 `;
 
 export const PageBoxWrap = styled.div`
-    display: flex;
-    align-items: end;
-    height: 100%;
-    overflow-x: auto;
-    flex: 1;
-    
-    /* 스크롤바 숨기기 */
-    &::-webkit-scrollbar {
-        display: none;
-    }
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  display: flex;
+  align-items: end;
+  height: 100%;
+  overflow-x: auto;
+  flex: 1;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 `;
 
 export const TabBox = styled.div<{ isActive: boolean; isFirst: boolean }>`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 150px;
-    min-width: 150px;
-    height: 100%;
-    font-family: ${props => props.isActive ? Font.label.label4_semiBold : Font.label.label4_Regular};
-    /* background-color: ${props => props.isActive ? '#EDEEF1' : 'transparent'}; */ /* 제거 */
-    color: ${props => props.isActive ? '#383A42' : 'inherit'};
-    position: relative;
-    cursor: pointer;
-    
-    /* &:hover {
-        background-color: ${props => props.isActive ? '#EDEEF1' : '#e5e6e8ff'};
-    } */ /* 제거 */
-    
-    /* &::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        height: 100%;
-        border-left: ${props => props.isFirst && !props.isActive ? `0.1px solid ${lightColors['border-medium']}` : 'none'};
-        display: ${props => props.isFirst && !props.isActive ? 'block' : 'none'};
-    } */ /* 제거 */
-    
-    /* &::after {
-        content: '';
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        height: 100%;
-        border-right: ${props => props.isActive ? 'none' : `0.1px solid ${lightColors['border-medium']}`};
-        display: ${props => props.isActive ? 'none' : 'block'};
-    } */ /* 제거 */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 150px;
+  min-width: 150px;
+  height: 100%;
+  font-family: ${(props) =>
+    props.isActive ? Font.label.label4_semiBold : Font.label.label4_Regular};
+  color: ${(props) => (props.isActive ? "#383A42" : "inherit")};
+  position: relative;
+  cursor: pointer;
+  padding: 0 8px;
 `;
 
 export const ContentBox = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 export const CloseIcon = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 20px;
-    height: 20px;
-    border-radius: 4px;
-    margin-bottom: 2px;
-    cursor: pointer;
-    
-    &:hover {
-        background-color: #b4aeae57;
-    }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  margin-left: 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+
+  &:hover {
+    background-color: #b4aeae57;
+  }
 `;
 
 export const PlusIconWrap = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    height: 95%;
-    width: 30px;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  height: 95%;
+  width: 30px;
+  cursor: pointer;
+`;
+
+export const TabButton = styled.div<{ isActive: boolean; isHovered?: boolean }>`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 200px;
+  height: 40px;
+  padding: 0 12px;
+  background-color: ${({ isActive, isHovered }) => {
+    if (isActive) return lightColors["header-tab-active"]; 
+    if (isHovered) return lightColors["header-tab-active"]; 
+    return lightColors["header-tab-not-active"]; 
+  }};
+  border: 1px solid #D8D8D8;
+  border-bottom: ${({ isActive }) => 
+    isActive ? '1px solid #FFFFFF' : '1px solid #D8D8D8'
+  };
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.2s ease;
+  
+  /* 활성 탭일 때 z-index를 높여서 경계선이 겹치지 않도록 */
+  z-index: ${({ isActive }) => isActive ? 10 : 1};
+
+  /* 인접한 탭들과의 경계선 겹침 처리 */
+  margin-left: -1px;
+  
+  &:first-child {
+    margin-left: 0;
+  }
+`;
+
+export const TabButtonText = styled.div`
+  font-family: ${Font.label.label4_Regular};
+  color: #333333;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: left;
+`;
+
+export const CloseIconButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 12px;
+  color: #666666;
+  flex-shrink: 0;
+  margin-left: 8px;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #333333;
+  }
 `;

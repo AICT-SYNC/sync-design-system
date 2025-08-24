@@ -16,10 +16,11 @@ type Story = StoryObj<typeof meta>;
 
 // 스토리용 래퍼 컴포넌트
 const HeaderWrapper = (args: any) => {
-  const [isHover, setIsHover] = useState(false);
+  const [isActive, setIsActive] = useState(args.isActive || false);
 
   const handleTabClick = (tabId: string) => {
-    console.log('Tab clicked:', tabId);
+    setIsActive(!isActive); // 클릭시 토글
+    console.log('Tab clicked:', tabId, 'New active state:', !isActive);
   };
 
   const handleTabClose = (tabId: string) => {
@@ -27,19 +28,13 @@ const HeaderWrapper = (args: any) => {
   };
 
   return (
-    <div 
-      onMouseEnter={() => setIsHover(true)}
-      onMouseLeave={() => setIsHover(false)}
-    >
-      <Header
-        id={args.id}
-        title={args.title}
-        isActive={args.isActive}
-        isHover={isHover}
-        onTabClick={handleTabClick}
-        onTabClose={handleTabClose}
-      />
-    </div>
+    <Header
+      id={args.id}
+      title={args.title}
+      isActive={isActive} // state 값 사용
+      onTabClick={handleTabClick}
+      onTabClose={handleTabClose}
+    />
   );
 };
 
@@ -83,40 +78,38 @@ export const ShortTitle: Story = {
   },
 };
 
-// 호버 상태 (항상 CloseIcon 보임)
-export const AlwaysShowCloseIcon: Story = {
+// 정적 활성 탭 (클릭 토글 없이 고정)
+export const StaticActive: Story = {
   render: (args) => (
     <Header
       id={args.id}
       title={args.title}
       isActive={args.isActive}
-      isHover={true} // 항상 hover 상태
       onTabClick={(tabId) => console.log('Tab clicked:', tabId)}
       onTabClose={(tabId) => console.log('Tab closed:', tabId)}
     />
   ),
   args: {
     id: '1',
-    title: '호버 상태 탭',
-    isActive: false,
+    title: '활성 탭 (고정)',
+    isActive: true,
   },
 };
 
-// 활성화된 탭 (CloseIcon 보임)
-export const ActiveWithCloseIcon: Story = {
+// 정적 비활성 탭 (클릭 토글 없이 고정)
+export const StaticInactive: Story = {
   render: (args) => (
     <Header
       id={args.id}
       title={args.title}
       isActive={args.isActive}
-      isHover={false}
       onTabClick={(tabId) => console.log('Tab clicked:', tabId)}
       onTabClose={(tabId) => console.log('Tab closed:', tabId)}
     />
   ),
   args: {
     id: '1',
-    title: '활성화된 탭',
-    isActive: true,
+    title: '비활성 탭 (고정)',
+    isActive: false,
   },
 };

@@ -1,1 +1,1 @@
-export { Divider } from './index.tsx'
+export { Divider } from './Divider'

@@ -1,1 +1,1 @@
-export * from "./styled";
+// Types are automatically included via .d.ts files

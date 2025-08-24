@@ -8,7 +8,7 @@ export const semanticColors = {
 } as const;
 
 export type Theme = 'light' | 'dark';
-export type ColorKey = keyof typeof lightColors;
+export type ColorKey = keyof typeof lightColors & keyof typeof darkColors;
 
 export const getSemanticColor = (theme: Theme, colorKey: ColorKey): string => {
   return semanticColors[theme][colorKey];

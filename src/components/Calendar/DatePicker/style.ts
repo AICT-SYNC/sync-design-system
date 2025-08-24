@@ -53,11 +53,11 @@ export const DatePickerCalendarHeaderArrow = styled.button`
   transition: all 0.15s ease;
 
   &:hover {
-    background-color: #f3f4f6;
+    background-color: ${({ theme }) => theme["calendar-hover-bg"]};
   }
 
   &:active {
-    background-color: #e5e7eb;
+    background-color: ${({ theme }) => theme["calendar-active-bg"]};
   }
 `;
 
@@ -67,7 +67,6 @@ export const DatePickerCalendarHeaderArrowIcon = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
   user-select: none;
 `;
 
@@ -84,8 +83,7 @@ export const DatePickerCalendarHeaderDayItem = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
-  font-weight: 500;
+  font: ${Font.label.label4_medium};
   color: ${({ theme }) => theme["text-secondary"]};
   text-transform: uppercase;
   user-select: none;
@@ -107,8 +105,7 @@ export const DatePickerCalendarItem = styled.button<{
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 14px;
-  font-weight: 400;
+  font: ${Font.label.label2_Regular};
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -120,7 +117,7 @@ export const DatePickerCalendarItem = styled.button<{
   ${({ isDisabled, isSelected, isToday }) => {
     if (isDisabled) {
       return css`
-        color: #d1d5db;
+        color: ${({ theme }) => theme["calendar-disabled-text"]};
         cursor: not-allowed;
 
         &:hover {
@@ -133,7 +130,7 @@ export const DatePickerCalendarItem = styled.button<{
       return css`
         background-color: ${({ theme }) => theme["calendar-date-selected"]};
         color: ${({ theme }) => theme["static-white"]};
-        font-weight: 500;
+        font: ${Font.label.label2_semiBold};
 
         &:hover {
           background-color: ${({ theme }) => theme["calendar-date-selected-hover"]};
@@ -143,22 +140,22 @@ export const DatePickerCalendarItem = styled.button<{
 
     if (isToday) {
       return css`
-        background-color: #f3f4f6;
-        font-weight: 500;
+        background-color: ${({ theme }) => theme["calendar-today-bg"]};
+        font: ${Font.label.label2_semiBold};
 
         &:hover {
-          background-color: #e5e7eb;
+          background-color: ${({ theme }) => theme["calendar-active-bg"]};
         }
       `;
     }
 
     return css`
       &:hover {
-        background-color: #f3f4f6;
+        background-color: ${({ theme }) => theme["calendar-hover-bg"]};
       }
 
       &:active {
-        background-color: #e5e7eb;
+        background-color: ${({ theme }) => theme["calendar-active-bg"]};
       }
     `;
   }}

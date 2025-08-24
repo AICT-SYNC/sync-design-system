@@ -1,3 +1,5 @@
+import { primitiveColors } from "./Primitive";
+
 export const darkColors = {
   'issue-todo': '#6B7280',
   'issue-progress': '#6E63F1',
@@ -40,6 +42,7 @@ export const darkColors = {
   'border-light': '#D8DBDF',
   'border-medium': '#B6BAC3',
   'border-primary': '#4230A3',
+  'calendar-DatePicker-border': '#e1e5e9',
 
   'status-error': '#FF4242',
   'status-warning': '#FFC800',
@@ -69,4 +72,7 @@ export const darkColors = {
 
   'header-tab-active': '#383A42',
   'header-tab-not-active': '#1F2937',
+
+  'calendar-date-selected': primitiveColors.purple[500],
+  'calendar-date-selected-hover': primitiveColors.purple[700],
 } as const;

@@ -42,6 +42,7 @@ export const lightColors = {
   'border-light': '#D8DBDF',
   'border-medium': '#B6BAC3',
   'border-primary': '#4230A3',
+  'border-calendar-DatePicker': '#e1e5e9',
 
   'status-error': '#FF4242',
   'status-warning': '#FFC800',
@@ -72,5 +73,8 @@ export const lightColors = {
   'header-tab-active': primitiveColors.neutral[100], // '#EDEEF1',
   'header-tab-not-active': primitiveColors.common[0], // '#FFFFFF',
   
+  'calendar-date-selected': primitiveColors.purple[500],
+  'calendar-date-selected-hover': primitiveColors.purple[700],
+
 
 } as const;

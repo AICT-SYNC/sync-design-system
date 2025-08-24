@@ -109,10 +109,8 @@ export const TabButton = styled.div<{ isActive: boolean; isHovered?: boolean }>`
     if (isHovered) return lightColors["header-tab-active"]; 
     return lightColors["header-tab-not-active"]; 
   }};
-  border: 1px solid #D8D8D8;
-  border-bottom: ${({ isActive }) => 
-    isActive ? '1px solid #FFFFFF' : '1px solid #D8D8D8'
-  };
+  border-right: 2px solid #D8D8D8;
+  
   cursor: pointer;
   position: relative;
   transition: background-color 0.2s ease;
@@ -129,7 +127,7 @@ export const TabButton = styled.div<{ isActive: boolean; isHovered?: boolean }>`
 `;
 
 export const TabButtonText = styled.div`
-  font-family: ${Font.label.label4_Regular};
+  font-family: ${Font.label.label4_medium};
   color: #333333;
   flex: 1;
   overflow: hidden;

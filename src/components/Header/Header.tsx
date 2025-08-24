@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import * as S from './style';
 import { HeaderProps } from './types';
 
-const Header: React.FC<HeaderProps> = ({
+export const HeaderButton: React.FC<HeaderProps> = ({
   id,
   title,
   isActive,
@@ -45,5 +45,3 @@ const Header: React.FC<HeaderProps> = ({
     </S.TabButton>
   );
 };
-
-export default Header;

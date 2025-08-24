@@ -72,6 +72,12 @@ export const primitiveColors = {
     800: '#92610E',
     900: '#78510F',
     950: '#452C03',
+  },
+
+
+  common: {
+    0: '#FFFFFF', // white
+    1000: '#000000', // black
   }
 } as const;
 

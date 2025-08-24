@@ -13,6 +13,7 @@ interface DatePickerProps {
   dayList: number[];
   onChangeCalendarMonth: (direction: "prev" | "next") => void;
   type?: DatePickerVariant;
+  baseDate?: Date;
 }
 
 export const DatePicker: React.FC<DatePickerProps> = ({
@@ -24,17 +25,18 @@ export const DatePicker: React.FC<DatePickerProps> = ({
   dayList,
   onChangeCalendarMonth,
   type,
+  baseDate,
 }) => {
   const theme = useTheme();
   const isDisabled = (day: number) => {
     if (type === DatePickerVariant.future) {
-      const today = new Date();
+      const referenceDate = baseDate || new Date();
       const currentDate = new Date(
         calendarDate.year,
         calendarDate.month - 1,
-        day
+        day + 1
       );
-      return currentDate < today;
+      return currentDate < referenceDate;
     }
     return false;
   };

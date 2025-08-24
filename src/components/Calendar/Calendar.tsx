@@ -13,6 +13,7 @@ interface CalendarProps {
   onChange: (date: Date) => void;
   type?: DatePickerVariant;
   size?: CalendarSize;
+  baseDate?: Date;
 }
 
 export const Calendar: React.FC<CalendarProps> = ({
@@ -21,6 +22,7 @@ export const Calendar: React.FC<CalendarProps> = ({
   onChange,
   type = DatePickerVariant.entire,
   size = CalendarSize.M,
+  baseDate,
 }) => {
   const theme = useTheme();
   const {
@@ -71,6 +73,7 @@ export const Calendar: React.FC<CalendarProps> = ({
           dayList={dayList}
           onChangeCalendarMonth={onChangeCalendarMonth}
           type={type}
+          baseDate={baseDate}
         />
       )}
     </S.DatePickerContainer>

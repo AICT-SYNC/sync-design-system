@@ -1,8 +1,8 @@
 import React from "react";
 import { useDatePicker } from "./useDatePicker";
 import { DAY } from "./constant";
+import * as S from "./style";
 import { SyncIcon, SyncIcons } from "../../assets/icons/SyncIcons";
-import * as S from "./Calendar.style";
 import { DatePickerVariant, CalendarSize } from "../../foundation";
 
 interface CalendarProps {
@@ -46,7 +46,11 @@ export const Calendar: React.FC<CalendarProps> = ({
   const isDisabled = (day: number) => {
     if (type === DatePickerVariant.future) {
       const today = new Date();
-      const currentDate = new Date(calendarDate.year, calendarDate.month - 1, day);
+      const currentDate = new Date(
+        calendarDate.year,
+        calendarDate.month - 1,
+        day
+      );
       return currentDate < today;
     }
     return false;
@@ -71,16 +75,15 @@ export const Calendar: React.FC<CalendarProps> = ({
 
   return (
     <S.DatePickerContainer ref={containerRef}>
-      <S.DatePickerWrap
-        size={size}
-        onClick={() => setFold(!fold)}
-      >
+      <S.DatePickerWrap size={size} onClick={() => setFold(!fold)}>
         <S.DatePickerContent>
           <S.DatePickerIcon>
             <SyncIcon name={SyncIcons.CalendarDays} size={24} />
           </S.DatePickerIcon>
           <S.DatePickerDate>
-            {value ? formatDate(selectDate.year, selectDate.month, selectDate.day) : "연도.월.일"}
+            {value
+              ? formatDate(selectDate.year, selectDate.month, selectDate.day)
+              : "연도.월.일"}
           </S.DatePickerDate>
         </S.DatePickerContent>
         <S.DatePickerDivider />
@@ -90,57 +93,53 @@ export const Calendar: React.FC<CalendarProps> = ({
         <>
           <S.DatePickerOverlay onClick={() => setFold(true)} />
           <S.DatePickerCalendar x={calendarCoord.x} y={calendarCoord.y + 40}>
-          <S.DatePickerCalendarHeader>
-            <S.DatePickerHeaderTitle>
-              {calendarDate.year}년 {calendarDate.month}월
-            </S.DatePickerHeaderTitle>
-            <S.DatePickerHeaderContect>
-              <S.DatePickerCalendarHeaderArrow
-                onClick={() => onChangeCalendarMonth("prev")}
-              >
-                <S.DatePickerCalendarHeaderArrowIcon>
-                  <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14">
-                    <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                </S.DatePickerCalendarHeaderArrowIcon>
-              </S.DatePickerCalendarHeaderArrow>
-              <S.DatePickerCalendarHeaderArrow
-                onClick={() => onChangeCalendarMonth("next")}
-              >
-                <S.DatePickerCalendarHeaderArrowIcon>
-                  <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14">
-                    <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                  </svg>
-                </S.DatePickerCalendarHeaderArrowIcon>
-              </S.DatePickerCalendarHeaderArrow>
-            </S.DatePickerHeaderContect>
-          </S.DatePickerCalendarHeader>
-
-          <S.DatePickerCalendarHeaderDayWrap>
-            {DAY.map((day) => (
-              <S.DatePickerCalendarHeaderDayItem key={day}>
-                {day}
-              </S.DatePickerCalendarHeaderDayItem>
-            ))}
-          </S.DatePickerCalendarHeaderDayWrap>
-
-          <S.DatePickerCalendarItemWrap>
-            {dayList.map((day, index) =>
-              day === 0 ? (
-                <div key={index} style={{ height: "32px" }} />
-              ) : (
-                <S.DatePickerCalendarItem
-                  key={index}
-                  isDisabled={isDisabled(day)}
-                  isSelected={isSelected(day)}
-                  isToday={isToday(day)}
-                  onClick={() => !isDisabled(day) && onChangeSelectDate(day)}
+            <S.DatePickerCalendarHeader>
+              <S.DatePickerHeaderTitle>
+                {calendarDate.year}년 {calendarDate.month}월
+              </S.DatePickerHeaderTitle>
+              <S.DatePickerHeaderContect>
+                <S.DatePickerCalendarHeaderArrow
+                  onClick={() => onChangeCalendarMonth("prev")}
                 >
+                  <S.DatePickerCalendarHeaderArrowIcon>
+                    <SyncIcon name={SyncIcons.ChevronLeft} size={14} />
+                  </S.DatePickerCalendarHeaderArrowIcon>
+                </S.DatePickerCalendarHeaderArrow>
+                <S.DatePickerCalendarHeaderArrow
+                  onClick={() => onChangeCalendarMonth("next")}
+                >
+                  <S.DatePickerCalendarHeaderArrowIcon>
+                    <SyncIcon name={SyncIcons.ChevronRight} size={14} />
+                  </S.DatePickerCalendarHeaderArrowIcon>
+                </S.DatePickerCalendarHeaderArrow>
+              </S.DatePickerHeaderContect>
+            </S.DatePickerCalendarHeader>
+
+            <S.DatePickerCalendarHeaderDayWrap>
+              {DAY.map((day) => (
+                <S.DatePickerCalendarHeaderDayItem key={day}>
                   {day}
-                </S.DatePickerCalendarItem>
-              )
-            )}
-          </S.DatePickerCalendarItemWrap>
+                </S.DatePickerCalendarHeaderDayItem>
+              ))}
+            </S.DatePickerCalendarHeaderDayWrap>
+
+            <S.DatePickerCalendarItemWrap>
+              {dayList.map((day, index) =>
+                day === 0 ? (
+                  <div key={index} style={{ height: "32px" }} />
+                ) : (
+                  <S.DatePickerCalendarItem
+                    key={index}
+                    isDisabled={isDisabled(day)}
+                    isSelected={isSelected(day)}
+                    isToday={isToday(day)}
+                    onClick={() => !isDisabled(day) && onChangeSelectDate(day)}
+                  >
+                    {day}
+                  </S.DatePickerCalendarItem>
+                )
+              )}
+            </S.DatePickerCalendarItemWrap>
           </S.DatePickerCalendar>
         </>
       )}

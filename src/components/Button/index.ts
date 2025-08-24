@@ -1,1 +1,1 @@
-export * from "./bugButton";
+export * from "./Button";

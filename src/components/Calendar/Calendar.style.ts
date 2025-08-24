@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { Font } from "../../tokens/Font";
-import { lightColors } from "../../tokens/LightColors";
+import { lightColors } from "../../tokens/semantic";
 
 
 export const DatePickerContainer = styled.div`

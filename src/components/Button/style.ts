@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { lightColors } from '../../tokens/LightColors';
+import { lightColors } from '../../tokens/semantic';
 import { Font } from '../../tokens/Font';
 
 interface ButtonContainerProps {

@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { lightColors } from "../../tokens/LightColors";
+import { lightColors } from "../../tokens/semantic";
 import { BadgeRole, BadgeSize } from "../../foundation/Badge";
 // import { Font } from "../../tokens/Font";
 

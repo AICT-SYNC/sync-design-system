@@ -4,6 +4,8 @@ import { DAY } from "./constant";
 import * as S from "./style";
 import { SyncIcon, SyncIcons } from "../../assets/icons/SyncIcons";
 import { DatePickerVariant, CalendarSize } from "../../foundation";
+import { Divider } from "../Divider";
+import { Thin } from "../Divider/Divider.stories";
 
 interface CalendarProps {
   value: string;
@@ -86,7 +88,7 @@ export const Calendar: React.FC<CalendarProps> = ({
               : "연도.월.일"}
           </S.DatePickerDate>
         </S.DatePickerContent>
-        <S.DatePickerDivider />
+        <Divider widthProps={"100%"} Size={"Thin"} />
       </S.DatePickerWrap>
 
       {!fold && (

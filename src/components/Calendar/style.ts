@@ -43,12 +43,6 @@ export const DatePickerIcon = styled.div`
   user-select: none;
 `;
 
-export const DatePickerDivider = styled.div`
-  width: 100%;
-  height: 1px;
-  background-color: ${({ theme }) => theme["divider-archived"]};
-`;
-
 export const DatePickerCalendar = styled.div<{ x: number; y: number }>`
   width: 280px;
   padding: 16px;

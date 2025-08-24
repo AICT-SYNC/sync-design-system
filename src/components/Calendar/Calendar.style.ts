@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { Font } from "../../tokens/Font";
-import { lightColors } from "../../tokens/LightColors";
+import { SyncLightTheme,SyncDarkTheme } from "../../style/SyncTheme/SyncTheme";
 
 
 export const DatePickerContainer = styled.div`
@@ -25,7 +25,7 @@ export const DatePickerWrap = styled.div<{ size: "medium" | "large" }>`
 `;
 
 export const DatePickerDate = styled.span`
-  color: ${lightColors['text-black']};
+  color: ${SyncLightTheme['text-black']};
   font-weight: 400;
   user-select: none;
 `;
@@ -39,7 +39,7 @@ export const DatePickerContent = styled.div`
 export const DatePickerIcon = styled.div`
   width: 24px;
   height: 24px;
-  color: ${lightColors['select-btn-false']};
+  color: ${SyncLightTheme['select-btn-false']};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -49,7 +49,7 @@ export const DatePickerIcon = styled.div`
 export const DatePickerDivider = styled.div`
   width: 100%;
   height: 1px;
-  background-color: ${lightColors['divider-archived']};
+  background-color: ${SyncLightTheme['divider-archived']};
 `;
 
 export const DatePickerCalendar = styled.div<{ x: number; y: number }>`

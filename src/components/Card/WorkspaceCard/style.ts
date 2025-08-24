@@ -132,13 +132,13 @@ export const ImgBox = styled.div`
 
 export const Title = styled.h3`
  margin: 0;
- font-family: ${Font.body.body2_Regular};
+ font-family: ${Font.body.body2_semiBold};
 `;
 
 export const Description = styled.span`
  color: ${lightColors['text-secondary']};
  font-weight: 2;
- font-size: medium;
+ font-size: ${Font.body.body3_Regular};
  margin-bottom: 3%;
  font-family: ${Font.label.label1_Regular};
 `;

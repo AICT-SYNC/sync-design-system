@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { lightColors } from '../../tokens/LightColors';
+import { SyncLightTheme, SyncDarkTheme } from '../../style/SyncTheme/SyncTheme';
 
 interface IconButtonContainerProps {
   $size: 'large' | 'medium' | 'small';
@@ -21,7 +21,7 @@ const getSizeStyles = (size: string) => {
 export const IconButtonContainer = styled.button<IconButtonContainerProps>`
   width: ${props => getSizeStyles(props.$size).width};
   height: ${props => getSizeStyles(props.$size).height};
-  background-color: ${lightColors['static-white']};
+  background-color: ${SyncLightTheme['static-white']};
   border: none;
   border-radius: 4px;
   cursor: pointer;

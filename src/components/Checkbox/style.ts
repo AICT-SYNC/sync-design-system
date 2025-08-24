@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { lightColors } from '../../tokens/LightColors';
+import { SyncLightTheme,SyncDarkTheme } from '../../style/SyncTheme/SyncTheme';
 
 interface CheckboxContainerProps {
   $size: 'xlarge' | 'large' | 'medium' | 'small' | 'xsmall';
@@ -29,15 +29,15 @@ export const CheckboxContainer = styled.div<CheckboxContainerProps>`
   height: ${props => getSizeStyles(props.$size).height};
   background-color: ${props => {
     if (props.$disabled) {
-      return props.$checked ? lightColors['border-medium'] : lightColors['background-secondary'];
+      return props.$checked ? SyncLightTheme['border-medium'] : SyncLightTheme['background-secondary'];
     }
-    return props.$checked ? lightColors['action-primary'] : lightColors['static-white'];
+    return props.$checked ? SyncLightTheme['action-primary'] : SyncLightTheme['static-white'];
   }};
   border: 2px solid ${props => {
     if (props.$disabled) {
-      return lightColors['border-medium'];
+      return SyncLightTheme['border-medium'];
     }
-    return props.$checked ? lightColors['action-primary'] : lightColors['border-light'];
+    return props.$checked ? SyncLightTheme['action-primary'] : SyncLightTheme['border-light'];
   }};
   border-radius: 4px;
   cursor: ${props => props.$disabled ? 'not-allowed' : 'pointer'};
@@ -49,8 +49,8 @@ export const CheckboxContainer = styled.div<CheckboxContainerProps>`
 
   &:hover {
     ${props => !props.$disabled && !props.$checked && `
-      border-color: ${lightColors['border-medium']};
-      background-color: ${lightColors['background-primary']};
+      border-color: ${SyncLightTheme['border-medium']};
+      background-color: ${SyncLightTheme['background-primary']};
     `}
     ${props => !props.$disabled && props.$checked && `
       background-color: rgba(66, 48, 163, 0.9);

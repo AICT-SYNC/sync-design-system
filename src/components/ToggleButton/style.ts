@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { lightColors } from '../../tokens/LightColors';
+import { SyncLightTheme,SyncDarkTheme } from '../../style/SyncTheme/SyncTheme';
 import { Font } from '../../tokens/Font';
 
 interface ToggleContainerProps {
@@ -9,9 +9,9 @@ interface ToggleContainerProps {
 export const ToggleContainer = styled.div<ToggleContainerProps>`
   width: ${props => props.$size === 'large' ? '186px' : '158px'};
   height: ${props => props.$size === 'large' ? '54px' : '46px'};
-  background-color: ${lightColors['static-white']};
+  background-color: ${SyncLightTheme['static-white']};
   border-radius: 4px;
-  border: 1px solid ${lightColors['border-light']};
+  border: 1px solid ${SyncLightTheme['border-light']};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,8 +30,8 @@ export const ToggleOption = styled.button<ToggleOptionProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${props => props.$isSelected ? lightColors['action-secondary'] : 'transparent'};
-  color: ${props => props.$isSelected ? lightColors['action-primary'] : lightColors['text-black']};
+  background-color: ${props => props.$isSelected ? SyncLightTheme['action-secondary'] : 'transparent'};
+  color: ${props => props.$isSelected ? SyncLightTheme['action-primary'] : SyncLightTheme['text-black']};
   border: none;
   border-radius: 4px;
   font-size: ${props => props.$size === 'large' ? Font.label.label1_semiBold.fontSize : Font.label.label2_semiBold.fontSize};
@@ -43,7 +43,7 @@ export const ToggleOption = styled.button<ToggleOptionProps>`
 
   &:hover {
     background-color: ${props => props.$isSelected 
-      ? lightColors['action-secondary'] 
+      ? SyncLightTheme['action-secondary'] 
       : 'rgba(66, 48, 163, 0.1)'};
   }
 `;

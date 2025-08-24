@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { lightColors } from "../../tokens/LightColors";
+import { SyncLightTheme,SyncDarkTheme } from "../../style/SyncTheme/SyncTheme";
 import { Font } from "../../tokens/Font";
 
 export const HeaderContainer = styled.div`
@@ -105,9 +105,9 @@ export const TabButton = styled.div<{ isActive: boolean; isHovered?: boolean }>`
   height: 40px;
   padding: 0 12px;
   background-color: ${({ isActive, isHovered }) => {
-    if (isActive) return lightColors["header-tab-active"]; 
-    if (isHovered) return lightColors["header-tab-active"]; 
-    return lightColors["header-tab-not-active"]; 
+    if (isActive) return SyncLightTheme["header-tab-active"]; 
+    if (isHovered) return SyncLightTheme["header-tab-active"]; 
+    return SyncLightTheme["header-tab-not-active"]; 
   }};
   border-right: 2px solid #D8D8D8;
   

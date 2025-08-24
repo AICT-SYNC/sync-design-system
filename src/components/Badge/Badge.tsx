@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { lightColors } from "../../tokens/LightColors";
+import { SyncLightTheme,SyncDarkTheme } from "../../style/SyncTheme/SyncTheme";
 import { BadgeRole, BadgeSize } from "../../foundation/Badge";
 // import { Font } from "../../tokens/Font";
 
@@ -33,7 +33,7 @@ const StyledBadge = styled.div<{
   font-size: ${(props) => {
     switch (props.size) {
       case BadgeSize.S:
-        //   return `${lightColors["status-error"]}`;
+        //   return `${SyncLightTheme["status-error"]}`;
         return "12px";
       case BadgeSize.M:
         return "14px";
@@ -46,24 +46,24 @@ const StyledBadge = styled.div<{
   ${(props) =>
     props.role === BadgeRole.Error &&
     css`
-      background-color: ${lightColors["status-error"]};
+      background-color: ${SyncLightTheme["status-error"]};
     `}
 
   ${(props) =>
     props.role === BadgeRole.Warning &&
     css`
-      background-color: ${lightColors["status-warning"]};
+      background-color: ${SyncLightTheme["status-warning"]};
     `}
 
     ${(props) =>
     props.role === BadgeRole.Success &&
     css`
-      background-color: ${lightColors["status-success"]};
+      background-color: ${SyncLightTheme["status-success"]};
     `}
     ${(props) =>
     props.role === BadgeRole.Info &&
     css`
-      background-color: ${lightColors["status-info"]};
+      background-color: ${SyncLightTheme["status-info"]};
     `}
 `;
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Font } from '../../tokens/Font';
-import { lightColors } from '../../tokens/LightColors';
+import { SyncLightTheme, SyncDarkTheme } from '../../style/SyncTheme/SyncTheme';
 
 interface InputContainerProps {
   size: 'S' | 'M' | 'L';
@@ -25,54 +25,73 @@ export const InputContainer = styled.input<InputContainerProps>`
       default: return '48px';
     }
   }};
-  font-family: ${Font.label.label1_semiBold};
+
+  ${({ size }) => {
+    const fontStyle = (() => {
+      switch (size) {
+        case 'S': return Font.label.label4_semiBold;
+        case 'M': return Font.label.label2_semiBold;
+        case 'L': return Font.label.label1_semiBold;
+        default: return Font.label.label1_semiBold;
+      }
+    })();
+    
+    return `
+      font-family: ${fontStyle.fontFamily};
+      font-size: ${fontStyle.fontSize};
+      font-weight: ${fontStyle.fontWeight};
+      line-height: ${fontStyle.lineHeight};
+      font-style: ${fontStyle.fontStyle};
+    `;
+  }};
+  
   border-radius: 4px;
   gap: 10px;
   padding: 0 16px;
   outline: none;
   transition: border-color 0.2s ease;
-  border: 1px solid ${lightColors['border-light']};
-  background-color: ${lightColors['static-white']};
-  color: ${lightColors['text-black']};
+  border: 1px solid ${SyncLightTheme['border-light']};
+  background-color: ${SyncLightTheme['static-white']};
+  color: ${SyncLightTheme['text-black']};
 
   &:hover:not(:disabled):not(:focus) {
-    border: 1px solid ${lightColors['border-medium']};
+    border: 1px solid ${SyncLightTheme['border-medium']};
   }
 
   &:focus {
-    border: 1px solid ${lightColors['border-primary']} !important;
-    box-shadow: 0 0 0 2px ${lightColors['border-primary']}20;
+    border: 1px solid ${SyncLightTheme['border-primary']} !important;
+    box-shadow: 0 0 0 2px ${SyncLightTheme['border-primary']}20;
   }
 
   &:disabled {
-    border: 1px solid ${lightColors['border-light']} !important;
-    background-color: ${lightColors['background-secondary']} !important;
-    color: ${lightColors['text-muted']} !important;
+    border: 1px solid ${SyncLightTheme['border-light']} !important;
+    background-color: ${SyncLightTheme['background-secondary']} !important;
+    color: ${SyncLightTheme['text-muted']} !important;
     cursor: not-allowed !important;
     box-shadow: none !important;
   }
 
   ${({ enabled }) => !enabled && `
-    border: 1px solid ${lightColors['border-light']} !important;
-    background-color: ${lightColors['background-secondary']} !important;
-    color: ${lightColors['text-muted']} !important;
+    border: 1px solid ${SyncLightTheme['border-light']} !important;
+    background-color: ${SyncLightTheme['background-secondary']} !important;
+    color: ${SyncLightTheme['text-muted']} !important;
     cursor: not-allowed !important;
     box-shadow: none !important;
-         
+            
     &:hover, &:focus {
-      border: 1px solid ${lightColors['border-light']} !important;
-      background-color: ${lightColors['background-secondary']} !important;
+      border: 1px solid ${SyncLightTheme['border-light']} !important;
+      background-color: ${SyncLightTheme['background-secondary']} !important;
       box-shadow: none !important;
     }
   `}
 
   &::placeholder {
-    color: ${lightColors['text-muted']};
-    font-family: ${Font.label.label1_semiBold};
+    color: ${SyncLightTheme['text-muted']};
+    font-family: ${Font.label.label1_semiBold.fontFamily};
   }
 
   &:disabled::placeholder {
-    color: ${lightColors['text-muted']};
+    color: ${SyncLightTheme['text-muted']};
     opacity: 0.5;
   }
 `;

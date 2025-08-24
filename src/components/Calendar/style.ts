@@ -2,12 +2,14 @@ import styled, { css } from "styled-components";
 import { Font } from "../../tokens/Font";
 import { CalendarSize } from "../../foundation/Calendar";
 
-export const DatePickerContainer = styled.div`
+export const DatePickerContainer = styled.div<{ size: CalendarSize }>`
   position: relative;
   display: inline-block;
+  padding: ${({ size }) =>
+    size === CalendarSize.L ? "14px 20px" : "10px 16px"};
 `;
 
-export const DatePickerWrap = styled.div<{ size: CalendarSize }>`
+export const DatePickerWrap = styled.div`
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -17,19 +19,17 @@ export const DatePickerWrap = styled.div<{ size: CalendarSize }>`
   background-color: ${({ theme }) => theme["static-white"]};
   transition: all 0.15s ease;
   font: ${Font.label.label1_semiBold};
-  padding: ${({ size }) =>
-    size === CalendarSize.L ? "14px 20px" : "10px 16px"};
 `;
 
 export const DatePickerDate = styled.span`
   background-color: ${({ theme }) => theme["text-black"]};
-  font-weight: 400;
+  font: ${Font.label.label1_semiBold};
   user-select: none;
 `;
 
 export const DatePickerContent = styled.div`
   display: flex;
-  align-items: center;
+  align-items: end;
   gap: 8px;
 `;
 

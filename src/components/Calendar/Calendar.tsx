@@ -76,8 +76,8 @@ export const Calendar: React.FC<CalendarProps> = ({
   };
 
   return (
-    <S.DatePickerContainer ref={containerRef}>
-      <S.DatePickerWrap size={size} onClick={() => setFold(!fold)}>
+    <S.DatePickerContainer ref={containerRef} size={size}>
+      <S.DatePickerWrap onClick={() => setFold(!fold)}>
         <S.DatePickerContent>
           <S.DatePickerIcon>
             <SyncIcon name={SyncIcons.CalendarDays} size={24} />

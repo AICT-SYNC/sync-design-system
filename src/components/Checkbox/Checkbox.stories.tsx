@@ -1,6 +1,6 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Checkbox } from "./checkbox";
+import { Checkbox } from "./Checkbox";
 import { CheckboxSize } from "../../foundation/Checkbox";
 
 interface CheckboxProps {

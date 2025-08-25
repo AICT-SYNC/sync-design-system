@@ -1,4 +1,4 @@
-export const button = {
+export const buttonHoriontalPadding = {
   "hpadding-xs": "8px",
   "hpadding-sm": "12px",
   "hpadding-md": "16px",

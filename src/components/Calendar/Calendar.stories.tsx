@@ -2,13 +2,15 @@ import { useState } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Calendar } from "./Calendar";
 import styled from "styled-components";
+import { DatePickerVariant, CalendarSize } from "../../foundation";
 
 interface CalendarProps {
   value: string;
   splitCharacter?: string;
   onChange: (date: Date) => void;
-  type?: "entire" | "future";
-  size?: "medium" | "large";
+  type?: DatePickerVariant;
+  size?: CalendarSize;
+  baseDate?: string;
 }
 
 const Wrap = styled.div`
@@ -19,7 +21,7 @@ const Wrap = styled.div`
   padding: 20px;
 `;
 
-const CalendarWithState = (args: CalendarProps) => {
+const CalendarWithState = (args: CalendarProps & { baseDate?: string }) => {
   const [selectedDate, setSelectedDate] = useState(args.value);
 
   const handleDateChange = (date: Date) => {
@@ -32,9 +34,11 @@ const CalendarWithState = (args: CalendarProps) => {
     args.onChange(date);
   };
 
+  const baseDate = args.baseDate ? new Date(args.baseDate) : undefined;
+
   return (
     <Wrap>
-      <Calendar {...args} value={selectedDate} onChange={handleDateChange} />
+      <Calendar {...args} value={selectedDate} onChange={handleDateChange} baseDate={baseDate} />
     </Wrap>
   );
 };
@@ -45,12 +49,12 @@ const meta: Meta<CalendarProps> = {
   argTypes: {
     type: {
       control: { type: "radio" },
-      options: ["entire", "future"],
+      options: [DatePickerVariant.entire, DatePickerVariant.future],
       description: "날짜 선택 모드 (전체 또는 미래 날짜만)",
     },
     size: {
       control: { type: "radio" },
-      options: ["medium", "large"],
+      options: [CalendarSize.M, CalendarSize.L],
       description: "컴포넌트 크기",
     },
     splitCharacter: {
@@ -60,6 +64,10 @@ const meta: Meta<CalendarProps> = {
     value: {
       control: { type: "text" },
       description: "초기 날짜 값 (YYYY-MM-DD 형식)",
+    },
+    baseDate: {
+      control: { type: "text" },
+      description: "기준 날짜 (YYYY-MM-DD 형식, future 모드에서 이 날짜 이후만 선택 가능)",
     },
     onChange: { action: "date changed" },
   },
@@ -73,8 +81,8 @@ export const Default: Story = {
   args: {
     value: "2024.01.15",
     splitCharacter: ".",
-    type: "entire",
-    size: "medium",
+    type: DatePickerVariant.entire,
+    size: CalendarSize.M,
   },
 };
 
@@ -82,8 +90,8 @@ export const FutureOnly: Story = {
   args: {
     value: "2024.12.25",
     splitCharacter: ".",
-    type: "future",
-    size: "medium",
+    type: DatePickerVariant.future,
+    size: CalendarSize.M,
   },
 };
 
@@ -91,8 +99,8 @@ export const Large: Story = {
   args: {
     value: "2024.03.10",
     splitCharacter: ".",
-    type: "entire",
-    size: "large",
+    type: DatePickerVariant.entire,
+    size: CalendarSize.L,
   },
 };
 
@@ -100,8 +108,8 @@ export const CustomSeparator: Story = {
   args: {
     value: "2024/08/20",
     splitCharacter: "/",
-    type: "entire",
-    size: "medium",
+    type: DatePickerVariant.entire,
+    size: CalendarSize.M,
   },
 };
 
@@ -109,7 +117,17 @@ export const NoInitialValue: Story = {
   args: {
     value: "",
     splitCharacter: ".",
-    type: "entire",
-    size: "medium",
+    type: DatePickerVariant.entire,
+    size: CalendarSize.M,
+  },
+};
+
+export const FutureWithBaseDate: Story = {
+  args: {
+    value: "2024.12.25",
+    splitCharacter: ".",
+    type: DatePickerVariant.future,
+    size: CalendarSize.M,
+    baseDate: "2024-11-15",
   },
 };

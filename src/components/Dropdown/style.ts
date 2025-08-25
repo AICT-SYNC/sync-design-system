@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { lightColors } from '../../tokens/LightColors';
 import { Font } from '../../tokens/Font';
 
 export const DropdownContainer = styled.div`
@@ -15,8 +14,8 @@ interface DropdownButtonProps {
 export const DropdownButton = styled.button<DropdownButtonProps>`
   width: ${props => props.$buttonSize === 'large' ? '88px' : '80px'};
   height: ${props => props.$buttonSize === 'large' ? '48px' : '44px'};
-  background-color: ${props => props.$isOpen ? lightColors['action-secondary'] : lightColors['static-white']};
-  border: 1px solid ${props => props.$isOpen ? lightColors['action-primary'] : lightColors['border-light']};
+  background-color: ${props => props.$isOpen ? props.theme['action-secondary'] : props.theme['static-white']};
+  border: 1px solid ${props => props.$isOpen ? props.theme['action-primary'] : props.theme['border-light']};
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -26,8 +25,8 @@ export const DropdownButton = styled.button<DropdownButtonProps>`
   padding: 0 12px;
 
   &:hover {
-    background-color: ${props => props.$isOpen ? lightColors['action-secondary'] : lightColors['background-primary']};
-    border-color: ${props => props.$isOpen ? lightColors['action-primary'] : lightColors['border-medium']};
+    background-color: ${props => props.$isOpen ? props.theme['action-secondary'] : props.theme['background-primary']};
+    border-color: ${props => props.$isOpen ? props.theme['action-primary'] : props.theme['border-medium']};
   }
 `;
 
@@ -36,7 +35,7 @@ export const DropdownText = styled.span`
   font-weight: ${Font.label.label1_semiBold.fontWeight};
   font-family: ${Font.label.label1_semiBold.fontFamily};
   line-height: ${Font.label.label1_semiBold.lineHeight};
-  color: ${lightColors['text-black']};
+  color: ${({ theme }) => theme['text-black']};
   flex: 1;
   text-align: left;
   overflow: hidden;
@@ -60,7 +59,7 @@ export const DropdownIcon = styled.div<DropdownIconProps>`
   svg {
     width: 100%;
     height: 100%;
-    color: ${props => props.$isOpen ? lightColors['action-primary'] : lightColors['text-muted']};
+    color: ${props => props.$isOpen ? props.theme['action-primary'] : props.theme['text-muted']};
     transition: color 0.2s ease;
   }
 `;
@@ -69,8 +68,8 @@ export const DropdownList = styled.div`
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: ${lightColors['static-white']};
-  border: 1px solid ${lightColors['border-light']};
+  background-color: ${({ theme }) => theme['static-white']};
+  border: 1px solid ${({ theme }) => theme['border-light']};
   border-radius: 4px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000;
@@ -94,14 +93,13 @@ export const DropdownItem = styled.div<DropdownItemProps>`
   font-weight: ${Font.label.label1_semiBold.fontWeight};
   font-family: ${Font.label.label1_semiBold.fontFamily};
   line-height: ${Font.label.label1_semiBold.lineHeight};
-  color: ${lightColors['text-black']};
+  color: ${({ theme }) => theme['text-black']};
   cursor: pointer;
-  background-color: ${props => props.$isSelected ? lightColors['background-primary'] : lightColors['static-white']};
+  background-color: ${props => props.$isSelected ? props.theme['background-primary'] : props.theme['static-white']};
   transition: background-color 0.2s ease;
   white-space: nowrap;
 
   &:hover {
-    background-color: ${lightColors['background-primary']};
+    background-color: ${({ theme }) => theme['background-primary']};
   }
-
 `;

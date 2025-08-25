@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import * as S from './style';
 import { HeaderProps } from './types';
 
-export const Header: React.FC<HeaderProps> = ({
+export const HeaderButton: React.FC<HeaderProps> = ({
   id,
   title,
   isActive,

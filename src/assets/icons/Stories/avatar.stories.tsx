@@ -1,9 +1,10 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Avatar } from "../avatar";
+import { AvatarSizeEnum } from "../../../foundation";
 
 interface AvatarProps {
-  size?: 'extraSmall' | 'small' | 'medium' | 'large' | 'extraLarge' | 'xxl';
+  size?: AvatarSizeEnum;
 }
 
 const meta: Meta<AvatarProps> = {
@@ -12,7 +13,7 @@ const meta: Meta<AvatarProps> = {
   argTypes: {
     size: {
       control: { type: "radio" },
-      options: ["extraSmall", "small", "medium", "large", "extraLarge", "xxl"],
+      options: Object.values(AvatarSizeEnum),
     },
   },
 };
@@ -21,38 +22,44 @@ export default meta;
 
 type Story = StoryObj<AvatarProps>;
 
-export const ExtraSmall: Story = {
+export const XS: Story = {
   args: {
-    size: "extraSmall",
+    size: AvatarSizeEnum.XS,
   },
 };
 
-export const Small: Story = {
+export const S: Story = {
   args: {
-    size: "small",
+    size: AvatarSizeEnum.S,
   },
 };
 
-export const Medium: Story = {
+export const SM: Story = {
   args: {
-    size: "medium",
+    size: AvatarSizeEnum.SM,
   },
 };
 
-export const Large: Story = {
+export const M: Story = {
   args: {
-    size: "large",
+    size: AvatarSizeEnum.M,
   },
 };
 
-export const ExtraLarge: Story = {
+export const L: Story = {
   args: {
-    size: "extraLarge",
+    size: AvatarSizeEnum.L,
+  },
+};
+
+export const XL: Story = {
+  args: {
+    size: AvatarSizeEnum.XL,
   },
 };
 
 export const XXL: Story = {
   args: {
-    size: "xxl",
+    size: AvatarSizeEnum["2XL"],
   },
 };

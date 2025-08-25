@@ -12,6 +12,7 @@ export const lightColors = {
   "user-away": primitiveColors.yellow[500],
   "user-busy": primitiveColors.red[500],
   "user-offline": primitiveColors.neutral[400],
+  "avatar-user": primitiveColors.neutral[900],
 
   "priority-lowest": primitiveColors.neutral[300],
   "priority-low": primitiveColors.neutral[400],

@@ -1,38 +1,19 @@
 import React from "react";
 import styled from "styled-components";
-import { ImageSize, ImageSizeType } from "../../foundation/Image";
-import { radius } from "../../tokens";
+import { ImageSize, ImageSizeMap } from "../../foundation/Image";
 
 export interface ImageProps extends React.HTMLAttributes<HTMLImageElement> {
-  size?: ImageSizeType;
+  size?: ImageSize;
   imgUrl: string;
   alt?: string;
 }
 
 const StyledImage = styled.img<{
-  size: ImageSizeType;
+  size: ImageSize;
 }>`
-  width: ${(props) => props.size};
-  height: ${(props) => props.size};
-  border-radius: ${(props) => {
-    switch (props.size) {
-      case ImageSize.XS:
-      case ImageSize.S:
-      case ImageSize.M:
-      case ImageSize.L:
-        return radius["radius-xs"];
-
-      case ImageSize.XL:
-      case ImageSize["2XL"]:
-      case ImageSize["3XL"]:
-      case ImageSize["4XL"]:
-      case ImageSize["5XL"]:
-        return radius["radius-sm"];
-
-      default:
-        return radius["radius-xs"];
-    }
-  }};
+  width: ${(props) => ImageSizeMap[props.size].size};
+  height: ${(props) => ImageSizeMap[props.size].size};
+  border-radius: ${(props) => ImageSizeMap[props.size].radius};
 `;
 
 export const Image: React.FC<ImageProps> = ({

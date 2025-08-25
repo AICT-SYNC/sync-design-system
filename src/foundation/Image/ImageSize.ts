@@ -4,8 +4,8 @@ export enum ImageSize {
   M = "M",
   L = "L",
   XL = "XL",
-  XXL = "2XL",
-  XXXL = "3XL",
-  XXXXL = "4XL",
-  XXXXXL = "5XL"
+  "2XL" = "2XL",
+  "3XL" = "3XL",
+  "4XL" = "4XL",
+  "5XL" = "5XL",
 }

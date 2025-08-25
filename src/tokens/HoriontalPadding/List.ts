@@ -1,5 +1,5 @@
 export const list = {
-  "hpadding-sm": 16,
-  "hpadding-md": 24,
-  "hpadding-lg": 32,
+  "hpadding-sm": "16px",
+  "hpadding-md": "24px",
+  "hpadding-lg": "32px",
 };

@@ -1,8 +1,8 @@
 export const button = {
-  "hpadding-xs": 8,
-  "hpadding-sm": 12,
-  "hpadding-md": 16,
-  "hpadding-lg": 20,
-  "hpadding-xl": 24,
-  "hpadding-long": 62,
+  "hpadding-xs": "8px",
+  "hpadding-sm": "12px",
+  "hpadding-md": "16px",
+  "hpadding-lg": "20px",
+  "hpadding-xl": "24px",
+  "hpadding-long": "62px",
 };

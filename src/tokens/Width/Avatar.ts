@@ -1,3 +1,3 @@
-export const avatar = {
+export const avatarWidth = {
   "min-width": "36px",
 };

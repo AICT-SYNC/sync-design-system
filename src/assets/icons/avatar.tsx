@@ -11,8 +11,8 @@ export const Avatar: React.FC<AvatarProps> = ({ size = AvatarSizeEnum.S, ...rest
   const theme = useTheme();
   const avatarData = AVATAR_ITMES[size] || AVATAR_ITMES.XL;
   const sizeValue = AvatarSizeMap[size]?.size || AvatarSizeMap[AvatarSizeEnum.XL].size;
-  const avatarColor = (theme as any)["avatar-user"];
-  const bgColor = (theme as any)["user-away"];
+  const avatarColor = theme["avatar-user"];
+  const bgColor = theme["user-away"];
   const viewBoxSize = avatarData.backgroundCircle.r * 2;
 
   return (

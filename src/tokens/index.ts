@@ -5,3 +5,4 @@ export * from "./Spacing";
 export * from "./HoriontalPadding";
 export * from "./VerticalPadding";
 export * from "./Width";
+export * from "./Height";

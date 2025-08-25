@@ -1,56 +1,32 @@
 import React from "react";
 import styled from "styled-components";
-import { ImageSize as EnumImageSize } from "../../foundation/Image";
-import { image, radius } from "../../tokens";
+import { ImageSize, ImageSizeType } from "../../foundation/Image";
+import { radius } from "../../tokens";
 
 export interface ImageProps extends React.HTMLAttributes<HTMLImageElement> {
-  size?: EnumImageSize;
+  size?: ImageSizeType;
   imgUrl: string;
+  alt?: string;
 }
 
-const getSizeValue = (size: EnumImageSize): string => {
-  switch (size) {
-    case EnumImageSize.XS:
-      return image["image-xs"];
-    case EnumImageSize.S:
-      return image["image-sm"];
-    case EnumImageSize.M:
-      return image["image-md"];
-    case EnumImageSize.L:
-      return image["image-lg"];
-    case EnumImageSize.XL:
-      return image["image-xl"];
-    case EnumImageSize["2XL"]:
-      return image["image-2xl"];
-    case EnumImageSize["3XL"]:
-      return image["image-3xl"];
-    case EnumImageSize["4XL"]:
-      return image["image-4xl"];
-    case EnumImageSize["5XL"]:
-      return image["image-5xl"];
-    default:
-      return image["image-md"];
-  }
-};
-
 const StyledImage = styled.img<{
-  size: EnumImageSize;
+  size: ImageSizeType;
 }>`
-  width: ${(props) => getSizeValue(props.size)};
-  height: ${(props) => getSizeValue(props.size)};
+  width: ${(props) => props.size};
+  height: ${(props) => props.size};
   border-radius: ${(props) => {
     switch (props.size) {
-      case EnumImageSize.XS:
-      case EnumImageSize.S:
-      case EnumImageSize.M:
-      case EnumImageSize.L:
+      case ImageSize.XS:
+      case ImageSize.S:
+      case ImageSize.M:
+      case ImageSize.L:
         return radius["radius-xs"];
 
-      case EnumImageSize.XL:
-      case EnumImageSize["2XL"]:
-      case EnumImageSize["3XL"]:
-      case EnumImageSize["4XL"]:
-      case EnumImageSize["5XL"]:
+      case ImageSize.XL:
+      case ImageSize["2XL"]:
+      case ImageSize["3XL"]:
+      case ImageSize["4XL"]:
+      case ImageSize["5XL"]:
         return radius["radius-sm"];
 
       default:
@@ -60,13 +36,14 @@ const StyledImage = styled.img<{
 `;
 
 export const Image: React.FC<ImageProps> = ({
-  size = EnumImageSize.M,
+  size = ImageSize.M,
   imgUrl = "",
+  alt = "Image",
   ...rest
 }) => {
   return (
     <>
-      <StyledImage src={imgUrl} alt="Image" size={size} {...rest} />
+      <StyledImage src={imgUrl} alt={alt} size={size} {...rest} />
     </>
   );
 };

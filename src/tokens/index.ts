@@ -4,3 +4,4 @@ export * from "./Radius";
 export * from "./Spacing";
 export * from "./HoriontalPadding";
 export * from "./VerticalPadding";
+export * from "./Width";

@@ -1,7 +1,5 @@
 import styled, { css } from "styled-components";
 import { Font } from "../../tokens/Font";
-import { SyncLightTheme,SyncDarkTheme } from "../../style/SyncTheme/SyncTheme";
-
 
 export const DatePickerContainer = styled.div`
   position: relative;
@@ -15,7 +13,7 @@ export const DatePickerWrap = styled.div<{ size: "medium" | "large" }>`
   gap: 4px;
   box-sizing: border-box;
   position: relative;
-  background-color: #ffffff;
+  background-color: ${(props: any) => props.theme["static-white"]};
   transition: all 0.15s ease;
   font-family: ${Font.label.label1_semiBold.fontFamily};
   font-size: ${Font.label.label1_semiBold.fontSize};
@@ -25,7 +23,7 @@ export const DatePickerWrap = styled.div<{ size: "medium" | "large" }>`
 `;
 
 export const DatePickerDate = styled.span`
-  color: ${SyncLightTheme['text-black']};
+  color: ${(props: any) => props.theme["text-black"]};
   font-weight: 400;
   user-select: none;
 `;
@@ -39,7 +37,7 @@ export const DatePickerContent = styled.div`
 export const DatePickerIcon = styled.div`
   width: 24px;
   height: 24px;
-  color: ${SyncLightTheme['select-btn-false']};
+  color: ${(props: any) => props.theme["select-btn-false"]};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -49,20 +47,20 @@ export const DatePickerIcon = styled.div`
 export const DatePickerDivider = styled.div`
   width: 100%;
   height: 1px;
-  background-color: ${SyncLightTheme['divider-archived']};
+  background-color: ${(props: any) => props.theme["divider-archived"]};
 `;
 
 export const DatePickerCalendar = styled.div<{ x: number; y: number }>`
   width: 280px;
   padding: 16px;
   border-radius: 12px;
-  background-color: #ffffff;
+  background-color: ${(props: any) => props.theme["static-white"]};
   top: ${({ y }) => y}px;
   left: ${({ x }) => x}px;
   position: fixed;
   z-index: 1000;
   transform: translate(-50%, 8px);
-  border: 1px solid #e1e5e9;
+  border: 1px solid ${(props: any) => props.theme["border-light"]};
   box-shadow: 
     0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -84,7 +82,7 @@ export const DatePickerHeaderTitle = styled.div`
   align-items: center;
   font-size: ${Font.label.label1_semiBold.fontSize};
   font-weight: ${Font.label.label1_semiBold.fontWeight};
-  color: #1a1a1aff;
+  color: ${(props: any) => props.theme["text-black"]};
   user-select: none;
 `;
 
@@ -104,16 +102,16 @@ export const DatePickerCalendarHeaderArrow = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #6b7280;
+  color: ${(props: any) => props.theme["text-muted"]};
   transition: all 0.15s ease;
   
   &:hover {
-    background-color: #f3f4f6;
-    color: #1a1a1a;
+    background-color: ${(props: any) => props.theme["background-secondary"]};
+    color: ${(props: any) => props.theme["text-black"]};
   }
   
   &:active {
-    background-color: #e5e7eb;
+    background-color: ${(props: any) => props.theme["border-light"]};
   }
 `;
 
@@ -142,7 +140,7 @@ export const DatePickerCalendarHeaderDayItem = styled.div`
   justify-content: center;
   font-size: 12px;
   font-weight: 500;
-  color: #6b7280;
+  color: ${(props: any) => props.theme["text-muted"]};
   text-transform: uppercase;
   user-select: none;
 `;
@@ -170,13 +168,13 @@ export const DatePickerCalendarItem = styled.button<{
   cursor: pointer;
   transition: all 0.15s ease;
   user-select: none;
-  color: #1a1a1a;
+  color: ${(props: any) => props.theme["text-black"]};
   background-color: transparent;
 
   ${({ isDisabled, isSelected, isToday }) => {
     if (isDisabled) {
       return css`
-        color: #d1d5db;
+        color: ${(props: any) => props.theme["text-muted"]};
         cursor: not-allowed;
         
         &:hover {
@@ -187,34 +185,34 @@ export const DatePickerCalendarItem = styled.button<{
     
     if (isSelected) {
       return css`
-        background-color: #1a1a1a;
-        color: #ffffff;
+        background-color: ${(props: any) => props.theme["text-black"]};
+        color: ${(props: any) => props.theme["static-white"]};
         font-weight: 500;
         
         &:hover {
-          background-color: #374151;
+          background-color: ${(props: any) => props.theme["text-secondary"]};
         }
       `;
     }
     
     if (isToday) {
       return css`
-        background-color: #f3f4f6;
+        background-color: ${(props: any) => props.theme["background-secondary"]};
         font-weight: 500;
         
         &:hover {
-          background-color: #e5e7eb;
+          background-color: ${(props: any) => props.theme["border-light"]};
         }
       `;
     }
     
     return css`
       &:hover {
-        background-color: #f3f4f6;
+        background-color: ${(props: any) => props.theme["background-secondary"]};
       }
       
       &:active {
-        background-color: #e5e7eb;
+        background-color: ${(props: any) => props.theme["border-light"]};
       }
     `;
   }}

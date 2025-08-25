@@ -1,7 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
 import { BadgeRole, BadgeSize } from "../../foundation/Badge";
-import { SyncLightTheme, SyncDarkTheme } from '../../style/SyncTheme/SyncTheme';
 import { Font } from "../../tokens/Font";
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {

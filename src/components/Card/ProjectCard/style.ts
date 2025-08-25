@@ -1,4 +1,3 @@
-
 import styled from 'styled-components';
 import { lightColors } from '../../../tokens/semantic';
 import { Font } from '../../../tokens/Font';
@@ -10,7 +9,7 @@ export const CardContainer = styled.div`
   min-width: 317px;
   min-height: 220px;
   max-height: 360px;
-  background: white;
+  background: ${(props: any) => props.theme["static-white"]};
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   overflow: hidden;
@@ -20,7 +19,6 @@ export const CardContainer = styled.div`
     transform: translateY(-2px);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
   }
-
 
   /* 태블릿 세로 (768px ~ 1023px) */
   @media (min-width: 768px) and (max-width: 1023px) {
@@ -71,7 +69,6 @@ export const CardContainer = styled.div`
     min-height: 260px;
     max-height: 400px;
   }
-
 `;
 
 export const CardHeader = styled.div`
@@ -100,18 +97,22 @@ export const CardContent = styled.div`
 `;
 
 export const CardTitle = styled.h3`
-  font-family:${Font.body.body2_semiBold};
-  color: #1a1a1a;
+  font-family: ${Font.body.body2_semiBold.fontFamily};
+  font-size: ${Font.body.body2_semiBold.fontSize};
+  font-weight: ${Font.body.body2_semiBold.fontWeight};
+  line-height: ${Font.body.body2_semiBold.lineHeight};
+  color: ${(props: any) => props.theme["text-black"]};
   margin: 0 0 6px 0;
-  line-height: 1.2;
   align-self: flex-start;
 `;
 
 export const CardDescription = styled.p`
- font-family: ${Font.label.label2_Regular};
-  color: #666666;
-  margin:0;
-  line-height: 1.3;
+  font-family: ${Font.label.label2_Regular.fontFamily};
+  font-size: ${Font.label.label2_Regular.fontSize};
+  font-weight: ${Font.label.label2_Regular.fontWeight};
+  line-height: ${Font.label.label2_Regular.lineHeight};
+  color: ${(props: any) => props.theme["text-muted"]};
+  margin: 0;
   align-self: flex-start;
 `;
 
@@ -120,7 +121,7 @@ export const CardFooter = styled.div`
   justify-content: space-between;
   align-items: center;
   padding-top: 4px;
-  border-top:1px solid #D8DBDF;
+  border-top: 1px solid #D8DBDF;
   margin-bottom: 7%;
 `;
 
@@ -133,7 +134,7 @@ export const MemberInfo = styled.div`
 export const MemberIcon = styled.div`
   width: 20px;
   height: 20px;
-  background: #ff9500;
+  background: ${(props: any) => props.theme["action-important"]};
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -143,7 +144,7 @@ export const MemberIcon = styled.div`
 
 export const MemberCount = styled.span`
   font-size: 12px;
-  color: #666666;
+  color: ${(props: any) => props.theme["text-muted"]};
   font-weight: 500;
 `;
 
@@ -157,7 +158,7 @@ export const NotificationBadge = styled.div`
   width: 26px;
   height: 18px;
   background: ${lightColors['project-active']};
-  color: white;
+  color: ${(props: any) => props.theme["static-white"]};
   border-radius: 24px;
   display: flex;
   align-items: center;
@@ -173,12 +174,12 @@ export const SettingsIcon = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 18px;
-  color: #666666;
+  color: ${(props: any) => props.theme["text-muted"]};
   cursor: pointer;
   border-radius: 6px;
   transition: background-color 0.2s ease;
 
   &:hover {
-    background-color: #f5f5f5;
+    background-color: ${(props: any) => props.theme["background-secondary"]};
   }
 `;

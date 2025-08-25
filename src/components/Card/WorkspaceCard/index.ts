@@ -1,2 +1,1 @@
-export * from "./style"
-export { WorkspaceCard } from "./WorkspaceCard"
+export * from "./WorkspaceCard";

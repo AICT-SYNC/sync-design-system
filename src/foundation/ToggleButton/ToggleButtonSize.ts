@@ -1,4 +1,4 @@
 export enum ToggleButtonSize {
-  Large = "large",
-  Small = "small"
+  L = "L",
+  S = "S"
 }

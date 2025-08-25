@@ -11,7 +11,7 @@ interface CheckboxProps {
 }
 
 export const Checkbox: React.FC<CheckboxProps> = ({ 
-  size = CheckboxSize.XLarge,
+  size = CheckboxSize.XL,
   checked = false,
   onChange,
   disabled = false

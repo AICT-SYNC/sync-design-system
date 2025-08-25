@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ToggleContainer, ToggleOption } from './style';
+import * as S from './style';
 import { ToggleButtonSize } from '../../foundation/ToggleButton';
 
 interface ToggleButtonProps {
@@ -9,31 +9,11 @@ interface ToggleButtonProps {
   size?: ToggleButtonSize;
 }
 
-export const ToggleButton: React.FC<ToggleButtonProps> = ({ 
-  options, 
-  defaultSelected = 0, 
+export const ToggleButton: React.FC<ToggleButtonProps> = ({
+  options,
+  defaultSelected = 0,
   onChange,
-  size = ToggleButtonSize.Large
+  size = ToggleButtonSize.L
 }) => {
-  const [selectedIndex, setSelectedIndex] = useState(defaultSelected);
-
-  const handleToggle = (index: number) => {
-    setSelectedIndex(index);
-    onChange?.(index);
-  };
-
-  return (
-    <ToggleContainer $size={size}>
-      {options.map((option, index) => (
-        <ToggleOption
-          key={index}
-          $isSelected={selectedIndex === index}
-          $size={size}
-          onClick={() => handleToggle(index)}
-        >
-          {option}
-        </ToggleOption>
-      ))}
-    </ToggleContainer>
-  );
+  
 };

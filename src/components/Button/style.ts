@@ -45,56 +45,56 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
   transition: background-color 0.2s ease;
 
   ${props => props.$variant === 'primary' && `
-    background-color: ${({ theme }) => theme["action-primary"]};
-    color: ${({ theme }) => theme["background-primary"]};
+    background-color: ${props.theme["action-primary"]};
+    color: ${props.theme["background-primary"]};
     border: none;
-    
+        
     &:hover {
-      background-color: rgba(66, 48, 163, 0.5);
+      background-color: ${props.theme["action-primary-hover"]};
     }
   `}
 
   ${props => props.$variant === 'secondary' && `
     background-color: transparent;
-    color: ${({ theme }) => theme["action-primary"]};
+    color: ${props.theme["action-primary"]};
     border: none;
-    
+        
     &:hover {
-      background-color: rgba(199, 205, 254, 0.5);
+      background-color: ${props.theme["action-secondary-hover"]};
     }
   `}
 
   ${props => props.$variant === 'tertiary' && `
-    background-color: ${({ theme }) => theme["static-white"]};
-    color: ${({ theme }) => theme["text-black"]};
-    border: 1px solid ${({ theme }) => theme["border-light"]};
-    
+    background-color: ${props.theme["static-white"]};
+    color: ${props.theme["text-black"]};
+    border: 1px solid ${props.theme["border-light"]};
+        
     &:hover {
-      background-color: rgba(216, 219, 223, 0.2);
+      background-color: ${props.theme["background-secondary"]};
     }
   `}
 
   ${props => props.$variant === 'danger' && `
-    background-color: ${({ theme }) => theme["action-negative"]};
-    color: ${({ theme }) => theme["background-primary"]};
+    background-color: ${props.theme["action-negative"]};
+    color: ${props.theme["background-primary"]};
     border: none;
-    
+        
     &:hover {
-      background-color: rgba(239, 68, 68, 0.5);
+      background-color: ${props.theme["action-negative-hover"]};
     }
   `}
 
   ${props => props.$variant === 'warning' && `
-    background-color: ${({ theme }) => theme["action-important"]};
-    color: ${({ theme }) => theme["background-primary"]};
+    background-color: ${props.theme["action-important"]};
+    color: ${props.theme["background-primary"]};
     border: none;
-    
+        
     &:hover {
-      background-color: rgba(245, 158, 11, 0.5);
+      background-color: ${props.theme["action-important-hover"]};
     }
   `}
 
   &:active {
-    background-color: #32237a;
+    background-color: ${props => props.theme["action-primary-active"]};
   }
 `;

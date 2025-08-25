@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { lightColors } from '../../../tokens/semantic';
 import { Font } from '../../../tokens/Font';
 
 export const WorkspaceCardContainer = styled.div`
@@ -12,7 +11,7 @@ export const WorkspaceCardContainer = styled.div`
   max-height: 360px;
   min-width: 317px;
   max-width: 520px;
-  background: ${(props: any) => props.theme["static-white"]};
+  background: ${({ theme }) => theme["static-white"]};
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   overflow: hidden;
@@ -23,7 +22,6 @@ export const WorkspaceCardContainer = styled.div`
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
   }
 
-  /* 태블릿 세로 (768px ~ 1023px) */
   @media (min-width: 768px) and (max-width: 1023px) {
     width: 95%;
     min-width: 300px;
@@ -33,7 +31,6 @@ export const WorkspaceCardContainer = styled.div`
     max-height: 280px;
   }
 
-  /* 태블릿 가로 / 작은 데스크톱 (1024px ~ 1279px) */
   @media (min-width: 1024px) and (max-width: 1279px) {
     width: 90%;
     min-width: 317px;
@@ -43,7 +40,6 @@ export const WorkspaceCardContainer = styled.div`
     max-height: 320px;
   }
 
-  /* 데스크톱 (1280px ~ 1535px) */
   @media (min-width: 1280px) and (max-width: 1535px) {
     width: 85%;
     min-width: 317px;
@@ -53,7 +49,6 @@ export const WorkspaceCardContainer = styled.div`
     max-height: 360px;
   }
 
-  /* 대형 데스크톱 (1536px ~ 1919px) */
   @media (min-width: 1536px) and (max-width: 1919px) {
     width: 80%;
     min-width: 350px;
@@ -63,7 +58,6 @@ export const WorkspaceCardContainer = styled.div`
     max-height: 380px;
   }
 
-  /* 초대형 화면 (1920px+) */
   @media (min-width: 1920px) {
     width: 75%;
     min-width: 400px;
@@ -77,7 +71,7 @@ export const WorkspaceCardContainer = styled.div`
 export const SideBox = styled.div`
   width: 30px;
   height: 100%;
-  background-color: ${lightColors['project-active']};
+  background-color: ${({ theme }) => theme["project-active"]};
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
 `;
@@ -119,7 +113,7 @@ export const Footer = styled.div`
 
 export const Hr = styled.hr`
   width: 90%;
-  border: 0.1px solid ${lightColors['divider-archived']};
+  border: 0.1px solid ${({ theme }) => theme["divider-archived"]};
   margin: 3%;
 `;
 
@@ -127,7 +121,7 @@ export const ImgBox = styled.div`
   width: 50px;
   height: 50px;
   border-radius: 8px;
-  background-color: skyblue;
+  border: 1px solid;
 `;
 
 export const Title = styled.h3`
@@ -136,12 +130,11 @@ export const Title = styled.h3`
   font-size: ${Font.body.body2_semiBold.fontSize};
   font-weight: ${Font.body.body2_semiBold.fontWeight};
   line-height: ${Font.body.body2_semiBold.lineHeight};
-  color: ${(props: any) => props.theme["text-black"]};
+  color: ${({ theme }) => theme["text-black"]};
 `;
 
 export const Description = styled.span`
-  color: ${lightColors['text-secondary']};
-  font-weight: 2;
+  color: ${({ theme }) => theme["text-secondary"]};
   font-family: ${Font.label.label1_Regular.fontFamily};
   font-size: ${Font.label.label1_Regular.fontSize};
   font-weight: ${Font.label.label1_Regular.fontWeight};
@@ -150,7 +143,7 @@ export const Description = styled.span`
 `;
 
 export const MemberCount = styled.div`
-  color: ${lightColors['text-muted']};
+  color: ${({ theme }) => theme["text-muted"]};
   font-size: 12px;
   margin: 5px;
   margin-top: 4%;
@@ -159,8 +152,8 @@ export const MemberCount = styled.div`
 export const NotificationBadge = styled.div`
   width: 26px;
   height: 18px;
-  background: ${lightColors['project-active']};
-  color: ${(props: any) => props.theme["static-white"]};
+  background: ${({ theme }) => theme["project-active"]};
+  color: ${({ theme }) => theme["static-white"]};
   border-radius: 24px;
   display: flex;
   align-items: center;

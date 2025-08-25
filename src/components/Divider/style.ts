@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { SyncLightTheme,SyncDarkTheme } from '../../style/SyncTheme/SyncTheme';
 
 interface Props {
    widthProps: string,
@@ -16,5 +15,5 @@ export const Divider = styled.div<Props>`
            default: return '4px';
        }
    }};
-   background-color: ${SyncLightTheme['divider-archived']};
+   background-color: ${({ theme }) => theme['divider-archived']};
 `;

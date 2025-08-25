@@ -1,49 +1,76 @@
 import styled from 'styled-components';
-import { SyncLightTheme,SyncDarkTheme } from '../../style/SyncTheme/SyncTheme';
 import { Font } from '../../tokens/Font';
 
 interface ToggleContainerProps {
   $size: 'large' | 'small';
 }
 
-export const ToggleContainer = styled.div<ToggleContainerProps>`
-  width: ${props => props.$size === 'large' ? '186px' : '158px'};
-  height: ${props => props.$size === 'large' ? '54px' : '46px'};
-  background-color: ${SyncLightTheme['static-white']};
-  border-radius: 4px;
-  border: 1px solid ${SyncLightTheme['border-light']};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: ${props => props.$size === 'large' ? '4px' : '3px'};
-  gap: 2px;
-`;
-
 interface ToggleOptionProps {
   $isSelected: boolean;
   $size: 'large' | 'small';
 }
 
+export const ToggleContainer = styled.div<ToggleContainerProps>`
+  display: flex;
+  background-color: ${({ theme }) => theme['background-secondary']};
+  border-radius: 8px;
+  padding: 4px;
+  gap: 2px;
+  width: fit-content;
+`;
+
 export const ToggleOption = styled.button<ToggleOptionProps>`
-  width: ${props => props.$size === 'large' ? '89px' : '76px'};
-  height: ${props => props.$size === 'large' ? '46px' : '40px'};
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${props => props.$isSelected ? SyncLightTheme['action-secondary'] : 'transparent'};
-  color: ${props => props.$isSelected ? SyncLightTheme['action-primary'] : SyncLightTheme['text-black']};
   border: none;
-  border-radius: 4px;
-  font-size: ${props => props.$size === 'large' ? Font.label.label1_semiBold.fontSize : Font.label.label2_semiBold.fontSize};
-  font-weight: ${props => props.$size === 'large' ? Font.label.label1_semiBold.fontWeight : Font.label.label2_semiBold.fontWeight};
-  font-family: ${props => props.$size === 'large' ? Font.label.label1_semiBold.fontFamily : Font.label.label2_semiBold.fontFamily};
-  line-height: ${props => props.$size === 'large' ? Font.label.label1_semiBold.lineHeight : Font.label.label2_semiBold.lineHeight};
+  outline: none;
   cursor: pointer;
   transition: all 0.2s ease;
+  border-radius: 6px;
+  
+  ${({ $size }) => {
+    const fontStyle = $size === 'large' 
+      ? Font.label.label2_semiBold 
+      : Font.label.label4_semiBold;
+      
+    const padding = $size === 'large' ? '8px 16px' : '6px 12px';
+    const height = $size === 'large' ? '36px' : '28px';
+        
+    return `
+      font-family: ${fontStyle.fontFamily};
+      font-size: ${fontStyle.fontSize};
+      font-weight: ${fontStyle.fontWeight};
+      line-height: ${fontStyle.lineHeight};
+      font-style: ${fontStyle.fontStyle};
+      padding: ${padding};
+      min-height: ${height};
+    `;
+  }};
+
+  background-color: ${({ $isSelected, theme }) => 
+    $isSelected ? theme['static-white'] : 'transparent'
+  };
+  
+  color: ${({ $isSelected, theme }) => 
+    $isSelected ? theme['text-black'] : theme['text-muted']
+  };
+
+  box-shadow: ${({ $isSelected, theme }) => 
+    $isSelected ? `0 1px 2px ${theme['shadow-light']}` : 'none'
+  };
 
   &:hover {
-    background-color: ${props => props.$isSelected 
-      ? SyncLightTheme['action-secondary'] 
-      : 'rgba(66, 48, 163, 0.1)'};
+    background-color: ${({ $isSelected, theme }) => 
+      $isSelected ? theme['static-white'] : theme['background-primary']
+    };
+    
+    color: ${({ $isSelected, theme }) => 
+      $isSelected ? theme['text-black'] : theme['text-default']
+    };
+  }
+
+  &:active {
+    transform: scale(0.98);
   }
 `;

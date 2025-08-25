@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { SyncLightTheme,SyncDarkTheme } from "../../style/SyncTheme/SyncTheme";
 import { Font } from "../../tokens/Font";
 
 export const HeaderContainer = styled.div`
@@ -54,7 +53,7 @@ export const TabBox = styled.div<{ isActive: boolean; isFirst: boolean }>`
   height: 100%;
   font-family: ${(props) =>
     props.isActive ? Font.label.label4_semiBold : Font.label.label4_Regular};
-  color: ${(props) => (props.isActive ? "#383A42" : "inherit")};
+  color: ${(props) => (props.isActive ? props.theme['text-black'] : "inherit")};
   position: relative;
   cursor: pointer;
   padding: 0 8px;
@@ -83,7 +82,7 @@ export const CloseIcon = styled.div`
   flex-shrink: 0;
 
   &:hover {
-    background-color: #b4aeae57;
+    background-color: ${({ theme }) => theme['background-secondary']};
   }
 `;
 
@@ -104,23 +103,22 @@ export const TabButton = styled.div<{ isActive: boolean; isHovered?: boolean }>`
   width: 200px;
   height: 3.52vh;
   padding: 0 12px;
-  background-color: ${({ isActive, isHovered }) => {
-    if (isActive) return SyncLightTheme["header-tab-active"]; 
-    if (isHovered) return SyncLightTheme["header-tab-active"]; 
-    return SyncLightTheme["header-tab-not-active"]; 
+  background-color: ${({ isActive, isHovered, theme }) => {
+    if (isActive) return theme["header-tab-active"];
+    if (isHovered) return theme["header-tab-active"];
+    return theme["header-tab-not-active"];
   }};
-  border-right: 2px solid #D8D8D8;
-  
+  border-right: 2px solid ${({ theme }) => theme['border-light']};
   cursor: pointer;
   position: relative;
   transition: background-color 0.2s ease;
-  
+
   /* 활성 탭일 때 z-index를 높여서 경계선이 겹치지 않도록 */
   z-index: ${({ isActive }) => isActive ? 10 : 1};
 
   /* 인접한 탭들과의 경계선 겹침 처리 */
   margin-left: -1px;
-  
+
   &:first-child {
     margin-left: 0;
   }
@@ -128,7 +126,7 @@ export const TabButton = styled.div<{ isActive: boolean; isHovered?: boolean }>`
 
 export const TabButtonText = styled.div`
   font-family: ${Font.label.label4_medium};
-  color: #333333;
+  color: ${({ theme }) => theme['text-black']};
   flex: 1;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -145,12 +143,12 @@ export const CloseIconButton = styled.div`
   border-radius: 3px;
   cursor: pointer;
   font-size: 12px;
-  color: #666666;
+  color: ${({ theme }) => theme['text-muted']};
   flex-shrink: 0;
   margin-left: 8px;
 
   &:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-    color: #333333;
+    background-color: ${({ theme }) => theme['background-secondary']};
+    color: ${({ theme }) => theme['text-black']};
   }
 `;

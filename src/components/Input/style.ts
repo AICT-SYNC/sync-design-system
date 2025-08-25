@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Font } from '../../tokens/Font';
-import { lightColors } from '../../tokens/LightColors';
+import { lightColors } from '../../tokens/Color/LightColors';
 
 interface InputContainerProps {
   size: 'S' | 'M' | 'L';

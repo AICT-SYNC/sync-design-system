@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { lightColors } from "../../tokens/LightColors";
 import { Font } from "../../tokens/Font";
 
 export const HeaderContainer = styled.div`
@@ -54,7 +53,7 @@ export const TabBox = styled.div<{ isActive: boolean; isFirst: boolean }>`
   height: 100%;
   font-family: ${(props) =>
     props.isActive ? Font.label.label4_semiBold : Font.label.label4_Regular};
-  color: ${(props) => (props.isActive ? "#383A42" : "inherit")};
+  color: ${({ theme, isActive }) => (isActive ? theme["text-primary"] : theme["text-secondary"])};
   position: relative;
   cursor: pointer;
   padding: 0 8px;
@@ -83,7 +82,7 @@ export const CloseIcon = styled.div`
   flex-shrink: 0;
 
   &:hover {
-    background-color: #b4aeae57;
+    background-color: ${({ theme }) => theme["background-hover"]};
   }
 `;
 
@@ -104,12 +103,12 @@ export const TabButton = styled.div<{ isActive: boolean; isHovered?: boolean }>`
   width: 200px;
   height: 3.52vh;
   padding: 0 12px;
-  background-color: ${({ isActive, isHovered }) => {
-    if (isActive) return lightColors["header-tab-active"]; 
-    if (isHovered) return lightColors["header-tab-active"]; 
-    return lightColors["header-tab-not-active"]; 
+  background-color: ${({ theme, isActive, isHovered }) => {
+    if (isActive) return theme["header-tab-active"]; 
+    if (isHovered) return theme["header-tab-hover"]; 
+    return theme["header-tab-not-active"]; 
   }};
-  border-right: 2px solid #D8D8D8;
+  border-right: 2px solid ${({ theme }) => theme["border-light"]};
   
   cursor: pointer;
   position: relative;
@@ -128,7 +127,7 @@ export const TabButton = styled.div<{ isActive: boolean; isHovered?: boolean }>`
 
 export const TabButtonText = styled.div`
   font-family: ${Font.label.label4_medium};
-  color: #333333;
+  color: ${({ theme }) => theme["text-primary"]};
   flex: 1;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -145,12 +144,12 @@ export const CloseIconButton = styled.div`
   border-radius: 3px;
   cursor: pointer;
   font-size: 12px;
-  color: #666666;
+  color: ${({ theme }) => theme["text-secondary"]};
   flex-shrink: 0;
   margin-left: 8px;
 
   &:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-    color: #333333;
+    background-color: ${({ theme }) => theme["background-hover"]};
+    color: ${({ theme }) => theme["text-primary"]};
   }
 `;

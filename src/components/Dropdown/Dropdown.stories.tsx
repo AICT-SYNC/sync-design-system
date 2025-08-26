@@ -12,9 +12,13 @@ const meta: Meta<typeof Dropdown> = {
     options: { control: "object" },
     defaultSelected: { control: "number" },
     placeholder: { control: "text" },
-    size: { control: { type: "select", options: Object.values(DropdownSize) } },
+    size: { 
+      control: { type: "radio" },
+      options: Object.values(DropdownSize),
+    },
     buttonSize: {
-      control: { type: "select", options: Object.values(DropdownButtonSize) },
+      control: { type: "radio" },
+      options: Object.values(DropdownButtonSize),
     },
   },
 };

@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Font } from '../../tokens/Font';
-import { lightColors } from '../../tokens/LightColors';
 
 interface InputContainerProps {
   size: 'S' | 'M' | 'L';
@@ -31,48 +30,48 @@ export const InputContainer = styled.input<InputContainerProps>`
   padding: 0 16px;
   outline: none;
   transition: border-color 0.2s ease;
-  border: 1px solid ${lightColors['border-light']};
-  background-color: ${lightColors['static-white']};
-  color: ${lightColors['text-black']};
+  border: 1px solid ${({ theme }) => theme['border-light']};
+  background-color: ${({ theme }) => theme['static-white']};
+  color: ${({ theme }) => theme['text-primary']};
 
   &:hover:not(:disabled):not(:focus) {
-    border: 1px solid ${lightColors['border-medium']};
+    border: 1px solid ${({ theme }) => theme['border-medium']};
   }
 
   &:focus {
-    border: 1px solid ${lightColors['border-primary']} !important;
-    box-shadow: 0 0 0 2px ${lightColors['border-primary']}20;
+    border: 1px solid ${({ theme }) => theme['action-primary']} !important;
+    box-shadow: 0 0 0 2px ${({ theme }) => theme['action-primary']}20;
   }
 
   &:disabled {
-    border: 1px solid ${lightColors['border-light']} !important;
-    background-color: ${lightColors['background-secondary']} !important;
-    color: ${lightColors['text-muted']} !important;
+    border: 1px solid ${({ theme }) => theme['border-light']} !important;
+    background-color: ${({ theme }) => theme['background-secondary']} !important;
+    color: ${({ theme }) => theme['text-disabled']} !important;
     cursor: not-allowed !important;
     box-shadow: none !important;
   }
 
-  ${({ enabled }) => !enabled && `
-    border: 1px solid ${lightColors['border-light']} !important;
-    background-color: ${lightColors['background-secondary']} !important;
-    color: ${lightColors['text-muted']} !important;
+  ${({ theme, enabled }) => !enabled && `
+    border: 1px solid ${theme['border-light']} !important;
+    background-color: ${theme['background-secondary']} !important;
+    color: ${theme['text-disabled']} !important;
     cursor: not-allowed !important;
     box-shadow: none !important;
          
     &:hover, &:focus {
-      border: 1px solid ${lightColors['border-light']} !important;
-      background-color: ${lightColors['background-secondary']} !important;
+      border: 1px solid ${theme['border-light']} !important;
+      background-color: ${theme['background-secondary']} !important;
       box-shadow: none !important;
     }
   `}
 
   &::placeholder {
-    color: ${lightColors['text-muted']};
+    color: ${({ theme }) => theme['text-secondary']};
     font-family: ${Font.label.label1_semiBold};
   }
 
   &:disabled::placeholder {
-    color: ${lightColors['text-muted']};
+    color: ${({ theme }) => theme['text-disabled']};
     opacity: 0.5;
   }
 `;

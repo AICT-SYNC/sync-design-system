@@ -4,7 +4,6 @@ import { CheckboxSize } from '../../foundation/Checkbox'
 interface CheckboxContainerProps {
   $size: CheckboxSize;
   $checked: boolean;
-  $disabled: boolean;
 }
 
 const getSizeStyles = (size: string) => {
@@ -27,20 +26,14 @@ const getSizeStyles = (size: string) => {
 export const CheckboxContainer = styled.div<CheckboxContainerProps>`
   width: ${props => getSizeStyles(props.$size).width};
   height: ${props => getSizeStyles(props.$size).height};
-  background-color: ${props => {
-    if (props.$disabled) {
-      return props.$checked ? props.theme['border-M'] : props.theme['background-secondary'];
-    }
-    return props.$checked ? props.theme['action-primary'] : props.theme['static-white'];
-  }};
-  border: 2px solid ${props => {
-    if (props.$disabled) {
-      return props.theme['border-M'];
-    }
-    return props.$checked ? props.theme['action-primary'] : props.theme['border-light'];
-  }};
+  background-color: ${props => 
+    props.$checked ? props.theme['action-primary'] : props.theme['static-white']
+  };
+  border: 2px solid ${props => 
+    props.$checked ? props.theme['action-primary'] : props.theme['border-light']
+  };
   border-radius: 4px;
-  cursor: ${props => props.$disabled ? 'not-allowed' : 'pointer'};
+  cursor: pointer;
   transition: all 0.2s ease;
   display: flex;
   align-items: center;
@@ -48,20 +41,18 @@ export const CheckboxContainer = styled.div<CheckboxContainerProps>`
   position: relative;
 
   &:hover {
-    ${props => !props.$disabled && !props.$checked && `
+    ${props => !props.$checked && `
       border-color: ${props.theme['border-M']};
       background-color: ${props.theme['background-primary']};
     `}
-    ${props => !props.$disabled && props.$checked && `
+    ${props => props.$checked && `
       background-color: ${props.theme['action-primary']};
       opacity: 0.9;
     `}
   }
 
   &:active {
-    ${props => !props.$disabled && `
-      transform: scale(0.95);
-    `}
+    transform: scale(0.95);
   }
 `;
 

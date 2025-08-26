@@ -7,7 +7,6 @@ interface CheckboxProps {
   size?: CheckboxSize;
   checked?: boolean;
   onChange?: (checked: boolean) => void;
-  disabled?: boolean;
 }
 
 const meta: Meta<CheckboxProps> = {
@@ -19,7 +18,6 @@ const meta: Meta<CheckboxProps> = {
       options: Object.values(CheckboxSize),
     },
     checked: { control: "boolean" },
-    disabled: { control: "boolean" },
   },
 };
 
@@ -29,72 +27,49 @@ type Story = StoryObj<CheckboxProps>;
 
 export const Default: Story = {
   args: {
-    size: CheckboxSize.XLarge,
+    size: CheckboxSize.XL,
     checked: false,
-    disabled: false,
   },
 };
 
 export const Checked: Story = {
   args: {
-    size: CheckboxSize.XLarge,
+    size: CheckboxSize.XL,
     checked: true,
-    disabled: false,
-  },
-};
-
-export const Disabled: Story = {
-  args: {
-    size: CheckboxSize.XLarge,
-    checked: false,
-    disabled: true,
-  },
-};
-
-export const DisabledChecked: Story = {
-  args: {
-    size: CheckboxSize.XLarge,
-    checked: true,
-    disabled: true,
   },
 };
 
 export const XLarge: Story = {
   args: {
-    size: CheckboxSize.XLarge,
+    size: CheckboxSize.XL,
     checked: false,
-    disabled: false,
   },
 };
 
 export const Large: Story = {
   args: {
-    size: CheckboxSize.Large,
+    size: CheckboxSize.L,
     checked: false,
-    disabled: false,
   },
 };
 
 export const Medium: Story = {
   args: {
-    size: CheckboxSize.Medium,
+    size: CheckboxSize.M,
     checked: false,
-    disabled: false,
   },
 };
 
 export const Small: Story = {
   args: {
-    size: CheckboxSize.Small,
+    size: CheckboxSize.S,
     checked: false,
-    disabled: false,
   },
 };
 
 export const XSmall: Story = {
   args: {
-    size: CheckboxSize.XSmall,
+    size: CheckboxSize.XS,
     checked: false,
-    disabled: false,
   },
 };

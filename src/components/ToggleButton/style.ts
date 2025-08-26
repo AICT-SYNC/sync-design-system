@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 import { Font } from '../../tokens/Font';
+import { ToggleButtonSize } from '../../foundation/ToggleButton';
 
 interface ToggleContainerProps {
-  $size: 'large' | 'small';
+  $size: ToggleButtonSize;
 }
 
 interface ToggleOptionProps {
   $isSelected: boolean;
-  $size: 'large' | 'small';
+  $size: ToggleButtonSize;
 }
 
 export const ToggleContainer = styled.div<ToggleContainerProps>`

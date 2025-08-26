@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import * as S from './style';
 import { HeaderProps } from './types';
 
-const Header: React.FC<HeaderProps> = ({
+const HeaderButton: React.FC<HeaderProps> = ({
   id,
   title,
   isActive,
@@ -27,8 +27,8 @@ const Header: React.FC<HeaderProps> = ({
 
   return (
     <S.TabButton 
-      isActive={isActive}
-      isHovered={isHovered}
+      $isActive={isActive}
+      $isHovered={isHovered}
       onClick={() => onTabClick(id)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -46,5 +46,4 @@ const Header: React.FC<HeaderProps> = ({
   );
 };
 
-export default Header;
-export { Header as HeaderButton };
+export default HeaderButton;

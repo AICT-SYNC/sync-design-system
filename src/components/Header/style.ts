@@ -95,7 +95,7 @@ export const PlusIconWrap = styled.div`
   cursor: pointer;
 `;
 
-export const TabButton = styled.div<{ isActive: boolean; isHovered?: boolean }>`
+export const TabButton = styled.div<{ $isActive: boolean; $isHovered?: boolean }>`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -103,9 +103,9 @@ export const TabButton = styled.div<{ isActive: boolean; isHovered?: boolean }>`
   width: 200px;
   height: 100%;
   padding: 0 12px;
-  background-color: ${({ isActive, isHovered, theme }) => {
-    if (isActive) return theme["header-tab-active"];
-    if (isHovered) return theme["header-tab-active"];
+  background-color: ${({ $isActive, $isHovered, theme }) => {
+    if ($isActive) return theme["header-tab-active"];
+    if ($isHovered) return theme["header-tab-active"];
     return theme["header-tab-not-active"];
   }};
   border-right: 2px solid ${({ theme }) => theme['border-light']};
@@ -114,7 +114,7 @@ export const TabButton = styled.div<{ isActive: boolean; isHovered?: boolean }>`
   transition: background-color 0.2s ease;
 
   /* 활성 탭일 때 z-index를 높여서 경계선이 겹치지 않도록 */
-  z-index: ${({ isActive }) => isActive ? 10 : 1};
+  z-index: ${({ $isActive }) => $isActive ? 10 : 1};
 
   /* 인접한 탭들과의 경계선 겹침 처리 */
   margin-left: -1px;

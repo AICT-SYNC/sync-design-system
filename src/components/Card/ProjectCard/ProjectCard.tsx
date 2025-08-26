@@ -11,12 +11,11 @@ import {
   MemberInfo,
   MemberCount,
   Actions,
-  NotificationBadge,
 } from "./style.ts";
 import { Settings } from "lucide-react";
 import { Avatar } from "../../../assets/icons/avatar.tsx";
 import { Badge } from "../../Badge/index.ts";
-import { BadgeRole, BadgeSize } from "../../../foundation";
+import { BadgeRole, BadgeSize, AvatarSizeEnum } from "../../../foundation";
 
 interface ProjectCardProps {
   title?: string;
@@ -24,7 +23,6 @@ interface ProjectCardProps {
   memberCount?: number;
   notificationCount?: number;
   image?: string;
-  imgColor?: string;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -33,7 +31,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   memberCount = 4,
   notificationCount = 1,
   image,
-  imgColor,
 }) => {
   // 텍스트 자르기 함수
   const truncateText = (text: string, maxLength: number): string => {
@@ -64,7 +61,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         <CardFooter>
           {/* 멤버 수 */}
           <MemberInfo>
-            <Avatar size="extraSmall" />
+            <Avatar size={AvatarSizeEnum.XS} />
             <MemberCount>{memberCount}명</MemberCount>
           </MemberInfo>
 

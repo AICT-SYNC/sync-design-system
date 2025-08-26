@@ -53,7 +53,8 @@ export const CheckboxContainer = styled.div<CheckboxContainerProps>`
       background-color: ${props.theme['background-primary']};
     `}
     ${props => !props.$disabled && props.$checked && `
-      background-color: rgba(66, 48, 163, 0.9);
+      background-color: ${props.theme['action-primary']};
+      opacity: 0.9;
     `}
   }
 

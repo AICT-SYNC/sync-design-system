@@ -53,7 +53,7 @@ export const TabBox = styled.div<{ isActive: boolean; isFirst: boolean }>`
   height: 100%;
   font-family: ${(props) =>
     props.isActive ? Font.label.label4_semiBold : Font.label.label4_Regular};
-  color: ${(props) => (props.isActive ? props.theme['text-black'] : "inherit")};
+  color: ${({ theme, isActive }) => (isActive ? theme["text-primary"] : theme["text-secondary"])};
   position: relative;
   cursor: pointer;
   padding: 0 8px;

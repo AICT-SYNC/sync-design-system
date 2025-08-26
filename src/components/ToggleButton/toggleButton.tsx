@@ -9,11 +9,11 @@ interface ToggleButtonProps {
   size?: ToggleButtonSize;
 }
 
-export const ToggleButton: React.FC<ToggleButtonProps> = ({ 
-  options, 
-  defaultSelected = 0, 
+export const ToggleButton: React.FC<ToggleButtonProps> = ({
+  options,
+  defaultSelected = 0,
   onChange,
-  size = ToggleButtonSize.Large
+  size = ToggleButtonSize.L
 }) => {
   const [selectedIndex, setSelectedIndex] = useState(defaultSelected);
 

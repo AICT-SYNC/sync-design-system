@@ -74,6 +74,7 @@ export const lightColors = {
 
   "header-tab-active": primitiveColors.neutral[100], // '#EDEEF1',
   "header-tab-not-active": primitiveColors.common[0], // '#FFFFFF',
+  "header-tab-active-hover": primitiveColors.neutral[200],
 
   "code-bg": primitiveColors.neutral[50],
 } as const;

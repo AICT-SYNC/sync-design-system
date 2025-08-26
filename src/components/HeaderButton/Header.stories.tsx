@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Header from './HeaderButton';
 
 const meta: Meta<typeof Header> = {
-  title: 'Components/Header',
+  title: 'Components/HeaderButton',
   component: Header,
   parameters: {
     layout: 'fullscreen',
@@ -64,7 +64,7 @@ export const LongTitle: Story = {
   args: {
     id: '1',
     title: '2025 나르샤 팀 AICT 프로젝트 매우 긴 이름',
-    isActive: true,
+    isActive: false,
   },
 };
 

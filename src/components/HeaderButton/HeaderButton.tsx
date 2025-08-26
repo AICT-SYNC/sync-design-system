@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import * as S from './style';
-import { HeaderProps } from './types';
+
+export interface HeaderProps {
+  id: string;
+  title: string;
+  isActive: boolean;
+  onTabClick: (id: string) => void;
+  onTabClose?: (id: string) => void;
+}
 
 const HeaderButton: React.FC<HeaderProps> = ({
   id,

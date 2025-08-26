@@ -72,8 +72,9 @@ export const darkColors: Record<string, string> = {
   "static-white": primitiveColors.common[0],
   "static-black": primitiveColors.common[1000],
 
-  "header-tab-active": "#383A42",
-  "header-tab-not-active": "#1F2937",
+  "header-tab-active": primitiveColors.neutral[900],
+  "header-tab-not-active": primitiveColors.neutral[950],
+  "header-tab-active-hover": primitiveColors.neutral[800],
 
   "code-bg": primitiveColors.neutral[50],
 } as const;

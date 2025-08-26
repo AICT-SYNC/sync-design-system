@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { Font } from '../../tokens/Font';
 import { InputSize } from '../../foundation/Input';
+import { inputWidth,inputHeight } from '../../tokens'
+
 
 interface InputContainerProps {
   size: InputSize;
@@ -11,18 +13,18 @@ export const InputContainer = styled.input<InputContainerProps>`
   display: flex;
   width: ${({ size }) => {
     switch (size) {
-      case InputSize.S: return '300px';
-      case InputSize.M: return '380px';
-      case InputSize.L: return '460px';
-      default: return '460px';
+      case InputSize.S: return inputWidth['input-sm'];
+      case InputSize.M: return inputWidth['input-md'];
+      case InputSize.L: return inputWidth['input-lg'];
+      default: return inputWidth['input-lg'];
     }
   }};
   height: ${({ size }) => {
     switch (size) {
-      case InputSize.S: return '32px';
-      case InputSize.M: return '40px';
-      case InputSize.L: return '48px';
-      default: return '48px';
+      case InputSize.S: return inputHeight['input-sm'];
+      case InputSize.M: return inputHeight['input-md'];
+      case InputSize.L: return inputHeight['input-lg'];
+      default: return inputHeight['input-lg'];
     }
   }};
 

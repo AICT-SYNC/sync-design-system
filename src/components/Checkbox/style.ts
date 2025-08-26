@@ -1,22 +1,23 @@
 import styled from 'styled-components';
+import { CheckboxSize } from '../../foundation/Checkbox'
 
 interface CheckboxContainerProps {
-  $size: 'XL' | 'L' | 'M' | 'S' | 'XS';
+  $size: CheckboxSize;
   $checked: boolean;
   $disabled: boolean;
 }
 
 const getSizeStyles = (size: string) => {
   switch (size) {
-    case 'XL':
+    case CheckboxSize.XL:
       return { width: '56px', height: '56px', iconSize: '40px' };
-    case 'L':
+    case CheckboxSize.L:
       return { width: '48px', height: '48px', iconSize: '34px' };
-    case 'M':
+    case CheckboxSize.M:
       return { width: '40px', height: '40px', iconSize: '28px' };
-    case 'S':
+    case CheckboxSize.S:
       return { width: '32px', height: '32px', iconSize: '22px' };
-    case 'XS':
+    case CheckboxSize.XS:
       return { width: '24px', height: '24px', iconSize: '16px' };
     default:
       return { width: '56px', height: '56px', iconSize: '40px' };
@@ -73,7 +74,7 @@ export const CheckboxInput = styled.input`
 `;
 
 interface CheckboxIconProps {
-  $size: 'XL' | 'L' | 'M' | 'S' | 'XS';
+  $size: CheckboxSize;
 }
 
 export const CheckboxIcon = styled.div<CheckboxIconProps>`

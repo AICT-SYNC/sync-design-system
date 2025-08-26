@@ -5,22 +5,22 @@ import { inputWidth,inputHeight } from '../../tokens'
 
 
 interface InputContainerProps {
-  size: InputSize;
-  enabled: boolean;
+  $size: InputSize;
+  $enabled: boolean;
 }
 
 export const InputContainer = styled.input<InputContainerProps>`
   display: flex;
-  width: ${({ size }) => {
-    switch (size) {
+  width: ${({ $size }) => {
+    switch ($size) {
       case InputSize.S: return inputWidth['input-sm'];
       case InputSize.M: return inputWidth['input-md'];
       case InputSize.L: return inputWidth['input-lg'];
       default: return inputWidth['input-lg'];
     }
   }};
-  height: ${({ size }) => {
-    switch (size) {
+  height: ${({ $size }) => {
+    switch ($size) {
       case InputSize.S: return inputHeight['input-sm'];
       case InputSize.M: return inputHeight['input-md'];
       case InputSize.L: return inputHeight['input-lg'];
@@ -28,9 +28,9 @@ export const InputContainer = styled.input<InputContainerProps>`
     }
   }};
 
-  ${({ size }) => {
+  ${({ $size }) => {
     const fontStyle = (() => {
-      switch (size) {
+      switch ($size) {
         case InputSize.S: return Font.label.label4_semiBold;
         case InputSize.M: return Font.label.label2_semiBold;
         case InputSize.L: return Font.label.label1_semiBold;
@@ -73,7 +73,7 @@ export const InputContainer = styled.input<InputContainerProps>`
     box-shadow: none !important;
   }
 
-  ${({ enabled, theme }) => !enabled && `
+  ${({ $enabled, theme }) => !$enabled && `
     border: 1px solid ${theme['border-light']} !important;
     background-color: ${theme['background-secondary']} !important;
     color: ${theme['text-muted']} !important;

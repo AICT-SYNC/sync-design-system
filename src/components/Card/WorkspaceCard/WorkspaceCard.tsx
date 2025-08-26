@@ -30,9 +30,9 @@ interface WorkspaceCardProps {
 
 export const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
   title = "프로젝트 제목",
-  description = "4개의 프로젝트",
-  memberCount = 4,
-  notificationCount = 1,
+  description = "프로젝트",
+  memberCount = -1,
+  notificationCount = -1,
 }) => {
   const truncateText = (text: string, maxLength: number): string => {
     if (text.length <= maxLength) return text;

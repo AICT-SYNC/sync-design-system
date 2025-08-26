@@ -27,9 +27,9 @@ interface ProjectCardProps {
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
   title = "워크스페이스 제목",
-  description = "워크스페이스",
-  memberCount = 4,
-  notificationCount = 1,
+  description = "0개의 프로젝트",
+  memberCount = -1,
+  notificationCount = -1,
   image,
 }) => {
   // 텍스트 자르기 함수

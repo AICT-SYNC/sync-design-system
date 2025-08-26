@@ -1,9 +1,8 @@
-import React from 'react';
-import * as S from './style';
-import { ListSize } from '../../foundation/List';
-import { Avatar } from '../../assets/icons/avatar';
-import { Checkbox } from '../Checkbox'
-import { CheckboxSize, AvatarSizeEnum } from '../../foundation'
+import React from "react";
+import * as S from "./style";
+import { ListSize, ListSizeMap } from "../../foundation/List";
+import { Avatar } from "../../assets";
+import { Checkbox } from "../Checkbox";
 
 interface ListProps {
   size: ListSize;
@@ -16,35 +15,10 @@ interface ListProps {
 const List: React.FC<ListProps> = ({ size, select, name, email }) => {
   return (
     <S.ListContainer size={size} $select={select}>
-      {select && <Checkbox size={(() => {
-        switch (size) {
-          case ListSize.L:
-            return CheckboxSize.M;
-          case ListSize.M:
-            return CheckboxSize.S;
-          case ListSize.S:
-            return CheckboxSize.XS;
-          default:
-            return CheckboxSize.XS;
-        }
-      })()} />}
-      <Avatar 
-        size={(() => {
-          switch (size) {
-            case ListSize.S:
-              return AvatarSizeEnum.S;
-            case ListSize.M:
-              return AvatarSizeEnum.L;
-            case ListSize.L:
-              return AvatarSizeEnum.XL;
-            default:
-              return AvatarSizeEnum.XL;
-          }
-        })()}
-      />
-       
+      {select && <Checkbox size={ListSizeMap[size].checkboxSize} />}
+      <Avatar size={ListSizeMap[size].avatarSize} />
       <S.ContentBox $size={size}>
-        <S.ContentName $size={size}>{name}</S.ContentName>
+        <S.ContentUserName $size={size}>{name}</S.ContentUserName>
         <S.ContentEmail $size={size}>{email}</S.ContentEmail>
       </S.ContentBox>
     </S.ListContainer>

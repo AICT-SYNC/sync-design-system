@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { lightColors } from '../../tokens/LightColors';
 
 interface Props {
    widthProps: string,
@@ -16,5 +15,5 @@ export const Divider = styled.div<Props>`
            default: return '4px';
        }
    }};
-   background-color: ${lightColors['divider-archived']};
+   background-color: ${({ theme }) => theme["divider-archived"]};
 `;

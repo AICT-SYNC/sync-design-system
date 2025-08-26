@@ -1,36 +1,25 @@
 import { AVATAR_ITMES } from "./constant";
 import { StyledSvg } from "./style";
-
-type sizeType =
-  | "extraSmall"
-  | "small"
-  | "medium"
-  | "large"
-  | "extraLarge"
-  | "xxl";
+import { AvatarSizeEnum, AvatarSizeMap } from "../../foundation";
+import { useTheme } from "styled-components";
 
 interface AvatarProps {
-  size?: sizeType;
+  size?: AvatarSizeEnum;
 }
 
-export const Avatar: React.FC<AvatarProps> = ({ size = "small", ...rest }) => {
-  const sized =
-    {
-      extraSmall: 16,
-      small: 24,
-      medium: 32,
-      large: 40,
-      extraLarge: 48,
-      xxl: 64,
-    }[size] || 24;
-
-  const avatarData = AVATAR_ITMES[size] || AVATAR_ITMES.extraSmall;
+export const Avatar: React.FC<AvatarProps> = ({ size = AvatarSizeEnum.S, ...rest }) => {
+  const theme = useTheme();
+  const avatarData = AVATAR_ITMES[size] || AVATAR_ITMES.M;
+  const sizeValue = AvatarSizeMap[size]?.size || AvatarSizeMap[AvatarSizeEnum.XL].size;
+  const avatarColor = theme["avatar-user"];
+  const bgColor = theme["user-away"];
+  const viewBoxSize = avatarData.backgroundCircle.r * 2;
 
   return (
     <StyledSvg
-      width={sized}
-      height={sized}
-      viewBox={`0 0 ${sized} ${sized}`}
+      width={sizeValue}
+      height={sizeValue}
+      viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       $svgStyle={{}}
@@ -40,15 +29,15 @@ export const Avatar: React.FC<AvatarProps> = ({ size = "small", ...rest }) => {
         cx={avatarData.backgroundCircle.cx}
         cy={avatarData.backgroundCircle.cy}
         r={avatarData.backgroundCircle.r}
-        fill={avatarData.backgroundCircle.fill}
+        fill={bgColor}
       />
       <circle
         cx={avatarData.faceCircle.cx}
         cy={avatarData.faceCircle.cy}
         r={avatarData.faceCircle.r}
-        fill={avatarData.faceCircle.fill}
+        fill={avatarColor}
       />
-      <path d={avatarData.bodyPath} fill="#EF4444" />
+      <path d={avatarData.bodyPath} fill={avatarColor} />
     </StyledSvg>
   );
 };

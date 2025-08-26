@@ -12,8 +12,8 @@ export const Divider: React.FC<DividerProps> = ({widthProps = '375px',  Size='Bo
   return (
     <div>
       <S.Divider
-        widthProps={widthProps} 
-        SizeProps={Size}    
+        $widthProps={widthProps} 
+        $SizeProps={Size}
       />
     </div>
   )

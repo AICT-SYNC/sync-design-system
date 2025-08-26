@@ -1,23 +1,28 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-
-type DatePickerMode = "entire" | "future";
+import { DatePickerVariant } from "../../../foundation";
 
 interface DatePickerParams {
   value: string;
   splitCharacter: string;
   onChange: (e: Date) => void;
-  type: DatePickerMode;
+  type: DatePickerVariant;
 }
 
 export const useDatePicker = ({
   value,
   splitCharacter,
   onChange,
-  type,
 }: DatePickerParams) => {
   //날짜 초깃값
   const today = new Date();
-  const defaultDate = value || `${today.getFullYear()}${splitCharacter}${String(today.getMonth() + 1).padStart(2, '0')}${splitCharacter}${String(today.getDate()).padStart(2, '0')}`;
+  const defaultDate =
+    value ||
+    `${today.getFullYear()}${splitCharacter}${String(
+      today.getMonth() + 1
+    ).padStart(2, "0")}${splitCharacter}${String(today.getDate()).padStart(
+      2,
+      "0"
+    )}`;
   const date = defaultDate.split(splitCharacter);
 
   const $year = Number(date[0]) || today.getFullYear();

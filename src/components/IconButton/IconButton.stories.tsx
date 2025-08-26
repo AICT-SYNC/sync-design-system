@@ -1,13 +1,14 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { IconButton } from "./iconButton";
-import { Menu, Search, Settings, User, Home, Bell } from "lucide-react";
+import { SyncIcons } from "../../assets/icons/SyncIcons";
 import { IconButtonSize } from "../../foundation/IconButton";
 
 interface IconButtonProps {
   size?: IconButtonSize;
   onClick?: () => void;
-  icon?: React.ComponentType;
+  icon: keyof typeof SyncIcons;
+  iconColor?: string;
 }
 
 const meta: Meta<IconButtonProps> = {
@@ -20,22 +21,10 @@ const meta: Meta<IconButtonProps> = {
     },
     icon: {
       control: { type: "select" },
-      options: {
-        Menu: Menu,
-        Search: Search,
-        Settings: Settings,
-        User: User,
-        Home: Home,
-        Bell: Bell,
-      },
-      mapping: {
-        Menu: Menu,
-        Search: Search,
-        Settings: Settings,
-        User: User,
-        Home: Home,
-        Bell: Bell,
-      },
+      options: Object.keys(SyncIcons),
+    },
+    iconColor: {
+      control: { type: "color" },
     },
   },
 };
@@ -46,63 +35,92 @@ type Story = StoryObj<IconButtonProps>;
 
 export const Default: Story = {
   args: {
-    size: IconButtonSize.Large,
-    icon: Menu,
+    size: IconButtonSize.L,
+    icon: "Globe",
   },
 };
 
 export const Large: Story = {
   args: {
-    size: IconButtonSize.Large,
-    icon: Menu,
+    size: IconButtonSize.L,
+    icon: "Globe",
   },
 };
 
 export const Medium: Story = {
   args: {
-    size: IconButtonSize.Medium,
-    icon: Menu,
+    size: IconButtonSize.M,
+    icon: "Globe",
   },
 };
 
 export const Small: Story = {
   args: {
-    size: IconButtonSize.Small,
-    icon: Menu,
+    size: IconButtonSize.S,
+    icon: "Globe",
   },
 };
 
-export const WithSearchIcon: Story = {
+export const WithCalendarIcon: Story = {
   args: {
-    size: IconButtonSize.Large,
-    icon: Search,
+    size: IconButtonSize.L,
+    icon: "CalendarDays",
   },
 };
 
 export const WithSettingsIcon: Story = {
   args: {
-    size: IconButtonSize.Large,
-    icon: Settings,
+    size: IconButtonSize.L,
+    icon: "Settings",
   },
 };
 
-export const WithUserIcon: Story = {
+export const WithCheckIcon: Story = {
   args: {
-    size: IconButtonSize.Large,
-    icon: User,
+    size: IconButtonSize.L,
+    icon: "Check",
   },
 };
 
-export const WithHomeIcon: Story = {
+export const WithPlusIcon: Story = {
   args: {
-    size: IconButtonSize.Large,
-    icon: Home,
+    size: IconButtonSize.L,
+    icon: "Plus",
   },
 };
 
-export const WithBellIcon: Story = {
+export const WithTrashIcon: Story = {
   args: {
-    size: IconButtonSize.Large,
-    icon: Bell,
+    size: IconButtonSize.L,
+    icon: "Trash",
   },
+};
+
+export const WithCustomColor: Story = {
+  args: {
+    size: IconButtonSize.L,
+    icon: "Settings",
+    iconColor: "#FF4444",
+  },
+};
+
+export const CustomColorExamples: Story = {
+  render: () => (
+    <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+      <IconButton size={IconButtonSize.L} icon="Settings" iconColor="#FF4444" />
+      <IconButton size={IconButtonSize.L} icon="Check" iconColor="#00AA44" />
+      <IconButton size={IconButtonSize.L} icon="Trash" iconColor="#FF6B35" />
+      <IconButton size={IconButtonSize.L} icon="Plus" iconColor="#6366F1" />
+    </div>
+  ),
+};
+
+export const AllSizes: Story = {
+  render: () => (
+    <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+      <IconButton size={IconButtonSize.S} icon="Globe" />
+      <IconButton size={IconButtonSize.M} icon="Globe" />
+      <IconButton size={IconButtonSize.L} icon="Globe" />
+    </div>
+  ),
 };

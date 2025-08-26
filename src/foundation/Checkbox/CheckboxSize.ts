@@ -1,7 +1,7 @@
 export enum CheckboxSize {
-  XLarge = "xlarge",
-  Large = "large",
-  Medium = "medium",
-  Small = "small",
-  XSmall = "xsmall"
+  XL = "XL",
+  L = "L",
+  M = "M",
+  S = "S",
+  XS = "XS"
 }

@@ -3,6 +3,7 @@ import * as S from './style';
 import { ListSize } from '../../foundation/List';
 import { Avatar } from '../../assets/icons/avatar';
 import { Checkbox } from '../Checkbox'
+import { CheckboxSize } from '../../foundation/Checkbox'
 
 interface ListProps {
   size: ListSize;
@@ -12,13 +13,13 @@ interface ListProps {
   image?: string;
 }
 
-const List: React.FC<ListProps> = ({ size, select, name, email, image }) => {
+const List: React.FC<ListProps> = ({ size, select, name, email }) => {
   return (
     <S.ListContainer size={size} select={select}>
       {select && <Checkbox size={
-        size === ListSize.L ? 'M' :
-        size === ListSize.M ? 'S' :
-        size === ListSize.S ? 'XS' : 'XS'
+        size === ListSize.L ? CheckboxSize.M :
+        size === ListSize.M ? CheckboxSize.S :
+        size === ListSize.S ? CheckboxSize.XS : CheckboxSize.XS
       } />}
       <Avatar 
         size={

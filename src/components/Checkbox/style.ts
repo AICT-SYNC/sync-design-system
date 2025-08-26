@@ -1,22 +1,22 @@
 import styled from 'styled-components';
 
 interface CheckboxContainerProps {
-  $size: 'xlarge' | 'large' | 'medium' | 'small' | 'xsmall';
+  $size: 'XL' | 'L' | 'M' | 'S' | 'XS';
   $checked: boolean;
   $disabled: boolean;
 }
 
 const getSizeStyles = (size: string) => {
   switch (size) {
-    case 'xlarge':
+    case 'XL':
       return { width: '56px', height: '56px', iconSize: '40px' };
-    case 'large':
+    case 'L':
       return { width: '48px', height: '48px', iconSize: '34px' };
-    case 'medium':
+    case 'M':
       return { width: '40px', height: '40px', iconSize: '28px' };
-    case 'small':
+    case 'S':
       return { width: '32px', height: '32px', iconSize: '22px' };
-    case 'xsmall':
+    case 'XS':
       return { width: '24px', height: '24px', iconSize: '16px' };
     default:
       return { width: '56px', height: '56px', iconSize: '40px' };
@@ -28,13 +28,13 @@ export const CheckboxContainer = styled.div<CheckboxContainerProps>`
   height: ${props => getSizeStyles(props.$size).height};
   background-color: ${props => {
     if (props.$disabled) {
-      return props.$checked ? props.theme['border-medium'] : props.theme['background-secondary'];
+      return props.$checked ? props.theme['border-M'] : props.theme['background-secondary'];
     }
     return props.$checked ? props.theme['action-primary'] : props.theme['static-white'];
   }};
   border: 2px solid ${props => {
     if (props.$disabled) {
-      return props.theme['border-medium'];
+      return props.theme['border-M'];
     }
     return props.$checked ? props.theme['action-primary'] : props.theme['border-light'];
   }};
@@ -48,7 +48,7 @@ export const CheckboxContainer = styled.div<CheckboxContainerProps>`
 
   &:hover {
     ${props => !props.$disabled && !props.$checked && `
-      border-color: ${props.theme['border-medium']};
+      border-color: ${props.theme['border-M']};
       background-color: ${props.theme['background-primary']};
     `}
     ${props => !props.$disabled && props.$checked && `
@@ -74,7 +74,7 @@ export const CheckboxInput = styled.input`
 `;
 
 interface CheckboxIconProps {
-  $size: 'xlarge' | 'large' | 'medium' | 'small' | 'xsmall';
+  $size: 'XL' | 'L' | 'M' | 'S' | 'XS';
 }
 
 export const CheckboxIcon = styled.div<CheckboxIconProps>`
@@ -88,6 +88,6 @@ export const CheckboxIcon = styled.div<CheckboxIconProps>`
   svg {
     width: 100%;
     height: 100%;
-    color: white;
+    color: ${({ theme }) => theme['static-white']};
   }
 `;

@@ -82,7 +82,7 @@ export const CloseIcon = styled.div`
   flex-shrink: 0;
 
   &:hover {
-    background-color: ${({ theme }) => theme["background-hover"]};
+    background-color: ${({ theme }) => theme['background-secondary']};
   }
 `;
 
@@ -101,25 +101,24 @@ export const TabButton = styled.div<{ isActive: boolean; isHovered?: boolean }>`
   align-items: center;
   justify-content: space-between;
   width: 200px;
-  height: 3.52vh;
+  height: 100%;
   padding: 0 12px;
-  background-color: ${({ theme, isActive, isHovered }) => {
-    if (isActive) return theme["header-tab-active"]; 
-    if (isHovered) return theme["header-tab-hover"]; 
-    return theme["header-tab-not-active"]; 
+  background-color: ${({ isActive, isHovered, theme }) => {
+    if (isActive) return theme["header-tab-active"];
+    if (isHovered) return theme["header-tab-active"];
+    return theme["header-tab-not-active"];
   }};
-  border-right: 2px solid ${({ theme }) => theme["border-light"]};
-  
+  border-right: 2px solid ${({ theme }) => theme['border-light']};
   cursor: pointer;
   position: relative;
   transition: background-color 0.2s ease;
-  
+
   /* 활성 탭일 때 z-index를 높여서 경계선이 겹치지 않도록 */
   z-index: ${({ isActive }) => isActive ? 10 : 1};
 
   /* 인접한 탭들과의 경계선 겹침 처리 */
   margin-left: -1px;
-  
+
   &:first-child {
     margin-left: 0;
   }
@@ -127,7 +126,7 @@ export const TabButton = styled.div<{ isActive: boolean; isHovered?: boolean }>`
 
 export const TabButtonText = styled.div`
   font-family: ${Font.label.label4_medium};
-  color: ${({ theme }) => theme["text-primary"]};
+  color: ${({ theme }) => theme['text-black']};
   flex: 1;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -144,12 +143,12 @@ export const CloseIconButton = styled.div`
   border-radius: 3px;
   cursor: pointer;
   font-size: 12px;
-  color: ${({ theme }) => theme["text-secondary"]};
+  color: ${({ theme }) => theme['text-muted']};
   flex-shrink: 0;
   margin-left: 8px;
 
   &:hover {
-    background-color: ${({ theme }) => theme["background-hover"]};
-    color: ${({ theme }) => theme["text-primary"]};
+    background-color: ${({ theme }) => theme['background-secondary']};
+    color: ${({ theme }) => theme['text-black']};
   }
 `;

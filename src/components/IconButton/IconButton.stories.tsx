@@ -1,23 +1,10 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-<<<<<<< Updated upstream
-import IconButton from "./iconButton";
-import { Menu, Search, Settings, User, Home, Bell } from "lucide-react";
-
-interface IconButtonProps {
-  size?: 'large' | 'medium' | 'small';
-  onClick?: () => void;
-  icon?: React.ComponentType;
-}
-
-const meta: Meta<IconButtonProps> = {
-=======
-import { IconButton } from "./IconButton";
+import { IconButton } from "./iconButton";
 import { IconButtonSize } from "../../foundation/IconButton";
 import { SyncIcons } from "../../assets/icons/SyncIcons";
 
 const meta: Meta<typeof IconButton> = {
->>>>>>> Stashed changes
   title: "Components/IconButton",
   component: IconButton,
   parameters: {
@@ -42,107 +29,62 @@ type Story = StoryObj<typeof IconButton>;
 
 export const Default: Story = {
   args: {
-<<<<<<< Updated upstream
-    size: "large",
-    icon: Menu,
-=======
     size: IconButtonSize.L,
     icon: "Settings",
->>>>>>> Stashed changes
   },
 };
 
 export const Large: Story = {
   args: {
-<<<<<<< Updated upstream
-    size: "large",
-    icon: Menu,
-=======
     size: IconButtonSize.L,
     icon: "Settings",
->>>>>>> Stashed changes
   },
 };
 
 export const Medium: Story = {
   args: {
-<<<<<<< Updated upstream
-    size: "medium",
-    icon: Menu,
-=======
     size: IconButtonSize.M,
     icon: "Settings",
->>>>>>> Stashed changes
   },
 };
 
 export const Small: Story = {
   args: {
-<<<<<<< Updated upstream
-    size: "small",
-    icon: Menu,
-=======
     size: IconButtonSize.S,
     icon: "Settings",
->>>>>>> Stashed changes
   },
 };
 
 export const WithGlobeIcon: Story = {
   args: {
-<<<<<<< Updated upstream
-    size: "large",
-    icon: Search,
-=======
     size: IconButtonSize.L,
     icon: "Globe",
->>>>>>> Stashed changes
   },
 };
 
 export const WithCheckIcon: Story = {
   args: {
-<<<<<<< Updated upstream
-    size: "large",
-    icon: Settings,
-=======
     size: IconButtonSize.L,
     icon: "Check",
->>>>>>> Stashed changes
   },
 };
 
 export const WithPlusIcon: Story = {
   args: {
-<<<<<<< Updated upstream
-    size: "large",
-    icon: User,
-=======
     size: IconButtonSize.L,
     icon: "Plus",
->>>>>>> Stashed changes
   },
 };
 
 export const WithTrashIcon: Story = {
   args: {
-<<<<<<< Updated upstream
-    size: "large",
-    icon: Home,
-=======
     size: IconButtonSize.L,
     icon: "Trash",
->>>>>>> Stashed changes
   },
 };
 
 export const WithPencilIcon: Story = {
   args: {
-<<<<<<< Updated upstream
-    size: "large",
-    icon: Bell,
-  },
-=======
     size: IconButtonSize.L,
     icon: "Pencil",
   },
@@ -169,5 +111,4 @@ export const AllIcons: Story = {
       ))}
     </div>
   ),
->>>>>>> Stashed changes
 };

@@ -1,9 +1,4 @@
 import React from 'react';
-<<<<<<< Updated upstream
-import { IconButtonContainer, IconWrapper } from './style';
-import { Menu } from 'lucide-react';
-import type { LucideProps } from 'lucide-react';
-=======
 import { SyncIcon, SyncIcons } from "../../assets/icons/SyncIcons";
 import { IconButtonSize } from '../../foundation/IconButton';
 import styled from 'styled-components';
@@ -11,7 +6,6 @@ import styled from 'styled-components';
 interface IconButtonContainerProps {
   $size: IconButtonSize;
 }
->>>>>>> Stashed changes
 
 interface IconButtonProps {
   size?: 'large' | 'medium' | 'small';
@@ -19,10 +13,6 @@ interface IconButtonProps {
   icon: keyof typeof SyncIcons
 }
 
-<<<<<<< Updated upstream
-const IconButton: React.FC<IconButtonProps> = ({ 
-  size = 'large', 
-=======
 const getSizeStyles = (size: string) => {
   switch (size) {
     case IconButtonSize.L:
@@ -58,8 +48,7 @@ export const IconButtonContainer = styled.button<IconButtonContainerProps>`
 `;
 
 export const IconButton: React.FC<IconButtonProps> = ({ 
-  size = IconButtonSize.L, 
->>>>>>> Stashed changes
+  size = IconButtonSize.L,
   onClick,
   icon,
 }) => {

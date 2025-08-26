@@ -7,7 +7,7 @@ import { user } from '../../tokens'
 
 interface ListContainerProps {
   size: ListSize;
-  select: boolean;
+  $select: boolean;
 }
 
 export const ListContainer = styled.div<ListContainerProps>`
@@ -23,8 +23,8 @@ export const ListContainer = styled.div<ListContainerProps>`
     }
   }};
   border: 1px solid ${({ theme }) => theme['border-light']};
-  padding-left: ${({ size, select }) => {
-    if (select) return '30px';
+  padding-left: ${({ size, $select }) => {
+    if ($select) return '30px';
     switch (size) {
       case ListSize.S: return list['hpadding-sm'];
       case ListSize.M: return list['hpadding-md'];

@@ -3,7 +3,7 @@ import * as S from './style';
 import { ListSize } from '../../foundation/List';
 import { Avatar } from '../../assets/icons/avatar';
 import { Checkbox } from '../Checkbox'
-import { CheckboxSize } from '../../foundation/Checkbox'
+import { CheckboxSize, AvatarSizeEnum } from '../../foundation'
 
 interface ListProps {
   size: ListSize;
@@ -15,7 +15,7 @@ interface ListProps {
 
 const List: React.FC<ListProps> = ({ size, select, name, email }) => {
   return (
-    <S.ListContainer size={size} select={select}>
+    <S.ListContainer size={size} $select={select}>
       {select && <Checkbox size={(() => {
         switch (size) {
           case ListSize.L:
@@ -32,13 +32,13 @@ const List: React.FC<ListProps> = ({ size, select, name, email }) => {
         size={(() => {
           switch (size) {
             case ListSize.S:
-              return 'small';
+              return AvatarSizeEnum.S;
             case ListSize.M:
-              return 'large';
+              return AvatarSizeEnum.L;
             case ListSize.L:
-              return 'extraLarge';
+              return AvatarSizeEnum.XL;
             default:
-              return 'extraLarge';
+              return AvatarSizeEnum.XL;
           }
         })()}
       />

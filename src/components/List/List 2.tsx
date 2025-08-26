@@ -16,31 +16,17 @@ interface ListProps {
 const List: React.FC<ListProps> = ({ size, select, name, email }) => {
   return (
     <S.ListContainer size={size} select={select}>
-      {select && <Checkbox size={(() => {
-        switch (size) {
-          case ListSize.L:
-            return CheckboxSize.M;
-          case ListSize.M:
-            return CheckboxSize.S;
-          case ListSize.S:
-            return CheckboxSize.XS;
-          default:
-            return CheckboxSize.XS;
-        }
-      })()} />}
+      {select && <Checkbox size={
+        size === ListSize.L return CheckboxSize.M :
+        size === ListSize.M ? CheckboxSize.S :
+        size === ListSize.S ? CheckboxSize.XS : CheckboxSize.XS
+      } />}
       <Avatar 
-        size={(() => {
-          switch (size) {
-            case ListSize.S:
-              return 'small';
-            case ListSize.M:
-              return 'large';
-            case ListSize.L:
-              return 'extraLarge';
-            default:
-              return 'extraLarge';
-          }
-        })()}
+        size={
+          size === ListSize.S ? 'small' :
+          size === ListSize.M ? 'large' :
+          size === ListSize.L ? 'extraLarge' : 'large'
+        }
       />
        
       <S.ContentBox $size={size}>

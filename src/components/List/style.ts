@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import { Font } from '../../tokens/Font';
 import { ListSize } from '../../foundation/List' 
+import { list } from '../../tokens' 
+import { user } from '../../tokens'
+
 
 interface ListContainerProps {
   size: ListSize;
@@ -13,20 +16,20 @@ export const ListContainer = styled.div<ListContainerProps>`
   width: 967px;
   height: ${({ size }) => {
     switch (size) {
-      case ListSize.S: return '48px';
-      case ListSize.M: return '64px';
-      case ListSize.L: return '86px';
-      default: return '86px';
+      case ListSize.S: return user['list-user-sm'];
+      case ListSize.M: return user['list-user-md'];
+      case ListSize.L: return user['list-user-lg'];
+      default: return user['list-user-lg'];
     }
   }};
   border: 1px solid ${({ theme }) => theme['border-light']};
   padding-left: ${({ size, select }) => {
     if (select) return '30px';
     switch (size) {
-      case ListSize.S: return '16px';
-      case ListSize.M: return '24px';
-      case ListSize.L: return '32px';
-      default: return Font.label.label1_Regular.fontFamily;
+      case ListSize.S: return list['hpadding-sm'];
+      case ListSize.M: return list['hpadding-md'];
+      case ListSize.L: return list['hpadding-lg'];
+      default: return list['hpadding-lg'];
     }
   }};
   display: flex;

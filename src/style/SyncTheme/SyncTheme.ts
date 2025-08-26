@@ -1,6 +1,6 @@
 import { DefaultTheme } from "styled-components";
-import { lightColors } from "../../tokens/Color/LightColors";
-import { darkColors } from "../../tokens/Color/DarkColors"
+import { lightColors } from "../../tokens";
+import { darkColors } from "../../tokens"
 
 export const SyncLightTheme: DefaultTheme = Object.freeze({
   ...lightColors,

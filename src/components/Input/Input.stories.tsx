@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { useState } from 'react';
-import { Input } from './input';
+import { Input } from './Input';
 import { InputSize } from '../../foundation/Input';
 
 const meta: Meta<typeof Input> = {

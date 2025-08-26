@@ -1,5 +1,4 @@
-import { image } from "../../tokens/Size/Image";
-import { radius } from "../../tokens";
+import { image, radius } from "../../tokens";
 import { ImageSize } from "./ImageSize";
 
 export const ImageSizeMap: Record<ImageSize, { size: string; radius: string }> ={

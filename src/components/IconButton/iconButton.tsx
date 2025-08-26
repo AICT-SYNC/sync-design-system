@@ -8,7 +8,7 @@ interface IconButtonContainerProps {
 }
 
 interface IconButtonProps {
-  size?: 'large' | 'medium' | 'small';
+  size?: IconButtonSize;
   onClick?: () => void;
   icon: keyof typeof SyncIcons
 }
@@ -59,4 +59,3 @@ export const IconButton: React.FC<IconButtonProps> = ({
   );
 };
 
-export default IconButton;

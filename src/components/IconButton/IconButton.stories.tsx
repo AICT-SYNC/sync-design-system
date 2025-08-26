@@ -13,7 +13,7 @@ const meta: Meta<typeof IconButton> = {
   argTypes: {
     size: {
       control: { type: "radio" },
-      options: ["large", "medium", "small"],
+      options: Object.values(IconButtonSize),
     },
     icon: {
       control: { type: "select" },

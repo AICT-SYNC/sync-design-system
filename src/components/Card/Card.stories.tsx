@@ -1,37 +1,35 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import React from 'react';
-import WorkspaceCard from './WorkspaceCard/index.tsx';
-import ProjectCard from './ProjectCard/card.tsx';
-import { Avatar } from '../../assets/icons/avatar.tsx';
+import React from "react";
+import type { Meta, StoryObj } from "@storybook/react";
+import { WorkspaceCard } from "./WorkspaceCard";
+import { ProjectCard } from "./ProjectCard";
 
-// ==================== WorkspaceCard Stories ====================
 const workspaceCardMeta: Meta<typeof WorkspaceCard> = {
-  title: 'Components/Card',
+  title: "Components/Card",
   component: WorkspaceCard,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     title: {
-      control: { type: 'text' },
-      description: '워크스페이스 제목',
+      control: { type: "text" },
+      description: "워크스페이스 제목",
     },
     description: {
-      control: { type: 'text' },
-      description: '워크스페이스 설명',
+      control: { type: "text" },
+      description: "워크스페이스 설명",
     },
     memberCount: {
-      control: { type: 'number', min: 0, max: 999 },
-      description: '멤버 수',
+      control: { type: "number", min: 0, max: 999 },
+      description: "멤버 수",
     },
     notificationCount: {
-      control: { type: 'number', min: 0, max: 99 },
-      description: '알림 개수',
+      control: { type: "number", min: 0, max: 99 },
+      description: "알림 개수",
     },
     avatar: {
       control: false,
-      description: '아바타 컴포넌트',
+      description: "아바타 컴포넌트",
     },
   },
 };
@@ -42,8 +40,8 @@ type WorkspaceCardStory = StoryObj<typeof workspaceCardMeta>;
 // WorkspaceCard Stories
 export const WorkspaceDefault: WorkspaceCardStory = {
   args: {
-    title: '워크스페이스 제목',
-    description: '워크스페이스 설명',
+    title: "워크스페이스 제목",
+    description: "워크스페이스 설명",
     memberCount: 4,
     notificationCount: 1,
   },
@@ -51,8 +49,8 @@ export const WorkspaceDefault: WorkspaceCardStory = {
 
 export const WorkspaceAdmin: WorkspaceCardStory = {
   args: {
-    title: '개발 팀 워크스페이스',
-    description: '프론트엔드 개발 협업 공간',
+    title: "개발 팀 워크스페이스",
+    description: "프론트엔드 개발 협업 공간",
     memberCount: 8,
     notificationCount: 3,
   },
@@ -60,8 +58,8 @@ export const WorkspaceAdmin: WorkspaceCardStory = {
 
 export const WorkspaceNoNotifications: WorkspaceCardStory = {
   args: {
-    title: '마케팅 팀',
-    description: '마케팅 전략 기획',
+    title: "마케팅 팀",
+    description: "마케팅 전략 기획",
     memberCount: 6,
     notificationCount: 0,
   },
@@ -70,13 +68,15 @@ export const WorkspaceNoNotifications: WorkspaceCardStory = {
 // 관리자 권한별 비교
 export const WorkspacePermissionComparison: WorkspaceCardStory = {
   render: () => (
-    <div style={{ 
-      display: 'flex', 
-      gap: '20px',
-      padding: '20px'
-    }}>
+    <div
+      style={{
+        display: "flex",
+        gap: "20px",
+        padding: "20px",
+      }}
+    >
       <div>
-        <h4 style={{ marginBottom: '12px', color: '#666' }}>일반</h4>
+        <h4 style={{ marginBottom: "12px", color: "#666" }}>일반</h4>
         <WorkspaceCard
           title="디자인 팀"
           description="Settings 아이콘 없음"
@@ -84,39 +84,38 @@ export const WorkspacePermissionComparison: WorkspaceCardStory = {
           notificationCount={3}
         />
       </div>
-      
     </div>
   ),
 };
 
 // ==================== ProjectCard Stories ====================
 const projectCardMeta: Meta<typeof ProjectCard> = {
-  title: 'Components/ProjectCard',
+  title: "Components/ProjectCard",
   component: ProjectCard,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     title: {
-      control: { type: 'text' },
-      description: '프로젝트 제목',
+      control: { type: "text" },
+      description: "프로젝트 제목",
     },
     description: {
-      control: { type: 'text' },
-      description: '프로젝트 설명',
+      control: { type: "text" },
+      description: "프로젝트 설명",
     },
     memberCount: {
-      control: { type: 'number', min: 0, max: 999 },
-      description: '멤버 수',
+      control: { type: "number", min: 0, max: 999 },
+      description: "멤버 수",
     },
     notificationCount: {
-      control: { type: 'number', min: 0, max: 99 },
-      description: '알림 개수',
+      control: { type: "number", min: 0, max: 99 },
+      description: "알림 개수",
     },
     image: {
-      control: { type: 'text' },
-      description: '프로젝트 이미지 URL',
+      control: { type: "text" },
+      description: "프로젝트 이미지 URL",
     },
   },
 };
@@ -125,8 +124,8 @@ type ProjectCardStory = StoryObj<typeof projectCardMeta>;
 
 export const ProjectDefault: ProjectCardStory = {
   args: {
-    title: '프로젝트 제목',
-    description: '프로젝트 설명',
+    title: "프로젝트 제목",
+    description: "프로젝트 설명",
     memberCount: 4,
     notificationCount: 1,
   },
@@ -134,8 +133,8 @@ export const ProjectDefault: ProjectCardStory = {
 
 export const ProjectAdmin: ProjectCardStory = {
   args: {
-    title: '웹 개발 프로젝트 앱 개발 프로젝트',
-    description: '새로운 웹사이트 개발',
+    title: "웹 개발 프로젝트 앱 개발 프로젝트",
+    description: "새로운 웹사이트 개발",
     memberCount: 6,
     notificationCount: 3,
   },
@@ -143,24 +142,27 @@ export const ProjectAdmin: ProjectCardStory = {
 
 export const ProjectWithImage: ProjectCardStory = {
   args: {
-    title: '모바일 앱 프로젝트',
-    description: 'iOS/Android 앱 개발',
+    title: "모바일 앱 프로젝트",
+    description: "iOS/Android 앱 개발",
     memberCount: 8,
     notificationCount: 5,
-    image: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=200&fit=crop',
+    image:
+      "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=400&h=200&fit=crop",
   },
 };
 
 // 관리자 권한별 비교
 export const ProjectPermissionComparison: ProjectCardStory = {
   render: () => (
-    <div style={{ 
-      display: 'flex', 
-      gap: '20px',
-      padding: '20px'
-    }}>
+    <div
+      style={{
+        display: "flex",
+        gap: "20px",
+        padding: "20px",
+      }}
+    >
       <div>
-        <h4 style={{ marginBottom: '12px', color: '#666' }}>일반 멤버</h4>
+        <h4 style={{ marginBottom: "12px", color: "#666" }}>일반 멤버</h4>
         <ProjectCard
           title="개발 프로젝트 개발 프로젝트 개발"
           description="Settings 아이콘 없음ㅁㄴㅇㅁㄴㅇㅁㄴㅇ"

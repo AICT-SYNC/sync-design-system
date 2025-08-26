@@ -1,76 +1,75 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { lightColors } from "../../tokens/LightColors";
-// import { Font } from "../../tokens/Font";
-
-export type Badgerole = "Error" | "Warring" | "Success" | "Info";
+import { BadgeRole, BadgeSize } from "../../foundation/Badge";
+import { Font } from "../../tokens/Font";
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
-  size?: "S" | "M" | "L";
-  role?: Badgerole;
+  size?: BadgeSize;
+  role?: BadgeRole;
   count: number;
 }
 
 const StyledBadge = styled.div<{
-  role: Badgerole;
-  size: "S" | "M" | "L";
+  role: BadgeRole;
+  size: BadgeSize;
 }>`
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border-radius: 24px;
   padding: 0 8px;
+  min-width: 36px;
 
   height: ${(props) => {
     switch (props.size) {
-      case "S":
+      case BadgeSize.S:
         return "20px";
-      case "M":
+      case BadgeSize.M:
         return "24px";
-      case "L":
+      case BadgeSize.L:
         return "28px";
     }
   }};
-  font-size: ${(props) => {
+  font: ${(props) => {
     switch (props.size) {
-      case "S":
-        //   return `${lightColors["status-error"]}`;
-        return "12px";
-      case "M":
-        return "14px";
-      case "L":
-        return "16px";
+      case BadgeSize.S:
+        return Font.label.label3_semiBold;
+      case BadgeSize.M:
+        return Font.label.label2_semiBold;
+      case BadgeSize.L:
+        return Font.label.label1_semiBold;
     }
   }};
   color: white;
 
   ${(props) =>
-    props.role === "Error" &&
+    props.role === BadgeRole.Error &&
     css`
-      background-color: ${lightColors["status-error"]};
+      background-color: ${({ theme }) => theme["status-error"]};
     `}
 
   ${(props) =>
-    props.role === "Warring" &&
+    props.role === BadgeRole.Warning &&
     css`
-      background-color: ${lightColors["status-warning"]};
+      background-color: ${({ theme }) => theme["status-warning"]};
     `}
 
     ${(props) =>
-    props.role === "Success" &&
+    props.role === BadgeRole.Success &&
     css`
-      background-color: ${lightColors["status-success"]};
+      background-color: ${({ theme }) => theme["status-success"]};
     `}
+
     ${(props) =>
-    props.role === "Info" &&
+    props.role === BadgeRole.Info &&
     css`
-      background-color: ${lightColors["status-info"]};
+      background-color: ${({ theme }) => theme["status-info"]};
     `}
 `;
 
 export const Badge: React.FC<BadgeProps> = ({
-  size = "M",
-  role = "Success",
+  size = BadgeSize.M,
+  role = BadgeRole.Success,
   count,
   ...rest
 }) => {

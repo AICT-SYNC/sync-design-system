@@ -1,9 +1,10 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import Checkbox from "./checkbox";
+import { Checkbox } from "./Checkbox";
+import { CheckboxSize } from "../../foundation/Checkbox";
 
 interface CheckboxProps {
-  size?: 'xlarge' | 'large' | 'medium' | 'small' | 'xsmall';
+  size?: CheckboxSize;
   checked?: boolean;
   onChange?: (checked: boolean) => void;
   disabled?: boolean;
@@ -15,7 +16,7 @@ const meta: Meta<CheckboxProps> = {
   argTypes: {
     size: {
       control: { type: "radio" },
-      options: ["xlarge", "large", "medium", "small", "xsmall"],
+      options: Object.values(CheckboxSize),
     },
     checked: { control: "boolean" },
     disabled: { control: "boolean" },
@@ -28,7 +29,7 @@ type Story = StoryObj<CheckboxProps>;
 
 export const Default: Story = {
   args: {
-    size: "xlarge",
+    size: CheckboxSize.XLarge,
     checked: false,
     disabled: false,
   },
@@ -36,7 +37,7 @@ export const Default: Story = {
 
 export const Checked: Story = {
   args: {
-    size: "xlarge",
+    size: CheckboxSize.XLarge,
     checked: true,
     disabled: false,
   },
@@ -44,7 +45,7 @@ export const Checked: Story = {
 
 export const Disabled: Story = {
   args: {
-    size: "xlarge",
+    size: CheckboxSize.XLarge,
     checked: false,
     disabled: true,
   },
@@ -52,7 +53,7 @@ export const Disabled: Story = {
 
 export const DisabledChecked: Story = {
   args: {
-    size: "xlarge",
+    size: CheckboxSize.XLarge,
     checked: true,
     disabled: true,
   },
@@ -60,7 +61,7 @@ export const DisabledChecked: Story = {
 
 export const XLarge: Story = {
   args: {
-    size: "xlarge",
+    size: CheckboxSize.XLarge,
     checked: false,
     disabled: false,
   },
@@ -68,7 +69,7 @@ export const XLarge: Story = {
 
 export const Large: Story = {
   args: {
-    size: "large",
+    size: CheckboxSize.Large,
     checked: false,
     disabled: false,
   },
@@ -76,7 +77,7 @@ export const Large: Story = {
 
 export const Medium: Story = {
   args: {
-    size: "medium",
+    size: CheckboxSize.Medium,
     checked: false,
     disabled: false,
   },
@@ -84,7 +85,7 @@ export const Medium: Story = {
 
 export const Small: Story = {
   args: {
-    size: "small",
+    size: CheckboxSize.Small,
     checked: false,
     disabled: false,
   },
@@ -92,7 +93,7 @@ export const Small: Story = {
 
 export const XSmall: Story = {
   args: {
-    size: "xsmall",
+    size: CheckboxSize.XSmall,
     checked: false,
     disabled: false,
   },

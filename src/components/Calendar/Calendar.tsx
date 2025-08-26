@@ -1,26 +1,30 @@
 import React from "react";
-import { useDatePicker } from "./useDatePicker";
-import { DAY } from "./constant";
+import { useTheme } from "styled-components";
+import * as S from "./style";
 import { SyncIcon, SyncIcons } from "../../assets/icons/SyncIcons";
-import * as S from "./Calendar.style";
-
-type DatePickerMode = "entire" | "future";
+import { DatePickerVariant, CalendarSize } from "../../foundation";
+import { Divider } from "../Divider";
+import { DatePicker, useDatePicker } from "./DatePicker";
+import { formatDate } from "./formatDate";
 
 interface CalendarProps {
   value: string;
   splitCharacter?: string;
   onChange: (date: Date) => void;
-  type?: DatePickerMode;
-  size?: "medium" | "large";
+  type?: DatePickerVariant;
+  size?: CalendarSize;
+  baseDate?: Date;
 }
 
-const Calendar: React.FC<CalendarProps> = ({
+export const Calendar: React.FC<CalendarProps> = ({
   value,
   splitCharacter = ".",
   onChange,
-  type = "entire",
-  size = "medium",
+  type = DatePickerVariant.entire,
+  size = CalendarSize.M,
+  baseDate,
 }) => {
+  const theme = useTheme();
   const {
     fold,
     setFold,
@@ -38,115 +42,40 @@ const Calendar: React.FC<CalendarProps> = ({
     type,
   });
 
-  const formatDate = (year: number, month: number, day: number) => {
-    const formattedMonth = month.toString().padStart(2, "0");
-    const formattedDay = day.toString().padStart(2, "0");
-    return `${year}${splitCharacter}${formattedMonth}${splitCharacter}${formattedDay}`;
-  };
-
-  const isDisabled = (day: number) => {
-    if (type === "future") {
-      const today = new Date();
-      const currentDate = new Date(calendarDate.year, calendarDate.month - 1, day);
-      return currentDate < today;
-    }
-    return false;
-  };
-
-  const isSelected = (day: number) => {
-    return (
-      selectDate.year === calendarDate.year &&
-      selectDate.month === calendarDate.month &&
-      selectDate.day === day
-    );
-  };
-
-  const isToday = (day: number) => {
-    const today = new Date();
-    return (
-      today.getFullYear() === calendarDate.year &&
-      today.getMonth() + 1 === calendarDate.month &&
-      today.getDate() === day
-    );
-  };
-
   return (
-    <S.DatePickerContainer ref={containerRef}>
-      <S.DatePickerWrap
-        size={size}
-        onClick={() => setFold(!fold)}
-      >
+    <S.DatePickerContainer ref={containerRef} size={size}>
+      <S.DatePickerWrap onClick={() => setFold(!fold)}>
         <S.DatePickerContent>
           <S.DatePickerIcon>
-            <SyncIcon name={SyncIcons.CalendarDays} size={24} />
+            <SyncIcon name={SyncIcons.CalendarDays} size={24} color={theme["select-btn-false"]}/>
           </S.DatePickerIcon>
           <S.DatePickerDate>
-            {value ? formatDate(selectDate.year, selectDate.month, selectDate.day) : "연도.월.일"}
+            {value
+              ? formatDate(
+                  selectDate.year,
+                  selectDate.month,
+                  selectDate.day,
+                  splitCharacter
+                )
+              : "연도.월.일"}
           </S.DatePickerDate>
         </S.DatePickerContent>
-        <S.DatePickerDivider />
+        <Divider widthProps={"100%"} Size={"Thin"} />
       </S.DatePickerWrap>
 
       {!fold && (
-        <>
-          <S.DatePickerOverlay onClick={() => setFold(true)} />
-          <S.DatePickerCalendar x={calendarCoord.x} y={calendarCoord.y + 40}>
-          <S.DatePickerCalendarHeader>
-            <S.DatePickerHeaderTitle>
-              {calendarDate.year}년 {calendarDate.month}월
-            </S.DatePickerHeaderTitle>
-            <S.DatePickerHeaderContect>
-              <S.DatePickerCalendarHeaderArrow
-                onClick={() => onChangeCalendarMonth("prev")}
-              >
-                <S.DatePickerCalendarHeaderArrowIcon>
-                  <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14">
-                    <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                </S.DatePickerCalendarHeaderArrowIcon>
-              </S.DatePickerCalendarHeaderArrow>
-              <S.DatePickerCalendarHeaderArrow
-                onClick={() => onChangeCalendarMonth("next")}
-              >
-                <S.DatePickerCalendarHeaderArrowIcon>
-                  <svg viewBox="0 0 20 20" fill="currentColor" width="14" height="14">
-                    <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                  </svg>
-                </S.DatePickerCalendarHeaderArrowIcon>
-              </S.DatePickerCalendarHeaderArrow>
-            </S.DatePickerHeaderContect>
-          </S.DatePickerCalendarHeader>
-
-          <S.DatePickerCalendarHeaderDayWrap>
-            {DAY.map((day) => (
-              <S.DatePickerCalendarHeaderDayItem key={day}>
-                {day}
-              </S.DatePickerCalendarHeaderDayItem>
-            ))}
-          </S.DatePickerCalendarHeaderDayWrap>
-
-          <S.DatePickerCalendarItemWrap>
-            {dayList.map((day, index) =>
-              day === 0 ? (
-                <div key={index} style={{ height: "32px" }} />
-              ) : (
-                <S.DatePickerCalendarItem
-                  key={index}
-                  isDisabled={isDisabled(day)}
-                  isSelected={isSelected(day)}
-                  isToday={isToday(day)}
-                  onClick={() => !isDisabled(day) && onChangeSelectDate(day)}
-                >
-                  {day}
-                </S.DatePickerCalendarItem>
-              )
-            )}
-          </S.DatePickerCalendarItemWrap>
-          </S.DatePickerCalendar>
-        </>
+        <DatePicker
+          setFold={setFold}
+          calendarCoord={calendarCoord}
+          selectDate={selectDate}
+          onChangeSelectDate={onChangeSelectDate}
+          calendarDate={calendarDate}
+          dayList={dayList}
+          onChangeCalendarMonth={onChangeCalendarMonth}
+          type={type}
+          baseDate={baseDate}
+        />
       )}
     </S.DatePickerContainer>
   );
 };
-
-export default Calendar;

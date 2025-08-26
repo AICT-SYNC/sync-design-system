@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { Font } from '../../tokens/Font.ts';
-import { lightColors } from '../../tokens/LightColors.ts';
+import { Font } from '../../tokens/Font';
+import { lightColors } from '../../tokens/LightColors';
 
 interface InputContainerProps {
   size: 'S' | 'M' | 'L';

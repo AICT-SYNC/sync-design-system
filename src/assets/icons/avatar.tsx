@@ -9,7 +9,7 @@ interface AvatarProps {
 
 export const Avatar: React.FC<AvatarProps> = ({ size = AvatarSizeEnum.S, ...rest }) => {
   const theme = useTheme();
-  const avatarData = AVATAR_ITMES[size] || AVATAR_ITMES.XL;
+  const avatarData = AVATAR_ITMES[size] || AVATAR_ITMES.M;
   const sizeValue = AvatarSizeMap[size]?.size || AvatarSizeMap[AvatarSizeEnum.XL].size;
   const avatarColor = theme["avatar-user"];
   const bgColor = theme["user-away"];

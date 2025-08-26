@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { lightColors } from '../../../tokens/semantic';
 import { Font } from '../../../tokens/Font';
 
 export const WorkspaceCardContainer = styled.div`
@@ -77,7 +76,7 @@ export const WorkspaceCardContainer = styled.div`
 export const SideBox = styled.div`
  width: 30px;
  height: 100%;
- background-color: ${lightColors['project-active']};
+ background-color: ${({theme})=>theme['project-active']};
  border-top-left-radius: 12px;
  border-bottom-left-radius: 12px;
 `;
@@ -119,7 +118,7 @@ export const Footer = styled.div`
 
 export const Hr = styled.hr`
  width: 90%;
- border: 0.1px solid ${lightColors['divider-archived']};
+ border: 0.1px solid ${({theme})=>theme['divider-archived']};
  margin: 3%;
 `;
 
@@ -136,7 +135,7 @@ export const Title = styled.h3`
 `;
 
 export const Description = styled.span`
- color: ${lightColors['text-secondary']};
+ color: ${({theme})=>theme['text-secondary']};
  font-weight: 2;
  font-size: medium;
  margin-bottom: 3%;
@@ -144,7 +143,7 @@ export const Description = styled.span`
 `;
 
 export const MemberCount = styled.div`
- color: ${lightColors['text-muted']};
+ color: ${({theme})=>theme['text-muted']};
  font-size: small;
  margin: 5px;
  margin-top: 4%;
@@ -153,7 +152,7 @@ export const MemberCount = styled.div`
 export const NotificationBadge = styled.div`
  width: 26px;
  height: 18px;
- background: ${lightColors['project-active']};
+ background: ${({theme})=>theme['project-active']};
  color: white;
  border-radius: 24px;
  display: flex;

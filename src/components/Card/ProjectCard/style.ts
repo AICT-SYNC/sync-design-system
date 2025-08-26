@@ -1,6 +1,4 @@
-
 import styled from 'styled-components';
-import { lightColors } from '../../../tokens/semantic';
 import { Font } from '../../../tokens/Font';
 
 export const CardContainer = styled.div`
@@ -89,7 +87,7 @@ export const ProjectImage = styled.img`
 export const DefaultBackground = styled.div`
   width: 100%;
   height: 100%;
-  background: ${lightColors['project-active']};
+  background: ${({theme})=>theme['project-active']};
 `;
 
 export const CardContent = styled.div`
@@ -156,7 +154,7 @@ export const Actions = styled.div`
 export const NotificationBadge = styled.div`
   width: 26px;
   height: 18px;
-  background: ${lightColors['project-active']};
+  background: ${({theme})=>theme['project-active']};
   color: white;
   border-radius: 24px;
   display: flex;

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { lightColors } from '../../tokens/LightColors';
 
 interface CheckboxContainerProps {
   $size: 'xlarge' | 'large' | 'medium' | 'small' | 'xsmall';
@@ -29,15 +28,15 @@ export const CheckboxContainer = styled.div<CheckboxContainerProps>`
   height: ${props => getSizeStyles(props.$size).height};
   background-color: ${props => {
     if (props.$disabled) {
-      return props.$checked ? lightColors['border-medium'] : lightColors['background-secondary'];
+      return props.$checked ? props.theme['border-medium'] : props.theme['background-secondary'];
     }
-    return props.$checked ? lightColors['action-primary'] : lightColors['static-white'];
+    return props.$checked ? props.theme['action-primary'] : props.theme['static-white'];
   }};
   border: 2px solid ${props => {
     if (props.$disabled) {
-      return lightColors['border-medium'];
+      return props.theme['border-medium'];
     }
-    return props.$checked ? lightColors['action-primary'] : lightColors['border-light'];
+    return props.$checked ? props.theme['action-primary'] : props.theme['border-light'];
   }};
   border-radius: 4px;
   cursor: ${props => props.$disabled ? 'not-allowed' : 'pointer'};
@@ -49,11 +48,12 @@ export const CheckboxContainer = styled.div<CheckboxContainerProps>`
 
   &:hover {
     ${props => !props.$disabled && !props.$checked && `
-      border-color: ${lightColors['border-medium']};
-      background-color: ${lightColors['background-primary']};
+      border-color: ${props.theme['border-medium']};
+      background-color: ${props.theme['background-primary']};
     `}
     ${props => !props.$disabled && props.$checked && `
-      background-color: rgba(66, 48, 163, 0.9);
+      background-color: ${props.theme['action-primary']};
+      opacity: 0.9;
     `}
   }
 

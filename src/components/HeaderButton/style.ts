@@ -7,7 +7,7 @@ export const TabButton = styled.div<{ $isActive: boolean; $isHovered?: boolean }
   align-items: center;
   justify-content: space-between;
   width: 200px;
-  height: 40px;
+  height: 100%;
   padding: 0 12px;
   background-color: ${({ $isActive, $isHovered, theme }) => {
     if ($isActive) return theme["header-tab-active"];

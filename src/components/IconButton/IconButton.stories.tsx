@@ -8,6 +8,7 @@ interface IconButtonProps {
   size?: IconButtonSize;
   onClick?: () => void;
   icon: keyof typeof SyncIcons;
+  iconColor?: string;
 }
 
 const meta: Meta<IconButtonProps> = {
@@ -21,6 +22,9 @@ const meta: Meta<IconButtonProps> = {
     icon: {
       control: { type: "select" },
       options: Object.keys(SyncIcons),
+    },
+    iconColor: {
+      control: { type: "color" },
     },
   },
 };
@@ -90,6 +94,25 @@ export const WithTrashIcon: Story = {
     size: IconButtonSize.L,
     icon: "Trash",
   },
+};
+
+export const WithCustomColor: Story = {
+  args: {
+    size: IconButtonSize.L,
+    icon: "Settings",
+    iconColor: "#FF4444",
+  },
+};
+
+export const CustomColorExamples: Story = {
+  render: () => (
+    <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+      <IconButton size={IconButtonSize.L} icon="Settings" iconColor="#FF4444" />
+      <IconButton size={IconButtonSize.L} icon="Check" iconColor="#00AA44" />
+      <IconButton size={IconButtonSize.L} icon="Trash" iconColor="#FF6B35" />
+      <IconButton size={IconButtonSize.L} icon="Plus" iconColor="#6366F1" />
+    </div>
+  ),
 };
 
 export const AllSizes: Story = {

@@ -10,7 +10,8 @@ interface IconButtonContainerProps {
 interface IconButtonProps {
   size?: IconButtonSize;
   onClick?: () => void;
-  icon: keyof typeof SyncIcons
+  icon: keyof typeof SyncIcons;
+  iconColor?: string;
 }
 
 const getSizeStyles = (size: string) => {
@@ -51,10 +52,15 @@ export const IconButton: React.FC<IconButtonProps> = ({
   size = IconButtonSize.L,
   onClick,
   icon,
+  iconColor,
 }) => {
   return (
     <IconButtonContainer $size={size} onClick={onClick}>
-      <SyncIcon name={SyncIcons[icon]} size={getSizeStyles(size).iconSize}/>
+      <SyncIcon 
+        name={SyncIcons[icon]} 
+        size={getSizeStyles(size).iconSize}
+        color={iconColor}
+      />
     </IconButtonContainer>
   );
 };

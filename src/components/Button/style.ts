@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { lightColors } from '../../tokens/LightColors';
 import { Font } from '../../tokens/Font';
 
 interface ButtonContainerProps {
@@ -34,54 +33,10 @@ const getFontStyles = (size: string) => {
   return Font.label.label1_semiBold;
 };
 
-const getVariantStyles = (variant: string) => {
-  if (variant === 'secondary') {
-    return {
-      backgroundColor: lightColors['action-secondary'],
-      color: lightColors['action-primary'],
-      hoverBackgroundColor: 'rgba(199, 205, 254, 0.5)',
-      border: 'none'
-    };
-  }
-  if (variant === 'tertiary') {
-    return {
-      backgroundColor: lightColors['static-white'],
-      color: lightColors['text-black'],
-      hoverBackgroundColor: 'rgba(216, 219, 223, 0.2)',
-      border: `1px solid ${lightColors['border-light']}`
-    };
-  }
-  if (variant === 'danger') {
-    return {
-      backgroundColor: lightColors['action-negative'],
-      color: lightColors['background-primary'],
-      hoverBackgroundColor: 'rgba(239, 68, 68, 0.5)',
-      border: 'none'
-    };
-  }
-  if (variant === 'warning') {
-    return {
-      backgroundColor: lightColors['action-important'],
-      color: lightColors['background-primary'],
-      hoverBackgroundColor: 'rgba(245, 158, 11, 0.5)',
-      border: 'none'
-    };
-  }
-  return {
-    backgroundColor: lightColors['action-primary'],
-    color: lightColors['background-primary'],
-    hoverBackgroundColor: 'rgba(66, 48, 163, 0.5)',
-    border: 'none'
-  };
-};
-
 export const ButtonContainer = styled.button<ButtonContainerProps>`
   width: ${props => getSizeStyles(props.$size).width};
   height: ${props => getSizeStyles(props.$size).height};
-  background-color: ${props => getVariantStyles(props.$variant).backgroundColor};
-  border: ${props => getVariantStyles(props.$variant).border};
   border-radius: 4px;
-  color: ${props => getVariantStyles(props.$variant).color};
   font-size: ${props => getFontStyles(props.$size).fontSize};
   font-weight: ${props => getFontStyles(props.$size).fontWeight};
   font-family: ${props => getFontStyles(props.$size).fontFamily};
@@ -89,11 +44,57 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
   cursor: pointer;
   transition: background-color 0.2s ease;
 
-  &:hover {
-    background-color: ${props => getVariantStyles(props.$variant).hoverBackgroundColor};
-  }
+  ${props => props.$variant === 'primary' && `
+    background-color: ${props.theme["action-primary"]};
+    color: ${props.theme["background-primary"]};
+    border: none;
+        
+    &:hover {
+      background-color: ${props.theme["action-primary-hover"]};
+    }
+  `}
+
+  ${props => props.$variant === 'secondary' && `
+    background-color: transparent;
+    color: ${props.theme["action-primary"]};
+    border: none;
+        
+    &:hover {
+      background-color: ${props.theme["action-secondary-hover"]};
+    }
+  `}
+
+  ${props => props.$variant === 'tertiary' && `
+    background-color: ${props.theme["static-white"]};
+    color: ${props.theme["text-black"]};
+    border: 1px solid ${props.theme["border-light"]};
+        
+    &:hover {
+      background-color: ${props.theme["background-secondary"]};
+    }
+  `}
+
+  ${props => props.$variant === 'danger' && `
+    background-color: ${props.theme["action-negative"]};
+    color: ${props.theme["background-primary"]};
+    border: none;
+        
+    &:hover {
+      background-color: ${props.theme["action-negative-hover"]};
+    }
+  `}
+
+  ${props => props.$variant === 'warning' && `
+    background-color: ${props.theme["action-important"]};
+    color: ${props.theme["background-primary"]};
+    border: none;
+        
+    &:hover {
+      background-color: ${props.theme["action-important-hover"]};
+    }
+  `}
 
   &:active {
-    background-color: #32237a;
+    background-color: ${props => props.theme["action-primary-active"]};
   }
 `;

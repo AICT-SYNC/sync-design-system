@@ -16,7 +16,7 @@ import {
 import { Settings } from "lucide-react";
 import { Avatar } from "../../../assets/icons/avatar.tsx";
 import { Badge } from "../../Badge/index.ts";
-import { BadgeRole, BadgeSize } from "../../../foundation";
+import { BadgeRole, BadgeSize, AvatarSizeEnum } from "../../../foundation";
 
 interface WorkspaceCardProps {
   title?: string;
@@ -62,7 +62,7 @@ export const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
         <Hr></Hr>
         <Footer>
           <AvatarBox>
-            <Avatar size="extraSmall" />
+            <Avatar size={AvatarSizeEnum.XS} />
             <MemberCount>{memberCount}</MemberCount>
           </AvatarBox>
           <Badge

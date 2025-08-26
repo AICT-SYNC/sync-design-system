@@ -4,6 +4,7 @@ import { ListSize } from '../../foundation/List';
 import { Avatar } from '../../assets/icons/avatar';
 import { Checkbox } from '../Checkbox'
 import { CheckboxSize } from '../../foundation/Checkbox'
+import { AvatarSizeEnum } from '../../foundation'
 
 interface ListProps {
   size: ListSize;
@@ -23,9 +24,9 @@ const List: React.FC<ListProps> = ({ size, select, name, email }) => {
       } />}
       <Avatar 
         size={
-          size === ListSize.S ? 'small' :
-          size === ListSize.M ? 'large' :
-          size === ListSize.L ? 'extraLarge' : 'large'
+          size === ListSize.S ? AvatarSizeEnum.S :
+          size === ListSize.M ? AvatarSizeEnum.L :
+          size === ListSize.L ? AvatarSizeEnum.XL : AvatarSizeEnum.L
         }
       />
        

@@ -15,5 +15,25 @@ export const ToggleButton: React.FC<ToggleButtonProps> = ({
   onChange,
   size = ToggleButtonSize.L
 }) => {
-  
+  const [selectedIndex, setSelectedIndex] = useState(defaultSelected);
+
+  const handleToggle = (index: number) => {
+    setSelectedIndex(index);
+    onChange?.(index);
+  };
+
+  return (
+    <S.ToggleContainer $size={size}>
+      {options.map((option, index) => (
+        <S.ToggleOption
+          key={index}
+          $isSelected={selectedIndex === index}
+          $size={size}
+          onClick={() => handleToggle(index)}
+        >
+          {option}
+        </S.ToggleOption>
+      ))}
+    </S.ToggleContainer>
+  );
 };

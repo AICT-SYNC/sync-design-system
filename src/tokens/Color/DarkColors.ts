@@ -12,6 +12,7 @@ export const darkColors: Record<string, string> = {
   "user-away": primitiveColors.yellow[500],
   "user-busy": primitiveColors.red[500],
   "user-offline": primitiveColors.neutral[400],
+  "avatar-user": primitiveColors.neutral[900],
 
   "priority-lowest": primitiveColors.neutral[200],
   "priority-low": primitiveColors.neutral[300],

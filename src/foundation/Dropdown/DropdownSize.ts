@@ -1,4 +1,4 @@
 export enum DropdownSize {
-  Large = "large",
-  Medium = "medium"
+  L = "L",
+  M = "M"
 }

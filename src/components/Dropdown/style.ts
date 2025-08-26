@@ -1,5 +1,6 @@
-import styled from "styled-components";
-import { Font } from "../../tokens/Font";
+import styled from 'styled-components';
+import { Font } from '../../tokens/Font';
+import { DropdownButtonSize,DropdownSize } from '../../foundation/Dropdown'
 
 export const DropdownContainer = styled.div`
   position: relative;
@@ -8,17 +9,14 @@ export const DropdownContainer = styled.div`
 
 interface DropdownButtonProps {
   $isOpen: boolean;
-  $buttonSize: "large" | "small";
+  $buttonSize: DropdownButtonSize;
 }
 
 export const DropdownButton = styled.button<DropdownButtonProps>`
-  width: ${(props) => (props.$buttonSize === "large" ? "88px" : "80px")};
-  height: ${(props) => (props.$buttonSize === "large" ? "48px" : "44px")};
-  background-color: ${({ theme }) =>
-    theme.$isOpen ? theme["action-secondary"] : theme["static-white"]};
-  border: 1px solid
-    ${({ theme }) =>
-      theme.$isOpen ? theme["action-primary"] : theme["border-light"]};
+  width: ${props => props.$buttonSize === 'L' ? '88px' : '80px'};
+  height: ${props => props.$buttonSize === 'L' ? '48px' : '44px'};
+  background-color: ${props => props.$isOpen ? props.theme['action-secondary'] : props.theme['static-white']};
+  border: 1px solid ${props => props.$isOpen ? props.theme['action-primary'] : props.theme['border-light']};
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -28,10 +26,8 @@ export const DropdownButton = styled.button<DropdownButtonProps>`
   padding: 0 12px;
 
   &:hover {
-    background-color: ${({ theme }) =>
-      theme.$isOpen ? theme["action-secondary"] : theme["background-primary"]};
-    border-color: ${({ theme }) =>
-      theme.$isOpen ? theme["action-primary"] : theme["border-medium"]};
+    background-color: ${props => props.$isOpen ? props.theme['action-secondary'] : props.theme['background-primary']};
+    border-color: ${props => props.$isOpen ? props.theme['action-primary'] : props.theme['border-M']};
   }
 `;
 
@@ -40,7 +36,7 @@ export const DropdownText = styled.span`
   font-weight: ${Font.label.label1_semiBold.fontWeight};
   font-family: ${Font.label.label1_semiBold.fontFamily};
   line-height: ${Font.label.label1_semiBold.lineHeight};
-  color: ${({ theme }) => theme["text-black"]};
+  color: ${({ theme }) => theme['text-black']};
   flex: 1;
   text-align: left;
   overflow: hidden;
@@ -64,10 +60,7 @@ export const DropdownIcon = styled.div<DropdownIconProps>`
   svg {
     width: 100%;
     height: 100%;
-    color: ${({theme}) =>
-      theme.$isOpen
-        ? theme["action-primary"]
-        : theme["text-muted"]};
+    color: ${props => props.$isOpen ? props.theme['action-primary'] : props.theme['text-muted']};
     transition: color 0.2s ease;
   }
 `;
@@ -76,8 +69,8 @@ export const DropdownList = styled.div`
   position: absolute;
   top: 100%;
   left: 0;
-  background-color: ${({theme}) => theme["static-white"]};
-  border: 1px solid ${({theme}) => theme["border-light"]};
+  background-color: ${({ theme }) => theme['static-white']};
+  border: 1px solid ${({ theme }) => theme['border-light']};
   border-radius: 4px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000;
@@ -89,11 +82,11 @@ export const DropdownList = styled.div`
 
 interface DropdownItemProps {
   $isSelected: boolean;
-  $size: "large" | "medium";
+  $size: DropdownSize;
 }
 
 export const DropdownItem = styled.div<DropdownItemProps>`
-  height: ${(props) => (props.$size === "large" ? "44px" : "40px")};
+  height: ${props => props.$size === 'L' ? '44px' : '40px'};
   padding: 0 12px;
   display: flex;
   align-items: center;
@@ -101,16 +94,13 @@ export const DropdownItem = styled.div<DropdownItemProps>`
   font-weight: ${Font.label.label1_semiBold.fontWeight};
   font-family: ${Font.label.label1_semiBold.fontFamily};
   line-height: ${Font.label.label1_semiBold.lineHeight};
-  color: ${({theme}) => theme["text-black"]};
+  color: ${({ theme }) => theme['text-black']};
   cursor: pointer;
-  background-color: ${({theme}) =>
-    theme.$isSelected
-      ? theme["background-primary"]
-      : theme["static-white"]};
+  background-color: ${props => props.$isSelected ? props.theme['background-primary'] : props.theme['static-white']};
   transition: background-color 0.2s ease;
   white-space: nowrap;
 
   &:hover {
-    background-color: ${({theme}) => theme["background-primary"]};
+    background-color: ${({ theme }) => theme['background-primary']};
   }
 `;

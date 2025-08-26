@@ -15,5 +15,6 @@ export const Divider = styled.div<Props>`
            default: return '4px';
        }
    }};
+   background-color: ${({ theme }) => theme["divider-archived"]};
    background-color: ${({ theme }) => theme['divider-archived']};
 `;

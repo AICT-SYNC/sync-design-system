@@ -54,7 +54,7 @@ export const DropdownIcon = styled.div<DropdownIconProps>`
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: ${props => props.$isOpen ? 'rotate(180deg)' : 'rotate(0deg)'};
+  transform: ${(props) => (props.$isOpen ? "rotate(180deg)" : "rotate(0deg)")};
   transition: transform 0.2s ease;
 
   svg {

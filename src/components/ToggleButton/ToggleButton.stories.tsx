@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ToggleButton } from './toggleButton';
+import { ToggleButton } from './ToggleButton';
 import { ToggleButtonSize } from '../../foundation/ToggleButton';
 
 const meta: Meta<typeof ToggleButton> = {

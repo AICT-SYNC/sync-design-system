@@ -62,6 +62,8 @@ export const darkColors = {
 
   "layout-sidebar-bg": primitiveColors.neutral[900],
   "layout-header-bg": primitiveColors.common[1000],
+  "layout-actived-header-hover-bg": primitiveColors.neutral[700],
+  "layout-header-hover-bg": primitiveColors.neutral[800],
   "layout-content-bg": primitiveColors.neutral[950],
   "layout-panel-bg": primitiveColors.common[1000],
   "layout-divider": primitiveColors.neutral[800],

@@ -6,7 +6,7 @@ export const TabButton = styled.div<{ $isActive: boolean; $isHovered?: boolean }
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 200px;
+  width: 100%;
   height: 100%;
   padding: 0 12px;
   background-color: ${({ $isActive, $isHovered, theme }) => {
@@ -14,7 +14,7 @@ export const TabButton = styled.div<{ $isActive: boolean; $isHovered?: boolean }
     if ($isHovered) return theme["header-tab-active-hover"];
     return theme["header-tab-not-active"];
   }};
-  border-right: 2px solid ${({ theme }) => theme['border-light']};
+  border: 1px solid ${({ theme }) => theme['border-light']};
   cursor: pointer;
   position: relative;
   transition: background-color 0.2s ease;
@@ -27,6 +27,7 @@ export const TabButton = styled.div<{ $isActive: boolean; $isHovered?: boolean }
 
   &:first-child {
     margin-left: 0;
+    border-left: 1px solid ${({ theme }) => theme['border-light']};
   }
 `;
 
@@ -40,21 +41,34 @@ export const TabButtonText = styled.div`
   text-align: left;
 `;
 
-export const CloseIconButton = styled.div`
+export const CloseIconButton = styled.div<{ $isActive: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
   width: 20px;
   height: 20px;
-  border-radius: 3px;
+  border-radius: 4px;
   cursor: pointer;
-  font-size: 12px;
-  color: ${({ theme }) => theme['text-muted']};
   flex-shrink: 0;
-  margin-left: 8px;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.2s ease, transform 0.2s ease, background-color 0.2s ease;
+  animation: fadeInScale 0.2s ease forwards;
+
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
 
   &:hover {
-    background-color: ${({ theme }) => theme['bg-secondary']};
-    color: ${({ theme }) => theme['text-black']};
+    background-color: ${({ theme, $isActive }) => 
+      $isActive ? theme["layout-actived-header-hover-bg"] : theme["layout-header-hover-bg"]
+    };
   }
 `;

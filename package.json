@@ -1,6 +1,6 @@
 {
   "name": "sync-design-system",
-  "version": "0.4.6",
+  "version": "0.4.7",
   "type": "module",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.esm.js",
@@ -33,6 +33,7 @@
     "@storybook/addon-docs": "^9.1.1",
     "@storybook/addon-onboarding": "^9.1.1",
     "@storybook/react-vite": "^9.1.1",
+    "@types/node": "^24.3.0",
     "@types/react": "^19.1.9",
     "@types/react-dom": "^19.1.7",
     "eslint-plugin-storybook": "^9.1.1",

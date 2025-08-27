@@ -62,8 +62,6 @@ export const lightColors = {
 
   "layout-sidebar-bg": primitiveColors.neutral[100],
   "layout-header-bg": primitiveColors.common[0],
-  "layout-actived-header-hover-bg": primitiveColors.neutral[200],
-  "layout-header-hover-bg": primitiveColors.neutral[100],
   "layout-content-bg": primitiveColors.neutral[50],
   "layout-panel-bg": primitiveColors.common[0],
   "layout-divider": primitiveColors.neutral[200],
@@ -79,9 +77,10 @@ export const lightColors = {
   "static-white": primitiveColors.common[0],
   "static-black": primitiveColors.common[1000],
 
-  "header-tab-active": primitiveColors.neutral[100], // '#EDEEF1',
-  "header-tab-not-active": primitiveColors.common[0], // '#FFFFFF',
-  "header-tab-active-hover": primitiveColors.neutral[200],
+  "layout-header-hover-bg": primitiveColors.neutral[200],
+  "layout-actived-header-hover-bg": primitiveColors.neutral[100],
+  "header-tab-not-active": primitiveColors.neutral[100], // '#EDEEF1',
+  "header-tab-active": primitiveColors.common[0], // '#FFFFFF',
 
   "code-bg": primitiveColors.neutral[50],
 

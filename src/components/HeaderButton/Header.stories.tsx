@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { useState } from 'react';
-import Header from './HeaderButton';
+import type { Meta, StoryObj } from "@storybook/react";
+import { useState } from "react";
+import { HeaderButton } from "./HeaderButton";
 
-const meta: Meta<typeof Header> = {
-  title: 'Components/HeaderButton',
-  component: Header,
+const meta: Meta<typeof HeaderButton> = {
+  title: "Components/HeaderButton",
+  component: HeaderButton,
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 };
 
 export default meta;
@@ -20,15 +20,15 @@ const HeaderWrapper = (args: any) => {
 
   const handleTabClick = (tabId: string) => {
     setIsActive(!isActive); // 클릭시 토글
-    console.log('Tab clicked:', tabId, 'New active state:', !isActive);
+    console.log("Tab clicked:", tabId, "New active state:", !isActive);
   };
 
   const handleTabClose = (tabId: string) => {
-    console.log('Tab closed:', tabId);
+    console.log("Tab closed:", tabId);
   };
 
   return (
-    <Header
+    <HeaderButton
       id={args.id}
       title={args.title}
       isActive={isActive} // state 값 사용
@@ -42,8 +42,8 @@ const HeaderWrapper = (args: any) => {
 export const Default: Story = {
   render: (args) => <HeaderWrapper {...args} />,
   args: {
-    id: '1',
-    title: '프로젝트 A',
+    id: "1",
+    title: "프로젝트 A",
     isActive: true,
   },
 };
@@ -52,9 +52,9 @@ export const Default: Story = {
 export const Inactive: Story = {
   render: (args) => <HeaderWrapper {...args} />,
   args: {
-    id: '1',
-    title: '비활성 탭',
-    isActive: false,
+    id: "1",
+    title: "비활성 탭",
+    isActive: true,
   },
 };
 
@@ -62,8 +62,8 @@ export const Inactive: Story = {
 export const LongTitle: Story = {
   render: (args) => <HeaderWrapper {...args} />,
   args: {
-    id: '1',
-    title: '2025 나르샤 팀 AICT 프로젝트 매우 긴 이름',
+    id: "1",
+    title: "2025 나르샤 팀 AICT 프로젝트 매우 긴 이름",
     isActive: false,
   },
 };
@@ -72,8 +72,8 @@ export const LongTitle: Story = {
 export const ShortTitle: Story = {
   render: (args) => <HeaderWrapper {...args} />,
   args: {
-    id: '1',
-    title: '짧은제목',
+    id: "1",
+    title: "짧은제목",
     isActive: true,
   },
 };
@@ -81,17 +81,17 @@ export const ShortTitle: Story = {
 // 정적 활성 탭 (클릭 토글 없이 고정)
 export const StaticActive: Story = {
   render: (args) => (
-    <Header
+    <HeaderButton
       id={args.id}
       title={args.title}
       isActive={args.isActive}
-      onTabClick={(tabId) => console.log('Tab clicked:', tabId)}
-      onTabClose={(tabId) => console.log('Tab closed:', tabId)}
+      onTabClick={(tabId) => console.log("Tab clicked:", tabId)}
+      onTabClose={(tabId) => console.log("Tab closed:", tabId)}
     />
   ),
   args: {
-    id: '1',
-    title: '활성 탭 (고정)',
+    id: "1",
+    title: "활성 탭 (고정)",
     isActive: true,
   },
 };
@@ -99,17 +99,17 @@ export const StaticActive: Story = {
 // 정적 비활성 탭 (클릭 토글 없이 고정)
 export const StaticInactive: Story = {
   render: (args) => (
-    <Header
+    <HeaderButton
       id={args.id}
       title={args.title}
       isActive={args.isActive}
-      onTabClick={(tabId) => console.log('Tab clicked:', tabId)}
-      onTabClose={(tabId) => console.log('Tab closed:', tabId)}
+      onTabClick={(tabId) => console.log("Tab clicked:", tabId)}
+      onTabClose={(tabId) => console.log("Tab closed:", tabId)}
     />
   ),
   args: {
-    id: '1',
-    title: '비활성 탭 (고정)',
+    id: "1",
+    title: "비활성 탭 (고정)",
     isActive: false,
   },
 };

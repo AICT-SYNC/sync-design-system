@@ -21,23 +21,43 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          fetch-depth: 0  # 전체 히스토리를 가져옴
 
       - name: Check version change
         id: version-check
         run: |
           CURRENT_VERSION=$(node -p "require('./package.json').version")
-          PREVIOUS_VERSION=$(git show HEAD~1:package.json | node -p "JSON.parse(require('fs').readFileSync('/dev/stdin', 'utf8')).version")
+          
+          # 마지막 성공한 워크플로우 실행의 커밋 SHA 찾기
+          LAST_SUCCESS_SHA=$(gh run list \
+            --workflow="Release and Publish" \
+            --status=success \
+            --limit=1 \
+            --json=headSha \
+            --jq='.[0].headSha // empty')
+          
+          if [ -n "$LAST_SUCCESS_SHA" ]; then
+            echo "Last successful workflow commit: $LAST_SUCCESS_SHA"
+            PREVIOUS_VERSION=$(git show $LAST_SUCCESS_SHA:package.json | node -p "JSON.parse(require('fs').readFileSync('/dev/stdin', 'utf8')).version")
+            echo "Previous version from last success: $PREVIOUS_VERSION"
+          else
+            echo "No previous successful workflow found, comparing with HEAD~1"
+            PREVIOUS_VERSION=$(git show HEAD~1:package.json | node -p "JSON.parse(require('fs').readFileSync('/dev/stdin', 'utf8')).version")
+            echo "Previous version from HEAD~1: $PREVIOUS_VERSION"
+          fi
           
           echo "Current version: $CURRENT_VERSION"
-          echo "Previous version: $PREVIOUS_VERSION"
           
           if [ "$CURRENT_VERSION" != "$PREVIOUS_VERSION" ]; then
+            echo "Version changed from $PREVIOUS_VERSION to $CURRENT_VERSION"
             echo "changed=true" >> $GITHUB_OUTPUT
             echo "version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
           else
+            echo "Version unchanged: $CURRENT_VERSION"
             echo "changed=false" >> $GITHUB_OUTPUT
           fi
+        env:
+          GH_TOKEN: ${{ github.token }}
 
   release:
     needs: check-version

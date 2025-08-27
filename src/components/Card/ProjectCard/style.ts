@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Font } from '../../../tokens/Font';
+import { Font } from '@tokens/Font';
 
 export const CardContainer = styled.div`
   width: 100%;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import * as S from './style';
-import { InputSize } from '../../foundation/Input';
+import { InputSize } from '@foundation/Input';
 
 interface InputProps {
   Size: InputSize;

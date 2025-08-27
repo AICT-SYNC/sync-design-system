@@ -1,5 +1,4 @@
-import { Font } from "../../tokens/Font";
-import { inputWidth, inputHeight } from "../../tokens";
+import { Font, inputWidth, inputHeight } from "@tokens";
 import { InputSize } from "./InputSize";
 
 export const InputSizeMap: Record<

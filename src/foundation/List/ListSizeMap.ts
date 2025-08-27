@@ -1,4 +1,4 @@
-import { list, user, Font } from "../../tokens";
+import { list, user, Font } from "@tokens";
 import { ListSize } from "./ListSize";
 import { CheckboxSize } from "../Checkbox";
 import { AvatarSizeEnum } from "../Avatar";

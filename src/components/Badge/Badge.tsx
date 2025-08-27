@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { BadgeRole, BadgeSize } from "../../foundation/Badge";
-import { Font } from "../../tokens/Font";
+import { BadgeRole, BadgeSize } from '@foundation';
+import { Font } from '@tokens';
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: BadgeSize;

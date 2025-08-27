@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { Font } from "../../tokens/Font";
-import { CalendarSize } from "../../foundation/Calendar";
+import { Font } from "@tokens/Font";
+import { CalendarSize } from "@foundation/Calendar";
 
 export const DatePickerContainer = styled.div<{ size: CalendarSize }>`
   position: relative;

@@ -1,6 +1,6 @@
 import React from 'react';
-import { SyncIcon, SyncIcons } from "../../assets/icons/SyncIcons";
-import { IconButtonSize } from '../../foundation/IconButton';
+import { SyncIcon, SyncIcons } from "@assets/icons/SyncIcons";
+import { IconButtonSize } from '@foundation/IconButton';
 import styled from 'styled-components';
 
 interface IconButtonContainerProps {

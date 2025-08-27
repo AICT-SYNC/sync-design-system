@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { Font } from "../../tokens/Font";
-import { InputSize, InputSizeMap } from "../../foundation/Input";
+import { Font } from "@tokens/Font";
+import { InputSize, InputSizeMap } from "@foundation/Input";
 
 interface InputContainerProps {
   $size: InputSize;

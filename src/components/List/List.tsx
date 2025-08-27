@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./style";
-import { ListSize, ListSizeMap } from "../../foundation/List";
-import { Avatar } from "../../assets";
+import { ListSize, ListSizeMap } from "@foundation/List";
+import { Avatar } from "@assets";
 import { Checkbox } from "../Checkbox";
 
 interface ListProps {

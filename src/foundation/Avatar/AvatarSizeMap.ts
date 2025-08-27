@@ -1,4 +1,4 @@
-import { avatarSize } from "../../tokens/Size";
+import { avatarSize } from "@tokens/Size";
 import { AvatarSizeEnum } from "./AvatarSize";
 
 export const AvatarSizeMap: Record<AvatarSizeEnum, { size: string }> = {

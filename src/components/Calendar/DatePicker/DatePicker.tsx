@@ -1,7 +1,7 @@
 import * as S from "./style";
 import { DAY } from "./constant";
-import { SyncIcon, SyncIcons } from "../../../assets/icons/SyncIcons";
-import { DatePickerVariant } from "../../../foundation";
+import { SyncIcon, SyncIcons } from "@assets/icons/SyncIcons";
+import { DatePickerVariant } from "@foundation";
 import { useTheme } from "styled-components";
 
 interface DatePickerProps {

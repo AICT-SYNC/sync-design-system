@@ -1,6 +1,6 @@
 import { AVATAR_ITMES } from "./constant";
 import { StyledSvg } from "./style";
-import { AvatarSizeEnum, AvatarSizeMap } from "../../foundation";
+import { AvatarSizeEnum, AvatarSizeMap } from "@foundation";
 import { useTheme } from "styled-components";
 
 interface AvatarProps {

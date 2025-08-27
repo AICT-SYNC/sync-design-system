@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { CheckboxContainer, CheckboxInput, CheckboxIcon } from './style';
 import { Check } from 'lucide-react';
-import { CheckboxSize } from '../../foundation/Checkbox';
+import { CheckboxSize } from '@foundation/Checkbox';
 
 interface CheckboxProps {
   size?: CheckboxSize;

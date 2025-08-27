@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
-import * as S from './style';
+import React, { useState } from "react";
+import { useTheme } from "styled-components";
+import * as S from "./style";
+import { SyncIcon, SyncIcons } from "@/assets";
 
 export interface HeaderProps {
   id: string;
@@ -16,37 +18,29 @@ export const HeaderButton: React.FC<HeaderProps> = ({
   onTabClick,
   onTabClose,
 }) => {
+  const theme = useTheme();
   const [isHovered, setIsHovered] = useState(false);
-
-  const truncateText = (text: string, maxLength: number): string => {
-    return text.length > maxLength
-      ? text.slice(0, maxLength) + '...'
-      : text;
-  };
 
   const handleCloseClick = (e: React.MouseEvent) => {
     e.stopPropagation(); // 탭 클릭 이벤트 방지
     onTabClose?.(id);
   };
 
-  // X 아이콘 표시 조건: isActive가 true면 항상 표시, false면 호버시에만 표시
-  const showCloseIcon = isActive || (!isActive && isHovered);
-
   return (
-    <S.TabButton 
+    <S.TabButton
       $isActive={isActive}
-      $isHovered={isHovered}
       onClick={() => onTabClick(id)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <S.TabButtonText>
-        {truncateText(title, 15)}
-      </S.TabButtonText>
-      
-      {showCloseIcon && (
-        <S.CloseIconButton onClick={handleCloseClick}>
-          ✕
+      <S.TabButtonText>{title}</S.TabButtonText>
+      {isHovered && (
+        <S.CloseIconButton $isActive={isActive} onClick={handleCloseClick}>
+          <SyncIcon
+            name={SyncIcons.X}
+            size={15}
+            color={theme["select-btn-false"]}
+          />
         </S.CloseIconButton>
       )}
     </S.TabButton>

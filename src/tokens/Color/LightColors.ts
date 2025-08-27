@@ -77,9 +77,10 @@ export const lightColors = {
   "static-white": primitiveColors.common[0],
   "static-black": primitiveColors.common[1000],
 
-  "header-tab-active": primitiveColors.neutral[100], // '#EDEEF1',
-  "header-tab-not-active": primitiveColors.common[0], // '#FFFFFF',
-  "header-tab-active-hover": primitiveColors.neutral[200],
+  "layout-header-hover-bg": primitiveColors.neutral[200],
+  "layout-actived-header-hover-bg": primitiveColors.neutral[100],
+  "header-tab-not-active": primitiveColors.neutral[100], // '#EDEEF1',
+  "header-tab-active": primitiveColors.common[0], // '#FFFFFF',
 
   "code-bg": primitiveColors.neutral[50],
 

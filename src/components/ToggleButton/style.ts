@@ -13,7 +13,7 @@ interface ToggleOptionProps {
 
 export const ToggleContainer = styled.div<ToggleContainerProps>`
   display: flex;
-  background-color: ${({ theme }) => theme['background-secondary']};
+  background-color: ${({ theme }) => theme['bg-secondary']};
   border-radius: 8px;
   padding: 4px;
   gap: 2px;
@@ -31,12 +31,12 @@ export const ToggleOption = styled.button<ToggleOptionProps>`
   border-radius: 6px;
   
   ${({ $size }) => {
-    const fontStyle = $size === 'large' 
+    const fontStyle = $size === 'L' 
       ? Font.label.label2_semiBold 
       : Font.label.label4_semiBold;
       
-    const padding = $size === 'large' ? '8px 16px' : '6px 12px';
-    const height = $size === 'large' ? '36px' : '28px';
+    const padding = $size === 'L' ? '8px 16px' : '6px 12px';
+    const height = $size === 'L' ? '36px' : '28px';
         
     return `
       font-family: ${fontStyle.fontFamily};
@@ -57,17 +57,17 @@ export const ToggleOption = styled.button<ToggleOptionProps>`
     $isSelected ? theme['text-black'] : theme['text-muted']
   };
 
-  box-shadow: ${({ $isSelected, theme }) => 
-    $isSelected ? `0 1px 2px ${theme['shadow-light']}` : 'none'
+  box-shadow: ${({ $isSelected }) => 
+    $isSelected ? `0 1px 2px rgba(0, 0, 0, 0.1)` : 'none'
   };
 
   &:hover {
     background-color: ${({ $isSelected, theme }) => 
-      $isSelected ? theme['static-white'] : theme['background-primary']
+      $isSelected ? theme['static-white'] : theme['bg-primary']
     };
     
     color: ${({ $isSelected, theme }) => 
-      $isSelected ? theme['text-black'] : theme['text-default']
+      $isSelected ? theme['text-black'] : theme['text-black']
     };
   }
 

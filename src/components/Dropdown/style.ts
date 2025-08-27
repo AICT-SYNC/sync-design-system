@@ -26,8 +26,8 @@ export const DropdownButton = styled.button<DropdownButtonProps>`
   padding: 0 12px;
 
   &:hover {
-    background-color: ${props => props.$isOpen ? props.theme['action-secondary'] : props.theme['background-primary']};
-    border-color: ${props => props.$isOpen ? props.theme['action-primary'] : props.theme['border-M']};
+    background-color: ${props => props.$isOpen ? props.theme['action-secondary'] : props.theme['bg-primary']};
+    border-color: ${props => props.$isOpen ? props.theme['action-primary'] : props.theme['border-medium']};
   }
 `;
 
@@ -96,11 +96,11 @@ export const DropdownItem = styled.div<DropdownItemProps>`
   line-height: ${Font.label.label1_semiBold.lineHeight};
   color: ${({ theme }) => theme['text-black']};
   cursor: pointer;
-  background-color: ${props => props.$isSelected ? props.theme['background-primary'] : props.theme['static-white']};
+  background-color: ${props => props.$isSelected ? props.theme['bg-primary'] : props.theme['static-white']};
   transition: background-color 0.2s ease;
   white-space: nowrap;
 
   &:hover {
-    background-color: ${({ theme }) => theme['background-primary']};
+    background-color: ${({ theme }) => theme['bg-primary']};
   }
 `;

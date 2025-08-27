@@ -46,7 +46,7 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
 
   ${props => props.$variant === 'primary' && `
     background-color: ${props.theme["action-primary"]};
-    color: ${props.theme["background-primary"]};
+    color: ${props.theme["bg-primary"]};
     border: none;
         
     &:hover {
@@ -70,13 +70,13 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
     border: 1px solid ${props.theme["border-light"]};
         
     &:hover {
-      background-color: ${props.theme["background-secondary"]};
+      background-color: ${props.theme["bg-secondary"]};
     }
   `}
 
   ${props => props.$variant === 'danger' && `
     background-color: ${props.theme["action-negative"]};
-    color: ${props.theme["background-primary"]};
+    color: ${props.theme["bg-primary"]};
     border: none;
         
     &:hover {
@@ -86,7 +86,7 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
 
   ${props => props.$variant === 'warning' && `
     background-color: ${props.theme["action-important"]};
-    color: ${props.theme["background-primary"]};
+    color: ${props.theme["bg-primary"]};
     border: none;
         
     &:hover {

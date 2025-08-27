@@ -54,7 +54,7 @@ export const CloseIconButton = styled.div`
   margin-left: 8px;
 
   &:hover {
-    background-color: ${({ theme }) => theme['background-secondary']};
+    background-color: ${({ theme }) => theme['bg-secondary']};
     color: ${({ theme }) => theme['text-black']};
   }
 `;

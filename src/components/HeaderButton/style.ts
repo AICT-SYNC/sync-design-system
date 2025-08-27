@@ -6,7 +6,7 @@ export const TabButton = styled.div<{ $isActive: boolean; $isHovered?: boolean }
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 200px;
+  width: 100%;
   height: 100%;
   padding: 0 12px;
   background-color: ${({ $isActive, $isHovered, theme }) => {
@@ -14,7 +14,7 @@ export const TabButton = styled.div<{ $isActive: boolean; $isHovered?: boolean }
     if ($isHovered) return theme["header-tab-active-hover"];
     return theme["header-tab-not-active"];
   }};
-  border-right: 1px solid ${({ theme }) => theme['border-light']};
+  border: 1px solid ${({ theme }) => theme['border-light']};
   cursor: pointer;
   position: relative;
   transition: background-color 0.2s ease;
@@ -27,6 +27,7 @@ export const TabButton = styled.div<{ $isActive: boolean; $isHovered?: boolean }
 
   &:first-child {
     margin-left: 0;
+    border-left: 1px solid ${({ theme }) => theme['border-light']};
   }
 `;
 

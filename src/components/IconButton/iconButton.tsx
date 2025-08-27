@@ -1,7 +1,8 @@
 import React from 'react';
 import { SyncIcon, SyncIcons } from "@assets/icons/SyncIcons";
 import { IconButtonSize } from '@foundation/IconButton';
-import styled from 'styled-components';
+import styled, { useTheme } from 'styled-components';
+import { ColorKey } from '@tokens/Color/semantic';
 
 interface IconButtonContainerProps {
   $size: IconButtonSize;
@@ -11,7 +12,7 @@ interface IconButtonProps {
   size?: IconButtonSize;
   onClick?: () => void;
   icon: keyof typeof SyncIcons;
-  iconColor?: string;
+  iconColor?: ColorKey | string;
 }
 
 const getSizeStyles = (size: string) => {
@@ -54,12 +55,17 @@ export const IconButton: React.FC<IconButtonProps> = ({
   icon,
   iconColor,
 }) => {
+  const theme = useTheme();
+  const resolvedColor = iconColor 
+    ? (iconColor in theme ? theme[iconColor as keyof typeof theme] : iconColor)
+    : "#121212";
+
   return (
     <IconButtonContainer $size={size} onClick={onClick}>
       <SyncIcon 
         name={SyncIcons[icon]} 
         size={getSizeStyles(size).iconSize}
-        color={iconColor}
+        color={resolvedColor}
       />
     </IconButtonContainer>
   );

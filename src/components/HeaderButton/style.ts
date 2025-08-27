@@ -11,7 +11,7 @@ export const TabButton = styled.div<{ $isActive: boolean; $isHovered?: boolean }
   padding: 0 12px;
   background-color: ${({ $isActive, $isHovered, theme }) => {
     if ($isActive) return theme["header-tab-active"];
-    if ($isHovered) return theme["header-tab-active-hover"];
+    if ($isHovered) return theme["layout-actived-header-hover-bg"];
     return theme["header-tab-not-active"];
   }};
   border: 1px solid ${({ theme }) => theme['border-light']};

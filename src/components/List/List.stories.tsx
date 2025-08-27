@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import List from './List';
+import { List } from './List';
 import { ListSize } from '@foundation/List';
 
 const meta: Meta<typeof List> = {

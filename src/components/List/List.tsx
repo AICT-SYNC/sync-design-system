@@ -12,7 +12,7 @@ interface ListProps {
   image?: string;
 }
 
-const List: React.FC<ListProps> = ({ size, select, name, email }) => {
+export const List: React.FC<ListProps> = ({ size, select, name, email }) => {
   return (
     <S.ListContainer size={size} $select={select}>
       {select && <Checkbox size={ListSizeMap[size].checkboxSize} />}
@@ -24,5 +24,3 @@ const List: React.FC<ListProps> = ({ size, select, name, email }) => {
     </S.ListContainer>
   );
 };
-
-export default List;

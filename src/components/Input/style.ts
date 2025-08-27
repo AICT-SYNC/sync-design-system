@@ -34,7 +34,7 @@ export const InputContainer = styled.input<InputContainerProps>`
   &:disabled {
     border: 1px solid ${({ theme }) => theme["border-light"]} !important;
     background-color: ${({ theme }) =>
-      theme["background-secondary"]} !important;
+      theme["bg-secondary"]} !important;
     color: ${({ theme }) => theme["text-muted"]} !important;
     cursor: not-allowed !important;
     box-shadow: none !important;
@@ -44,14 +44,14 @@ export const InputContainer = styled.input<InputContainerProps>`
     !$enabled &&
     `
     border: 1px solid ${theme["border-light"]} !important;
-    background-color: ${theme["background-secondary"]} !important;
+    background-color: ${theme["bg-secondary"]} !important;
     color: ${theme["text-muted"]} !important;
     cursor: not-allowed !important;
     box-shadow: none !important;
                 
     &:hover, &:focus {
       border: 1px solid ${theme["border-light"]} !important;
-      background-color: ${theme["background-secondary"]} !important;
+      background-color: ${theme["bg-secondary"]} !important;
       box-shadow: none !important;
     }
   `}

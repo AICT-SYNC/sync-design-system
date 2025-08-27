@@ -1,21 +1,8 @@
 import React from "react";
-import {
-  WorkspaceCardContainer,
-  SideBox,
-  ContentBox,
-  ContentHeader,
-  Content,
-  Footer,
-  Hr,
-  ImgBox,
-  Title,
-  Description,
-  MemberCount,
-  AvatarBox,
-} from "./style";
+import * as S from "./style"
 import { Settings } from "lucide-react";
-import { Avatar } from "../../../assets/icons/avatar.tsx";
-import { Badge } from "../../Badge/index.ts";
+import { Avatar } from "../../../assets/icons";
+import { Badge } from "../../Badge";
 import { BadgeRole, BadgeSize } from "../../../foundation";
 import { AvatarSizeEnum } from "../../../foundation";
 
@@ -43,11 +30,11 @@ export const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
   const displayDescription = truncateText(description, 20);
 
   return (
-    <WorkspaceCardContainer>
-      <SideBox></SideBox>
-      <ContentBox>
-        <ContentHeader>
-          <ImgBox></ImgBox>
+    <S.WorkspaceCardContainer>
+      <S.SideBox />
+      <S.ContentBox>
+        <S.ContentHeader>
+          <S.ImgBox></S.ImgBox>
           <Settings
             style={{
               color: "#8E95A2",
@@ -55,24 +42,24 @@ export const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
               height: "17px",
             }}
           />
-        </ContentHeader>
-        <Content>
-          <Title>{displayTitle}</Title>
-          <Description>{displayDescription}</Description>
-        </Content>
-        <Hr></Hr>
-        <Footer>
-          <AvatarBox>
+        </S.ContentHeader>
+        <S.Content>
+          <S.Title>{displayTitle}</S.Title>
+          <S.Description>{displayDescription}</S.Description>
+        </S.Content>
+        <S.Hr></S.Hr>
+        <S.Footer>
+          <S.AvatarBox>
             <Avatar size={AvatarSizeEnum.XS} />
-            <MemberCount>{memberCount}</MemberCount>
-          </AvatarBox>
+            <S.MemberCount>{memberCount}</S.MemberCount>
+          </S.AvatarBox>
           <Badge
             size={BadgeSize.S}
             role={BadgeRole.Info}
             count={notificationCount}
           />
-        </Footer>
-      </ContentBox>
-    </WorkspaceCardContainer>
+        </S.Footer>
+      </S.ContentBox>
+    </S.WorkspaceCardContainer>
   );
 };

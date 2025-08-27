@@ -1,20 +1,8 @@
 import React from "react";
-import {
-  CardContainer,
-  CardHeader,
-  ProjectImage,
-  DefaultBackground,
-  CardContent,
-  CardTitle,
-  CardDescription,
-  CardFooter,
-  MemberInfo,
-  MemberCount,
-  Actions,
-} from "./style.ts";
+import * as S from "./style"
 import { Settings } from "lucide-react";
-import { Avatar } from "../../../assets/icons/avatar.tsx";
-import { Badge } from "../../Badge/index.ts";
+import { Avatar } from "../../../assets/icons";
+import { Badge } from "../../Badge";
 import { BadgeRole, BadgeSize, AvatarSizeEnum } from "../../../foundation";
 
 interface ProjectCardProps {
@@ -42,31 +30,31 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   const displayDescription = truncateText(description, 20);
 
   return (
-    <CardContainer>
+    <S.CardContainer>
       {/* 상단 이미지 영역 */}
-      <CardHeader>
+      <S.CardHeader>
         {image ? (
-          <ProjectImage src={image} alt="Project" />
+          <S.ProjectImage src={image} alt="Project" />
         ) : (
-          <DefaultBackground />
+          <S.DefaultBackground />
         )}
-      </CardHeader>
+      </S.CardHeader>
 
       {/* 하단 정보 영역 */}
-      <CardContent>
-        <CardTitle>{displayTitle}</CardTitle>
-        <CardDescription>{displayDescription}</CardDescription>
+      <S.CardContent>
+        <S.CardTitle>{displayTitle}</S.CardTitle>
+        <S.CardDescription>{displayDescription}</S.CardDescription>
         <hr />
 
-        <CardFooter>
+        <S.CardFooter>
           {/* 멤버 수 */}
-          <MemberInfo>
+          <S.MemberInfo>
             <Avatar size={AvatarSizeEnum.XS} />
-            <MemberCount>{memberCount}명</MemberCount>
-          </MemberInfo>
+            <S.MemberCount>{memberCount}명</S.MemberCount>
+          </S.MemberInfo>
 
           {/* 알림 및 설정 */}
-          <Actions>
+          <S.Actions>
             {notificationCount > 0 && (
               <Badge
                 size={BadgeSize.S}
@@ -75,9 +63,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               />
             )}
             <Settings size={20} color="#666666" style={{ cursor: "pointer" }} />
-          </Actions>
-        </CardFooter>
-      </CardContent>
-    </CardContainer>
+          </S.Actions>
+        </S.CardFooter>
+      </S.CardContent>
+    </S.CardContainer>
   );
 };

@@ -179,6 +179,6 @@ export const SettingsIcon = styled.div`
   transition: background-color 0.2s ease;
 
   &:hover {
-    background-color: ${({ theme }) => theme["background-secondary"]};
+    background-color: ${({ theme }) => theme["bg-secondary"]};
   }
 `;

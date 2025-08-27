@@ -42,8 +42,8 @@ export const CheckboxContainer = styled.div<CheckboxContainerProps>`
 
   &:hover {
     ${props => !props.$checked && `
-      border-color: ${props.theme['border-M']};
-      background-color: ${props.theme['background-primary']};
+      border-color: ${props.theme['border-medium']};
+      background-color: ${props.theme['bg-primary']};
     `}
     ${props => props.$checked && `
       background-color: ${props.theme['action-primary']};

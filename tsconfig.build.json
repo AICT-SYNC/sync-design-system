@@ -8,7 +8,8 @@
     "declarationMap": true,
     "outDir": "./dist",
     "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "jsx": "react-jsx"
   },
   "include": ["src"],
   "exclude": ["**/*.stories.tsx", "**/*.test.tsx", "**/*.test.ts"]

@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { DatePickerVariant } from "../../../foundation";
+import { DatePickerVariant } from "@foundation";
 
 interface DatePickerParams {
   value: string;

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { CheckboxSize } from '../../foundation/Checkbox'
+import { CheckboxSize } from '@foundation/Checkbox'
 
 interface CheckboxContainerProps {
   $size: CheckboxSize;

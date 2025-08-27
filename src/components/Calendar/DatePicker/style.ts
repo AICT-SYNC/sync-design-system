@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { Font } from "../../../tokens/Font";
+import { Font } from "@tokens/Font";
 
 export const DatePickerCalendar = styled.div<{ x: number; y: number }>`
   display: flex;

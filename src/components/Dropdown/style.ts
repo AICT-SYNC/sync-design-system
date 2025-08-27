@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { Font } from '../../tokens/Font';
-import { DropdownButtonSize,DropdownSize } from '../../foundation/Dropdown'
+import { Font } from '@tokens/Font';
+import { DropdownButtonSize,DropdownSize } from '@foundation/Dropdown'
 
 export const DropdownContainer = styled.div`
   position: relative;

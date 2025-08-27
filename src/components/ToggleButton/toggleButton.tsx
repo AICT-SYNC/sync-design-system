@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import * as S from './style';
-import { ToggleButtonSize } from '../../foundation/ToggleButton';
+import { ToggleButtonSize } from '@foundation/ToggleButton';
 
 interface ToggleButtonProps {
   options: string[];

@@ -1,10 +1,10 @@
 import React from "react";
 import * as S from "./style"
 import { Settings } from "lucide-react";
-import { Avatar } from "../../../assets/icons";
+import { Avatar } from "@assets/icons";
 import { Badge } from "../../Badge";
-import { BadgeRole, BadgeSize } from "../../../foundation";
-import { AvatarSizeEnum } from "../../../foundation";
+import { BadgeRole, BadgeSize } from "@foundation";
+import { AvatarSizeEnum } from "@foundation";
 
 interface WorkspaceCardProps {
   title?: string;

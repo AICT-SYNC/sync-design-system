@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { DropdownContainer, DropdownButton, DropdownText, DropdownIcon, DropdownList, DropdownItem } from './style';
 import { ChevronDown } from 'lucide-react';
-import { DropdownSize, DropdownButtonSize } from '../../foundation/Dropdown';
+import { DropdownSize, DropdownButtonSize } from '@foundation/Dropdown';
 
 interface DropdownProps {
   options: string[];

@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Avatar } from "../avatar";
-import { AvatarSizeEnum } from "../../../foundation";
+import { AvatarSizeEnum } from "@foundation";
 
 interface AvatarProps {
   size?: AvatarSizeEnum;

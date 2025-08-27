@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { Font } from '../../tokens/Font';
-import { ToggleButtonSize } from '../../foundation/ToggleButton';
+import { Font } from '@tokens/Font';
+import { ToggleButtonSize } from '@foundation/ToggleButton';
 
 interface ToggleContainerProps {
   $size: ToggleButtonSize;

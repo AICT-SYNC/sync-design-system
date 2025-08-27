@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { ListSize, ListSizeMap } from "../../foundation/List";
-import { spacing } from "../../tokens";
+import { ListSize, ListSizeMap } from "@foundation/List";
+import { spacing } from "@tokens";
 
 interface ListContainerProps {
   size: ListSize;

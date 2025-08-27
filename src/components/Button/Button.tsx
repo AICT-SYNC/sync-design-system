@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import { ButtonVariant } from "../../foundation/Button";
+import { ButtonVariant } from '@foundation';
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;

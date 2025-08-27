@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Font } from "../../tokens/Font";
+import { Font } from "@tokens/Font";
 
 export const TabButton = styled.div<{ $isActive: boolean; $isHovered?: boolean }>`
   display: flex;

@@ -120,7 +120,7 @@ export const CardFooter = styled.div`
   justify-content: space-between;
   align-items: center;
   padding-top: 4px;
-  border-top: 1px solid ${(props: any) => props.theme["border-light"]};
+  border-top: 1px solid ${({ theme }) => theme["border-light"]};
   margin-bottom: 7%;
 `;
 

@@ -3,7 +3,7 @@ export * from "./Badge";
 export * from "./Input";
 export * from "./Card";
 export * from "./IconButton";
-export * from "./HeaderButton";
+export * from "./HeaderTab";
 export * from "./Calendar";
 export * from "./Checkbox";
 export * from "./Divider";

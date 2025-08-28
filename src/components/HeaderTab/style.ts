@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Font } from "@tokens/Font";
 
-export const TabButton = styled.div<{ $isActive: boolean; $isHovered?: boolean }>`
+export const TabButton = styled.div<{ $isActive: boolean; $isHovered?: boolean; $isLast?: boolean }>`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -14,7 +14,9 @@ export const TabButton = styled.div<{ $isActive: boolean; $isHovered?: boolean }
     if ($isHovered) return theme["layout-actived-header-hover-bg"];
     return theme["header-tab-not-active"];
   }};
-  border-right: 1px solid ${({ theme }) => theme['border-light']};
+  border-right: ${({ $isLast, theme }) => 
+    $isLast ? 'none' : `1px solid ${theme['border-light']}`
+  };
   border-left: 1px solid ${({ theme }) => theme['border-light']};
   cursor: pointer;
   position: relative;
@@ -31,7 +33,7 @@ export const TabButton = styled.div<{ $isActive: boolean; $isHovered?: boolean }
   }
 
   &:last-child {
-    border-right: none;
+    border-right: none !important;
   }
 `;
 

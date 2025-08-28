@@ -89,7 +89,7 @@ export const WorkspacePermissionComparison: WorkspaceCardStory = {
 };
 
 // ==================== ProjectCard Stories ====================
-const projectCardMeta: Meta<typeof ProjectCard> = {
+const projectCardMeta = {
   title: "Components/ProjectCard",
   component: ProjectCard,
   parameters: {

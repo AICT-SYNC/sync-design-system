@@ -29,6 +29,10 @@ export const TabButton = styled.div<{ $isActive: boolean; $isHovered?: boolean }
   &:first-child {
     border-left: 1px solid ${({ theme }) => theme['border-light']};
   }
+
+  &:last-child {
+    border-right: none;
+  }
 `;
 
 export const TabButtonText = styled.div`

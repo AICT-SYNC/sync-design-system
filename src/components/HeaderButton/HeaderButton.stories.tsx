@@ -140,3 +140,83 @@ export const MultipleTab: Story = {
     );
   },
 };
+
+// 실제 탭 관리 시나리오 (열기/닫기 기능 포함)
+export const TabManager: Story = {
+  args: {
+    title: "asdoiuashduihaisudhas"
+  },
+
+  render: () => {
+    const [tabs, setTabs] = useState([
+      { id: "tab-1", title: "홈", isActive: true },
+      { id: "tab-2", title: "설정", isActive: false },
+      { id: "tab-3", title: "프로필", isActive: false },
+    ]);
+
+    const setActiveTab = (tabId: string) => {
+      setTabs(prevTabs =>
+        prevTabs.map(tab => ({
+          ...tab,
+          isActive: tab.id === tabId
+        }))
+      );
+    };
+
+    const closeTab = (tabId: string) => {
+      setTabs(prevTabs => {
+        const filteredTabs = prevTabs.filter(tab => tab.id !== tabId);
+        
+        // 닫힌 탭이 활성 탭이었다면 첫 번째 탭을 활성화
+        const closedTabWasActive = prevTabs.find(tab => tab.id === tabId)?.isActive;
+        if (closedTabWasActive && filteredTabs.length > 0) {
+          filteredTabs[0].isActive = true;
+        }
+        
+        return filteredTabs;
+      });
+    };
+
+    const addNewTab = () => {
+      const newTabId = `tab-${Date.now()}`;
+      setTabs(prevTabs => [
+        ...prevTabs.map(tab => ({ ...tab, isActive: false })),
+        { id: newTabId, title: `새 탭 ${prevTabs.length + 1}`, isActive: true }
+      ]);
+    };
+
+    return (
+      <div>
+        <div style={{ display: "flex", height: "40px", marginBottom: "16px", width: "1000px" }}>
+          {tabs.map((tab) => (
+            <HeaderButton
+              key={tab.id}
+              id={tab.id}
+              title={tab.title}
+              isActive={tab.isActive}
+              onTabClick={setActiveTab}
+              onTabClose={closeTab}
+            />
+          ))}
+          <button 
+            onClick={addNewTab}
+            style={{
+              marginLeft: "8px",
+              padding: "0 12px",
+              height: "40px",
+              border: "1px solid #ccc",
+              backgroundColor: "#f5f5f5",
+              cursor: "pointer"
+            }}
+          >
+            + 탭 추가
+          </button>
+        </div>
+        <div style={{ padding: "16px", backgroundColor: "#f9f9f9", borderRadius: "4px" }}>
+          현재 활성 탭: {tabs.find(tab => tab.isActive)?.title || "없음"} | 
+          총 탭 개수: {tabs.length}개
+        </div>
+      </div>
+    );
+  }
+};

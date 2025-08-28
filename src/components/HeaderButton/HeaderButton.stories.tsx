@@ -37,23 +37,23 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 // 상호작용 가능한 래퍼 컴포넌트
-const InteractiveWrapper = (args: any) => {
-  const [isActive, setIsActive] = useState(args.isActive || false);
+const InteractiveWrapper = (args: { id?: string; title?: string; isActive?: boolean; onTabClick?: (id: string) => void; onTabClose?: (id: string) => void; }) => {
+  const [isActive, setIsActive] = useState(args?.isActive || false);
 
   const handleTabClick = (tabId: string) => {
     setIsActive(!isActive);
-    args.onTabClick?.(tabId);
+    args?.onTabClick?.(tabId);
   };
 
   const handleTabClose = (tabId: string) => {
-    args.onTabClose?.(tabId);
+    args?.onTabClose?.(tabId);
   };
 
   return (
     <div style={{ width: "200px", height: "40px" }}>
       <HeaderButton
-        id={args.id}
-        title={args.title}
+        id={args?.id || "default"}
+        title={args?.title || "Default"}
         isActive={isActive}
         onTabClick={handleTabClick}
         onTabClose={handleTabClose}
@@ -115,7 +115,7 @@ export const Interactive: Story = {
 
 // 여러 탭이 함께 있는 예시
 export const MultipleTab: Story = {
-  render: () => {
+  render: function MultipleTabRender() {
     const [activeTab, setActiveTab] = useState("tab-1");
     
     const tabs = [
@@ -147,7 +147,7 @@ export const TabManager: Story = {
     title: "asdoiuashduihaisudhas"
   },
 
-  render: () => {
+  render: function TabManagerRender() {
     const [tabs, setTabs] = useState([
       { id: "tab-1", title: "홈", isActive: true },
       { id: "tab-2", title: "설정", isActive: false },

@@ -11,7 +11,7 @@ export interface HeaderProps {
   onTabClose?: (id: string) => void;
 }
 
-export const HeaderButton: React.FC<HeaderProps> = ({
+export const HeaderTab: React.FC<HeaderProps> = ({
   id,
   title,
   isActive,

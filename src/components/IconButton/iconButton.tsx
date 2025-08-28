@@ -6,6 +6,8 @@ import { ColorKey } from "@tokens/Color/semantic";
 
 interface IconButtonContainerProps {
   $size: IconButtonSize;
+  $bgColor: string;
+  $hoverBgColor?: string;
 }
 
 interface IconButtonProps {
@@ -13,6 +15,8 @@ interface IconButtonProps {
   onClick?: () => void;
   icon: keyof typeof SyncIcons;
   iconColor?: ColorKey | string;
+  bgColor: ColorKey | string;
+  hoverBgColor?: ColorKey | string;
 }
 
 const getSizeStyles = (size: string) => {
@@ -31,7 +35,11 @@ const getSizeStyles = (size: string) => {
 export const IconButtonContainer = styled.button<IconButtonContainerProps>`
   width: ${(props) => getSizeStyles(props.$size).width};
   height: ${(props) => getSizeStyles(props.$size).height};
-  background-color: ${({ theme }) => theme["static-white"]};
+  background-color: ${({ theme, $bgColor }) => 
+    $bgColor in theme 
+      ? theme[$bgColor as keyof typeof theme] 
+      : $bgColor
+  };
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -41,7 +49,14 @@ export const IconButtonContainer = styled.button<IconButtonContainerProps>`
   justify-content: center;
 
   &:hover {
-    background-color: rgba(216, 219, 223, 0.2);
+    background-color: ${({ theme, $hoverBgColor }) => 
+      $hoverBgColor 
+        ? ($hoverBgColor in theme 
+            ? theme[$hoverBgColor as keyof typeof theme] 
+            : $hoverBgColor
+          )
+        : 'rgba(216, 219, 223, 0.2)'
+    };
   }
 
   &:active {
@@ -54,6 +69,8 @@ export const IconButton: React.FC<IconButtonProps> = ({
   onClick,
   icon,
   iconColor,
+  bgColor,
+  hoverBgColor,
 }) => {
   const theme = useTheme();
   const resolvedColor = iconColor
@@ -63,7 +80,12 @@ export const IconButton: React.FC<IconButtonProps> = ({
     : theme["default-icon"];
 
   return (
-    <IconButtonContainer $size={size} onClick={onClick}>
+    <IconButtonContainer 
+      $size={size} 
+      onClick={onClick} 
+      $bgColor={bgColor}
+      $hoverBgColor={hoverBgColor}
+    >
       <SyncIcon
         name={SyncIcons[icon]}
         size={getSizeStyles(size).iconSize}

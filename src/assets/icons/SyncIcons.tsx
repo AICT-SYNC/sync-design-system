@@ -42,7 +42,6 @@ export enum SyncIcons {
   Trash = "Trash",
   PanelLeftClose = "PanelLeftClose",
   PanelRightClose = "PanelRightClose"
-
 }
 
 export const SyncIconMap: Record<SyncIcons, React.FC<{ size?: number; color?: string; strokeWidth?: number }>> = {

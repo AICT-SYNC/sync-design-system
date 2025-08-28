@@ -62,12 +62,12 @@ export const darkColors = {
 
   "layout-sidebar-bg": primitiveColors.neutral[900],
   "layout-header-bg": primitiveColors.common[1000],
-  "layout-actived-header-hover-bg": primitiveColors.neutral[700],
-  "layout-header-hover-bg": primitiveColors.neutral[800],
   "layout-content-bg": primitiveColors.neutral[950],
   "layout-panel-bg": primitiveColors.common[1000],
   "layout-divider": primitiveColors.neutral[800],
   "layout-sidebar-select": primitiveColors.purple[700],
+  "layout-header-hover-bg": primitiveColors.neutral[800],
+  "layout-actived-header-hover-bg": primitiveColors.neutral[700],
 
   "select-btn-false": primitiveColors.neutral[800],
   "select-btn-true": primitiveColors.purple[900],
@@ -83,7 +83,7 @@ export const darkColors = {
   "header-tab-not-active": primitiveColors.neutral[950],
   "header-tab-active-hover": primitiveColors.neutral[800],
 
-  "code-bg": primitiveColors.neutral[50],
+  "code-bg": primitiveColors.neutral[950],
 
   // Calendar specific colors
   "border-calendar-DatePicker": primitiveColors.neutral[700],

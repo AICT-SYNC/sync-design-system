@@ -9,6 +9,7 @@ export interface HeaderProps {
   isActive: boolean;
   onTabClick: (id: string) => void;
   onTabClose?: (id: string) => void;
+  isLast?: boolean;
 }
 
 export const HeaderTab: React.FC<HeaderProps> = ({
@@ -17,6 +18,7 @@ export const HeaderTab: React.FC<HeaderProps> = ({
   isActive,
   onTabClick,
   onTabClose,
+  isLast,
 }) => {
   const theme = useTheme();
   const [isHovered, setIsHovered] = useState(false);
@@ -29,6 +31,7 @@ export const HeaderTab: React.FC<HeaderProps> = ({
   return (
     <S.TabButton
       $isActive={isActive}
+      $isLast={isLast}
       onClick={() => onTabClick(id)}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}

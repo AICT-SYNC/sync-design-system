@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
-import { HeaderButton } from "./HeaderTab";
+import { HeaderTab } from "./HeaderTab";
 
-const meta: Meta<typeof HeaderButton> = {
-  title: "Components/HeaderButton",
-  component: HeaderButton,
+const meta: Meta<typeof HeaderTab> = {
+  title: "Components/HeaderTab",
+  component: HeaderTab,
   parameters: {
     layout: "centered",
   },
@@ -57,7 +57,7 @@ const InteractiveWrapper = (args: {
 
   return (
     <div style={{ width: "200px", height: "40px" }}>
-      <HeaderButton
+      <HeaderTab
         id={args?.id || "default"}
         title={args?.title || "Default"}
         isActive={isActive}
@@ -132,14 +132,15 @@ export const MultipleTab: Story = {
 
     return (
       <div style={{ display: "flex", height: "40px" }}>
-        {tabs.map((tab) => (
-          <HeaderButton
+        {tabs.map((tab, index) => (
+          <HeaderTab
             key={tab.id}
             id={tab.id}
             title={tab.title}
             isActive={activeTab === tab.id}
             onTabClick={(id) => setActiveTab(id)}
             onTabClose={(id) => console.log("Close tab:", id)}
+            isLast={index === tabs.length - 1}
           />
         ))}
       </div>
@@ -203,14 +204,15 @@ export const TabManager: Story = {
             width: "1000px",
           }}
         >
-          {tabs.map((tab) => (
-            <HeaderButton
+          {tabs.map((tab, index) => (
+            <HeaderTab
               key={tab.id}
               id={tab.id}
               title={tab.title}
               isActive={tab.isActive}
               onTabClick={setActiveTab}
               onTabClose={closeTab}
+              isLast={index === tabs.length - 1}
             />
           ))}
           <button

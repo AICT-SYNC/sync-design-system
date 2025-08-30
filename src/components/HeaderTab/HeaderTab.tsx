@@ -9,7 +9,7 @@ export interface HeaderProps {
   isActive: boolean;
   onTabClick: (id: string) => void;
   onTabClose?: (id: string) => void;
-  isLast?: boolean;
+  isLast: boolean;
 }
 
 export const HeaderTab: React.FC<HeaderProps> = ({

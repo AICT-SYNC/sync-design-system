@@ -63,6 +63,7 @@ const InteractiveWrapper = (args: {
         isActive={isActive}
         onTabClick={handleTabClick}
         onTabClose={handleTabClose}
+        isLast={true}
       />
     </div>
   );

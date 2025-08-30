@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Badge, BadgeProps } from "./Badge";
-import { BadgeRole, BadgeSize } from "../../foundation/Badge";
+import { BadgeRole, BadgeSize } from "@foundation/Badge";
 
 const meta: Meta<BadgeProps> = {
   title: "Components/Badge",

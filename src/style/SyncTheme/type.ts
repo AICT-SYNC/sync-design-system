@@ -1,4 +1,4 @@
-import { lightColors } from "../../tokens/LightColors";
+import { lightColors } from "@tokens";
 
 export type SyncTheme = {
   [K in keyof typeof lightColors]: string;

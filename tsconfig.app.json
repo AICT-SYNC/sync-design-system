@@ -16,7 +16,29 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "declaration": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+
+      "@tokens": ["src/tokens/index.ts"],
+      "@tokens/*": ["src/tokens/*"],
+
+      "@assets": ["src/assets/index.ts"],
+      "@assets/*": ["src/assets/*"],
+
+      "@components": ["src/components/index.ts"],
+      "@components/*": ["src/components/*"],
+
+      "@foundation": ["src/foundation/index.ts"],
+      "@foundation/*": ["src/foundation/*"],
+
+      "@style": ["src/style/index.ts"],
+      "@style/*": ["src/style/*"],
+
+      "@types": ["src/types/index.ts"],
+      "@types/*": ["src/types/*"]
+    }
   },
   "include": ["src"]
 }

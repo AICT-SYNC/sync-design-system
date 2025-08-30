@@ -23,7 +23,9 @@ export default [
     ],
     plugins: [
       peerDepsExternal(),
-      resolve(),
+      resolve({
+        extensions: ['.ts', '.tsx', '.js', '.jsx'],
+      }),
       commonjs(),
       typescript({ tsconfig: "./tsconfig.build.json" }),
     ],
@@ -32,7 +34,11 @@ export default [
     input: "src/index.ts",
     output: [{ file: "dist/index.d.ts", format: "esm" }],
     plugins: [dts({
-      tsconfig: "./tsconfig.build.json"
+      tsconfig: "./tsconfig.build.json",
+      compilerOptions: {
+        preserveSymlinks: false,
+      },
     })],
+    external: [/\.stories\.(ts|tsx|js|jsx)$/],
   },
 ];

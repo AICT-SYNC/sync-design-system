@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import * as S from './style';
-import { InputSize } from '../../foundation/Input';
+import { InputSize } from '@foundation/Input';
 
 interface InputProps {
   Size: InputSize;
   Enabled: boolean;
   PlaceHolder: string;
   onChange?: (value: string, event: React.ChangeEvent<HTMLInputElement>) => void;
-  value: any;
+  value: string | number;
 }
 
 export const Input: React.FC<InputProps> = ({
@@ -17,11 +17,15 @@ export const Input: React.FC<InputProps> = ({
   onChange,
   value
 }) => {
+  const [inputValue, setInputValue] = useState(value);
+
+  useEffect(() => {
+    setInputValue(value);
+  }, [value]);
   
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (onChange) {
-      onChange(event.target.value, event);
-    }
+    setInputValue(event.target.value);
+    onChange?.(event.target.value, event);
   };
 
   return (
@@ -29,10 +33,10 @@ export const Input: React.FC<InputProps> = ({
       <S.InputContainer
         type="text"
         placeholder={PlaceHolder}
-        size={Size}
-        enabled={Enabled}
+        $size={Size}
+        $enabled={Enabled}
         disabled={!Enabled}
-        value={value}
+        value={inputValue}
         onChange={handleChange}
       />
     </div>

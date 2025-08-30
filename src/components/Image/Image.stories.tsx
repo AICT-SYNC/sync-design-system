@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Image, ImageProps } from "./Image";
-import { ImageSize } from "../../foundation/Image";
+import { ImageSize } from "@foundation/Image";
 
 const meta: Meta<ImageProps> = {
   title: "Components/Image",

@@ -1,1 +1,2 @@
-// Types are automatically included via .d.ts files
+// Export styled-components module augmentation type info
+export * from './styled';

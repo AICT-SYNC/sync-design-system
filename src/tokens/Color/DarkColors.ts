@@ -1,6 +1,6 @@
 import { primitiveColors } from "./Primitive";
 
-export const darkColors: Record<string, string> = {
+export const darkColors = {
   "issue-todo": primitiveColors.neutral[50],
   "issue-progress": primitiveColors.purple[500],
   "issue-review": primitiveColors.yellow[500],
@@ -50,10 +50,15 @@ export const darkColors: Record<string, string> = {
   "status-info": primitiveColors.purple[500],
 
   "action-primary": primitiveColors.purple[800],
+  "action-primary-hover": primitiveColors.purple[700],
+  "action-primary-active": primitiveColors.purple[900],
   "action-secondary": primitiveColors.purple[200],
+  "action-secondary-hover": primitiveColors.purple[300],
   "action-assistive": primitiveColors.common[1000],
   "action-negative": primitiveColors.red[500],
+  "action-negative-hover": primitiveColors.red[600],
   "action-important": primitiveColors.yellow[500],
+  "action-important-hover": primitiveColors.yellow[600],
 
   "layout-sidebar-bg": primitiveColors.neutral[900],
   "layout-header-bg": primitiveColors.common[1000],
@@ -61,6 +66,8 @@ export const darkColors: Record<string, string> = {
   "layout-panel-bg": primitiveColors.common[1000],
   "layout-divider": primitiveColors.neutral[800],
   "layout-sidebar-select": primitiveColors.purple[700],
+  "layout-header-hover-bg": primitiveColors.neutral[800],
+  "layout-actived-header-hover-bg": primitiveColors.neutral[700],
 
   "select-btn-false": primitiveColors.neutral[800],
   "select-btn-true": primitiveColors.purple[900],
@@ -72,8 +79,18 @@ export const darkColors: Record<string, string> = {
   "static-white": primitiveColors.common[0],
   "static-black": primitiveColors.common[1000],
 
-  "header-tab-active": "#383A42",
-  "header-tab-not-active": "#1F2937",
+  "header-tab-active": primitiveColors.neutral[900],
+  "header-tab-not-active": primitiveColors.neutral[950],
+  "header-tab-active-hover": primitiveColors.neutral[800],
 
-  "code-bg": primitiveColors.neutral[50],
+  "code-bg": primitiveColors.neutral[950],
+
+  // Calendar specific colors
+  "border-calendar-DatePicker": primitiveColors.neutral[700],
+  "calendar-hover-bg": primitiveColors.neutral[800],
+  "calendar-active-bg": primitiveColors.purple[900],
+  "calendar-disabled-text": primitiveColors.neutral[600],
+  "calendar-date-selected": primitiveColors.purple[600],
+  "calendar-date-selected-hover": primitiveColors.purple[700],
+  "calendar-today-bg": primitiveColors.yellow[900],
 } as const;

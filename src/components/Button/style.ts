@@ -97,10 +97,7 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
   justify-content: center;
   width: ${props => getSizeStyles(props.$size).width};
   height: ${props => getSizeStyles(props.$size).height};
-  background-color: ${props => getVariantStyles(props.$variant).backgroundColor};
-  border: ${props => getVariantStyles(props.$variant).border};
   border-radius: 4px;
-  color: ${props => getVariantStyles(props.$variant).color};
   font-size: ${props => getFontStyles(props.$size).fontSize};
   font-weight: ${props => getFontStyles(props.$size).fontWeight};
   font-family: ${props => getFontStyles(props.$size).fontFamily};
@@ -108,11 +105,57 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
   cursor: pointer;
   transition: background-color 0.2s ease;
 
-  &:hover {
-    background-color: ${props => getVariantStyles(props.$variant).hoverBackgroundColor};
-  }
+  ${props => props.$variant === 'primary' && `
+    background-color: ${props.theme["action-primary"]};
+    color: ${props.theme["bg-primary"]};
+    border: none;
+        
+    &:hover {
+      background-color: ${props.theme["action-primary-hover"]};
+    }
+  `}
+
+  ${props => props.$variant === 'secondary' && `
+    background-color: transparent;
+    color: ${props.theme["action-primary"]};
+    border: none;
+        
+    &:hover {
+      background-color: ${props.theme["action-secondary-hover"]};
+    }
+  `}
+
+  ${props => props.$variant === 'tertiary' && `
+    background-color: ${props.theme["static-white"]};
+    color: ${props.theme["text-black"]};
+    border: 1px solid ${props.theme["border-light"]};
+        
+    &:hover {
+      background-color: ${props.theme["bg-secondary"]};
+    }
+  `}
+
+  ${props => props.$variant === 'danger' && `
+    background-color: ${props.theme["action-negative"]};
+    color: ${props.theme["bg-primary"]};
+    border: none;
+        
+    &:hover {
+      background-color: ${props.theme["action-negative-hover"]};
+    }
+  `}
+
+  ${props => props.$variant === 'warning' && `
+    background-color: ${props.theme["action-important"]};
+    color: ${props.theme["bg-primary"]};
+    border: none;
+        
+    &:hover {
+      background-color: ${props.theme["action-important-hover"]};
+    }
+  `}
 
   &:active {
-    background-color: #32237a;
+    background-color: ${props => props.theme["action-primary-active"]};
   }
 `;

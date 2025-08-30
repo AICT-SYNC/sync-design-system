@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { ImageSize, ImageSizeMap } from "../../foundation";
+import { ImageSize, ImageSizeMap } from "@foundation";
 
 export interface ImageProps extends React.HTMLAttributes<HTMLImageElement> {
   size?: ImageSize;

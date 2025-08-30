@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { DatePickerVariant } from "../../../foundation";
+import { DatePickerVariant } from "@foundation";
 
 interface DatePickerParams {
   value: string;
@@ -79,12 +79,12 @@ export const useDatePicker = ({
 
   //캘린터 달 변경시 날짜배열 만드는 함수
   const createDayList = (month: number): number[] => {
-    let beforeLastDay = new Date(calendarDate.year, month - 1, 0).getDay();
-    let afterLastDate = new Date(calendarDate.year, month, 0).getDate();
-    let afterLastDay = new Date(calendarDate.year, month, 0).getDay();
+    const beforeLastDay = new Date(calendarDate.year, month - 1, 0).getDay();
+    const afterLastDate = new Date(calendarDate.year, month, 0).getDate();
+    const afterLastDay = new Date(calendarDate.year, month, 0).getDay();
 
-    let beforeDayList: number[] = [];
-    let afterDayList: number[] = [];
+    const beforeDayList: number[] = [];
+    const afterDayList: number[] = [];
 
     if (beforeLastDay !== 6) {
       for (let i = 0; i < beforeLastDay + 1; i++) {
@@ -96,7 +96,7 @@ export const useDatePicker = ({
       afterDayList.push(0);
     }
 
-    let today = [...Array(afterLastDate + 1).keys()].slice(1);
+    const today = [...Array(afterLastDate + 1).keys()].slice(1);
 
     return beforeDayList.concat(today, afterDayList);
   };

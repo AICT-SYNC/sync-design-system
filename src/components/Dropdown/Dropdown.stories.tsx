@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Dropdown } from "./Dropdown";
-import { DropdownSize, DropdownButtonSize } from "../../foundation/Dropdown";
+import { DropdownSize, DropdownButtonSize } from "@foundation/Dropdown";
 
 const meta: Meta<typeof Dropdown> = {
   title: "Components/Dropdown",
@@ -12,9 +12,13 @@ const meta: Meta<typeof Dropdown> = {
     options: { control: "object" },
     defaultSelected: { control: "number" },
     placeholder: { control: "text" },
-    size: { control: { type: "select", options: Object.values(DropdownSize) } },
+    size: { 
+      control: { type: "radio" },
+      options: Object.values(DropdownSize),
+    },
     buttonSize: {
-      control: { type: "select", options: Object.values(DropdownButtonSize) },
+      control: { type: "radio" },
+      options: Object.values(DropdownButtonSize),
     },
   },
 };
@@ -26,8 +30,8 @@ export const Default: Story = {
   args: {
     options: ["옵션 1", "옵션 2", "옵션 3"],
     placeholder: "선택하세요",
-    size: DropdownSize.Large,
-    buttonSize: DropdownButtonSize.Large,
+    size: DropdownSize.L,
+    buttonSize: DropdownButtonSize.L,
   },
 };
 
@@ -39,8 +43,8 @@ export const LongText: Story = {
       "또 다른 매우 긴 텍스트가 포함된 드롭다운 옵션",
     ],
     placeholder: "선택하세요",
-    size: DropdownSize.Large,
-    buttonSize: DropdownButtonSize.Large,
+    size: DropdownSize.L,
+    buttonSize: DropdownButtonSize.L,
   },
 };
 
@@ -54,25 +58,25 @@ export const VariousLengths: Story = {
       "보통 길이",
     ],
     placeholder: "다양한 길이",
-    size: DropdownSize.Large,
-    buttonSize: DropdownButtonSize.Large,
+    size: DropdownSize.L,
+    buttonSize: DropdownButtonSize.L,
   },
 };
 
-export const SmallButton: Story = {
+export const SButton: Story = {
   args: {
     options: ["옵션 1", "매우 긴 옵션 텍스트", "옵션 3"],
     placeholder: "선택하세요",
-    size: DropdownSize.Large,
-    buttonSize: DropdownButtonSize.Small,
+    size: DropdownSize.L,
+    buttonSize: DropdownButtonSize.S,
   },
 };
 
-export const MediumSize: Story = {
+export const MSize: Story = {
   args: {
     options: ["옵션 1", "긴 텍스트 옵션", "옵션 3"],
     placeholder: "선택하세요",
-    size: DropdownSize.Medium,
-    buttonSize: DropdownButtonSize.Large,
+    size: DropdownSize.M,
+    buttonSize: DropdownButtonSize.L,
   },
 };

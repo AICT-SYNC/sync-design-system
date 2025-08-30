@@ -1,8 +1,8 @@
 import React from "react";
 import { useTheme } from "styled-components";
 import * as S from "./style";
-import { SyncIcon, SyncIcons } from "../../assets/icons/SyncIcons";
-import { DatePickerVariant, CalendarSize } from "../../foundation";
+import { SyncIcon, SyncIcons } from "@assets/icons/SyncIcons";
+import { DatePickerVariant, CalendarSize } from "@foundation";
 import { Divider } from "../Divider";
 import { DatePicker, useDatePicker } from "./DatePicker";
 import { formatDate } from "./formatDate";

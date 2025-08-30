@@ -1,22 +1,9 @@
 import React from "react";
-import {
-  CardContainer,
-  CardHeader,
-  ProjectImage,
-  DefaultBackground,
-  CardContent,
-  CardTitle,
-  CardDescription,
-  CardFooter,
-  MemberInfo,
-  MemberCount,
-  Actions,
-  NotificationBadge,
-} from "./style.ts";
+import * as S from "./style"
 import { Settings } from "lucide-react";
-import { Avatar } from "../../../assets/icons/avatar.tsx";
-import { Badge } from "../../Badge/index.ts";
-import { BadgeRole, BadgeSize } from "../../../foundation";
+import { Avatar } from "@assets/icons";
+import { Badge } from "../../Badge";
+import { BadgeRole, BadgeSize, AvatarSizeEnum } from "@foundation";
 
 interface ProjectCardProps {
   title?: string;
@@ -24,16 +11,14 @@ interface ProjectCardProps {
   memberCount?: number;
   notificationCount?: number;
   image?: string;
-  imgColor?: string;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
   title = "워크스페이스 제목",
-  description = "워크스페이스",
-  memberCount = 4,
-  notificationCount = 1,
+  description = "0개의 프로젝트",
+  memberCount = -1,
+  notificationCount = -1,
   image,
-  imgColor,
 }) => {
   // 텍스트 자르기 함수
   const truncateText = (text: string, maxLength: number): string => {
@@ -45,31 +30,31 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   const displayDescription = truncateText(description, 20);
 
   return (
-    <CardContainer>
+    <S.CardContainer>
       {/* 상단 이미지 영역 */}
-      <CardHeader>
+      <S.CardHeader>
         {image ? (
-          <ProjectImage src={image} alt="Project" />
+          <S.ProjectImage src={image} alt="Project" />
         ) : (
-          <DefaultBackground />
+          <S.DefaultBackground />
         )}
-      </CardHeader>
+      </S.CardHeader>
 
       {/* 하단 정보 영역 */}
-      <CardContent>
-        <CardTitle>{displayTitle}</CardTitle>
-        <CardDescription>{displayDescription}</CardDescription>
+      <S.CardContent>
+        <S.CardTitle>{displayTitle}</S.CardTitle>
+        <S.CardDescription>{displayDescription}</S.CardDescription>
         <hr />
 
-        <CardFooter>
+        <S.CardFooter>
           {/* 멤버 수 */}
-          <MemberInfo>
-            <Avatar size="extraSmall" />
-            <MemberCount>{memberCount}명</MemberCount>
-          </MemberInfo>
+          <S.MemberInfo>
+            <Avatar size={AvatarSizeEnum.XS} />
+            <S.MemberCount>{memberCount}명</S.MemberCount>
+          </S.MemberInfo>
 
           {/* 알림 및 설정 */}
-          <Actions>
+          <S.Actions>
             {notificationCount > 0 && (
               <Badge
                 size={BadgeSize.S}
@@ -78,9 +63,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               />
             )}
             <Settings size={20} color="#666666" style={{ cursor: "pointer" }} />
-          </Actions>
-        </CardFooter>
-      </CardContent>
-    </CardContainer>
+          </S.Actions>
+        </S.CardFooter>
+      </S.CardContent>
+    </S.CardContainer>
   );
 };

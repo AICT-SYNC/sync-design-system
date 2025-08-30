@@ -1,7 +1,8 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button, ButtonProps } from "./Button";
-import { ButtonVariant } from "../../foundation/Button";
+import { Button, ButtonProps } from "./index";
+import { ButtonVariant, ButtonSize } from "../../enums/ButtonEnum";
+import { SyncIcons } from "../../assets/icons/SyncIcons";
 
 const meta: Meta<ButtonProps> = {
   title: "Components/Button",
@@ -25,14 +26,14 @@ type Story = StoryObj<ButtonProps>;
 
 export const Primary: Story = {
   args: {
-    variant: ButtonVariant.Primary,
+    variant: ButtonVariant.PRIMARY,
     children: "Primary Button",
   },
 };
 
 export const Secondary: Story = {
   args: {
-    variant: ButtonVariant.Secondary,
+    variant: ButtonVariant.SECONDARY,
     children: "Secondary Button",
   },
 };

@@ -1,48 +1,18 @@
 import React from "react";
-import styled, { css } from "styled-components";
-import { ButtonVariant } from "../../foundation/Button";
 import { ButtonContainer } from "./style";
 import { ButtonVariant, ButtonSize } from "../../enums/ButtonEnum";
 import { SyncIcon, SyncIcons } from "../../assets/icons/SyncIcons";
-import { lightColors } from "../../tokens/LightColors";
+import { lightColors } from "../../tokens/Color/LightColors";
 
 export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
   size?: ButtonSize;
   children: React.ReactNode;
-}
-
-const StyledButton = styled.button<{ variant: ButtonVariant }>`
-  border: none;
-  border-radius: 4px;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-weight: bold;
-  color: white;
-
-  ${(props) =>
-    props.variant === ButtonVariant.Primary &&
-    css`
-      background-color: #1e90ff;
-      &:hover {
-        background-color: #0077ff;
-      }
-    `}
-
-  ${(props) =>
-    props.variant === ButtonVariant.Secondary &&
-    css`
-      background-color: #888;
-      &:hover {
-        background-color: #555;
-      }
-    `}
-`;
   withIcon?: SyncIcons;
 }
 
+
 export const Button: React.FC<ButtonProps> = ({
-  variant = ButtonVariant.Primary,
   variant = ButtonVariant.PRIMARY,
   size = ButtonSize.L,
   children,

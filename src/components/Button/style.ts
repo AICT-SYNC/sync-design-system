@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { lightColors } from '../../tokens/LightColors';
+import { lightColors } from '../../tokens/Color/LightColors';
 import { Font } from '../../tokens/Font';
 
 import { ButtonVariant, ButtonSize } from '../../enums/ButtonEnum';

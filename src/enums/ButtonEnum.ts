@@ -1,18 +1,23 @@
 export enum ButtonVariant {
-  PRIMARY = "primary",
-  SECONDARY = "secondary", 
+  PRIMARY = "Primary",
+  SECONDARY = "Secondary",
   ASSISTIVE = "Assistive",
-  NEGATIVE = "negative",
-  IMPORTANT = "important"
+  NEGATIVE = "Negative",
+  IMPORTANT = "Important",
 }
 
 export enum ButtonSize {
-  XL = "xlarge",
-  L = "large", 
-  M = "medium",
-  S = "small",
-  XS = "xsmall",
-  LONG_L = "long_large",
-  LONG_M = "long_medium", 
-  LONG_S = "long_small"
+  "2XL" = "XXL",
+  XL = "XL",
+  L = "L",
+  M = "M",
+  S = "S",
+  XS = "XS",
+}
+
+export enum Long {
+  L = "L",
+  M = "M",
+  S = "S",
+  XS = "XS",
 }

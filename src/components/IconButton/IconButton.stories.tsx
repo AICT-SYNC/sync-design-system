@@ -16,9 +16,6 @@ interface IconButtonProps {
 const meta: Meta<IconButtonProps> = {
   title: "Components/IconButton",
   component: IconButton,
-  parameters: {
-    layout: "centered",
-  },
   argTypes: {
     size: {
       control: { type: "radio" },
@@ -42,7 +39,7 @@ const meta: Meta<IconButtonProps> = {
 
 export default meta;
 
-type Story = StoryObj<typeof IconButton>;
+type Story = StoryObj<IconButtonProps>;
 
 export const Default: Story = {
   args: {
@@ -85,7 +82,7 @@ export const WithCalendarIcon: Story = {
   },
 };
 
-export const WithCheckIcon: Story = {
+export const WithSettingsIcon: Story = {
   args: {
     size: IconButtonSize.L,
     icon: "Settings",
@@ -93,7 +90,6 @@ export const WithCheckIcon: Story = {
   },
 };
 
-export const WithPlusIcon: Story = {
 export const WithCheckIcon: Story = {
   args: {
     size: IconButtonSize.L,

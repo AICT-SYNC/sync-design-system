@@ -1,7 +1,11 @@
 import styled from "styled-components";
 import { Font } from "@tokens/Font";
 
-export const TabButton = styled.div<{ $isActive: boolean; $isHovered?: boolean; $isLast?: boolean }>`
+export const TabButton = styled.div<{
+  $isActive: boolean;
+  $isHovered?: boolean;
+  $isLast?: boolean;
+}>`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -14,32 +18,20 @@ export const TabButton = styled.div<{ $isActive: boolean; $isHovered?: boolean; 
     if ($isHovered) return theme["layout-actived-header-hover-bg"];
     return theme["header-tab-not-active"];
   }};
-  border-right: ${({ $isLast, theme }) => 
-    $isLast ? 'none' : `1px solid ${theme['border-light']}`
-  };
-  border-left: 1px solid ${({ theme }) => theme['border-light']};
+  border-right: ${({ $isLast, theme }) =>
+    $isLast ? `1px solid ${theme["border-light"]}` : "none"};
+  border-left: 1px solid ${({ theme }) => theme["border-light"]};
   cursor: pointer;
   position: relative;
   transition: background-color 0.2s ease;
 
   /* 활성 탭일 때 z-index를 높여서 경계선이 겹치지 않도록 */
-  z-index: ${({ $isActive }) => $isActive ? 10 : 1};
-
-  /* 인접한 탭들과의 경계선 겹침 처리 */
-  margin-left: -1px;
-
-  &:first-child {
-    border-left: 1px solid ${({ theme }) => theme['border-light']};
-  }
-
-  &:last-child {
-    border-right: none !important;
-  }
+  z-index: ${({ $isActive }) => ($isActive ? 10 : 1)};
 `;
 
 export const TabButtonText = styled.div`
   font-family: ${Font.label.label4_medium};
-  color: ${({ theme }) => theme['text-black']};
+  color: ${({ theme }) => theme["text-black"]};
   flex: 1;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -73,8 +65,9 @@ export const CloseIconButton = styled.div<{ $isActive: boolean }>`
   }
 
   &:hover {
-    background-color: ${({ theme, $isActive }) => 
-      $isActive ? theme["layout-actived-header-hover-bg"] : theme["layout-header-hover-bg"]
-    };
+    background-color: ${({ theme, $isActive }) =>
+      $isActive
+        ? theme["layout-actived-header-hover-bg"]
+        : theme["layout-header-hover-bg"]};
   }
 `;

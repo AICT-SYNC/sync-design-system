@@ -25,9 +25,6 @@ export const TabButton = styled.div<{ $isActive: boolean; $isHovered?: boolean; 
   /* 활성 탭일 때 z-index를 높여서 경계선이 겹치지 않도록 */
   z-index: ${({ $isActive }) => $isActive ? 10 : 1};
 
-  /* 인접한 탭들과의 경계선 겹침 처리 */
-  margin-left: -1px;
-
   &:first-child {
     border-left: 1px solid ${({ theme }) => theme['border-light']};
   }

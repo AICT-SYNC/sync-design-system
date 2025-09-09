@@ -1,11 +1,10 @@
 import React from "react";
-import * as S from "./style"
+import * as S from "./style";
 import { Settings } from "lucide-react";
 import { Avatar } from "@assets/icons";
 import { Badge } from "../../Badge";
 import { BadgeRole, BadgeSize } from "@foundation";
 import { AvatarSizeEnum } from "@foundation";
-import { Divider } from "@/components/Divider";
 
 interface WorkspaceCardProps {
   title?: string;
@@ -18,6 +17,7 @@ interface WorkspaceCardProps {
 export const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
   title = "프로젝트 제목",
   description = "프로젝트",
+  imageUrl,
   memberCount = -1,
   notificationCount = -1,
 }) => {
@@ -34,7 +34,11 @@ export const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
       <S.SideBox />
       <S.ContentBox>
         <S.ContentHeader>
-          <S.ImgBox></S.ImgBox>
+          {imageUrl ? (
+            <S.ImgBox src={imageUrl} />
+          ) : (
+            <S.PlaceholderBox />
+          )}
           <Settings
             style={{
               color: "#8E95A2",
@@ -47,7 +51,7 @@ export const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
           <S.Title>{displayTitle}</S.Title>
           <S.Description>{displayDescription}</S.Description>
         </S.Content>
-        <Divider widthProps={"100%"} Size={"Medium"} />
+        <S.Hr></S.Hr>
         <S.Footer>
           <S.AvatarBox>
             <Avatar size={AvatarSizeEnum.XS} />

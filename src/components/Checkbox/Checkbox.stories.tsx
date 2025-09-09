@@ -98,6 +98,13 @@ export const XSmall: Story = {
     checked: false,
   },
 };
+export const XXSmall: Story = {
+  render: (args) => <CheckboxWrapper {...args} />,
+  args: {
+    size: CheckboxSize.XXS,
+    checked: false,
+  },
+};
 
 // 정적 체크박스 (상호작용 없이 고정)
 export const StaticUnchecked: Story = {
@@ -127,3 +134,4 @@ export const StaticChecked: Story = {
     checked: true,
   },
 };
+

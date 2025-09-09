@@ -30,7 +30,7 @@ export const Default: Story = {
   args: {
     options: ["옵션 1", "옵션 2", "옵션 3"],
     placeholder: "선택하세요",
-    size: DropdownSize.L,
+    size: "S",
     buttonSize: DropdownButtonSize.L,
   },
 };
@@ -75,9 +75,9 @@ export const SButton: Story = {
 export const MSize: Story = {
   args: {
     options: ["옵션 1", "긴 텍스트 옵션", "옵션 3"],
-    placeholder: "선택하세요",
-    size: DropdownSize.M,
-    buttonSize: DropdownButtonSize.M,
+    placeholder: "asiudhasiudhasdasdijasiudhasiudhasd\n\n",
+    size: "XS",
+    buttonSize: "XS",
   },
 };
 

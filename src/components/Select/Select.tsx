@@ -1,24 +1,24 @@
-import React, { useState } from 'react';
-import * as S from './style';
-import { ChevronDown } from 'lucide-react';
-import { DropdownSize, DropdownButtonSize } from '@foundation/Dropdown';
+import React, { useState } from "react";
+import * as S from "./style";
+import { ChevronDown } from "lucide-react";
+import { SelectSize, SelectItemSize } from "@foundation/Select";
+import { SelectItem } from "./SelectItem";
 
-interface DropdownProps {
+interface SelectProps {
   options: string[];
   defaultSelected?: number;
   placeholder?: string;
   onChange?: (selectedValue: string, selectedIndex: number) => void;
-  size?: DropdownSize;
-  buttonSize?: DropdownButtonSize;
+  SelectSize?: SelectSize;
+  SelectItemSize?: SelectItemSize;
 }
 
-export const Dropdown: React.FC<DropdownProps> = ({ 
+export const Select: React.FC<SelectProps> = ({
   options,
   defaultSelected = 0,
   placeholder = "선택하세요",
   onChange,
-  size = DropdownSize.L,
-  buttonSize = DropdownButtonSize.L
+  SelectSize = SelectSize.L,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(defaultSelected);
@@ -34,30 +34,30 @@ export const Dropdown: React.FC<DropdownProps> = ({
   };
 
   return (
-    <S.DropdownContainer>
-      <S.DropdownButton onClick={handleToggle} $isOpen={isOpen} $buttonSize={buttonSize}>
-        <S.DropdownText>
+    <S.SelectContainer>
+      <S.SelectButton onClick={handleToggle} $isOpen={isOpen} $size={SelectSize}>
+        <S.SelectText>
           {selectedIndex >= 0 ? options[selectedIndex] : placeholder}
-        </S.DropdownText>
-        <S.DropdownIcon $isOpen={isOpen}>
+        </S.SelectText>
+        <S.SelectIcon $isOpen={isOpen}>
           <ChevronDown />
-        </S.DropdownIcon>
-      </S.DropdownButton>
+        </S.SelectIcon>
+      </S.SelectButton>
       
       {isOpen && (
-        <S.DropdownList>
+        <S.SelectList>
           {options.map((option, index) => (
-            <S.DropdownItem
+            <SelectItem
               key={index}
               onClick={() => handleSelect(index)}
-              $isSelected={index === selectedIndex}
-              $size={size}
+              isSelected={index === selectedIndex}
+              size={SelectItemSize}
             >
               {option}
-            </S.DropdownItem>
+            </SelectItem>
           ))}
-        </S.DropdownList>
+        </S.SelectList>
       )}
-    </S.DropdownContainer>
+    </S.SelectContainer>
   );
 };

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { Font } from '@tokens/Font';
 import { DropdownButtonSize, DropdownSize } from '@foundation/Dropdown';
-import { Button } from '../Button';
 
 export const DropdownContainer = styled.div`
   position: relative;
@@ -97,7 +96,7 @@ export const DropdownText = styled.span<DropdownButtonProps>`
           font-weight: ${Font.label.label1_semiBold.fontWeight};
           font-family: ${Font.label.label1_semiBold.fontFamily};
           line-height: ${Font.label.label1_semiBold.lineHeight};
-          min-width: 2ch; // 2글자 너비 보장
+          min-width: 2ch;
         `;
       case 'M':
         return `
@@ -105,7 +104,7 @@ export const DropdownText = styled.span<DropdownButtonProps>`
           font-weight: ${Font.label.label2_semiBold.fontWeight};
           font-family: ${Font.label.label2_semiBold.fontFamily};
           line-height: ${Font.label.label2_semiBold.lineHeight};
-          min-width: 2ch; // 2글자 너비 보장
+          min-width: 2ch;
         `;
       case 'S':
         return `
@@ -113,7 +112,7 @@ export const DropdownText = styled.span<DropdownButtonProps>`
           font-weight: ${Font.label.label3_semiBold.fontWeight};
           font-family: ${Font.label.label3_semiBold.fontFamily};
           line-height: ${Font.label.label3_semiBold.lineHeight};
-          min-width: 2ch; // 2글자 너비 보장
+          min-width: 2ch;
         `;
       case 'XS':
         return `
@@ -121,7 +120,7 @@ export const DropdownText = styled.span<DropdownButtonProps>`
           font-weight: ${Font.label.label4_semiBold.fontWeight};
           font-family: ${Font.label.label4_semiBold.fontFamily};
           line-height: ${Font.label.label4_semiBold.lineHeight};
-          min-width: 2ch; // 2글자 너비 보장
+          min-width: 2ch;
         `;
       default:
         return '';

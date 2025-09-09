@@ -1,4 +1,4 @@
-export enum DropdownSize {
+export enum SelectSize {
   L = "L",
   M = "M",
   S = "S",

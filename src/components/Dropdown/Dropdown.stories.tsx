@@ -67,8 +67,8 @@ export const SButton: Story = {
   args: {
     options: ["옵션 1", "매우 긴 옵션 텍스트", "옵션 3"],
     placeholder: "선택하세요",
-    size: DropdownSize.L,
-    buttonSize: DropdownButtonSize.S,
+    size: DropdownSize.S,
+    buttonSize: DropdownButtonSize.S
   },
 };
 
@@ -77,6 +77,23 @@ export const MSize: Story = {
     options: ["옵션 1", "긴 텍스트 옵션", "옵션 3"],
     placeholder: "선택하세요",
     size: DropdownSize.M,
+    buttonSize: DropdownButtonSize.M,
+  },
+};
+
+export const XSSize: Story = {
+  args: {
+    options: ["옵션 1", "긴 텍스트 옵션", "옵션 3"],
+    placeholder: "선택하세요",
+    size: DropdownSize.XS,
+    buttonSize: DropdownButtonSize.XS,
+  },
+};
+export const LSize: Story = {
+  args: {
+    options: ["옵션 1", "긴 텍스트 옵션", "옵션 3"],
+    placeholder: "선택하세요",
+    size: DropdownSize.L,
     buttonSize: DropdownButtonSize.L,
   },
 };

@@ -11,6 +11,7 @@ interface ToggleOptionProps {
   $size: ToggleButtonSize;
 }
 
+// 높이 사이즈 맵 추가
 const HeightSizeMap = {
   L: { size: '51px' },
   M: { size: '45px' },
@@ -26,8 +27,6 @@ export const ToggleContainer = styled.div<ToggleContainerProps>`
   border: 1px solid ${({ theme }) => theme['border-light']};
   gap: 2px;
   width: fit-content;
-  height: fit-content;
-  min-height: ${({ $size }) => HeightSizeMap[$size].size};
 `;
 
 export const ToggleOption = styled.button<ToggleOptionProps>`
@@ -54,6 +53,7 @@ export const ToggleOption = styled.button<ToggleOptionProps>`
       line-height: ${fontStyle.lineHeight};
       font-style: ${fontStyle.fontStyle};
       padding: ${padding};
+      min-height: ${HeightSizeMap[$size].size};
     `;
   }};
 

@@ -5,13 +5,13 @@ import { Avatar } from "@assets/icons";
 import { Badge } from "../../Badge";
 import { BadgeRole, BadgeSize } from "@foundation";
 import { AvatarSizeEnum } from "@foundation";
+import { Divider } from "@/components/Divider";
 
 interface WorkspaceCardProps {
   title?: string;
   description?: string;
   memberCount?: number;
   notificationCount?: number;
-  avatar?: React.ReactNode;
   imageUrl?: string;
 }
 
@@ -47,7 +47,7 @@ export const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
           <S.Title>{displayTitle}</S.Title>
           <S.Description>{displayDescription}</S.Description>
         </S.Content>
-        <S.Hr></S.Hr>
+        <Divider widthProps={"100%"} Size={"Medium"} />
         <S.Footer>
           <S.AvatarBox>
             <Avatar size={AvatarSizeEnum.XS} />

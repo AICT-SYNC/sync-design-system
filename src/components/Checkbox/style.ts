@@ -18,6 +18,8 @@ const getSizeStyles = (size: string) => {
       return { width: '32px', height: '32px', iconSize: '22px' };
     case CheckboxSize.XS:
       return { width: '24px', height: '24px', iconSize: '16px' };
+    case CheckboxSize.XXS:
+      return { width: '16px', height: '16px', iconSize: '14px' };
     default:
       return { width: '56px', height: '56px', iconSize: '40px' };
   }

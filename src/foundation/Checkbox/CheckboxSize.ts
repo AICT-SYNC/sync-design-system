@@ -3,5 +3,6 @@ export enum CheckboxSize {
   L = "L",
   M = "M",
   S = "S",
-  XS = "XS"
+  XS = "XS",
+  XXS = 'XXS'
 }

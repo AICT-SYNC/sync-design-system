@@ -1,4 +1,6 @@
 export enum DropdownButtonSize {
   L = "L",
-  S = "S"
+  M = "M",
+  S = "S",
+  XS = "XS"
 }

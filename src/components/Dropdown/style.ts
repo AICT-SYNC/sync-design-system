@@ -1,10 +1,13 @@
 import styled from 'styled-components';
 import { Font } from '@tokens/Font';
-import { DropdownButtonSize,DropdownSize } from '@foundation/Dropdown'
+import { DropdownButtonSize, DropdownSize } from '@foundation/Dropdown';
+import { Button } from '../Button';
 
 export const DropdownContainer = styled.div`
   position: relative;
-  display: inline-block;
+  /* display: inline-block; */
+  display:flex;
+  justify-content:space-around;
 `;
 
 interface DropdownButtonProps {
@@ -13,8 +16,26 @@ interface DropdownButtonProps {
 }
 
 export const DropdownButton = styled.button<DropdownButtonProps>`
-  width: ${props => props.$buttonSize === 'L' ? '88px' : '80px'};
-  height: ${props => props.$buttonSize === 'L' ? '48px' : '44px'};
+  /* 높이 및 너비 조건 수정 */
+  width: ${({ $buttonSize }) => {
+    switch ($buttonSize) {
+      case 'L': return '76px';
+      case 'M': return '65px';
+      case 'S': return '63px';
+      case 'XS': return '61px';
+      default: return '76px';
+    }
+  }};
+  height: ${({ $buttonSize }) => {
+    switch ($buttonSize) {
+      case 'L': return '35px';
+      case 'M': return '33px';
+      case 'S': return '32px';
+      case 'XS': return '30px';
+      default: return '33px';
+    }
+  }};
+  
   background-color: ${props => props.$isOpen ? props.theme['action-secondary'] : props.theme['static-white']};
   border: 1px solid ${props => props.$isOpen ? props.theme['action-primary'] : props.theme['border-light']};
   border-radius: 4px;
@@ -25,17 +46,88 @@ export const DropdownButton = styled.button<DropdownButtonProps>`
   justify-content: space-between;
   padding: 0 12px;
 
+  /* DropdownButton에 폰트 스타일 추가 */
+  ${({ $buttonSize }) => {
+    switch ($buttonSize) {
+      case 'L':
+        return `
+          font-size: ${Font.label.label1_semiBold.fontSize};
+          font-weight: ${Font.label.label1_semiBold.fontWeight};
+          font-family: ${Font.label.label1_semiBold.fontFamily};
+          line-height: ${Font.label.label1_semiBold.lineHeight};
+        `;
+      case 'M':
+        return `
+          font-size: ${Font.label.label2_semiBold.fontSize};
+          font-weight: ${Font.label.label2_semiBold.fontWeight};
+          font-family: ${Font.label.label2_semiBold.fontFamily};
+          line-height: ${Font.label.label2_semiBold.lineHeight};
+        `;
+      case 'S':
+        return `
+          font-size: ${Font.label.label3_semiBold.fontSize};
+          font-weight: ${Font.label.label3_semiBold.fontWeight};
+          font-family: ${Font.label.label3_semiBold.fontFamily};
+          line-height: ${Font.label.label3_semiBold.lineHeight};
+        `;
+      case 'XS':
+        return `
+          font-size: ${Font.label.label4_semiBold.fontSize};
+          font-weight: ${Font.label.label4_semiBold.fontWeight};
+          font-family: ${Font.label.label4_semiBold.fontFamily};
+          line-height: ${Font.label.label4_semiBold.lineHeight};
+        `;
+      default:
+        return '';
+    }
+  }};
+
   &:hover {
     background-color: ${props => props.$isOpen ? props.theme['action-secondary'] : props.theme['bg-primary']};
     border-color: ${props => props.$isOpen ? props.theme['action-primary'] : props.theme['border-medium']};
   }
 `;
 
-export const DropdownText = styled.span`
-  font-size: ${Font.label.label1_semiBold.fontSize};
-  font-weight: ${Font.label.label1_semiBold.fontWeight};
-  font-family: ${Font.label.label1_semiBold.fontFamily};
-  line-height: ${Font.label.label1_semiBold.lineHeight};
+export const DropdownText = styled.span<DropdownButtonProps>`
+  ${({ $buttonSize }) => {
+    switch ($buttonSize) {
+      case 'L':
+        return `
+          font-size: ${Font.label.label1_semiBold.fontSize};
+          font-weight: ${Font.label.label1_semiBold.fontWeight};
+          font-family: ${Font.label.label1_semiBold.fontFamily};
+          line-height: ${Font.label.label1_semiBold.lineHeight};
+          min-width: 2ch; // 2글자 너비 보장
+        `;
+      case 'M':
+        return `
+          font-size: ${Font.label.label2_semiBold.fontSize};
+          font-weight: ${Font.label.label2_semiBold.fontWeight};
+          font-family: ${Font.label.label2_semiBold.fontFamily};
+          line-height: ${Font.label.label2_semiBold.lineHeight};
+          min-width: 2ch; // 2글자 너비 보장
+        `;
+      case 'S':
+        return `
+          font-size: ${Font.label.label3_semiBold.fontSize};
+          font-weight: ${Font.label.label3_semiBold.fontWeight};
+          font-family: ${Font.label.label3_semiBold.fontFamily};
+          line-height: ${Font.label.label3_semiBold.lineHeight};
+          min-width: 2ch; // 2글자 너비 보장
+        `;
+      case 'XS':
+        return `
+          font-size: ${Font.label.label4_semiBold.fontSize};
+          font-weight: ${Font.label.label4_semiBold.fontWeight};
+          font-family: ${Font.label.label4_semiBold.fontFamily};
+          line-height: ${Font.label.label4_semiBold.lineHeight};
+          min-width: 2ch; // 2글자 너비 보장
+        `;
+      default:
+        return '';
+    }
+  }};
+
   color: ${({ theme }) => theme['text-black']};
   flex: 1;
   text-align: left;
@@ -49,8 +141,8 @@ interface DropdownIconProps {
 }
 
 export const DropdownIcon = styled.div<DropdownIconProps>`
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -68,7 +160,7 @@ export const DropdownIcon = styled.div<DropdownIconProps>`
 export const DropdownList = styled.div`
   position: absolute;
   top: 100%;
-  left: 0;
+  left: 30%;
   background-color: ${({ theme }) => theme['static-white']};
   border: 1px solid ${({ theme }) => theme['border-light']};
   border-radius: 4px;
@@ -86,21 +178,77 @@ interface DropdownItemProps {
 }
 
 export const DropdownItem = styled.div<DropdownItemProps>`
-  height: ${props => props.$size === 'L' ? '44px' : '40px'};
+  height: ${({ $size }) => {
+    switch ($size) {
+      case 'L': return '35px';
+      case 'M': return '29px';
+      case 'S': return '28px';
+      case 'XS': return '22px';
+      default: return '29px';
+    }
+  }};
+    width: ${({ $size }) => {
+    switch ($size) {
+      case 'L': return '76px';
+      case 'M': return '65px';
+      case 'S': return '63px';
+      case 'XS': return '61px';
+      default: return '76px';
+    }
+  }};
+  
   padding: 0 12px;
   display: flex;
   align-items: center;
-  font-size: ${Font.label.label1_semiBold.fontSize};
-  font-weight: ${Font.label.label1_semiBold.fontWeight};
-  font-family: ${Font.label.label1_semiBold.fontFamily};
-  line-height: ${Font.label.label1_semiBold.lineHeight};
   color: ${({ theme }) => theme['text-black']};
   cursor: pointer;
   background-color: ${props => props.$isSelected ? props.theme['bg-primary'] : props.theme['static-white']};
   transition: background-color 0.2s ease;
-  white-space: nowrap;
+  
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   &:hover {
     background-color: ${({ theme }) => theme['bg-primary']};
   }
+
+  ${({ $size }) => {
+    switch ($size) {
+      case 'L':
+        return `
+          font-size: ${Font.label.label1_semiBold.fontSize};
+          font-weight: ${Font.label.label1_semiBold.fontWeight};
+          font-family: ${Font.label.label1_semiBold.fontFamily};
+          line-height: ${Font.label.label1_semiBold.lineHeight};
+          min-width: 2ch; // 2글자 너비 보장
+        `;
+      case 'M':
+        return `
+          font-size: ${Font.label.label2_semiBold.fontSize};
+          font-weight: ${Font.label.label2_semiBold.fontWeight};
+          font-family: ${Font.label.label2_semiBold.fontFamily};
+          line-height: ${Font.label.label2_semiBold.lineHeight};
+          min-width: 2ch; // 2글자 너비 보장
+        `;
+      case 'S':
+        return `
+          font-size: ${Font.label.label3_semiBold.fontSize};
+          font-weight: ${Font.label.label3_semiBold.fontWeight};
+          font-family: ${Font.label.label3_semiBold.fontFamily};
+          line-height: ${Font.label.label3_semiBold.lineHeight};
+          min-width: 2ch; // 2글자 너비 보장
+        `;
+      case 'XS':
+        return `
+          font-size: ${Font.label.label4_semiBold.fontSize};
+          font-weight: ${Font.label.label4_semiBold.fontWeight};
+          font-family: ${Font.label.label4_semiBold.fontFamily};
+          line-height: ${Font.label.label4_semiBold.lineHeight};
+          min-width: 2ch; // 2글자 너비 보장
+        `;
+      default:
+        return '';
+    }
+  }};
 `;

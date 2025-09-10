@@ -9,8 +9,8 @@ interface SelectProps {
   defaultSelected?: number;
   placeholder?: string;
   onChange?: (selectedValue: string, selectedIndex: number) => void;
-  SelectSize?: SelectSize;
-  SelectItemSize?: SelectItemSize;
+  size?: SelectSize;
+  itemSize?: SelectItemSize;
 }
 
 export const Select: React.FC<SelectProps> = ({
@@ -18,7 +18,8 @@ export const Select: React.FC<SelectProps> = ({
   defaultSelected = 0,
   placeholder = "선택하세요",
   onChange,
-  SelectSize = SelectSize.L,
+  size = SelectSize.L,
+  itemSize = SelectItemSize.L
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(defaultSelected);
@@ -35,7 +36,7 @@ export const Select: React.FC<SelectProps> = ({
 
   return (
     <S.SelectContainer>
-      <S.SelectButton onClick={handleToggle} $isOpen={isOpen} $size={SelectSize}>
+      <S.SelectButton onClick={handleToggle} $isOpen={isOpen} $size={size}>
         <S.SelectText>
           {selectedIndex >= 0 ? options[selectedIndex] : placeholder}
         </S.SelectText>
@@ -51,7 +52,7 @@ export const Select: React.FC<SelectProps> = ({
               key={index}
               onClick={() => handleSelect(index)}
               isSelected={index === selectedIndex}
-              size={SelectItemSize}
+              size={itemSize}
             >
               {option}
             </SelectItem>

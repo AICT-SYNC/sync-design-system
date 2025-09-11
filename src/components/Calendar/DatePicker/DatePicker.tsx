@@ -14,6 +14,7 @@ interface DatePickerProps {
   onChangeCalendarMonth: (direction: "prev" | "next") => void;
   type?: DatePickerVariant;
   baseDate?: Date;
+  minDate?: Date;
 }
 
 export const DatePicker: React.FC<DatePickerProps> = ({
@@ -26,18 +27,25 @@ export const DatePicker: React.FC<DatePickerProps> = ({
   onChangeCalendarMonth,
   type,
   baseDate,
+  minDate,
 }) => {
   const theme = useTheme();
   const isDisabled = (day: number) => {
+    const currentDate = new Date(
+      calendarDate.year,
+      calendarDate.month - 1,
+      day
+    );
+
     if (type === DatePickerVariant.future) {
       const referenceDate = baseDate || new Date();
-      const currentDate = new Date(
-        calendarDate.year,
-        calendarDate.month - 1,
-        day + 1
-      );
       return currentDate < referenceDate;
     }
+
+    if (minDate) {
+      return currentDate < minDate;
+    }
+
     return false;
   };
 

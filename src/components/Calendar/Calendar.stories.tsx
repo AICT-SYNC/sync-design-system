@@ -11,6 +11,7 @@ interface CalendarProps {
   type?: DatePickerVariant;
   size?: CalendarSize;
   baseDate?: string;
+  minDate?: string;
 }
 
 const Wrap = styled.div`
@@ -21,7 +22,7 @@ const Wrap = styled.div`
   padding: 20px;
 `;
 
-const CalendarWithState = (args: CalendarProps & { baseDate?: string }) => {
+const CalendarWithState = (args: CalendarProps & { baseDate?: string; minDate?: string }) => {
   const [selectedDate, setSelectedDate] = useState(args.value);
 
   const handleDateChange = (date: Date) => {
@@ -35,10 +36,17 @@ const CalendarWithState = (args: CalendarProps & { baseDate?: string }) => {
   };
 
   const baseDate = args.baseDate ? new Date(args.baseDate) : undefined;
+  const minDate = args.minDate ? new Date(args.minDate) : undefined;
 
   return (
     <Wrap>
-      <Calendar {...args} value={selectedDate} onChange={handleDateChange} baseDate={baseDate} />
+      <Calendar 
+        {...args} 
+        value={selectedDate} 
+        onChange={handleDateChange} 
+        baseDate={baseDate}
+        minDate={minDate}
+      />
     </Wrap>
   );
 };
@@ -69,6 +77,10 @@ const meta: Meta<CalendarProps> = {
       control: { type: "text" },
       description: "기준 날짜 (YYYY-MM-DD 형식, future 모드에서 이 날짜 이후만 선택 가능)",
     },
+    minDate: {
+      control: { type: "text" },
+      description: "최소 날짜 (YYYY-MM-DD 형식, 이 날짜 이후만 선택 가능)",
+    },
     onChange: { action: "date changed" },
   },
 };
@@ -83,6 +95,7 @@ export const Default: Story = {
     splitCharacter: ".",
     type: DatePickerVariant.entire,
     size: CalendarSize.M,
+    minDate: "2024-01-30"
   },
 };
 
@@ -129,5 +142,15 @@ export const FutureWithBaseDate: Story = {
     type: DatePickerVariant.future,
     size: CalendarSize.M,
     baseDate: "2024-11-15",
+  },
+};
+
+export const WithMinDate: Story = {
+  args: {
+    value: "2024.12.25",
+    splitCharacter: ".",
+    type: DatePickerVariant.entire,
+    size: CalendarSize.M,
+    minDate: "2024-10-01",
   },
 };

@@ -19,6 +19,7 @@ import {
   Trash,
   PanelLeftClose,
   PanelRightClose,
+  SquarePen,
 } from "lucide-react";
 
 export enum SyncIcons {
@@ -41,7 +42,8 @@ export enum SyncIcons {
   ThumbsUp = "ThumbsUp",
   Trash = "Trash",
   PanelLeftClose = "PanelLeftClose",
-  PanelRightClose = "PanelRightClose"
+  PanelRightClose = "PanelRightClose",
+  SquarePen = "SquarePen"
 }
 
 export const SyncIconMap: Record<SyncIcons, React.FC<{ size?: number; color?: string; strokeWidth?: number }>> = {
@@ -64,8 +66,8 @@ export const SyncIconMap: Record<SyncIcons, React.FC<{ size?: number; color?: st
   [SyncIcons.ThumbsUp]: ThumbsUp,
   [SyncIcons.Trash]: Trash,
   [SyncIcons.PanelRightClose]: PanelRightClose,
-  [SyncIcons.PanelLeftClose]:PanelLeftClose
-
+  [SyncIcons.PanelLeftClose]: PanelLeftClose,
+  [SyncIcons.SquarePen]: SquarePen,
 };
 
 type SyncIconProps = {

@@ -15,7 +15,7 @@ interface SelectProps {
 
 export const Select: React.FC<SelectProps> = ({
   options,
-  defaultSelected = 0,
+  defaultSelected = -1,
   placeholder = "선택하세요",
   onChange,
   size = SelectSize.L,

@@ -40,7 +40,7 @@ export const Large: Story = {
     size: SelectSize.L,
     itemSize: SelectItemSize.L,
     placeholder: "선택하세요",
-    defaultSelected: 0,
+    defaultSelected: -1,
   },
 };
 
@@ -50,7 +50,7 @@ export const Medium: Story = {
     size: SelectSize.M,
     itemSize: SelectItemSize.M,
     placeholder: "선택하세요",
-    defaultSelected: 0,
+    defaultSelected: -1,
   },
 };
 
@@ -60,7 +60,7 @@ export const Small: Story = {
     size: SelectSize.S,
     itemSize: SelectItemSize.S,
     placeholder: "선택하세요",
-    defaultSelected: 0,
+    defaultSelected: -1,
   },
 };
 
@@ -70,7 +70,7 @@ export const ExtraSmall: Story = {
     size: SelectSize.XS,
     itemSize: SelectItemSize.XS,
     placeholder: "선택하세요",
-    defaultSelected: 0,
+    defaultSelected: -1,
   },
 };
 

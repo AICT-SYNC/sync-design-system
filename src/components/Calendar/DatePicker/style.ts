@@ -167,6 +167,6 @@ export const DatePickerOverlay = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 1001;
+  z-index: 999;
   background-color: transparent;
 `;

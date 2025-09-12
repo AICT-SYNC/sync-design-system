@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import { useTheme } from "styled-components";
 import * as S from "./style";
 import { SyncIcon, SyncIcons } from "@assets/icons/SyncIcons";
@@ -44,14 +44,9 @@ export const Calendar: React.FC<CalendarProps> = ({
     type,
   });
 
-  const handleToggleFold = useCallback((e: React.MouseEvent) => {
-    e.stopPropagation();
-    setFold(!fold);
-  }, [fold, setFold]);
-
   return (
     <S.DatePickerContainer ref={containerRef} size={size}>
-      <S.DatePickerWrap onClick={handleToggleFold}>
+      <S.DatePickerWrap onClick={() => setFold(!fold)}>
         <S.DatePickerContent>
           <S.DatePickerIcon>
             <SyncIcon name={SyncIcons.CalendarDays} size={24} color={theme["select-btn-false"]}/>

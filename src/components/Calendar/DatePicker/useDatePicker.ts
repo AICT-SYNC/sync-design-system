@@ -64,26 +64,18 @@ export const useDatePicker = ({
 
   //데이트피커 아웃사이드 클릭 체크
   useEffect(() => {
-    if (!fold) {
-      const frameId = requestAnimationFrame(() => {
-        const handleClick = (e: Event) => {
-          if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
-            setFold(true);
-          }
-        };
-        document.addEventListener("click", handleClick, { capture: false });
-        (containerRef.current as any).__clickHandler = handleClick;
-      });
+    document.addEventListener("click", (e) => handleClickOutside(e));
+    return () => {
+      document.removeEventListener("click", (e) => handleClickOutside(e));
+    };
+  });
 
-      return () => {
-        cancelAnimationFrame(frameId);
-        if ((containerRef.current as any).__clickHandler) {
-          document.removeEventListener("click", (containerRef.current as any).__clickHandler);
-          delete (containerRef.current as any).__clickHandler;
-        }
-      };
+  //데이트피커 아웃사이트 클릭 핸들 함수
+  const handleClickOutside = (e: Event) => {
+    if (containerRef && !containerRef.current?.contains(e.target as Node)) {
+      setFold(true);
     }
-  }, [fold]);
+  };
 
   //캘린터 달 변경시 날짜배열 만드는 함수
   const createDayList = (month: number): number[] => {

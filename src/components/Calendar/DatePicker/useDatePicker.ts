@@ -65,18 +65,18 @@ export const useDatePicker = ({
   //데이트피커 아웃사이드 클릭 체크
   useEffect(() => {
     if (!fold) {
-      const timer = setTimeout(() => {
+      const frameId = requestAnimationFrame(() => {
         const handleClick = (e: Event) => {
           if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
             setFold(true);
           }
         };
-        document.addEventListener("click", handleClick);
+        document.addEventListener("click", handleClick, { capture: false });
         (containerRef.current as any).__clickHandler = handleClick;
-      }, 0);
+      });
 
       return () => {
-        clearTimeout(timer);
+        cancelAnimationFrame(frameId);
         if ((containerRef.current as any).__clickHandler) {
           document.removeEventListener("click", (containerRef.current as any).__clickHandler);
           delete (containerRef.current as any).__clickHandler;

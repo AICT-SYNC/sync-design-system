@@ -73,6 +73,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
         x={calendarCoord.x} 
         y={calendarCoord.y + 40}
         onMouseDown={(e) => e.stopPropagation()}
+        onClick={(e) => e.stopPropagation()}
       >
         <S.DatePickerCalendarHeader>
           <S.DatePickerHeaderTitle>
@@ -80,7 +81,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
           </S.DatePickerHeaderTitle>
           <S.DatePickerHeaderContect>
             <S.DatePickerCalendarHeaderArrow
-              onClick={() => onChangeCalendarMonth("prev")}
+              onClick={(e) => { e.stopPropagation(); onChangeCalendarMonth("prev"); }}
             >
               <S.DatePickerCalendarHeaderArrowIcon>
                 <SyncIcon
@@ -91,7 +92,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
               </S.DatePickerCalendarHeaderArrowIcon>
             </S.DatePickerCalendarHeaderArrow>
             <S.DatePickerCalendarHeaderArrow
-              onClick={() => onChangeCalendarMonth("next")}
+              onClick={(e) => { e.stopPropagation(); onChangeCalendarMonth("next"); }}
             >
               <S.DatePickerCalendarHeaderArrowIcon>
                 <SyncIcon
@@ -122,7 +123,7 @@ export const DatePicker: React.FC<DatePickerProps> = ({
                 isDisabled={isDisabled(day)}
                 isSelected={isSelected(day)}
                 isToday={isToday(day)}
-                onClick={() => !isDisabled(day) && onChangeSelectDate(day)}
+                onClick={(e) => { e.stopPropagation(); !isDisabled(day) && onChangeSelectDate(day); }}
               >
                 {day}
               </S.DatePickerCalendarItem>

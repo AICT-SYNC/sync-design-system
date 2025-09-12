@@ -62,22 +62,28 @@ export const useDatePicker = ({
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [calendarCoord, setCalendarCoold] = useState({ x: 0, y: 0 });
 
-  //데이트피커 아웃사이트 클릭 핸들 함수
-  const handleClickOutside = useCallback((e: Event) => {
-    if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
-      setFold(true);
-    }
-  }, []);
-
   //데이트피커 아웃사이드 클릭 체크
   useEffect(() => {
     if (!fold) {
-      document.addEventListener("click", handleClickOutside);
+      const timer = setTimeout(() => {
+        const handleClick = (e: Event) => {
+          if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
+            setFold(true);
+          }
+        };
+        document.addEventListener("click", handleClick);
+        (containerRef.current as any).__clickHandler = handleClick;
+      }, 0);
+
       return () => {
-        document.removeEventListener("click", handleClickOutside);
+        clearTimeout(timer);
+        if ((containerRef.current as any).__clickHandler) {
+          document.removeEventListener("click", (containerRef.current as any).__clickHandler);
+          delete (containerRef.current as any).__clickHandler;
+        }
       };
     }
-  }, [fold, handleClickOutside]);
+  }, [fold]);
 
   //캘린터 달 변경시 날짜배열 만드는 함수
   const createDayList = (month: number): number[] => {

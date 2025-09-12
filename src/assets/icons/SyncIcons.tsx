@@ -21,6 +21,15 @@ import {
   PanelLeftClose,
   PanelRightClose,
   SquarePen,
+  Heading1,
+  Heading2,
+  Heading3,
+  ListOrdered,
+  ListTodo,
+  ListCollapse,
+  Code,
+  Minus,
+  Database,
 } from "lucide-react";
 
 export enum SyncIcons {
@@ -45,7 +54,16 @@ export enum SyncIcons {
   Trash = "Trash",
   PanelLeftClose = "PanelLeftClose",
   PanelRightClose = "PanelRightClose",
-  SquarePen = "SquarePen"
+  SquarePen = "SquarePen",
+  Heading1 = "Heading1",
+  Heading2 = "Heading2",
+  Heading3 = "Heading3",
+  ListOrdered = "ListOrdered",
+  ListTodo = "ListTodo",
+  ListCollapse = "ListCollapse",
+  Code = "Code",
+  Minus = "Minus",
+  Database = "Database",
 }
 
 export const SyncIconMap: Record<SyncIcons, React.FC<{ size?: number; color?: string; strokeWidth?: number }>> = {
@@ -71,6 +89,15 @@ export const SyncIconMap: Record<SyncIcons, React.FC<{ size?: number; color?: st
   [SyncIcons.PanelRightClose]: PanelRightClose,
   [SyncIcons.PanelLeftClose]: PanelLeftClose,
   [SyncIcons.SquarePen]: SquarePen,
+  [SyncIcons.Heading1]: Heading1,
+  [SyncIcons.Heading2]: Heading2,
+  [SyncIcons.Heading3]: Heading3,
+  [SyncIcons.ListOrdered]: ListOrdered,
+  [SyncIcons.ListTodo]: ListTodo,
+  [SyncIcons.ListCollapse]: ListCollapse,
+  [SyncIcons.Code]: Code,
+  [SyncIcons.Minus]: Minus,
+  [SyncIcons.Database]: Database,
 };
 
 type SyncIconProps = {

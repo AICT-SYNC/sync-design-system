@@ -117,11 +117,17 @@ export const Hr = styled.hr`
   margin: 3%;
 `;
 
-export const ImgBox = styled.div`
+export const ImgBox = styled.img`
   width: 50px;
   height: 50px;
   border-radius: 8px;
-  border: 1px solid;
+`;
+
+export const PlaceholderBox = styled.div`
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  background-color: ${({ theme }) => theme["bg-sidebar"]};
 `;
 
 export const Title = styled.h3`

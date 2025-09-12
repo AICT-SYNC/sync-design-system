@@ -7,7 +7,7 @@ export * from "./HeaderTab";
 export * from "./Calendar";
 export * from "./Checkbox";
 export * from "./Divider";
-export * from "./Dropdown";
 export * from "./ToggleButton";
 export * from "./Image";
-export * from './List'
+export * from './List';
+export * from './Select';

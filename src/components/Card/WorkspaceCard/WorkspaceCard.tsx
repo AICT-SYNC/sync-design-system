@@ -1,5 +1,5 @@
 import React from "react";
-import * as S from "./style"
+import * as S from "./style";
 import { Settings } from "lucide-react";
 import { Avatar } from "@assets/icons";
 import { Badge } from "../../Badge";
@@ -11,13 +11,13 @@ interface WorkspaceCardProps {
   description?: string;
   memberCount?: number;
   notificationCount?: number;
-  avatar?: React.ReactNode;
   imageUrl?: string;
 }
 
 export const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
   title = "프로젝트 제목",
   description = "프로젝트",
+  imageUrl,
   memberCount = -1,
   notificationCount = -1,
 }) => {
@@ -34,7 +34,11 @@ export const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
       <S.SideBox />
       <S.ContentBox>
         <S.ContentHeader>
-          <S.ImgBox></S.ImgBox>
+          {imageUrl ? (
+            <S.ImgBox src={imageUrl} />
+          ) : (
+            <S.PlaceholderBox />
+          )}
           <Settings
             style={{
               color: "#8E95A2",

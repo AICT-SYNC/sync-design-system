@@ -13,12 +13,14 @@ import {
   ChevronRight,
   ChevronDown,
   ArrowRight,
+  ArrowUp,
   CornerUpLeft,
   Pencil,
   ThumbsUp,
   Trash,
   PanelLeftClose,
   PanelRightClose,
+  SquarePen,
 } from "lucide-react";
 
 export enum SyncIcons {
@@ -36,12 +38,14 @@ export enum SyncIcons {
   ChevronRight = "ChevronRight",
   ChevronDown = "ChevronDown",
   ArrowRight = "ArrowRight",
+  ArrowUp = "ArrowUp",
   CornerUpLeft = "CornerUpLeft",
   Pencil = "Pencil",
   ThumbsUp = "ThumbsUp",
   Trash = "Trash",
   PanelLeftClose = "PanelLeftClose",
-  PanelRightClose = "PanelRightClose"
+  PanelRightClose = "PanelRightClose",
+  SquarePen = "SquarePen"
 }
 
 export const SyncIconMap: Record<SyncIcons, React.FC<{ size?: number; color?: string; strokeWidth?: number }>> = {
@@ -59,13 +63,14 @@ export const SyncIconMap: Record<SyncIcons, React.FC<{ size?: number; color?: st
   [SyncIcons.ChevronRight]: ChevronRight,
   [SyncIcons.ChevronDown]: ChevronDown,
   [SyncIcons.ArrowRight]: ArrowRight,
+  [SyncIcons.ArrowUp]: ArrowUp,
   [SyncIcons.CornerUpLeft]: CornerUpLeft,
   [SyncIcons.Pencil]: Pencil,
   [SyncIcons.ThumbsUp]: ThumbsUp,
   [SyncIcons.Trash]: Trash,
   [SyncIcons.PanelRightClose]: PanelRightClose,
-  [SyncIcons.PanelLeftClose]:PanelLeftClose
-
+  [SyncIcons.PanelLeftClose]: PanelLeftClose,
+  [SyncIcons.SquarePen]: SquarePen,
 };
 
 type SyncIconProps = {

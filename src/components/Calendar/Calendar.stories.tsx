@@ -95,7 +95,7 @@ export const Default: Story = {
     splitCharacter: ".",
     type: DatePickerVariant.entire,
     size: CalendarSize.M,
-    minDate: "2024.01.30"
+    minDate: "2024.01.13"
   },
 };
 

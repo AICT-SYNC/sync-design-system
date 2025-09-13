@@ -68,6 +68,7 @@ export enum SyncIcons {
   Database = "Database",
   Quote = "Quote",
   Italic = "Italic",
+  IconName = "IconName",
 }
 
 export const SyncIconMap: Record<SyncIcons, React.FC<{ size?: number; color?: string; strokeWidth?: number }>> = {

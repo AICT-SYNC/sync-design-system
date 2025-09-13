@@ -1,4 +1,7 @@
 export enum ButtonVariant {
-  Primary = "primary",
-  Secondary = "secondary"
+  PRIMARY = "primary",
+  SECONDARY = "secondary",
+  ASSISTIVE = "assistive",
+  NEGATIVE = "negative",
+  IMPORTANT = "important"
 }

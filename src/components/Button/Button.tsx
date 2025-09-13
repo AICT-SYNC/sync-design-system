@@ -1,47 +1,236 @@
 import React from "react";
-import styled, { css } from "styled-components";
-import { ButtonVariant } from '@foundation';
+import { ButtonVariant, ButtonSize, ButtonLong } from "@foundation/Button";
+import { SyncIcon, SyncIcons } from "@assets/icons";
+import styled, { useTheme } from "styled-components";
+import { Font } from "@/tokens";
 
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: ButtonVariant;
-  children: React.ReactNode;
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant: ButtonVariant;
+  size: ButtonSize;
+  enabled?: boolean;
+  text: React.ReactNode;
+  IconName?: SyncIcons;
+  long?: ButtonLong;
 }
 
-const StyledButton = styled.button<{ variant: ButtonVariant }>`
-  border: none;
-  border-radius: 4px;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-weight: bold;
-  color: white;
+const ButtonContainer = styled.button<{
+  $variant: ButtonVariant;
+  $size: ButtonSize | boolean;
+  $enabled: boolean;
+  $long: ButtonLong;
+  $hasIcon: boolean;
+}>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: ${(props) =>
+    props.$variant === ButtonVariant.ASSISTIVE
+      ? `1px solid ${props.theme["border-light"]}`
+      : "none"};
 
-  ${(props) =>
-    props.variant === ButtonVariant.Primary &&
-    css`
-      background-color: #1e90ff;
-      &:hover {
-        background-color: #0077ff;
-      }
-    `}
+  background-color: ${(props) => {
+    switch (props.$variant) {
+      case ButtonVariant.PRIMARY:
+        return props.theme["action-primary"];
+      case ButtonVariant.SECONDARY:
+        return props.theme["action-secondary"];
+      case ButtonVariant.ASSISTIVE:
+        return props.theme["action-assisitive"];
+      case ButtonVariant.NEGATIVE:
+        return props.theme["action-negative"];
+      case ButtonVariant.IMPORTANT:
+        return props.theme["action-important"];
+    }
+  }};
 
-  ${(props) =>
-    props.variant === ButtonVariant.Secondary &&
-    css`
-      background-color: #888;
-      &:hover {
-        background-color: #555;
+  color: ${(props) => {
+    switch (props.$variant) {
+      case ButtonVariant.PRIMARY:
+      case ButtonVariant.NEGATIVE:
+      case ButtonVariant.IMPORTANT:
+        return props.theme["static-white"];
+      case ButtonVariant.SECONDARY:
+        return props.theme["action-primary"];
+      case ButtonVariant.ASSISTIVE:
+        return props.theme["text-black"];
+    }
+  }};
+
+  padding: ${(props) => {
+    const hasIcon = props.$hasIcon;
+
+    // Size XL + Long 값이 있는 경우
+    if (props.$size === ButtonSize.XL && props.$long !== ButtonLong.False) {
+      if (hasIcon) {
+        switch (props.$long) {
+          case ButtonLong.L:
+            return "14px 187px";
+          case ButtonLong.M:
+            return "14px 147px";
+          case ButtonLong.S:
+            return "14px 107px";
+          case ButtonLong.XS:
+            return "14px 67px";
+          default:
+            return "14px 24px";
+        }
+      } else {
+        switch (props.$long) {
+          case ButtonLong.L:
+            return "14px 205px";
+          case ButtonLong.M:
+            return "14px 165px";
+          case ButtonLong.S:
+            return "14px 125px";
+          case ButtonLong.XS:
+            return "14px 85px";
+          default:
+            return "14px 24px";
+        }
       }
-    `}
+    }
+
+    // Size만 있는 경우 (Long이 false이거나 해당 없음)
+    // IconName이 있어도 XL Long false 이하 사이즈는 동일한 padding
+    switch (props.$size) {
+      case ButtonSize.XL:
+        return "14px 24px";
+      case ButtonSize.L:
+        return "12px 20px";
+      case ButtonSize.M:
+        return "10px 16px";
+      case ButtonSize.S:
+        return "6px 12px";
+      case ButtonSize.XS:
+        return "4px 8px";
+      default:
+        return "12px 20px";
+    }
+  }};
+
+  gap: ${(props) => {
+    // ButtonSize XL + ButtonLong 값이 있으면 12px
+    if (props.$size === ButtonSize.XL && props.$long !== ButtonLong.False) {
+      return "12px";
+    }
+    // ButtonSize XL + ButtonLong false, L, M 사이즈는 8px
+    if (
+      props.$size === ButtonSize.XL ||
+      props.$size === ButtonSize.L ||
+      props.$size === ButtonSize.M
+    ) {
+      return "8px";
+    }
+    // ButtonSize S, XS는 4px
+    if (props.$size === ButtonSize.S || props.$size === ButtonSize.XS) {
+      return "4px";
+    }
+    return "8px"; // 기본값
+  }};
+
+  font: ${(props) => {
+    switch (props.$size) {
+      case ButtonSize.XS:
+        return Font.label.label4_semiBold;
+      case ButtonSize.S:
+      case ButtonSize.M:
+        return Font.label.label2_semiBold;
+      case ButtonSize.L:
+      case ButtonSize.XL:
+        return Font.label.label1_semiBold;
+    }
+  }};
+
+  opacity: ${(props) => {
+    if (!props.$enabled) {
+      return 0.5;
+    }
+  }};
+
+  cursor: ${(props) => {
+    if (!props.$enabled) {
+      return "not-allowed";
+    } else {
+      return "pointer";
+    }
+  }};
+
+  &:hover {
+    ${(props) => {
+      if (props.$enabled) {
+        return "opacity: 0.9;";
+      }
+    }}
+  }
+
+  &:active {
+    ${(props) => {
+      if (props.$enabled) {
+        return "transform: scale(0.98);";
+      }
+    }}
+  }
 `;
 
 export const Button: React.FC<ButtonProps> = ({
-  variant = ButtonVariant.Primary,
-  children,
+  variant = ButtonVariant.PRIMARY,
+  size = ButtonSize.L,
+  enabled = true,
+  text,
+  IconName,
+  long = ButtonLong.False,
   ...rest
 }) => {
+  const theme = useTheme();
+  const getIconSize = () => {
+    // Size XL + Long 값이 있을 때는 24px
+    if (size === ButtonSize.XL && long !== ButtonLong.False) {
+      return 24;
+    }
+
+    // Size만 있는 경우
+    switch (size) {
+      case ButtonSize.XL:
+        return 20;
+      case ButtonSize.L:
+        return 20;
+      case ButtonSize.M:
+        return 16;
+      case ButtonSize.S:
+        return 16;
+      case ButtonSize.XS:
+        return 12;
+      default:
+        return 20;
+    }
+  };
+
+  const getIconColor = () => {
+    switch (variant) {
+      case ButtonVariant.PRIMARY:
+      case ButtonVariant.NEGATIVE:
+      case ButtonVariant.IMPORTANT:
+        return theme["action-assistive"];
+      case ButtonVariant.SECONDARY:
+        return theme["action-primary"];
+      case ButtonVariant.ASSISTIVE:
+        return theme["text-black"];
+    }
+  };
+
   return (
-    <StyledButton variant={variant} {...rest}>
-      {children}
-    </StyledButton>
+    <ButtonContainer
+      $variant={variant}
+      $size={size}
+      $enabled={enabled}
+      $long={long}
+      $hasIcon={!!IconName}
+      {...rest}
+    >
+      {IconName && (
+        <SyncIcon name={IconName} size={getIconSize()} color={getIconColor()} />
+      )}
+      {text}
+    </ButtonContainer>
   );
 };

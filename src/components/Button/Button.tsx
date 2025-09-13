@@ -58,41 +58,12 @@ const ButtonContainer = styled.button<{
   }};
 
   padding: ${(props) => {
-    const hasIcon = props.$hasIcon;
-
     // Size XL + Long 값이 있는 경우
     if (props.$size === ButtonSize.XL && props.$long !== ButtonLong.False) {
-      if (hasIcon) {
-        switch (props.$long) {
-          case ButtonLong.L:
-            return "14px 187px";
-          case ButtonLong.M:
-            return "14px 147px";
-          case ButtonLong.S:
-            return "14px 107px";
-          case ButtonLong.XS:
-            return "14px 67px";
-          default:
-            return "14px 24px";
-        }
-      } else {
-        switch (props.$long) {
-          case ButtonLong.L:
-            return "14px 205px";
-          case ButtonLong.M:
-            return "14px 165px";
-          case ButtonLong.S:
-            return "14px 125px";
-          case ButtonLong.XS:
-            return "14px 85px";
-          default:
-            return "14px 24px";
-        }
-      }
+      return "14px 24px";
     }
-
+    
     // Size만 있는 경우 (Long이 false이거나 해당 없음)
-    // IconName이 있어도 XL Long false 이하 사이즈는 동일한 padding
     switch (props.$size) {
       case ButtonSize.XL:
         return "14px 24px";
@@ -107,6 +78,25 @@ const ButtonContainer = styled.button<{
       default:
         return "12px 20px";
     }
+  }};
+
+  min-width: ${(props) => {
+    // Size XL + Long 값이 있는 경우
+    if (props.$size === ButtonSize.XL && props.$long !== ButtonLong.False) {
+      switch (props.$long) {
+        case ButtonLong.L:
+          return "460px";
+        case ButtonLong.M:
+          return "380px";
+        case ButtonLong.S:
+          return "300px";
+        case ButtonLong.XS:
+          return "220px";
+        default:
+          return "auto";
+      }
+    }
+    return "auto";
   }};
 
   gap: ${(props) => {

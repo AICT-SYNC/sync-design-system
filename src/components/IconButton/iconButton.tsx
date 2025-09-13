@@ -1,5 +1,5 @@
 import React from "react";
-import { SyncIcon, SyncIcons } from "@assets/icons/SyncIcons";
+import { SyncIcon, SyncIcons } from "@assets/icons";
 import { IconButtonSize } from "@foundation/IconButton";
 import styled, { useTheme } from "styled-components";
 import { ColorKey } from "@tokens/Color/semantic";

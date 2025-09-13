@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { IconButton } from "./IconButton";
-import { SyncIcons } from "@assets/icons/SyncIcons";
+import { SyncIcons } from "@assets/icons";
 import { IconButtonSize } from "@foundation/IconButton";
 
 interface IconButtonProps {

@@ -27,6 +27,7 @@ const ButtonContainer = styled.button<{
     props.$variant === ButtonVariant.ASSISTIVE
       ? `1px solid ${props.theme["border-light"]}`
       : "none"};
+  border-radius: 4px;
 
   background-color: ${(props) => {
     switch (props.$variant) {
@@ -157,18 +158,37 @@ const ButtonContainer = styled.button<{
 
   &:hover {
     ${(props) => {
-      if (props.$enabled) {
-        return "opacity: 0.9;";
+      if (!props.$enabled) return "";
+
+      // hover 색상이 있는 variant들
+      switch (props.$variant) {
+        case ButtonVariant.PRIMARY:
+          return `background-color: ${props.theme["action-primary-hover"]};`;
+        case ButtonVariant.SECONDARY:
+          return `background-color: ${props.theme["action-secondary-hover"]};`;
+        case ButtonVariant.NEGATIVE:
+          return `background-color: ${props.theme["action-negative-hover"]};`;
+        case ButtonVariant.IMPORTANT:
+          return `background-color: ${props.theme["action-important-hover"]};`;
+        default:
+          return "opacity: 0.9;";
       }
     }}
   }
 
   &:active {
     ${(props) => {
-      if (props.$enabled) {
-        return "transform: scale(0.98);";
+      if (!props.$enabled) return "";
+
+      // active 색상이 있는 variant들
+      switch (props.$variant) {
+        case ButtonVariant.PRIMARY:
+          return `background-color: ${props.theme["action-primary-active"]};`;
+        default:
+          return "opacity: 0.9;";
       }
     }}
+    transform: scale(0.98);
   }
 `;
 

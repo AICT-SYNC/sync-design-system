@@ -19,7 +19,7 @@ export const SelectButton = styled.button<SelectButtonProps>`
       case "L":
         return "8px 16px";
       case "M":
-        return "8xp 12px";
+        return "8px 12px";
       case "S":
         return "8px 12px";
       case "XS":

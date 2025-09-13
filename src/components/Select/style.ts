@@ -117,7 +117,6 @@ export const SelectList = styled.div`
   position: absolute;
   top: 100%;
   left: 0;
-  width: 100%;
   background-color: ${({ theme }) => theme["static-white"]};
   border: 1px solid ${({ theme }) => theme["border-light"]};
   border-radius: 4px;

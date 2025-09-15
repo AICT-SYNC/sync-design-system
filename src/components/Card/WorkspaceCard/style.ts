@@ -107,6 +107,7 @@ export const Footer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  padding-top:1%;
   width: 90%;
   height: 10%;
 `;

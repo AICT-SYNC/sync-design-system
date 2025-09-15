@@ -119,7 +119,7 @@ export const CardFooter = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 4px;
+  padding-top: 4%;
   border-top: 1px solid ${({ theme }) => theme["border-light"]};
   margin-bottom: 7%;
 `;

@@ -32,6 +32,7 @@ import {
   Database,
   Quote,
   Italic,
+  EllipsisIcon,
 } from "lucide-react";
 
 export enum SyncIcons {
@@ -68,6 +69,7 @@ export enum SyncIcons {
   Database = "Database",
   Quote = "Quote",
   Italic = "Italic",
+  EllipsisIcon = "EllipsisIcon"
 }
 
 export const SyncIconMap: Record<SyncIcons, React.FC<{ size?: number; color?: string; strokeWidth?: number }>> = {
@@ -104,4 +106,5 @@ export const SyncIconMap: Record<SyncIcons, React.FC<{ size?: number; color?: st
   [SyncIcons.Database]: Database,
   [SyncIcons.Quote]: Quote,
   [SyncIcons.Italic]: Italic,
+  [SyncIcons.EllipsisIcon]: EllipsisIcon,
 };

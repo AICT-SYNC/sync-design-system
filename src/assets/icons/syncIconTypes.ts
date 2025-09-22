@@ -33,6 +33,8 @@ import {
   Quote,
   Italic,
   EllipsisIcon,
+  UserRound,
+  ChartNoAxesColumn
 } from "lucide-react";
 
 export enum SyncIcons {
@@ -69,7 +71,9 @@ export enum SyncIcons {
   Database = "Database",
   Quote = "Quote",
   Italic = "Italic",
-  EllipsisIcon = "EllipsisIcon"
+  EllipsisIcon = "EllipsisIcon",
+  UserRound = "UserRound",
+  ChartNoAxesColumn = "ChartNoAxesColumn"
 }
 
 export const SyncIconMap: Record<SyncIcons, React.FC<{ size?: number; color?: string; strokeWidth?: number }>> = {
@@ -107,4 +111,6 @@ export const SyncIconMap: Record<SyncIcons, React.FC<{ size?: number; color?: st
   [SyncIcons.Quote]: Quote,
   [SyncIcons.Italic]: Italic,
   [SyncIcons.EllipsisIcon]: EllipsisIcon,
+  [SyncIcons.UserRound]: UserRound,
+  [SyncIcons.ChartNoAxesColumn]: ChartNoAxesColumn,
 };

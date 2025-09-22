@@ -12,6 +12,7 @@ import {
   ChevronLeft,
   ChevronRight,
   ChevronDown,
+  ChevronUp,
   ArrowRight,
   ArrowUp,
   CornerUpLeft,
@@ -34,7 +35,10 @@ import {
   Italic,
   EllipsisIcon,
   UserRound,
-  ChartNoAxesColumn
+  ChartNoAxesColumn,
+  Circle,
+  Bell,
+  PlusCircle
 } from "lucide-react";
 
 export enum SyncIcons {
@@ -51,6 +55,7 @@ export enum SyncIcons {
   ChevronLeft = "ChevronLeft",
   ChevronRight = "ChevronRight",
   ChevronDown = "ChevronDown",
+  ChevronUp = "ChevronUp",
   ArrowRight = "ArrowRight",
   ArrowUp = "ArrowUp",
   CornerUpLeft = "CornerUpLeft",
@@ -73,7 +78,10 @@ export enum SyncIcons {
   Italic = "Italic",
   EllipsisIcon = "EllipsisIcon",
   UserRound = "UserRound",
-  ChartNoAxesColumn = "ChartNoAxesColumn"
+  ChartNoAxesColumn = "ChartNoAxesColumn",
+  Circle = "Circle",
+  Bell = "Bell",
+  PlusCircle = "PlusCircle",
 }
 
 export const SyncIconMap: Record<SyncIcons, React.FC<{ size?: number; color?: string; strokeWidth?: number }>> = {
@@ -90,6 +98,7 @@ export const SyncIconMap: Record<SyncIcons, React.FC<{ size?: number; color?: st
   [SyncIcons.ChevronLeft]: ChevronLeft,
   [SyncIcons.ChevronRight]: ChevronRight,
   [SyncIcons.ChevronDown]: ChevronDown,
+  [SyncIcons.ChevronUp]: ChevronUp,
   [SyncIcons.ArrowRight]: ArrowRight,
   [SyncIcons.ArrowUp]: ArrowUp,
   [SyncIcons.CornerUpLeft]: CornerUpLeft,
@@ -113,4 +122,7 @@ export const SyncIconMap: Record<SyncIcons, React.FC<{ size?: number; color?: st
   [SyncIcons.EllipsisIcon]: EllipsisIcon,
   [SyncIcons.UserRound]: UserRound,
   [SyncIcons.ChartNoAxesColumn]: ChartNoAxesColumn,
+  [SyncIcons.Circle]: Circle,
+  [SyncIcons.Bell]: Bell,
+  [SyncIcons.PlusCircle]: PlusCircle,
 };

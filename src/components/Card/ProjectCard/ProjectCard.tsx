@@ -11,6 +11,8 @@ interface ProjectCardProps {
   memberCount?: number;
   notificationCount?: number;
   image?: string;
+  
+  onClickSettings?: () => void;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -19,6 +21,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   memberCount = -1,
   notificationCount = -1,
   image,
+  onClickSettings, // 추가된 prop
 }) => {
   // 텍스트 자르기 함수
   const truncateText = (text: string, maxLength: number): string => {
@@ -28,6 +31,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
   const displayTitle = truncateText(title, 13);
   const displayDescription = truncateText(description, 20);
+
+  const handleSettingsClick = () => {
+    onClickSettings?.(); // Settings 클릭 시 부모에게 알림
+  };
 
   return (
     <S.CardContainer>
@@ -62,7 +69,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 count={notificationCount}
               />
             )}
-            <Settings size={20} color="#666666" style={{ cursor: "pointer" }} />
+            <Settings 
+              size={20} 
+              color="#666666" 
+              style={{ cursor: "pointer" }}
+              onClick={handleSettingsClick}
+            />
           </S.Actions>
         </S.CardFooter>
       </S.CardContent>

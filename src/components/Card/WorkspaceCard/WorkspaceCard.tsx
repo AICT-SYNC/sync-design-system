@@ -12,6 +12,8 @@ interface WorkspaceCardProps {
   memberCount?: number;
   notificationCount?: number;
   imageUrl?: string;
+  
+  onClickSettings?: () => void;
 }
 
 export const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
@@ -20,6 +22,7 @@ export const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
   imageUrl,
   memberCount = -1,
   notificationCount = -1,
+  onClickSettings,
 }) => {
   const truncateText = (text: string, maxLength: number): string => {
     if (text.length <= maxLength) return text;
@@ -28,6 +31,10 @@ export const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
 
   const displayTitle = truncateText(title, 13);
   const displayDescription = truncateText(description, 20);
+
+  const handleSettingsClick = () => {
+    onClickSettings?.(); // Settings 클릭 시 부모에게 알림
+  };
 
   return (
     <S.WorkspaceCardContainer>
@@ -44,7 +51,9 @@ export const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
               color: "#8E95A2",
               width: "17px",
               height: "17px",
+              cursor: "pointer"
             }}
+            onClick={handleSettingsClick} // 클릭 핸들러 연결
           />
         </S.ContentHeader>
         <S.Content>

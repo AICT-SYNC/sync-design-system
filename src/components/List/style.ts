@@ -6,6 +6,7 @@ interface ListContainerProps {
   size: ListSize;
   $select: boolean;
   $width: string;
+  $border: string;
 }
 
 export const ListContainer = styled.div<ListContainerProps>`
@@ -13,6 +14,7 @@ export const ListContainer = styled.div<ListContainerProps>`
   flex-direction: row;
   width: ${(props) => props.$width}; // 템플릿 리터럴로 수정
   height: ${(props) => ListSizeMap[props.size].ListHeight};
+  border: ${(props) => props.$border};
   padding-left: ${({ size, $select }) => {
     if ($select) return "30px";
     return ListSizeMap[size].HoriontalPadding;

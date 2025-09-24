@@ -27,6 +27,8 @@ const getSizeStyles = (size: string) => {
       return { width: "40px", height: "40px", iconSize: 20 };
     case IconButtonSize.S:
       return { width: "32px", height: "32px", iconSize: 16 };
+    case IconButtonSize.XS:
+      return { width: "24px", height: "24px", iconSize: 12 };
     default:
       return { width: "48px", height: "48px", iconSize: 24 };
   }
@@ -35,11 +37,8 @@ const getSizeStyles = (size: string) => {
 export const IconButtonContainer = styled.button<IconButtonContainerProps>`
   width: ${(props) => getSizeStyles(props.$size).width};
   height: ${(props) => getSizeStyles(props.$size).height};
-  background-color: ${({ theme, $bgColor }) => 
-    $bgColor in theme 
-      ? theme[$bgColor as keyof typeof theme] 
-      : $bgColor
-  };
+  background-color: ${({ theme, $bgColor }) =>
+    $bgColor in theme ? theme[$bgColor as keyof typeof theme] : $bgColor};
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -49,14 +48,12 @@ export const IconButtonContainer = styled.button<IconButtonContainerProps>`
   justify-content: center;
 
   &:hover {
-    background-color: ${({ theme, $hoverBgColor }) => 
-      $hoverBgColor 
-        ? ($hoverBgColor in theme 
-            ? theme[$hoverBgColor as keyof typeof theme] 
-            : $hoverBgColor
-          )
-        : 'rgba(216, 219, 223, 0.2)'
-    };
+    background-color: ${({ theme, $hoverBgColor }) =>
+      $hoverBgColor
+        ? $hoverBgColor in theme
+          ? theme[$hoverBgColor as keyof typeof theme]
+          : $hoverBgColor
+        : "rgba(216, 219, 223, 0.2)"};
   }
 
   &:active {
@@ -80,9 +77,9 @@ export const IconButton: React.FC<IconButtonProps> = ({
     : theme["default-icon"];
 
   return (
-    <IconButtonContainer 
-      $size={size} 
-      onClick={onClick} 
+    <IconButtonContainer
+      $size={size}
+      onClick={onClick}
       $bgColor={bgColor}
       $hoverBgColor={hoverBgColor}
     >

@@ -1,6 +1,6 @@
 {
   "name": "sync-design-system",
-  "version": "0.7.10",
+  "version": "0.7.11",
   "type": "module",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.esm.js",

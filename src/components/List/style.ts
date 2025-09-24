@@ -5,19 +5,18 @@ import { spacing } from "@tokens";
 interface ListContainerProps {
   size: ListSize;
   $select: boolean;
+  $width: string;
 }
 
 export const ListContainer = styled.div<ListContainerProps>`
   display: flex;
   flex-direction: row;
-  width: 967px;
+  width: ${(props) => props.$width}; // 템플릿 리터럴로 수정
   height: ${(props) => ListSizeMap[props.size].ListHeight};
-  border: 1px solid ${({ theme }) => theme["border-light"]};
   padding-left: ${({ size, $select }) => {
     if ($select) return "30px";
     return ListSizeMap[size].HoriontalPadding;
   }};
-  display: flex;
   align-items: center;
   gap: ${spacing["3xl"]};
   background-color: white;

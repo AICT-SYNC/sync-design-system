@@ -1,5 +1,6 @@
 export enum IconButtonSize {
   L = "L",
   M = "M",
-  S = "S"
+  S = "S",
+  XS = "XS"
 }

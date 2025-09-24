@@ -10,11 +10,12 @@ interface ListProps {
   name: string;
   email: string;
   image?: string;
+  width: string;
 }
 
-export const List: React.FC<ListProps> = ({ size, select, name, email }) => {
+export const List: React.FC<ListProps> = ({ size, select, name, email, width }) => {
   return (
-    <S.ListContainer size={size} $select={select}>
+    <S.ListContainer size={size} $select={select} $width={width}>
       {select && <Checkbox size={ListSizeMap[size].checkboxSize} />}
       <Avatar size={ListSizeMap[size].avatarSize} />
       <S.ContentBox $size={size}>

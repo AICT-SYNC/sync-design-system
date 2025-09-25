@@ -149,7 +149,7 @@ export const Description = styled.span`
 
 export const MemberCount = styled.div`
   color: ${({ theme }) => theme["text-muted"]};
-  font-size: 12px;
+  font-size: 14px;
   margin: 5px;
   margin-top: 4%;
 `;

@@ -11,7 +11,7 @@ interface ProjectCardProps {
   memberCount?: number;
   notificationCount?: number;
   image?: string;
-  
+  borderColor?: string;
   onClickSettings?: () => void;
 }
 
@@ -21,7 +21,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   memberCount = -1,
   notificationCount = -1,
   image,
-  onClickSettings, // 추가된 prop
+  borderColor,
+  onClickSettings,
 }) => {
   // 텍스트 자르기 함수
   const truncateText = (text: string, maxLength: number): string => {
@@ -33,7 +34,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   const displayDescription = truncateText(description, 20);
 
   const handleSettingsClick = () => {
-    onClickSettings?.(); // Settings 클릭 시 부모에게 알림
+    onClickSettings?.();
   };
 
   return (
@@ -43,7 +44,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         {image ? (
           <S.ProjectImage src={image} alt="Project" />
         ) : (
-          <S.DefaultBackground />
+          <S.DefaultBackground $borderColor={borderColor} />
         )}
       </S.CardHeader>
 
@@ -57,7 +58,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           {/* 멤버 수 */}
           <S.MemberInfo>
             <Avatar size={AvatarSizeEnum.XS} />
-            <S.MemberCount>{memberCount}명</S.MemberCount>
+            <S.MemberCount>{memberCount}</S.MemberCount>
           </S.MemberInfo>
 
           {/* 알림 및 설정 */}

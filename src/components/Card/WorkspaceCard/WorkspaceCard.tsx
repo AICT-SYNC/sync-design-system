@@ -47,10 +47,9 @@ export const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
             <S.PlaceholderBox />
           )}
           <Settings
+            size={20}
             style={{
               color: "#8E95A2",
-              width: "17px",
-              height: "17px",
               cursor: "pointer"
             }}
             onClick={handleSettingsClick} // 클릭 핸들러 연결

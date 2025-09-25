@@ -10,12 +10,12 @@ export const CardContainer = styled.div`
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  cursor:pointer;
+  cursor: pointer;
 
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-    background-color:${({theme}) => theme['bg-primary']}
+    background-color: ${({ theme }) => theme['bg-primary']}
   }
 `;
 
@@ -31,10 +31,14 @@ export const ProjectImage = styled.img`
   object-fit: cover;
 `;
 
-export const DefaultBackground = styled.div`
+interface DefaultBackgroundProps {
+  $borderColor?: string;
+}
+
+export const DefaultBackground = styled.div<DefaultBackgroundProps>`
   width: 100%;
   height: 100%;
-  background: ${({ theme }) => theme["project-active"]};
+  background: ${({ $borderColor, theme }) => $borderColor || theme["project-active"]};
 `;
 
 export const CardContent = styled.div`
@@ -85,7 +89,7 @@ export const MemberIcon = styled.div`
 `;
 
 export const MemberCount = styled.span`
-  font-size: 12px;
+  font-size: 14px;
   color: ${({ theme }) => theme["text-muted"]};
   font-weight: 500;
 `;

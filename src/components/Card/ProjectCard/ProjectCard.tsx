@@ -33,7 +33,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   const displayTitle = truncateText(title, 13);
   const displayDescription = truncateText(description, 20);
 
-  const handleSettingsClick = () => {
+  const handleSettingsClick = (e: React.MouseEvent) => {
+    e.stopPropagation(); // 카드 클릭 이벤트 전파 방지
     onClickSettings?.();
   };
 
@@ -70,12 +71,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 count={notificationCount}
               />
             )}
-            <Settings 
-              size={20} 
-              color="#666666" 
-              style={{ cursor: "pointer" }}
-              onClick={handleSettingsClick}
-            />
+            <S.SettingsButton onClick={handleSettingsClick}>
+              <Settings 
+                size={20} 
+                color="#666666" 
+              />
+            </S.SettingsButton>
           </S.Actions>
         </S.CardFooter>
       </S.CardContent>

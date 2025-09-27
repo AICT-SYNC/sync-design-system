@@ -113,19 +113,21 @@ export const NotificationBadge = styled.div`
   font-weight: 600;
 `;
 
-export const SettingsIcon = styled.div`
-  width: 20px;
-  height: 20px;
+export const SettingsButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
-  color: ${({ theme }) => theme["text-muted"]};
-  cursor: pointer;
+  width: 32px;
+  height: 32px;
   border-radius: 6px;
+  cursor: pointer;
   transition: background-color 0.2s ease;
 
   &:hover {
-    background-color: ${({ theme }) => theme["bg-secondary"]};
+    background-color: rgba(142, 149, 162, 0.1);
+  }
+
+  &:active {
+    background-color: rgba(142, 149, 162, 0.2);
   }
 `;

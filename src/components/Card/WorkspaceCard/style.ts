@@ -129,6 +129,25 @@ export const PlaceholderBox = styled.div`
   background-color: ${({ theme }) => theme["bg-sidebar"]};
 `;
 
+export const SettingsButton = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: rgba(142, 149, 162, 0.1);
+  }
+
+  &:active {
+    background-color: rgba(142, 149, 162, 0.2);
+  }
+`;
+
 export const Title = styled.h3`
   margin: 0;
   font-family: ${Font.body.body2_semiBold.fontFamily};

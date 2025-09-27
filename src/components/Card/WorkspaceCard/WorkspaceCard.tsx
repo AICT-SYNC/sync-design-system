@@ -32,8 +32,9 @@ export const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
   const displayTitle = truncateText(title, 13);
   const displayDescription = truncateText(description, 20);
 
-  const handleSettingsClick = () => {
-    onClickSettings?.(); // Settings 클릭 시 부모에게 알림
+  const handleSettingsClick = (e: React.MouseEvent) => {
+    e.stopPropagation(); // 카드 클릭 이벤트 전파 방지
+    onClickSettings?.();
   };
 
   return (
@@ -46,14 +47,14 @@ export const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
           ) : (
             <S.PlaceholderBox />
           )}
-          <Settings
-            size={20}
-            style={{
-              color: "#8E95A2",
-              cursor: "pointer"
-            }}
-            onClick={handleSettingsClick} // 클릭 핸들러 연결
-          />
+          <S.SettingsButton onClick={handleSettingsClick}>
+            <Settings
+              size={20}
+              style={{
+                color: "#8E95A2"
+              }}
+            />
+          </S.SettingsButton>
         </S.ContentHeader>
         <S.Content>
           <S.Title>{displayTitle}</S.Title>

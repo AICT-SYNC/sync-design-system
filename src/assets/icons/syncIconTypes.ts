@@ -38,7 +38,8 @@ import {
   ChartNoAxesColumn,
   Circle,
   Bell,
-  PlusCircle
+  PlusCircle,
+  Copy,
 } from "lucide-react";
 
 export enum SyncIcons {
@@ -82,6 +83,7 @@ export enum SyncIcons {
   Circle = "Circle",
   Bell = "Bell",
   PlusCircle = "PlusCircle",
+  Copy = "Copy",
 }
 
 export const SyncIconMap: Record<SyncIcons, React.FC<{ size?: number; color?: string; strokeWidth?: number }>> = {
@@ -125,4 +127,5 @@ export const SyncIconMap: Record<SyncIcons, React.FC<{ size?: number; color?: st
   [SyncIcons.Circle]: Circle,
   [SyncIcons.Bell]: Bell,
   [SyncIcons.PlusCircle]: PlusCircle,
+  [SyncIcons.Copy]: Copy,
 };

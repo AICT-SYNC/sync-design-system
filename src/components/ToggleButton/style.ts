@@ -16,7 +16,8 @@ const HeightSizeMap = {
   L: { size: '51px' },
   M: { size: '45px' },
   SM: { size: '40px' },
-  S: { size: '34px' }
+  S: { size: '34px' },
+  XS: { size: '18px' }
 } as const;
 
 export const ToggleContainer = styled.div<ToggleContainerProps>`

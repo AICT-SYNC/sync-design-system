@@ -2,13 +2,16 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { ToggleButton } from './ToggleButton';
 import { ToggleButtonSize } from '@foundation/ToggleButton';
 
-const meta: Meta<typeof ToggleButton> = {
+interface ToggleButtonProps {
+  options: string[];
+  defaultSelected?: number;
+  onChange?: (selectedIndex: number) => void;
+  size?: ToggleButtonSize;
+}
+
+const meta: Meta<ToggleButtonProps> = {
   title: 'Components/ToggleButton',
   component: ToggleButton,
-  parameters: {
-    layout: 'centered',
-  },
-  tags: ['autodocs'],
   argTypes: {
     options: {
       control: 'object',
@@ -23,17 +26,17 @@ const meta: Meta<typeof ToggleButton> = {
       description: '선택 변경 시 호출되는 콜백',
     },
     size: {
-      control: 'select',
-      options: [ToggleButtonSize.L, ToggleButtonSize.S],
+      control: { type: 'radio' },
+      options: Object.values(ToggleButtonSize),
       description: '토글 버튼 크기',
     },
   },
 };
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<ToggleButtonProps>;
 
-export const Default: Story = {
+export const Large: Story = {
   args: {
     options: ['Option 1', 'Option 2', 'Option 3'],
     defaultSelected: 0,
@@ -41,80 +44,66 @@ export const Default: Story = {
   },
 };
 
-export const Large: Story = {
+export const Medium: Story = {
   args: {
-    options: ['Daily', 'Weekly', 'Monthly'],
-    defaultSelected: 1,
-    size: ToggleButtonSize.L,
+    options: ['Option 1', 'Option 2', 'Option 3'],
+    defaultSelected: 0,
+    size: ToggleButtonSize.M,
+  },
+};
+
+export const SemiMedium: Story = {
+  args: {
+    options: ['Option 1', 'Option 2', 'Option 3'],
+    defaultSelected: 0,
+    size: ToggleButtonSize.SM,
   },
 };
 
 export const Small: Story = {
   args: {
-    options: ['Daily', 'Weekly', 'Monthly'],
-    defaultSelected: 1,
+    options: ['Option 1', 'Option 2', 'Option 3'],
+    defaultSelected: 0,
     size: ToggleButtonSize.S,
   },
 };
 
-export const TwoOptions: Story = {
+export const ExtraSmall: Story = {
   args: {
-    options: ['On', 'Off'],
+    options: ['Option 1', 'Option 2', 'Option 3'],
     defaultSelected: 0,
-    size: ToggleButtonSize.L,
+    size: ToggleButtonSize.XS,
   },
 };
 
-export const FourOptions: Story = {
-  args: {
-    options: ['1D', '1W', '1M', '1Y'],
-    defaultSelected: 2,
-    size: ToggleButtonSize.S,
-  },
-};
-
-export const LongText: Story = {
-  args: {
-    options: ['Short Term', 'Medium Term', 'Long Term Investment'],
-    defaultSelected: 0,
-    size: ToggleButtonSize.L,
-  },
-};
-
-export const Interactive: Story = {
-  args: {
-    options: ['Tab 1', 'Tab 2', 'Tab 3', 'Tab 4'],
-    defaultSelected: 0,
-    size: ToggleButtonSize.L,
-  },
-  play: async () => {
-    // 상호작용 테스트를 위한 play function (선택사항)
-  },
-};
-
-// 모든 크기 비교
 export const AllSizes: Story = {
-  render: (args) => (
+  render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', alignItems: 'flex-start' }}>
-      <div>
-        <h3 style={{ margin: '0 0 10px 0', fontSize: '14px', fontWeight: 'bold' }}>Large</h3>
-        <ToggleButton
-          {...args}
-          size={ToggleButtonSize.L}
-          options={['Option 1', 'Option 2', 'Option 3']}
-        />
-      </div>
-      <div>
-        <h3 style={{ margin: '0 0 10px 0', fontSize: '14px', fontWeight: 'bold' }}>Small</h3>
-        <ToggleButton
-          {...args}
-          size={ToggleButtonSize.S}
-          options={['Option 1', 'Option 2', 'Option 3']}
-        />
-      </div>
+      <ToggleButton
+        size={ToggleButtonSize.L}
+        options={['Option 1', 'Option 2', 'Option 3']}
+        defaultSelected={0}
+      />
+      <ToggleButton
+        size={ToggleButtonSize.M}
+        options={['Option 1', 'Option 2', 'Option 3']}
+        defaultSelected={0}
+      />
+      <ToggleButton
+        size={ToggleButtonSize.SM}
+        options={['Option 1', 'Option 2', 'Option 3']}
+        defaultSelected={0}
+      />
+      <ToggleButton
+        size={ToggleButtonSize.S}
+        options={['Option 1', 'Option 2', 'Option 3']}
+        defaultSelected={0}
+      />
+      <ToggleButton
+        size={ToggleButtonSize.XS}
+        options={['Option 1', 'Option 2', 'Option 3']}
+        defaultSelected={0}
+      />
     </div>
   ),
-  parameters: {
-    controls: { disable: true },
-  },
 };

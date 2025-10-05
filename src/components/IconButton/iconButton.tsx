@@ -30,7 +30,7 @@ const getSizeStyles = (size: string) => {
     case IconButtonSize.XS:
       return { width: "24px", height: "24px", iconSize: 12 };
     case IconButtonSize["2XS"]:
-      return { width: "16px", height: "16px", iconSize: 8 };
+      return { width: "16px", height: "16px", iconSize: 12 };
     default:
       return { width: "48px", height: "48px", iconSize: 24 };
   }

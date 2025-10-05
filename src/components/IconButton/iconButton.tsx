@@ -29,6 +29,8 @@ const getSizeStyles = (size: string) => {
       return { width: "32px", height: "32px", iconSize: 16 };
     case IconButtonSize.XS:
       return { width: "24px", height: "24px", iconSize: 12 };
+    case IconButtonSize["2XS"]:
+      return { width: "16px", height: "16px", iconSize: 8 };
     default:
       return { width: "48px", height: "48px", iconSize: 24 };
   }
@@ -46,6 +48,10 @@ export const IconButtonContainer = styled.button<IconButtonContainerProps>`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  svg {
+    flex-shrink: 0;
+  }
 
   &:hover {
     background-color: ${({ theme, $hoverBgColor }) =>

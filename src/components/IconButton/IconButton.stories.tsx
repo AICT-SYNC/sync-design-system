@@ -50,9 +50,25 @@ export const Default: Story = {
   },
 };
 
-export const Large: Story = {
+export const ExtraSmall: Story = {
   args: {
-    size: IconButtonSize.L,
+    size: IconButtonSize["2XS"],
+    icon: "Globe",
+    bgColor: "bg-secondary",
+  },
+};
+
+export const XSmall: Story = {
+  args: {
+    size: IconButtonSize.XS,
+    icon: "Globe",
+    bgColor: "bg-secondary",
+  },
+};
+
+export const Small: Story = {
+  args: {
+    size: IconButtonSize.S,
     icon: "Globe",
     bgColor: "bg-secondary",
   },
@@ -66,9 +82,9 @@ export const Medium: Story = {
   },
 };
 
-export const Small: Story = {
+export const Large: Story = {
   args: {
-    size: IconButtonSize.S,
+    size: IconButtonSize.L,
     icon: "Globe",
     bgColor: "bg-secondary",
   },
@@ -162,6 +178,12 @@ export const CustomColorExamples: Story = {
 export const AllSizes: Story = {
   render: () => (
     <div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
+      <IconButton
+        size={IconButtonSize["2XS"]}
+        icon="Globe"
+        bgColor="bg-secondary"
+      />
+      <IconButton size={IconButtonSize.XS} icon="Globe" bgColor="bg-secondary" />
       <IconButton size={IconButtonSize.S} icon="Globe" bgColor="bg-secondary" />
       <IconButton size={IconButtonSize.M} icon="Globe" bgColor="bg-secondary" />
       <IconButton size={IconButtonSize.L} icon="Globe" bgColor="bg-secondary" />

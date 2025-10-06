@@ -3,9 +3,9 @@ import { Font } from '@tokens/Font';
 
 export const CardContainer = styled.div`
   width: 100%;
-  height: 220px;
-  max-width: 520px;
+  max-width: 400px;
   min-width: 250px;
+  height: 220px;
   background: ${({ theme }) => theme["static-white"]};
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);

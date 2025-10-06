@@ -6,7 +6,7 @@ import { Badge } from "../../Badge";
 import { BadgeRole, BadgeSize } from "@foundation";
 import { AvatarSizeEnum } from "@foundation";
 
-interface WorkspaceCardProps {
+export interface WorkspaceCardProps {
   title?: string;
   description?: string;
   memberCount?: number;

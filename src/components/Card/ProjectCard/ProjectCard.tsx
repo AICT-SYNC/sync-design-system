@@ -5,7 +5,7 @@ import { Avatar } from "@assets/icons";
 import { Badge } from "../../Badge";
 import { BadgeRole, BadgeSize, AvatarSizeEnum } from "@foundation";
 
-interface ProjectCardProps {
+export interface ProjectCardProps {
   title?: string;
   description?: string;
   memberCount?: number;

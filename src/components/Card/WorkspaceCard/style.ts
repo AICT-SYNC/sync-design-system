@@ -7,7 +7,7 @@ export const WorkspaceCardContainer = styled.div`
   align-items: stretch;
   width: 100%;
   height: 220px;
-  max-width: 520px;
+  max-width: 400px;
   min-width: 250px;
   background: ${({ theme }) => theme["static-white"]};
   border-radius: 12px;

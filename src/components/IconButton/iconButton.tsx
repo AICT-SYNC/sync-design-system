@@ -41,8 +41,6 @@ const getSizeStyles = (size: string) => {
 };
 
 export const IconButtonContainer = styled.button<IconButtonContainerProps>`
-  width: ${(props) => getSizeStyles(props.$size).width};
-  height: ${(props) => getSizeStyles(props.$size).height};
   background-color: ${({ theme, $bgColor }) =>
     $bgColor in theme ? theme[$bgColor as keyof typeof theme] : $bgColor};
   border: none;
@@ -53,7 +51,6 @@ export const IconButtonContainer = styled.button<IconButtonContainerProps>`
   align-items: center;
   justify-content: center;
   opacity: ${(props) => (props.$disabled ? 0.5 : 1)};
-  pointer-events: ${(props) => (props.$disabled ? "none" : "auto")};
 
   svg {
     flex-shrink: 0;
@@ -93,20 +90,36 @@ export const IconButton: React.FC<IconButtonProps> = ({
       : iconColor
     : theme["default-icon"];
 
+  const sizeStyles = getSizeStyles(size);
+  const mergedStyle = {
+    width: sizeStyles.width,
+    height: sizeStyles.height,
+    ...style,
+  };
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    if (disabled) {
+      e.preventDefault();
+      e.stopPropagation();
+      return;
+    }
+    onClick?.();
+  };
+
   return (
     <IconButtonContainer
       $size={size}
-      onClick={disabled ? undefined : onClick}
+      onClick={handleClick}
       $bgColor={bgColor}
       $hoverBgColor={hoverBgColor}
       $disabled={disabled}
       disabled={disabled}
-      style={style}
+      style={mergedStyle}
       className={className}
     >
       <SyncIcon
         name={SyncIcons[icon]}
-        size={getSizeStyles(size).iconSize}
+        size={sizeStyles.iconSize}
         color={resolvedColor}
       />
     </IconButtonContainer>

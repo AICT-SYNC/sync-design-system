@@ -11,6 +11,9 @@ interface IconButtonProps {
   iconColor?: string;
   bgColor: string;
   hoverBgColor?: string;
+  style?: React.CSSProperties;
+  className?: string;
+  disabled?: boolean;
 }
 
 const meta: Meta<IconButtonProps> = {
@@ -34,6 +37,15 @@ const meta: Meta<IconButtonProps> = {
     hoverBgColor: {
       control: { type: "text" },
     },
+    disabled: {
+      control: { type: "boolean" },
+    },
+    style: {
+      control: { type: "object" },
+    },
+    className: {
+      control: { type: "text" },
+    },
   },
 };
 
@@ -47,6 +59,8 @@ export const Default: Story = {
     icon: "Globe",
     bgColor: "bg-secondary",
     hoverBgColor: "layout-header-hover-bg",
+    disabled: true,
+    style: {}
   },
 };
 
@@ -187,6 +201,57 @@ export const AllSizes: Story = {
       <IconButton size={IconButtonSize.S} icon="Globe" bgColor="bg-secondary" />
       <IconButton size={IconButtonSize.M} icon="Globe" bgColor="bg-secondary" />
       <IconButton size={IconButtonSize.L} icon="Globe" bgColor="bg-secondary" />
+    </div>
+  ),
+};
+
+export const Disabled: Story = {
+  args: {
+    size: IconButtonSize.L,
+    icon: "Globe",
+    bgColor: "bg-secondary",
+    disabled: true,
+  },
+};
+
+export const WithCustomStyle: Story = {
+  args: {
+    size: IconButtonSize.L,
+    icon: "Globe",
+    bgColor: "bg-secondary",
+    style: { marginLeft: "20px", boxShadow: "0 4px 8px rgba(0,0,0,0.1)" },
+  },
+};
+
+export const DisabledStates: Story = {
+  render: () => (
+    <div style={{ display: "flex", gap: "16px", alignItems: "center" }}>
+      <IconButton
+        size={IconButtonSize.L}
+        icon="Settings"
+        bgColor="bg-secondary"
+        disabled={false}
+      />
+      <IconButton
+        size={IconButtonSize.L}
+        icon="Settings"
+        bgColor="bg-secondary"
+        disabled={true}
+      />
+      <IconButton
+        size={IconButtonSize.L}
+        icon="Check"
+        iconColor="#00AA44"
+        bgColor="bg-secondary"
+        disabled={false}
+      />
+      <IconButton
+        size={IconButtonSize.L}
+        icon="Check"
+        iconColor="#00AA44"
+        bgColor="bg-secondary"
+        disabled={true}
+      />
     </div>
   ),
 };

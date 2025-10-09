@@ -8,6 +8,7 @@ interface IconButtonContainerProps {
   $size: IconButtonSize;
   $bgColor: string;
   $hoverBgColor?: string;
+  $disabled?: boolean;
 }
 
 interface IconButtonProps {
@@ -19,6 +20,7 @@ interface IconButtonProps {
   hoverBgColor?: ColorKey | string;
   style?: React.CSSProperties;
   className?: string;
+  disabled?: boolean;
 }
 
 const getSizeStyles = (size: string) => {
@@ -45,27 +47,31 @@ export const IconButtonContainer = styled.button<IconButtonContainerProps>`
     $bgColor in theme ? theme[$bgColor as keyof typeof theme] : $bgColor};
   border: none;
   border-radius: 4px;
-  cursor: pointer;
+  cursor: ${(props) => (props.$disabled ? "not-allowed" : "pointer")};
   transition: background-color 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: ${(props) => (props.$disabled ? 0.5 : 1)};
+  pointer-events: ${(props) => (props.$disabled ? "none" : "auto")};
 
   svg {
     flex-shrink: 0;
   }
 
   &:hover {
-    background-color: ${({ theme, $hoverBgColor }) =>
-      $hoverBgColor
-        ? $hoverBgColor in theme
-          ? theme[$hoverBgColor as keyof typeof theme]
-          : $hoverBgColor
-        : "rgba(216, 219, 223, 0.2)"};
+    background-color: ${({ theme, $hoverBgColor, $disabled }) =>
+      $disabled
+        ? "inherit"
+        : $hoverBgColor
+          ? $hoverBgColor in theme
+            ? theme[$hoverBgColor as keyof typeof theme]
+            : $hoverBgColor
+          : "rgba(216, 219, 223, 0.2)"};
   }
 
   &:active {
-    transform: scale(0.95);
+    transform: ${(props) => (props.$disabled ? "none" : "scale(0.95)")};
   }
 `;
 
@@ -78,6 +84,7 @@ export const IconButton: React.FC<IconButtonProps> = ({
   hoverBgColor,
   style,
   className,
+  disabled = false,
 }) => {
   const theme = useTheme();
   const resolvedColor = iconColor
@@ -89,9 +96,11 @@ export const IconButton: React.FC<IconButtonProps> = ({
   return (
     <IconButtonContainer
       $size={size}
-      onClick={onClick}
+      onClick={disabled ? undefined : onClick}
       $bgColor={bgColor}
       $hoverBgColor={hoverBgColor}
+      $disabled={disabled}
+      disabled={disabled}
       style={style}
       className={className}
     >

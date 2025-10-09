@@ -17,6 +17,8 @@ interface IconButtonProps {
   iconColor?: ColorKey | string;
   bgColor: ColorKey | string;
   hoverBgColor?: ColorKey | string;
+  style?: React.CSSProperties;
+  className?: string;
 }
 
 const getSizeStyles = (size: string) => {
@@ -74,6 +76,8 @@ export const IconButton: React.FC<IconButtonProps> = ({
   iconColor,
   bgColor,
   hoverBgColor,
+  style,
+  className,
 }) => {
   const theme = useTheme();
   const resolvedColor = iconColor
@@ -88,6 +92,8 @@ export const IconButton: React.FC<IconButtonProps> = ({
       onClick={onClick}
       $bgColor={bgColor}
       $hoverBgColor={hoverBgColor}
+      style={style}
+      className={className}
     >
       <SyncIcon
         name={SyncIcons[icon]}

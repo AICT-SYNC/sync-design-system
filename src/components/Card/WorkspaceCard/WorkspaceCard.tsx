@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import * as S from "./style";
-import { Settings, X } from "lucide-react";
-import { Avatar } from "@assets/icons";
+import { Avatar, SyncIcon, SyncIcons } from "@assets/icons";
 import { Badge } from "../../Badge";
 import { BadgeRole, BadgeSize } from "@foundation";
 import { AvatarSizeEnum } from "@foundation";
@@ -22,7 +21,7 @@ export const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
   imageUrl,
   memberCount = -1,
   notificationCount = -1,
-  onClickSettings,
+  // onClickSettings,
   onDelete,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -35,10 +34,10 @@ export const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
   const displayTitle = truncateText(title, 13);
   const displayDescription = truncateText(description, 20);
 
-  const handleSettingsClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    onClickSettings?.();
-  };
+  // const handleSettingsClick = (e: React.MouseEvent) => {
+  //   e.stopPropagation();
+  //   onClickSettings?.();
+  // };
 
   const handleDeleteClick = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -52,7 +51,7 @@ export const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
     >
       {isHovered && onDelete && (
         <S.DeleteButton onClick={handleDeleteClick}>
-          <X size={16} color="#f10404" />
+          <SyncIcon name={SyncIcons.X} size={16} color="#f10404"/>
         </S.DeleteButton>
       )}
 

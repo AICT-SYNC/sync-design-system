@@ -50,11 +50,6 @@ export const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {isHovered && onDelete && (
-        <S.DeleteButton onClick={handleDeleteClick}>
-          <X size={16} color="#f10404" />
-        </S.DeleteButton>
-      )}
 
       <S.SideBox />
       <S.ContentBox>
@@ -64,14 +59,14 @@ export const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
           ) : (
             <S.PlaceholderBox />
           )}
-          <S.SettingsButton onClick={handleSettingsClick}>
+          {/* <S.SettingsButton onClick={handleSettingsClick}>
             <Settings
               size={20}
               style={{
                 color: "#8E95A2"
               }}
             />
-          </S.SettingsButton>
+          </S.SettingsButton> */}
         </S.ContentHeader>
         <S.Content>
           <S.Title>{displayTitle}</S.Title>

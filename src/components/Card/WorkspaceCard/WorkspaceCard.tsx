@@ -13,6 +13,7 @@ export interface WorkspaceCardProps {
   imageUrl?: string;
   onClickSettings?: () => void;
   onDelete?: () => void;
+  borderColor?: string;
 }
 
 export const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
@@ -23,6 +24,7 @@ export const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
   notificationCount = -1,
   // onClickSettings,
   onDelete,
+  borderColor,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -55,7 +57,7 @@ export const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
         </S.DeleteButton>
       )}
 
-      <S.SideBox />
+      <S.SideBox $borderColor={borderColor}/>
       <S.ContentBox>
         <S.ContentHeader>
           {imageUrl ? (

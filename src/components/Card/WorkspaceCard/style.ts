@@ -68,10 +68,14 @@ export const WorkspaceCardContainer = styled.div`
   }
 `;
 
-export const SideBox = styled.div`
+interface DefaultBackgroundProps {
+  $borderColor?: string;
+}
+
+export const SideBox = styled.div<DefaultBackgroundProps>`
   width: 30px;
   height: 100%;
-  background-color: ${({ theme }) => theme["project-active"]};
+  background: ${({ $borderColor, theme }) => $borderColor || theme["project-active"]};
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
 `;

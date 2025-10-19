@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./style";
-import { Settings } from "lucide-react";
+import { Settings, X } from "lucide-react";
 import { Avatar } from "@assets/icons";
 import { Badge } from "../../Badge";
 import { BadgeRole, BadgeSize } from "@foundation";
@@ -12,8 +12,8 @@ export interface WorkspaceCardProps {
   memberCount?: number;
   notificationCount?: number;
   imageUrl?: string;
-  
   onClickSettings?: () => void;
+  onDelete?: () => void;
 }
 
 export const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
@@ -23,7 +23,10 @@ export const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
   memberCount = -1,
   notificationCount = -1,
   onClickSettings,
+  onDelete,
 }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   const truncateText = (text: string, maxLength: number): string => {
     if (text.length <= maxLength) return text;
     return text.substring(0, maxLength) + "...";
@@ -33,12 +36,26 @@ export const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
   const displayDescription = truncateText(description, 20);
 
   const handleSettingsClick = (e: React.MouseEvent) => {
-    e.stopPropagation(); // 카드 클릭 이벤트 전파 방지
+    e.stopPropagation();
     onClickSettings?.();
   };
 
+  const handleDeleteClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    onDelete?.();
+  };
+
   return (
-    <S.WorkspaceCardContainer>
+    <S.WorkspaceCardContainer
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {isHovered && onDelete && (
+        <S.DeleteButton onClick={handleDeleteClick}>
+          <X size={16} color="#f10404" />
+        </S.DeleteButton>
+      )}
+
       <S.SideBox />
       <S.ContentBox>
         <S.ContentHeader>

@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./style"
-import { Settings } from "lucide-react";
+import { Settings, X } from "lucide-react";
 import { Avatar } from "@assets/icons";
 import { Badge } from "../../Badge";
 import { BadgeRole, BadgeSize, AvatarSizeEnum } from "@foundation";
@@ -13,6 +13,7 @@ export interface ProjectCardProps {
   image?: string;
   borderColor?: string;
   onClickSettings?: () => void;
+  onDelete?: () => void;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -23,7 +24,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   image,
   borderColor,
   onClickSettings,
+  onDelete,
 }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   // 텍스트 자르기 함수
   const truncateText = (text: string, maxLength: number): string => {
     if (text.length <= maxLength) return text;
@@ -38,8 +42,23 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     onClickSettings?.();
   };
 
+  const handleDeleteClick = (e: React.MouseEvent) => {
+    e.stopPropagation(); // 카드 클릭 이벤트 전파 방지
+    onDelete?.();
+  };
+
   return (
-    <S.CardContainer>
+    <S.CardContainer
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* 삭제 버튼 - 호버 시에만 표시 */}
+      {isHovered && onDelete && (
+        <S.DeleteButton onClick={handleDeleteClick}>
+          <X size={16} color="#f10404" />
+        </S.DeleteButton>
+      )}
+
       {/* 상단 이미지 영역 */}
       <S.CardHeader>
         {image ? (
@@ -74,7 +93,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             <S.SettingsButton onClick={handleSettingsClick}>
               <Settings 
                 size={20} 
-                color="#666666" 
+                color="#666666"
               />
             </S.SettingsButton>
           </S.Actions>

@@ -19,6 +19,7 @@ export const Default: Story = {
     description: "0개의 프로젝트",
     memberCount: 5,
     notificationCount: 3,
+    onDelete: () => alert("삭제 클릭!"),
   },
 };
 
@@ -29,6 +30,7 @@ export const WithImage: Story = {
     memberCount: 8,
     notificationCount: 5,
     image: "https://picsum.photos/200/150",
+    onDelete: () => alert("삭제 클릭!"),
   },
 };
 
@@ -39,6 +41,7 @@ export const WithBorderColor: Story = {
     memberCount: 3,
     notificationCount: 0,
     borderColor: "#4A90E2",
+    onDelete: () => alert("삭제 클릭!"),
   },
 };
 
@@ -48,6 +51,7 @@ export const LongText: Story = {
     description: "이것은 매우 긴 설명 텍스트입니다. 잘려서 표시됩니다.",
     memberCount: 15,
     notificationCount: 99,
+    onDelete: () => alert("삭제 클릭!"),
   },
 };
 
@@ -57,6 +61,7 @@ export const NoNotifications: Story = {
     description: "3개의 프로젝트",
     memberCount: 2,
     notificationCount: 0,
+    onDelete: () => alert("삭제 클릭!"),
   },
 };
 
@@ -67,6 +72,17 @@ export const WithSettings: Story = {
     memberCount: 10,
     notificationCount: 2,
     onClickSettings: () => alert("설정 버튼 클릭!"),
+    onDelete: () => alert("삭제 클릭!"),
+  },
+};
+
+export const WithoutDelete: Story = {
+  args: {
+    title: "삭제 불가능한 카드",
+    description: "7개의 프로젝트",
+    memberCount: 10,
+    notificationCount: 2,
+    // onDelete가 없으면 X 버튼이 안 보임
   },
 };
 
@@ -79,6 +95,7 @@ export const MultipleCards: Story = {
         memberCount={8}
         notificationCount={5}
         image="https://picsum.photos/200/150"
+        onDelete={() => alert("디자인 시스템 삭제")}
       />
       <ProjectCard
         title="프론트엔드"
@@ -86,6 +103,7 @@ export const MultipleCards: Story = {
         memberCount={5}
         notificationCount={3}
         borderColor="#E94E77"
+        onDelete={() => alert("프론트엔드 삭제")}
       />
       <ProjectCard
         title="백엔드 개발"
@@ -93,6 +111,7 @@ export const MultipleCards: Story = {
         memberCount={12}
         notificationCount={0}
         borderColor="#4A90E2"
+        onDelete={() => alert("백엔드 삭제")}
       />
       <ProjectCard
         title="모바일 앱"
@@ -100,6 +119,7 @@ export const MultipleCards: Story = {
         memberCount={4}
         notificationCount={2}
         image="https://picsum.photos/200/151"
+        onDelete={() => alert("모바일 앱 삭제")}
       />
     </div>
   ),

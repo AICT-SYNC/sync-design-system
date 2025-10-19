@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Font } from '@tokens/Font';
 
 export const WorkspaceCardContainer = styled.div`
+  position: relative; /* 추가 */
   display: flex;
   flex-direction: row;
   align-items: stretch;
@@ -191,4 +192,34 @@ export const AvatarBox = styled.div`
   display: flex;
   flex-direction: row;
   height: 100%;
+`;
+
+export const DeleteButton = styled.button`
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 100;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  background-color: transparent;
+  border: none;
+  border-radius: 4px;
+  
+  cursor: pointer;
+  transition: all 0.2s;
+  
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.63);
+    
+    svg {
+      color: #EF4444 !important;
+    }
+  }
+  
+  &:active {
+    transform: scale(0.95);
+  }
 `;

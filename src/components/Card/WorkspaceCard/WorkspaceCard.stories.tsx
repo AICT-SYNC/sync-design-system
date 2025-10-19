@@ -19,6 +19,7 @@ export const Default: Story = {
     description: "프로젝트",
     memberCount: 5,
     notificationCount: 3,
+    onDelete: () => alert("삭제 클릭!"),
   },
 };
 
@@ -29,6 +30,7 @@ export const WithImage: Story = {
     memberCount: 12,
     notificationCount: 8,
     imageUrl: "https://picsum.photos/200/200",
+    onDelete: () => alert("삭제 클릭!"),
   },
 };
 
@@ -38,6 +40,7 @@ export const LongText: Story = {
     description: "이것은 매우 긴 설명 텍스트입니다. 잘려서 표시됩니다.",
     memberCount: 25,
     notificationCount: 99,
+    onDelete: () => alert("삭제 클릭!"),
   },
 };
 
@@ -47,6 +50,7 @@ export const NoNotifications: Story = {
     description: "개발팀 전용",
     memberCount: 8,
     notificationCount: 0,
+    onDelete: () => alert("삭제 클릭!"),
   },
 };
 
@@ -57,6 +61,7 @@ export const WithSettings: Story = {
     memberCount: 15,
     notificationCount: 5,
     onClickSettings: () => alert("설정 버튼 클릭!"),
+    onDelete: () => alert("삭제 클릭!"),
   },
 };
 
@@ -66,6 +71,17 @@ export const MinimalInfo: Story = {
     description: "기본 워크스페이스",
     memberCount: 1,
     notificationCount: 0,
+    onDelete: () => alert("삭제 클릭!"),
+  },
+};
+
+export const WithoutDelete: Story = {
+  args: {
+    title: "삭제 불가능",
+    description: "X 버튼 없음",
+    memberCount: 5,
+    notificationCount: 3,
+    // onDelete가 없으면 X 버튼이 안 보임
   },
 };
 
@@ -78,6 +94,7 @@ export const MultipleCards: Story = {
         memberCount={15}
         notificationCount={8}
         imageUrl="https://picsum.photos/200/200"
+        onDelete={() => alert("디자인팀 삭제")}
       />
       <WorkspaceCard
         title="개발팀"
@@ -85,12 +102,14 @@ export const MultipleCards: Story = {
         memberCount={20}
         notificationCount={5}
         imageUrl="https://picsum.photos/200/201"
+        onDelete={() => alert("개발팀 삭제")}
       />
       <WorkspaceCard
         title="마케팅팀"
         description="마케팅 협업 공간"
         memberCount={10}
         notificationCount={12}
+        onDelete={() => alert("마케팅팀 삭제")}
       />
       <WorkspaceCard
         title="기획팀"
@@ -98,6 +117,7 @@ export const MultipleCards: Story = {
         memberCount={8}
         notificationCount={0}
         imageUrl="https://picsum.photos/200/202"
+        onDelete={() => alert("기획팀 삭제")}
       />
     </div>
   ),

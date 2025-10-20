@@ -42,3 +42,12 @@ export const ContentEmail = styled.div<ContentBoxProps>`
   font: ${(props) => ListSizeMap[props.$size].ContentEmail};
   color: ${({ theme }) => theme["text-muted"]};
 `;
+/* ---------------------- List 아바타 초기값 디자인 ---------------------- */
+export const ListAvatarInitial = styled.div<{ $size: number }>`
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  background-color:red;
+`;

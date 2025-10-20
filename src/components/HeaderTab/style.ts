@@ -10,9 +10,7 @@ export const TabButton = styled.div<{
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  flex: 1;
-  min-width: 140px;
-  max-width: 240px;
+  width: 170px;
   height: 100%;
   padding: 0 12px;
   background-color: ${({ $isActive, $isHovered, theme }) => {

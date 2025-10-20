@@ -14,6 +14,7 @@ interface SelectButtonProps {
 }
 
 export const SelectButton = styled.button<SelectButtonProps>`
+  box-sizing: border-box;
   padding: ${({ $size }) => {
     switch ($size) {
       case "L":

@@ -19,7 +19,7 @@ export const SelectButton = styled.button<SelectButtonProps>`
       case "L":
         return "8px 16px";
       case "M":
-        return "8px 12px";
+        return "0px 12px";
       case "S":
         return "8px 12px";
       case "XS":
@@ -27,7 +27,13 @@ export const SelectButton = styled.button<SelectButtonProps>`
       default:
         return "8px 16px";
     }
-  }};;
+  }};
+
+  height: ${({ $size }) => {
+    if ($size === "M") {
+      return "40px";
+    }
+  }};
 
   background-color: ${(props) =>
     props.$isOpen

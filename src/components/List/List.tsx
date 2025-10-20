@@ -9,9 +9,9 @@ interface ListProps {
   select: boolean;
   name: string;
   email: string;
-  image?: string; // 프로필 사진 프롭스
+  image?: string; // 프로필 이미지 URL (없으면 Avatar 표시)
   width: string;
-  border?: string; // 기본값을 컴포넌트에서 설정
+  border?: string;
 }
 
 export const List: React.FC<ListProps> = ({ 
@@ -19,16 +19,10 @@ export const List: React.FC<ListProps> = ({
   select, 
   name, 
   email, 
-  image, // 프롭스로 받아오기
+  image,
   width, 
-  border = "1px solid #e0e0e0"
+  border = "1px solid #e0e0e0",
 }) => {
-  const getInitials = (name?: string) => {
-    if (!name) return "?";
-    const parts = name.split(" ");
-    return parts.length > 1 ? parts[0][0] + parts[1][0] : parts[0][0];
-  };
-
   return (
     <S.ListContainer 
       size={size} 
@@ -37,14 +31,15 @@ export const List: React.FC<ListProps> = ({
       $border={border}
     >
       {select && <Checkbox size={ListSizeMap[size].checkboxSize} />}
-      
-      {/* 아바타 또는 이미지 덮어씌우기 */}
+
+      {/*  이미지가 있으면 커스텀 프로필 이미지, 없으면 Avatar */}
       {image ? (
-        <Avatar size={ListSizeMap[size].avatarSize} img={image} />
+        <S.ProfileImage
+          src={image}
+          alt={`${name}의 프로필 이미지`}
+        />
       ) : (
-        <S.ListAvatarInitial $size={ListSizeMap[size].avatarSize}>
-          {getInitials(name)}
-        </S.ListAvatarInitial>
+        <Avatar size={ListSizeMap[size].avatarSize} />
       )}
 
       <S.ContentBox $size={size}>

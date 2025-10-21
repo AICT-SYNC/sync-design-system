@@ -53,7 +53,7 @@ export const WorkspaceCard: React.FC<WorkspaceCardProps> = ({
     >
       {isHovered && onDelete && (
         <S.DeleteButton onClick={handleDeleteClick}>
-          <SyncIcon name={SyncIcons.X} size={16} color="#f10404"/>
+          <SyncIcon name={SyncIcons.Trash} size={16} color="#f10404"/>
         </S.DeleteButton>
       )}
 

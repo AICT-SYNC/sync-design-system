@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import * as S from "./style";
 import { ChevronDown } from "lucide-react";
 import { SelectSize, SelectItemSize } from "@foundation/Select";
@@ -23,6 +23,23 @@ export const Select: React.FC<SelectProps> = ({
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(defaultSelected);
+  const selectRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (selectRef.current && !selectRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
 
   const handleToggle = () => {
     setIsOpen(!isOpen);
@@ -35,7 +52,7 @@ export const Select: React.FC<SelectProps> = ({
   };
 
   return (
-    <S.SelectContainer>
+    <S.SelectContainer ref={selectRef}>
       <S.SelectButton onClick={handleToggle} $isOpen={isOpen} $size={size}>
         <S.SelectText>
           {selectedIndex >= 0 ? options[selectedIndex] : placeholder}
@@ -44,7 +61,7 @@ export const Select: React.FC<SelectProps> = ({
           <ChevronDown />
         </S.SelectIcon>
       </S.SelectButton>
-      
+
       {isOpen && (
         <S.SelectList>
           {options.map((option, index) => (

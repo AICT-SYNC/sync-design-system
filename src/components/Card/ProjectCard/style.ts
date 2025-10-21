@@ -135,32 +135,20 @@ export const SettingsButton = styled.div`
 `;
 
 export const DeleteButton = styled.button`
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  z-index: 100;
-  
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  
-  background-color: transparent;
-  border: none;
-  border-radius: 4px;
-  
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: all 0.2s;
-  
+  transition: background-color 0.2s ease;
+
   &:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    
-    svg {
-      color: #EF4444 !important;
-    }
+    background-color: rgba(142, 149, 162, 0.1);
   }
-  
+
   &:active {
-    transform: scale(0.95);
+    background-color: rgba(142, 149, 162, 0.2);
   }
 `;

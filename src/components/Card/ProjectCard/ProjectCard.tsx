@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import * as S from "./style"
-import { Settings, X } from "lucide-react";
-import { Avatar } from "@assets/icons";
+import * as S from "./style";
+// import { Settings, X } from "lucide-react";
+import { Avatar, SyncIcon, SyncIcons } from "@assets/icons";
 import { Badge } from "../../Badge";
 import { BadgeRole, BadgeSize, AvatarSizeEnum } from "@foundation";
 
@@ -52,13 +52,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* 삭제 버튼 - 호버 시에만 표시 */}
-      {isHovered && onDelete && (
-        <S.DeleteButton onClick={handleDeleteClick}>
-          <X size={16} color="#f10404" />
-        </S.DeleteButton>
-      )}
-
       {/* 상단 이미지 영역 */}
       <S.CardHeader>
         {image ? (
@@ -91,10 +84,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               />
             )}
             <S.SettingsButton onClick={handleSettingsClick}>
-              <Settings 
-                size={20} 
-                color="#666666"
-              />
+              <SyncIcon name={SyncIcons.Settings} size={20} color="#666666"/>
             </S.SettingsButton>
           </S.Actions>
         </S.CardFooter>

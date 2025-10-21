@@ -200,6 +200,8 @@ export const AvatarBox = styled.div`
 
 export const DeleteButton = styled.button`
   position: absolute;
+  width: 25px;
+  height: 25px;
   top: 8px;
   right: 8px;
   z-index: 100;
@@ -216,11 +218,7 @@ export const DeleteButton = styled.button`
   transition: all 0.2s;
   
   &:hover {
-    background-color: rgba(255, 255, 255, 0.63);
-    
-    svg {
-      color: #EF4444 !important;
-    }
+    background-color: rgba(226, 226, 226, 0.63);
   }
   
   &:active {

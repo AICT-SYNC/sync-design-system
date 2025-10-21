@@ -13,7 +13,7 @@ export const SelectItem = styled.div<SelectItemProps>`
       case "L":
         return "8px 16px";
       case "M":
-        return "6xp 12px";
+        return "6px 12px";
       case "S":
         return "6px 8px";
       case "XS":

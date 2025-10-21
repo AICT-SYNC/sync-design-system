@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import * as S from "./style";
-// import { Settings, X } from "lucide-react";
 import { Avatar, SyncIcon, SyncIcons } from "@assets/icons";
 import { Badge } from "../../Badge";
 import { BadgeRole, BadgeSize, AvatarSizeEnum } from "@foundation";
@@ -24,9 +23,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   image,
   borderColor,
   onClickSettings,
-  onDelete,
 }) => {
-  const [isHovered, setIsHovered] = useState(false);
 
   // 텍스트 자르기 함수
   const truncateText = (text: string, maxLength: number): string => {
@@ -42,16 +39,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     onClickSettings?.();
   };
 
-  const handleDeleteClick = (e: React.MouseEvent) => {
-    e.stopPropagation(); // 카드 클릭 이벤트 전파 방지
-    onDelete?.();
-  };
-
   return (
-    <S.CardContainer
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
+    <S.CardContainer>
       {/* 상단 이미지 영역 */}
       <S.CardHeader>
         {image ? (
